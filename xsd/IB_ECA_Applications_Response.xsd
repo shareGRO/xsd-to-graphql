@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="2.0">
+	<xsd:include schemaLocation="Response/Execution.xsd" />
+	<xsd:include schemaLocation="Response/Application.xsd" />
+
+	<xsd:element name="Process">
+		<xsd:annotation>
+			<xsd:documentation>
+				Top Level Element.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Execution" type="Execution"
+					minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>
+							Specifies details about execution of the
+							request.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Applications">
+					<xsd:annotation>
+						<xsd:documentation>
+							Specifies details about applications belonging
+							to a specific external entity.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Application" type="Application"
+								maxOccurs="unbounded" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+

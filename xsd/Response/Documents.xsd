@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="2.0">
+	<xsd:complexType name="Documents">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of documents that were processed by ECA.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Document" type="Document" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Document">
+		<xsd:annotation>
+			<xsd:documentation>
+				Specifies details for an individual document.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="Form_Number" type="xsd:nonNegativeInteger"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Form Number for the document.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="File_Name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of file associated with the document.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="Status" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates whether the document was processed or
+					not.
+					Displays detailed error message in case document is not
+					successfully processed.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="Applicant/WithholdingStatements.xsd" />
+
+
+	<xsd:element name="AcctMgmt">
+		<xsd:annotation>
+			<xsd:documentation>
+				Direct actions available on Account Management to
+				modify existing accounts.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="WithholdingStatements" type="WithholdingStatementsType"
+					minOccurs="1" maxOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>

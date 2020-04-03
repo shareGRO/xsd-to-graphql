@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xsd:simpleType name="Customer_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES Enumeration. Note: IRA is deprecated
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="INDIVIDUAL" />
+			<xsd:enumeration value="JOINT" />
+			<xsd:enumeration value="TRUST" />
+			<xsd:enumeration value="UGMA" />
+			<xsd:enumeration value="UTMA" />
+			<xsd:enumeration value="ORG" />
+			<xsd:enumeration value="IRA" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Capability_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="BOND" />
+			<xsd:enumeration value="FOP" />
+			<xsd:enumeration value="FUND" />
+			<xsd:enumeration value="FUT" />
+			<xsd:enumeration value="MRGN" />
+			<xsd:enumeration value="MULT" />
+			<xsd:enumeration value="OPT" />
+			<xsd:enumeration value="SSF" />
+			<xsd:enumeration value="CFD" />
+			<xsd:enumeration value="STK" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="BrokerageService_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="IBClearing" />
+			<xsd:enumeration value="IBExecution" />
+			<xsd:enumeration value="IBPrime" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AssetClass_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="BILL" />
+			<xsd:enumeration value="BOND" />
+			<xsd:enumeration value="CASH" />
+			<xsd:enumeration value="CFD" />
+			<xsd:enumeration value="COMB" />
+			<xsd:enumeration value="FOP" />
+			<xsd:enumeration value="FUND" />
+			<xsd:enumeration value="FUT" />
+			<xsd:enumeration value="OPT" />
+			<xsd:enumeration value="SSF" />
+			<xsd:enumeration value="STK" />
+			<xsd:enumeration value="WAR" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Product_Type">
+		<xsd:annotation>
+			<xsd:documentation>
+				ACES enumeration
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="BONDS" />
+			<xsd:enumeration value="FUTURES" />
+			<xsd:enumeration value="FOREX" />
+			<xsd:enumeration value="FUTURES OPTIONS" />
+			<xsd:enumeration value="MUTUAL FUNDS" />
+			<xsd:enumeration value="STOCKS" />
+			<xsd:enumeration value="SINGLE STOCK FUTURES" />
+			<xsd:enumeration value="OPTIONS" />
+			<xsd:enumeration value="STOCK OPTIONS" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Country_Type">
+		<xsd:annotation>
+			<xsd:documentation>
+				ACES enumeration
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="AUSTRALIA" />
+			<xsd:enumeration value="AUSTRIA" />
+			<xsd:enumeration value="BELGIUM" />
+			<xsd:enumeration value="CANADA" />
+			<xsd:enumeration value="FRANCE" />
+			<xsd:enumeration value="GERMANY" />
+			<xsd:enumeration value="HONG KONG" />
+			<xsd:enumeration value="ITALY" />
+			<xsd:enumeration value="JAPAN" />
+			<xsd:enumeration value="KOREA" />
+			<xsd:enumeration value="MEXICO" />
+			<xsd:enumeration value="NORWAY" />
+			<xsd:enumeration value="SINGAPORE" />
+			<xsd:enumeration value="SPAIN" />
+			<xsd:enumeration value="SWEDEN" />
+			<xsd:enumeration value="SWITZERLAND" />
+			<xsd:enumeration value="THE NETHERLANDS" />
+			<xsd:enumeration value="UNITED KINGDOM" />
+			<xsd:enumeration value="UNITED STATES" />
+			<xsd:enumeration value="HK-CHINA" /><!-- This Country 
+				is used to add trading permissions for SEHKCSC-STK -->
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="KnowledgeLevel_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Extensive" />
+			<xsd:enumeration value="Good" />
+			<xsd:enumeration value="Limited" />
+			<xsd:enumeration value="None" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CountryCode_Type">
+		<xsd:annotation>
+			<xsd:documentation>Please refer to ISO 3166-1 for 3-letter country
+				codes (http://www.iso.org)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:length value="3" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StateCode_Type">
+		<xsd:annotation>
+			<xsd:documentation>Please refer to ISO 3166-1? for 2-letter state
+				codes (http://www.iso.org)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:length value="2" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Association_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Account Holder" />
+			<xsd:enumeration value="FIRST HOLDER" />
+			<xsd:enumeration value="SECOND HOLDER" />
+			<xsd:enumeration value="TRADER" />
+			<xsd:enumeration value="CEO" />
+			<xsd:enumeration value="SECRETARY" />
+			<xsd:enumeration value="TREASURER" />
+			<xsd:enumeration value="OWNER" />
+			<xsd:enumeration value="PRINCIPAL" />
+			<xsd:enumeration value="SHAREHOLDER" />
+			<xsd:enumeration value="TRUSTEE" />
+			<xsd:enumeration value="BENEFICIARY" />
+			<xsd:enumeration value="GRANTOR" />
+			<xsd:enumeration value="Employee" />
+			<xsd:enumeration value="CONTINGENT" />
+			<xsd:enumeration value="IRA_BENEFICIARY" />
+			<xsd:enumeration value="IRA DECEDENT" />
+			<xsd:enumeration value="COMP_OFFICER" />
+			<xsd:enumeration value="Other Officer" />
+			<xsd:enumeration value="Controlling Officer" />
+			<xsd:enumeration value="SIGNATORY" />
+			<xsd:enumeration value="NON-EMPLOYEE" />
+			<xsd:enumeration value="CUSTODIAN" />
+			<xsd:enumeration value="SUCCESSOR_CUSTODIAN" />
+			<xsd:enumeration value="DIRECTOR" />
+			<xsd:enumeration value="PARTNER" />
+			<xsd:enumeration value="CUSTODIAN EMPLOYEE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Privilege_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="OWNER" />
+			<xsd:enumeration value="TRADER" />
+			<xsd:enumeration value="CUSTOM" />
+			<xsd:enumeration value="NONE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TradingFor_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FIRM" />
+			<xsd:enumeration value="CUSTOMER" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DVP_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="DTCID" />
+			<xsd:enumeration value="NSCC" />
+			<xsd:enumeration value="CMTA" />
+			<xsd:enumeration value="GUS" />
+			<xsd:enumeration value="OCCSSF" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DVPRole_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="E" />
+			<xsd:enumeration value="C" />
+			<xsd:enumeration value="B" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Margin_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="RegT" />
+			<xsd:enumeration value="Margin" />
+			<xsd:enumeration value="PortfolioMargin" />
+			<xsd:enumeration value="GPMargin" />
+			<xsd:enumeration value="Cash" />
+			<xsd:enumeration value="REGT" />
+			<xsd:enumeration value="MARGIN" />
+			<xsd:enumeration value="PORTFOLIOMARGIN" />
+			<xsd:enumeration value="GPMARGIN" />
+			<xsd:enumeration value="CASH" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Currency_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="USD" />
+			<xsd:enumeration value="EUR" />
+			<xsd:enumeration value="GBP" />
+			<xsd:enumeration value="CAD" />
+			<xsd:enumeration value="JPY" />
+			<xsd:enumeration value="HKD" />
+			<xsd:enumeration value="AUD" />
+			<xsd:enumeration value="CHF" />
+			<xsd:enumeration value="MXN" />
+			<xsd:enumeration value="SEK" />
+			<xsd:enumeration value="NZD" />
+			<xsd:enumeration value="HUF" />
+			<xsd:enumeration value="CZK" />
+			<xsd:enumeration value="CNH" />
+			<xsd:enumeration value="DKK" />
+			<xsd:enumeration value="RUB" />
+			<xsd:enumeration value="ILS" />
+			<xsd:enumeration value="NOK" />
+			<xsd:enumeration value="SGD" />
+			<xsd:enumeration value="PLN" />
+			<xsd:enumeration value="ZAR" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TXGroupCode_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="G" />
+			<xsd:enumeration value="Z" />
+			<xsd:enumeration value="R" />
+			<xsd:enumeration value="N" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ExchangeCode_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="NYSE" />
+			<xsd:enumeration value="AMEX" />
+			<xsd:enumeration value="NASDAQ" />
+			<xsd:enumeration value="CBOE" />
+			<xsd:enumeration value="ISE" />
+			<xsd:enumeration value="BOX" />
+			<xsd:enumeration value="AMEX" />
+			<xsd:enumeration value="PHLX" />
+			<xsd:enumeration value="PSE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Organization_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="PUBLIC" />
+			<xsd:enumeration value="PRIVATE" />
+			<xsd:enumeration value="OTHER" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RegulatoryIssueCode_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CRIMINAL">
+				<xsd:annotation>
+					<xsd:documentation>
+						Org accounts.
+						Have any of the principals, officers or authorized traders of the
+						Organization ever been arrested for, or convicted of, a crime?
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="AFFILIATION">
+				<xsd:annotation>
+					<xsd:documentation>
+						Individual/Joint/Trust/Org accounts.
+						Is the account holder or any immediate family member who resides in
+						the same household, registered as a
+						broker-dealer or an employee, director or owner of a securities or commodities
+						brokerage firm?
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="CFTCREGISTERED">
+				<xsd:annotation>
+					<xsd:documentation>
+						Org/Trust accounts.
+						Is the organization required to be registered in the US, pursuant to
+						NFA By-Law 1101, with the Commodities Futures Trading Commission,
+						or in Canada with the IDA, or in any other country, as a futures
+						commission merchant, introducing broker, commodity pool operator,
+						commodity trading advisor, retail foreign exchange dealer or
+						leverage transaction merchant?
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="IBACCOUNTS">
+				<xsd:annotation>
+					<xsd:documentation>
+						(Individual/Joint) Does the account holder control the trading in, or have an
+						ownership interest in, any other Interactive Brokers accounts?
+						(Trust) Does any trustee or beneficiary control the trading in, or
+						have an ownership interest in, any other Interactive Brokers
+						accounts?
+						(Org) Does the organization control the trading in, or
+						have an ownership interest in, any other Interactive Brokers
+						accounts?
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="REGULATORYCONTROL">
+				<xsd:annotation>
+					<xsd:documentation>
+						(Individual/Joint) Is the account holder: i) a
+						director; ii) a 10% shareholder; or iii) a policy-making officer
+						of any publicly traded company? (Restricted or Controlled Stock)
+						(Trust) Is any trustee or beneficiary: i) a director; ii) a 10%
+						shareholder; or iii) a policy-making officer of any publicly
+						traded company? (Restricted or Controlled Stock)
+						(Org)Is the
+						account holder or any of its officers: i) a director, ii) a 10%
+						shareholder, or iii) a policy-making officer of any publicly
+						traded company? If Yes, enter stock symbols of companies
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="BROKERDEALER">
+				<xsd:annotation>
+					<xsd:documentation>
+						(Org) Is the Organization engaged in the
+						brokerage business? (e.g., is the Organization registered,
+						authorized or operating as a futures commission merchant, or
+						securities or futures brokerage firm in the US, UK, Canada or
+						elsewhere) If Yes, provide details
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="EXCHANGEMEMBERSHIP">
+				<xsd:annotation>
+					<xsd:documentation>
+						(Individual/Joint) Is the account holder a
+						member of an exchange or an associated person, affiliated person
+						or employee of an exchange member?
+						(Trust) Is any trustee or beneficiary a member of an exchange or an
+						associated person, affiliated person or employee of an exchange
+						member?
+						(Org) Is the organization a member of an exchange or an associated
+						person, affiliated person or employee of an exchange member?
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="STOCKCONTROL" />
+
+			<xsd:enumeration value="DISPUTE">
+				<xsd:annotation>
+					<xsd:documentation>
+						Deprecated. Keeping this for backward
+						compatibility.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="INVESTIGATION">
+				<xsd:annotation>
+					<xsd:documentation>
+						Deprecated. Keeping this for backward
+						compatibility.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+
+			<xsd:enumeration value="MEMBERSHIP">
+				<xsd:annotation>
+					<xsd:documentation>
+						Deprecated. Keeping this for backward
+						compatibility.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Joint_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="community" />
+			<xsd:enumeration value="joint_tenants" />
+			<xsd:enumeration value="tenants_common" />
+			<xsd:enumeration value="tbe" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="InvestmentObjective_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Trading" />
+			<xsd:enumeration value="Growth" />
+			<xsd:enumeration value="Speculation" />
+			<xsd:enumeration value="Hedging" />
+			<xsd:enumeration value="Preservation" />
+			<xsd:enumeration value="Income" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MaritalStatus_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="S" />
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="W" />
+			<xsd:enumeration value="D" />
+			<xsd:enumeration value="C" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Employment_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="UNEMPLOYED" />
+			<xsd:enumeration value="EMPLOYED" />
+			<xsd:enumeration value="SELFEMPLOYED" />
+			<xsd:enumeration value="RETIRED" />
+			<xsd:enumeration value="STUDENT" />
+			<xsd:enumeration value="ATHOMETRADER" />
+			<xsd:enumeration value="HOMEMAKER" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OrgApplicant_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="LLC" />
+			<xsd:enumeration value="CORPORATION" />
+			<xsd:enumeration value="PARTNERSHIP" />
+			<xsd:enumeration value="UNINCORPORATED BUSINESS" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AdvisorWrapFeeStrategies_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="AUTOMATED" />
+			<xsd:enumeration value="DIRECTBILLING" />
+			<xsd:enumeration value="NO_FEES" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AutomatedWrapFees_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="ANNUALFLATFEE" />
+			<xsd:enumeration value="ANNUALFLATFEE_MONTHLY" />
+			<xsd:enumeration value="ANNUALFLATFEE_QUATERLY" />
+			<xsd:enumeration value="PERCENTOFEQUITY" />
+			<xsd:enumeration value="PERCENTOFEQUITY_MONTHLY" />
+			<xsd:enumeration value="PERCENTOFEQUITY_QUATERLY" />
+			<xsd:enumeration value="PERCENTOFEQUITY_QUARTERLY" />
+			<xsd:enumeration value="PERCENTOFPROFIT" />
+			<xsd:enumeration value="PERCENTOFPROFIT_QUARTER" />
+			<xsd:enumeration value="INVOICE_LIMIT" />
+			<xsd:enumeration value="INVOICE_LIMIT_Q" />
+			<xsd:enumeration value="PERTRADE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QuarterHWM_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="1" />
+			<xsd:enumeration value="2" />
+			<xsd:enumeration value="3" />
+			<xsd:enumeration value="4" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CommissionMarkups_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FA" />
+			<xsd:enumeration value="FM" />
+			<xsd:enumeration value="PM" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IRA_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="RI">
+				<xsd:annotation>
+					<xsd:documentation>
+						Traditional New
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RO">
+				<xsd:annotation>
+					<xsd:documentation>
+						Traditional Rollover
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RT">
+				<xsd:annotation>
+					<xsd:documentation>
+						Roth New
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SP">
+				<xsd:annotation>
+					<xsd:documentation>
+						SEP New
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ED">
+				<xsd:annotation>
+					<xsd:documentation>
+						Education New
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TH">
+				<xsd:annotation>
+					<xsd:documentation>
+						Traditional-Inherited
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RH">
+				<xsd:annotation>
+					<xsd:documentation>
+						Roth-Inherited
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SH">
+				<xsd:annotation>
+					<xsd:documentation>
+						SEP-Inherited
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IRABeneficiaryRelation_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Brother" />
+			<xsd:enumeration value="Daughter" />
+			<xsd:enumeration value="Estate" />
+			<xsd:enumeration value="Father" />
+			<xsd:enumeration value="Husband" />
+			<xsd:enumeration value="Mother" />
+			<xsd:enumeration value="Other" />
+			<xsd:enumeration value="Sister" />
+			<xsd:enumeration value="Son" />
+			<xsd:enumeration value="Wife" />
+			<xsd:enumeration value="Charity" />
+			<xsd:enumeration value="Trust" />
+			<xsd:enumeration value="Spouse" />
+			<xsd:enumeration value="Child" />
+			<xsd:enumeration value="Sibling" />
+			<xsd:enumeration value="Parent" />
+			<xsd:enumeration value="Grandchild" />
+			<xsd:enumeration value="Common Law Partner" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="InheritedIRABeneficiaryRelation_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Other" />
+			<xsd:enumeration value="Trust" />
+			<xsd:enumeration value="Spouse" />
+			<xsd:enumeration value="Individual" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="InheritedIRABeneficiary_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="S">
+				<xsd:annotation>
+					<xsd:documentation>
+						Spouse
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="I">
+				<xsd:annotation>
+					<xsd:documentation>
+						Individual
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="T">
+				<xsd:annotation>
+					<xsd:documentation>
+						Trust
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="O">
+				<xsd:annotation>
+					<xsd:documentation>
+						Other
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IRADeposit_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="contribution" />
+			<xsd:enumeration value="rollover" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IRAContribTaxYear_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="current" />
+			<xsd:enumeration value="prior" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PositionsTransfer_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FULL" />
+			<xsd:enumeration value="PARTIAL" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PositionsTransfer_SubType">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="ACATS" />
+			<xsd:enumeration value="ATON" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W9Customer_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Individual" />
+			<xsd:enumeration value="Corporation" />
+			<xsd:enumeration value="Partnership" />
+			<xsd:enumeration value="LLC" />
+			<xsd:enumeration value="Other" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TIN_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="SSN" />
+			<xsd:enumeration value="EIN" />
+			<xsd:enumeration value="NonUS_NationalId" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Deposit_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration, SKIP_DEPOSIT is for clients who
+				will fund later, after the account is opened</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CHECK" />
+			<xsd:enumeration value="WIRE" />
+			<xsd:enumeration value="ACH" />
+			<xsd:enumeration value="SKIP_DEPOSIT" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RecurringTx_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="DEPOSIT" />
+			<xsd:enumeration value="WITHDRAWAL" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RecurringTxFreq_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="MONTHLY" />
+			<xsd:enumeration value="QUARTERLY" />
+			<xsd:enumeration value="YEARLY" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ACHInstructionTx_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CREDIT" />
+			<xsd:enumeration value="DEBIT" />
+			<xsd:enumeration value="BOTH" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IRADistribution_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="NORMAL" />
+			<xsd:enumeration value="EARLY" />
+			<xsd:enumeration value="EARLY_EXCEPT" />
+			<xsd:enumeration value="DEATH" />
+			<xsd:enumeration value="DISABILITY" />
+			<xsd:enumeration value="EXCESS_CONTRIB" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Salutation_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Mr." />
+			<xsd:enumeration value="Mrs." />
+			<xsd:enumeration value="Ms." />
+			<xsd:enumeration value="Dr." />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Suffix_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Jr." />
+			<xsd:enumeration value="Sr." />
+			<xsd:enumeration value="I" />
+			<xsd:enumeration value="II" />
+			<xsd:enumeration value="III" />
+			<xsd:enumeration value="IV" />
+			<xsd:enumeration value="V" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Gender_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="F" />
+			<xsd:enumeration value="Male" />
+			<xsd:enumeration value="Female" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TradeIntention_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FINANCIALINSTITUTION" />
+			<xsd:enumeration value="PROPRIETARYTRADING" />
+			<xsd:enumeration value="FAMILYINVVEHICLE" />
+			<xsd:enumeration value="OPERATINGBUSINESS" />
+			<xsd:enumeration value="BROKERDEALER" />
+			<xsd:enumeration value="LICENSEDADVISOR" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceOfFunds_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CONSULTING" />
+			<xsd:enumeration value="DISABILITY" />
+			<xsd:enumeration value="INHERITANCE" />
+			<xsd:enumeration value="INTEREST" />
+			<xsd:enumeration value="REALESTATE" />
+			<xsd:enumeration value="RENTAL" />
+			<xsd:enumeration value="SEVERANCE" />
+			<xsd:enumeration value="SPOUSE" />
+			<xsd:enumeration value="TRADINGANDINVESTMENTS" />
+			<xsd:enumeration value="PENSIONANDSOCIALSECURITY" />
+			<xsd:enumeration value="UNEMPLOYMENT" />
+			<xsd:enumeration value="OTHER" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WealthSource_Type">
+		<xsd:annotation>
+			<xsd:documentation>
+				ACES enumeration
+				Values with the prefix SOW-IND should be used with Individual/Joint accounts.
+				Values with the prefix SOW-ORG should be used with Org/Trust accounts.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="SOW-IND-Allowance" />
+			<xsd:enumeration value="SOW-IND-Disability" />
+			<xsd:enumeration value="SOW-IND-Income" />
+			<xsd:enumeration value="SOW-IND-Inheritance" />
+			<xsd:enumeration value="SOW-IND-Interest" />
+			<xsd:enumeration value="SOW-IND-MarketProfit" />
+			<xsd:enumeration value="SOW-IND-Other" />
+			<xsd:enumeration value="SOW-IND-Pension" />
+			<xsd:enumeration value="SOW-IND-Property" />
+			<xsd:enumeration value="SOW-ORG-Business" />
+			<xsd:enumeration value="SOW-ORG-MarketTradingProfits" />
+			<xsd:enumeration value="SOW-ORG-Other" />
+			<xsd:enumeration value="SOW-ORG-OwnerEquity" />
+			<xsd:enumeration value="SOW-ORG-Property" />
+			<xsd:enumeration value="SOW-ORG-RetainedEarnings" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Phone_Type">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Work" />
+			<xsd:enumeration value="Home" />
+			<xsd:enumeration value="Fax" />
+			<xsd:enumeration value="Mobile" />
+			<xsd:enumeration value="Mobile (work)" />
+			<xsd:enumeration value="Mobile (other)" />
+			<xsd:enumeration value="Business" />
+			<xsd:enumeration value="Other (voice)" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RelationshipEnum">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of possible relationships between entities
+				and accounts.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Account_Holder" />
+			<xsd:enumeration value="Spouse" />
+			<xsd:enumeration value="Firstholder" />
+			<xsd:enumeration value="Secondholder" />
+			<xsd:enumeration value="Trader" />
+			<xsd:enumeration value="Secretary" />
+			<xsd:enumeration value="Treasurer" />
+			<xsd:enumeration value="Ceo" />
+			<xsd:enumeration value="Owner" />
+			<xsd:enumeration value="Trustee" />
+			<xsd:enumeration value="Beneficiary" />
+			<xsd:enumeration value="Grantor" />
+			<xsd:enumeration value="Director" />
+			<xsd:enumeration value="Principal" />
+			<xsd:enumeration value="Shareholder" />
+			<xsd:enumeration value="Partner" />
+			<xsd:enumeration value="Controlling_Officer" />
+			<xsd:enumeration value="Beneficialowner" />
+			<xsd:enumeration value="Signatory" />
+			<xsd:enumeration value="Comp_Officer" />
+			<xsd:enumeration value="Superv_Broker" />
+			<xsd:enumeration value="Pooled_User" />
+			<xsd:enumeration value="Financial_User" />
+			<xsd:enumeration value="Contingent" />
+			<xsd:enumeration value="Ira_Beneficiary" />
+			<xsd:enumeration value="Employee" />
+			<xsd:enumeration value="Non_Employee" />
+			<xsd:enumeration value="Fund_Admin" />
+			<xsd:enumeration value="Fund_Contact" />
+			<xsd:enumeration value="Firm_Admin" />
+			<xsd:enumeration value="Firm_Billing" />
+			<xsd:enumeration value="Firm_Clearing" />
+			<xsd:enumeration value="Firm_Sales" />
+			<xsd:enumeration value="Firm_Trading" />
+			<xsd:enumeration value="Firm_User" />
+			<xsd:enumeration value="Account_Admin" />
+			<xsd:enumeration value="Account_Billing" />
+			<xsd:enumeration value="Account_Clearing" />
+			<xsd:enumeration value="Account_Sales" />
+			<xsd:enumeration value="Account_Trading" />
+			<xsd:enumeration value="User_Individual" />
+			<xsd:enumeration value="Fund_Manager" />
+			<xsd:enumeration value="Investment_Advisor" />
+			<xsd:enumeration value="Shf_Investmanager" />
+			<xsd:enumeration value="Advisory_Principal" />
+			<xsd:enumeration value="Advisory_Signatory" />
+			<xsd:enumeration value="Associated_Fund" />
+			<xsd:enumeration value="Primary_Contributor" />
+			<xsd:enumeration value="Administrator" />
+			<xsd:enumeration value="Contact" />
+			<xsd:enumeration value="Lead_Compliance_Officer" />
+			<xsd:enumeration value="Compliance_Officer" />
+			<xsd:enumeration value="Other_Officer" />
+			<xsd:enumeration value="Apply_User" />
+			<xsd:enumeration value="Transfer_On_Death_Legator" />
+			<xsd:enumeration value="Tod_Primary_Beneficiary" />
+			<xsd:enumeration value="Tod_Contingent_Beneficiary" />
+			<xsd:enumeration value="Nominee" />
+			<xsd:enumeration value="Nominee_Guardian" />
+			<xsd:enumeration value="Ira_Decedent" />
+			<xsd:enumeration value="Authorized_Person" />
+			<xsd:enumeration value="Promoter" />
+			<xsd:enumeration value="Wholetime_Director" />
+			<xsd:enumeration value="Nominee_Owner" />
+			<xsd:enumeration value="Third_Party_Admin" />
+			<xsd:enumeration value="Compliance_Contact" />
+			<xsd:enumeration value="Trust_Controller" />
+			<xsd:enumeration value="Trust_Applicant" />
+			<xsd:enumeration value="Organization_Applicant" />
+			<xsd:enumeration value="Mm_Contact" />
+			<xsd:enumeration value="Reg_Rep" />
+			<xsd:enumeration value="Plan_Sponsor" />
+			<xsd:enumeration value="Plan_Sponsor_Officer" />
+			<xsd:enumeration value="Pension_Admin" />
+			<xsd:enumeration value="Pension_Admin_Contact" />
+			<xsd:enumeration value="Accountant" />
+			<xsd:enumeration value="Joint_Applicant" />
+			<xsd:enumeration value="Custodian_Employee" />
+			<xsd:enumeration value="Successor_Custodian" />
+			<xsd:enumeration value="Custodian" />
+			<xsd:enumeration value="Successor_Custodian_Employee" />
+			<xsd:enumeration value="Chief_Compliance_Officer" />
+			<xsd:enumeration value="Chief_Financial_Officer" />
+			<xsd:enumeration value="Trading_Officer" />
+			<xsd:enumeration value="Child" />
+			<xsd:enumeration value="Parent" />
+			<xsd:enumeration value="Sibling" />
+			<xsd:enumeration value="Estate" />
+			<xsd:enumeration value="As_Interest_May_Appear" />
+			<xsd:enumeration value="Ira_Present_Trust" />
+			<xsd:enumeration value="Other" />
+			<xsd:enumeration value="Life_Partner" />
+			<xsd:enumeration value="Common_Law_Partner" />
+			<xsd:enumeration value="Grandchild" />
+			<xsd:enumeration value="Charity" />
+			<xsd:enumeration value="Trust_Ira" />
+			<xsd:enumeration value="Successor_Holder" />
+			<xsd:enumeration value="Head_Of_Desk" />
+			<xsd:enumeration value="Cftc_Non_Applicant_Ocr_Contact" />
+			<xsd:enumeration value="Ocr_Account_Controller" />
+			<xsd:enumeration value="Cftc_Applicant_Ocr_Contact" />
+			<xsd:enumeration value="Employee" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8BENE_Box4_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8BEN-E Box 4 - Chapter 3 Status (entity type)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CORPORATION" />
+			<xsd:enumeration value="DISREGARDED_ENTITY" />
+			<xsd:enumeration value="PARTNERSHIP" />
+			<xsd:enumeration value="SIMPLE_TRUST" />
+			<xsd:enumeration value="GRANTOR_TRUST" />
+			<xsd:enumeration value="COMPLEX_TRUST" />
+			<xsd:enumeration value="ESTATE" />
+			<xsd:enumeration value="GOVERNMENT" />
+			<xsd:enumeration value="CENTRAL_BANK_OF_ISSUE" />
+			<xsd:enumeration value="TAX_EXEMPT_ORGANIZATION" />
+			<xsd:enumeration value="PRIVATE_FOUNDATION" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8BENE_Box5_Type">
+		<xsd:annotation>
+			<xsd:documentation>Box 5 - Chapter 4 Status (FATCA status)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="NONPARTICIPATING_FFI" />
+			<xsd:enumeration value="PARICIPATING_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_1_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_2_FFI" />
+			<xsd:enumeration value="REGISTERED_DEEMED_COMPLIANT_FFI" />
+			<xsd:enumeration value="SPONSORED_FFI" />
+			<xsd:enumeration
+				value="CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLIANT_FFI" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLIANT_SPONSORED_VEHICLE" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLIANT_INVESTMENT_ADVISORS" />
+			<xsd:enumeration value="OWNER_DOCUMENTED_FFI" />
+			<xsd:enumeration value="RESTRICTED_DISTRIBUTOR" />
+			<xsd:enumeration value="NONREPORTING_IGA_FFI" />
+			<xsd:enumeration value="FOREIGN_GOVERNMENT" />
+			<xsd:enumeration value="INTERNATIONAL_ORGANIZATION" />
+			<xsd:enumeration value="EXEMPT_RETIREMENT_PLANS" />
+			<xsd:enumeration value="ENTITY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS" />
+			<xsd:enumeration value="TERRITORY_FINANCIAL_INSTITUTION" />
+			<xsd:enumeration value="NONFINANCIAL_GROUP" />
+			<xsd:enumeration value="EXCEPTED_NONFINANCIAL_STARTUP" />
+			<xsd:enumeration value="EXCEPTED_NONFINANCIAL_ENTITY" />
+			<xsd:enumeration value="AN_501_C_ORGANIZATION" />
+			<xsd:enumeration value="NONPROFIT_ORGANIZATION" />
+			<xsd:enumeration value="PUBLICLY_TRADED_NFFE" />
+			<xsd:enumeration value="EXCEPTED_TERRITORY_NFFE" />
+			<xsd:enumeration value="ACTIVE_NFFE" />
+			<xsd:enumeration value="PASSIVE_NFFE" />
+			<xsd:enumeration value="EXCEPTED_INTER_AFFILIATE_FFI" />
+			<xsd:enumeration value="DIRECT_REPORTING_NFFE" />
+			<xsd:enumeration value="SPONSORED_DIRECT_REPORTING_NFFE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8BENE_Box11_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8BEN-E Box 11 - Chapter 4 Status (FATCA status)
+				of disregarded entity or branch receiving payment
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="LIMITED_BRANCH" />
+			<xsd:enumeration value="US_BRANCH" />
+			<xsd:enumeration value="PARTICIPATING_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_1_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_2_FFI" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8IMY_Box4_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8IMY Box 4 - Chapter 3 Status (entity type)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="QUALIFIED_INTERMEDIARY" />
+			<xsd:enumeration value="NONQUALIFIED_INTERMEDIARY" />
+			<xsd:enumeration value="TERRITORY_FINANCIAL" />
+			<xsd:enumeration value="US_BRANCH" />
+			<xsd:enumeration value="WITHHOLDING_FOREIGN_PARTNERSHIP" />
+			<xsd:enumeration value="WITHHOLDING_FOREIGN_TRUST" />
+			<xsd:enumeration value="NONWITHHOLDING_FOREIGN_PARTNERSHIP" />
+			<xsd:enumeration value="NONWITHHOLDING_FOREIGN_SIMPLE_TRUST" />
+			<xsd:enumeration value="NONWITHHOLDING_FOREIGN_GRANTOR_TRUST" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8IMY_Box5_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8IMY Box 5 - Chapter 4 Status (entity type)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="NONPARTICIPATING_FFI" />
+			<xsd:enumeration value="PARTICIPATING_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL1_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL2_FFI" />
+			<xsd:enumeration value="REGISTERED_DEEMED_COMPLAINT" />
+			<xsd:enumeration value="TERRITORY_FINANCIAL_INSTITUTION" />
+			<xsd:enumeration value="SPONSORED_FFI" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLAINT_FFI" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLAINT_SPONSORED" />
+			<xsd:enumeration value="CERTIFIED_DEEMED_COMPLAINT_LIMITED_LIFE_DEBT" />
+
+			<xsd:enumeration value="OWNER_DOCUMENTED_FFI" />
+			<xsd:enumeration value="RESTRICTED_DISTRIBUTOR" />
+			<xsd:enumeration value="FOREIGN_CENTRAL_BANK_ISSUE" />
+			<xsd:enumeration value="NONREPORTING_IGA_FFO" />
+			<xsd:enumeration value="EXEMPT_RETIREMENT_PLAN" />
+			<xsd:enumeration value="EXCEPTED_NONFINANCIAL_GROUP_ENTITY" />
+			<xsd:enumeration value="EXCEPTED_NONFINANCIAL_STARTUP_COMPANY" />
+			<xsd:enumeration value="EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION" />
+			<xsd:enumeration value="PUBLICLY_TRADED_NFFE" />
+			<xsd:enumeration value="EXCEPTED_TERRITORY_NFFE" />
+			<xsd:enumeration value="ACTIVE_NFFE" />
+			<xsd:enumeration value="PASSIVE_NFFE" />
+			<xsd:enumeration value="DIRECT_REPORTING_NFFE" />
+			<xsd:enumeration value="SPONSORED_DIRECT_REPORTING_NFFE" />
+
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="W8IMY_Box11_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8IMY Box 11 - Chapter 4 Status (FATCA status) of
+				disregarded entity or branch receiving payment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="LIMITED_BRANCH" />
+			<xsd:enumeration value="US_BRANCH" />
+			<xsd:enumeration value="PARTICIPATING_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_1_FFI" />
+			<xsd:enumeration value="REPORTING_MODEL_2_FFI" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="US_TIN_Type">
+		<xsd:annotation>
+			<xsd:documentation>W-8IMY Box 8 - Part 1 - Item 8 - US Taxpayer
+				Identification Number Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="QI-EIN" />
+			<xsd:enumeration value="WP-EIN" />
+			<xsd:enumeration value="WT-EIN" />
+			<xsd:enumeration value="EIN" />
+			<xsd:enumeration value="SSN" />
+			<xsd:enumeration value="ITIN" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ExemptPayeeCode_Type">
+		<xsd:annotation>
+			<xsd:documentation></xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="ORG_EXEMPT" />
+			<xsd:enumeration value="THE_US" />
+			<xsd:enumeration value="DC" />
+			<xsd:enumeration value="FOREIGN_GOVERNMENT" />
+			<xsd:enumeration value="CORPORATION" />
+			<xsd:enumeration value="DEALER_IN_SEC_OR_COMM" />
+			<xsd:enumeration value="FUTURES_COMMISSION_MERCHANT" />
+			<xsd:enumeration value="REAL_ESTATE" />
+			<xsd:enumeration value="ENTITY_UNDER_INV_COMP_ACT_1940" />
+			<xsd:enumeration value="COMMON_TRUST_FUND" />
+			<xsd:enumeration value="FINANCIAL_INSTITUTION" />
+			<xsd:enumeration value="MIDDLEMAN" />
+			<xsd:enumeration value="EXEMPT_UNDER_SECTION_664" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ExemptReportCode_Type">
+		<xsd:annotation>
+			<xsd:documentation></xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="EXEMPT_UNDER_SECTION_501_A" />
+			<xsd:enumeration value="THE_US" />
+			<xsd:enumeration value="DC" />
+			<xsd:enumeration value="CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C" />
+			<xsd:enumeration value="CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C" />
+			<xsd:enumeration value="DEALER_IN_SEC_OR_COMM" />
+			<xsd:enumeration value="REAL_ESTATE" />
+			<xsd:enumeration value="REGULATED_INVESTMENT_COMPANY" />
+			<xsd:enumeration value="COMMON_TRUST_FUND" />
+			<xsd:enumeration value="BANK_AS_DEFINED_IN_SECTION_581" />
+			<xsd:enumeration value="BROKER" />
+			<xsd:enumeration value="EXEMPT_UNDER_SECTION_664" />
+			<xsd:enumeration value="EXEMPT_UNDER_SECTION_403_OR_457" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="USTaxPurposeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Corporation - C
+				Partnership - P
+				Disregarded Entity - E
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="C" />
+			<xsd:enumeration value="P" />
+			<xsd:enumeration value="E" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FinancialOrgCodeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Org is a foreign bank - 2
+				Org is a licensed securities broker or dealer - 3
+				Org is a licensed futures commission merchant - 5
+				Org is a mutual fund, hedge fund, private equity - 21
+				Org is a licensed forex dealer - 22
+				Org is a licensed money transmitter -23
+				Org is an employee benefit plan regulated under ERISA - 25
+				Org is a US federally regulated or state regulated bank -31
+				Org is a US registered swap dealer - 33
+				Org is a US registered major swap participant - 34
+				Org is an insuarance company regulated by a US state - 35
+				Org is a nonUS insurance company regulated outside of the US - 36
+				Org is a department or agency of the US - 37
+				Org is a licensed advisor or investment manager for securities,
+				futures, or forex trading - 38
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="2" />
+			<xsd:enumeration value="3" />
+			<xsd:enumeration value="5" />
+			<xsd:enumeration value="21" />
+			<xsd:enumeration value="22" />
+			<xsd:enumeration value="23" />
+			<xsd:enumeration value="25" />
+			<xsd:enumeration value="31" />
+			<xsd:enumeration value="33" />
+			<xsd:enumeration value="34" />
+			<xsd:enumeration value="35" />
+			<xsd:enumeration value="36" />
+			<xsd:enumeration value="37" />
+			<xsd:enumeration value="38" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TrustTypeList">
+		<xsd:annotation>
+			<xsd:documentation></xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="COMPLEX_TRUST" />
+			<xsd:enumeration value="SINGLE_TRUST" />
+			<xsd:enumeration value="GRANTOR_TRUST" />
+			<xsd:enumeration value="US_TAXABLE_TRUST" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="languageList">
+		<xsd:annotation>
+			<xsd:documentation>
+				Values are subset of W3C.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="en" />
+			<xsd:enumeration value="zh-Hans" />
+			<xsd:enumeration value="ja" />
+			<xsd:enumeration value="ru" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SignatureType">
+		<xsd:annotation>
+			<xsd:documentation>Possibles Signature Types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Electronic" />
+			<xsd:enumeration value="Physical" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CommissionType">
+		<xsd:annotation>
+			<xsd:documentation>Commission Types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Commodities" />
+			<xsd:enumeration value="Securities" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CommissionStyle">
+		<xsd:annotation>
+			<xsd:documentation>Commission Styles</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Bundled" />
+			<xsd:enumeration value="Unbundled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PricingStructureType">
+		<xsd:annotation>
+			<xsd:documentation>Used only for brokers; it indicates the type of
+				price structure</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FIXED" />
+			<xsd:enumeration value="TIERED" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DesignationType">
+		<xsd:annotation>
+			<xsd:documentation>It indicates the desigation of Controlling Person
+				for CRS Tax Reporting</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="SENIOR_MGMT_OFFICER" />
+			<xsd:enumeration value="BY_OWNERSHIP" />
+			<xsd:enumeration value="BY_OTHER_MEANS" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OECDStatusType">
+		<xsd:annotation>
+			<xsd:documentation>OECD Statuses</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="DEPOSITORY_INSTITUTION" />
+			<xsd:enumeration value="CUSTODIAL_INSTITUTION" />
+			<xsd:enumeration value="SPECIFIED_INSURANCE_COMPANY" />
+			<xsd:enumeration value="INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION" />
+			<xsd:enumeration value="INVESTMENT_ENTITY_NOT_LISTED" />
+			<xsd:enumeration value="PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE" />
+			<xsd:enumeration value="OTHER_ACTIVE_NON_FINANCIAL_ENTITY" />
+			<xsd:enumeration value="PASSIVE_NON_FINANCIAL_ENTITY" />
+			<xsd:enumeration value="EXEMPT_RETIREMENT_PLAN" />
+			<xsd:enumeration value="NON_REPORTING_FI" />
+			<xsd:enumeration value="OTHER_INVESTMENT_ENTITY" />
+			<xsd:enumeration value="FINANCIAL_INSTITUTION" />
+			<xsd:enumeration value="NON_REPORTING_FINANCIAL_INSTITUTION" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PositionType">
+		<xsd:annotation>
+			<xsd:documentation>Position Types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="LONG" />
+			<xsd:enumeration value="SHORT" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OptionType">
+		<xsd:annotation>
+			<xsd:documentation>Option Types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="CALL" />
+			<xsd:enumeration value="PUT" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ExplanationType">
+		<xsd:annotation>
+			<xsd:documentation>Explanation for not providing either TIN or
+				Foreign Tax Id:
+				1. [US_TIN] Account holder possesses US TIN; it will be added to W8
+				Form.
+				2. [TIN_NOT_DISCLOSED] Country issues TIN; however, account holder is
+				exempt from disclosing TIN under laws of the country.
+				3. [TIN_NOT_REQUIRED] Account holder is not legally required to obtain
+				TIN.
+				4. [TIN_NOT_ISSUED] Country does not issue TIN.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="US_TIN" />
+			<xsd:enumeration value="TIN_NOT_DISCLOSED" />
+			<xsd:enumeration value="TIN_NOT_REQUIRED" />
+			<xsd:enumeration value="TIN_NOT_ISSUED" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ActionType">
+		<xsd:annotation>
+			<xsd:documentation>ACES enumeration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="ADD" />
+			<xsd:enumeration value="UPDATE" />
+			<xsd:enumeration value="REMOVE" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

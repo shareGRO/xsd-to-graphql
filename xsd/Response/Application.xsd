@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="2.0">
+	<xsd:include schemaLocation="Users.xsd" />
+	<xsd:include schemaLocation="Accounts.xsd" />
+	<xsd:include schemaLocation="Entities.xsd" />
+	<xsd:include schemaLocation="Documents.xsd" />
+	<xsd:include schemaLocation="Pending_Tasks.xsd" />
+	<xsd:include schemaLocation="Errors.xsd" />
+
+	<xsd:complexType name="Application">
+		<xsd:annotation>
+			<xsd:documentation>
+				Specifies details about the new application
+				created via ECA.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Customer" type="xsd:string" minOccurs="1"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Customer Name
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Users" type="Users" maxOccurs="1" />
+			<xsd:element name="Accounts" type="Accounts" maxOccurs="1" />
+			<xsd:element name="Entities" type="Entities" maxOccurs="1" />
+			<xsd:element name="Documents" type="Documents" maxOccurs="1" />
+			<xsd:element name="Pending_Tasks" type="Pending_Tasks"
+				maxOccurs="1" />
+			<xsd:element name="Errors" type="Errors" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="External_ID" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					External ID associated with the application.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="Status" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Specifies whether the application was
+					successfully processed or not.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

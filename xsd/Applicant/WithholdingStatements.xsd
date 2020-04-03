@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified">
+
+	<xsd:simpleType name="QIClassEnum">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration of Qualified Intermediary Types
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="QI-RO" />
+			<xsd:enumeration value="QI-RO-US" />
+			<xsd:enumeration value="QI-RO-USW" />
+			<xsd:enumeration value="QI-RW" />
+			<xsd:enumeration value="QI-RW-US" />
+			<xsd:enumeration value="QI-RW-USW" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:simpleType name="FatcaCompliantEnum">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration of FATCA Compliance Types
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FATCA_COMPLIANT" />
+			<xsd:enumeration value="NON_CONSENTING_US_ACCOUNT" />
+			<xsd:enumeration value="NON_COOPERATIVE_ACCOUNT" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="WithholdingStatementsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of withholding statement for different accounts.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="WithholdingStatement" type="WithholdingStatementType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="qi_class" type="QIClassEnum" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Broker's QI class.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Signature of one professional related to the Broker.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature_timestamp" type="xsd:nonNegativeInteger"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Timestamp of the signature using ISO 8601 Basic Format YYYYMMDDhhmmss and
+					considering NY time (EST/EDT).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="WithholdingStatementType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Withholding statement for one account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="acct_id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					For existing accounts, the acct_id is mandatory.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fatca_compliant_type" type="FatcaCompliantEnum"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					FATCA Compliant type
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_backup_withholding" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Is the account subject to backup withholding?
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="treaty_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					US tax treaty country of the account holder, do not inform if account
+					holder does not qualify for treaty benefits.
+					Preferably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_corporation" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Is the account holder classified as a corporation for US income tax
+					purposes?
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_flow_through" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Is the account holder a flow through entity: Partnership, Grantor
+					Trust or Simple Trust? When the value is true,
+					treaty_country is not considered.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="effective_date" type="xsd:date"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Effective date of withholding statement.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dividend_rate" type="xsd:float"
+			use="optional" default="0.0">
+			<xsd:annotation>
+				<xsd:documentation>
+					Tax rate applicable to US dividends income; mandatory when the account
+					is flow-through. All rates can be entered with up to 2 digits of
+					precision.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="interest_rate" type="xsd:float"
+			use="optional" default="0.0">
+			<xsd:annotation>
+				<xsd:documentation>
+					Tax rate applicable to US interest income; mandatory when the account
+					is flow-through. All rates can be entered with up to 2 digits of
+					precision.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_other_rate" type="xsd:float"
+			use="optional" default="0.0">
+			<xsd:annotation>
+				<xsd:documentation>
+					Tax rate applicable to other US income; mandatory when the account is
+					flow-through. All rates can be entered with up to 2 digits of
+					precision.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="eci_rate" type="xsd:float" use="optional"
+			default="0.0">
+			<xsd:annotation>
+				<xsd:documentation>
+					Tax rate applicable to US ECI income; mandatory when the account is
+					flow-through. All rates can be entered with up to 2 digits of
+					precision.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+	</xsd:complexType>
+
+</xsd:schema>

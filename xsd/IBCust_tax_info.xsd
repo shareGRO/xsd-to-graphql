@@ -1,0 +1,1775 @@
+<!-- Schema definitions related to tax information. It includes W8 and W9 
+	forms. -->
+
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="IBCustEnumerations.xsd" />
+	<xsd:include schemaLocation="Applicant/SimpleTypes.xsd" />
+
+
+	<xsd:complexType name="IndividualTaxInformation">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tax information about the customer required by the IRS. A Form
+				W-9 or W-8 is required for all customers except customers of
+				IB-India. Type deprecated, preferrable to use FormW9 or FormW8.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="W9" type="FormW9" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for a US citizen or US person including
+						resident alien individual.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8Ben" type="FormW8BEN" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if the beneficial owner is not a US person.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CRS" type="FormCRS" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if the beneficial owner is part of IB-UK entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8BenE" type="FormW8BENE" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Required if the beneficial owner is not a US
+						entity.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TaxResidencies">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tax regulations require us to collect information about customer's tax
+				residency
+				and we may be obligated to share that information with the regulators.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TaxResidency" type="TaxResidency"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TaxResidency">
+		<xsd:annotation>
+			<xsd:documentation>
+				A valid tax residency consists of a country and TIN pair.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="country" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Each country has its own rules about what defines tax residency (for
+					example citizenship or the amount
+					of time you spend in a country before you are viewed as a tax
+					resident can vary).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TIN" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Where a country does not issue tax identification numbers a "functional
+					equivalent" may be used
+					(for example, a social security or national insurance number, a citizen
+					or personal
+					identification number or a resident registration number).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TINType" type="TIN_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					In case of US TIN we must declare the TIN type: it's either SSN or
+					EIN.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="FormW8BEN">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information for completing a Form W-8BEN
+				for the
+				customer certifying Foreign Status of Beneficial Owner for US
+				tax withholding. Address details will be defaulted from the
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Name of Individual who is the beneficial owner in
+					Part I item 1.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country_of_citizenship" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>
+					Address details will be defaulted from the application. Preferrably use
+					ISO codes for countries
+					instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="residence_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="city" type="xsd:string" use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>
+					Address details will be defaulted from the application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_city" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>US TIN if required in Part I item 5. Must be
+					numeric, 9 digits, no dashes.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="foreign_tax_id" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Foreign tax identifying number in Part I item 6.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tin_or_explanation_reqd_to_create_accounts"
+			type="xsd:boolean" use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>Indicates that TIN or Reasonable Explanation is
+					required with W8Ben to create new accounts.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="explanation" type="ExplanationType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Explanation why account holder does not possess
+					TIN.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="reference_number" type="xsd:int"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Reference number(s) in Part I item 7.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_2_9a_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Income Tax Treaty Country in Part II item 9
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_2_10_article" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_2_10_percent" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_2_10_income_type" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_2_10_reasons" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>To be set to True if the customer agree on all
+					items listed in Part III Certification.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature_type" type="SignatureType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Signature Type</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="blank_form" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Is used to indicate whether broker/advisor is
+					uploading a blank form.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tax_form_file" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Tax form file name that contain electronically
+					signed tax form or blank form and/or signature.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="proprietary_form_number" type="xsd:integer"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Form number in case broker/advisor sends
+					proprietary blank forms.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="FormW9">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information for completing a Form W-9
+				Request for TIN
+				and Certification. Address details will be defaulted
+				from the
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					As shown on the Income Tax Return.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="business_name" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					If different from name on tax return.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="customer_type" type="W9Customer_Type"
+			use="required" />
+		<xsd:attribute name="tax_classification" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required only if customer type is LLC. Can be one
+					of
+					D=disregarded entity, C=corporation, P=partnership or free
+					form
+					text.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="other_customer_type" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required details if customer type is Other.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tin" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The Tax Identification Number specified in Part
+					I. Must be
+					numeric, 9 digits no dashes.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tin_type" type="TIN_Type" use="optional"
+			default="SSN">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of TIN provided, defaulted to SSN.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert1" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True in order to certify that the
+					given taxpayer identification number (TIN) is correct.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert2" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if agreeing to certification 2
+					in part II.
+					Must be set to false if notified by IRS as being subject
+					to
+					backup withholding.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert3" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True in order to certify that the
+					customer is a U.S. Citizen or other U.S. Person.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert4" type="xsd:boolean" use="optional"
+			default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True in order to certify that the given FATCA code(s)
+					(if any)
+					indicating that the customer is exempt from FATCA reporting is correct.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fatca_exempt_payee_code" type="ExemptPayeeCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not in use; The FATCA exempt payee code
+					(if any)</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fatca_exempt_report_code" type="ExemptReportCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not in use; Exemption from FATCA
+					reporting code.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature_type" type="SignatureType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Signature Type</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="blank_form" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Is used to indicate whether broker/advisor is
+					uploading a blank form.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tax_form_file" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Tax form file name that contain electronically
+					signed tax form or blank form and/or signature.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="proprietary_form_number" type="xsd:integer"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Form number in case broker/advisor sends
+					proprietary blank forms.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="FormW8BENE">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information for completing a Form W-8BEN-E for the
+				customer certifying Foreign Status of Beneficial Owner for US
+				tax withholding and reporting (entities). Address details will be
+				defaulted from the
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SubstantialUsOwners" type="SubstantialUsOwners"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Zero, one or more substantial U.S. Owners of
+						Passive NFFEs (see Part XXX)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Name of organization that is the beneficial owner
+					(Part I item 1).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="disregarded_entity_name" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of disregarded entity receiving the payment
+					(if applicable) (Part 1 item 3).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="entity_type" type="W8BENE_Box4_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 3 Status (entity type) (Part I item 4).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fatca_status" type="W8BENE_Box5_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 4 Status (FATCA status) (Part I item 5).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="residence_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="city" type="xsd:string" use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_city" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_tin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>U.S. taxpayer identification number (TIN), if
+					required (Part I item 8).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="giin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>GIIN (Part I item 9a).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="foreign_tin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Foreign TIN (Part I item 9b).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tin_or_explanation_reqd_to_create_accounts"
+			type="xsd:boolean" use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>Indicates that TIN or Reasonable Explanation is
+					required with W8BenE to create new accounts.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="explanation" type="ExplanationType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Explanation why account holder does not possess
+					TIN.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="reference_number" type="xsd:int"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Reference number(s) (Part I item 10).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="box_11_status" type="W8BENE_Box11_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 4 Status (FATCA status) (Part II item
+					11).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14a" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14a in Part III Claim of Tax
+					Treaty Benefits.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14a_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Treaty Country, required if certifying item 14a in Part III Claim of Tax
+					Treaty Benefits.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14b" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14b in Part III Claim of Tax
+					Treaty Benefits.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14c" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14c in Part III Claim of Tax
+					Treaty Benefits.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_15_article" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_15_wh_rate" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_15_income_type" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_15_reasons" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Currently not supported</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_16" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of sponsoring entity in Part IV. item 16.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_17_i" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying the first item of box 17 in Part IV
+					Sponsored FFI That Has Not Obtained a GIIN.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_17_ii" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying the second item of box 17 in Part IV
+					Sponsored FFI That Has Not Obtained a GIIN.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_5_18" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 18 in Part V Certified
+					Deemed-Compliant Nonregistering Local Bank.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_6_19" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 19 in Part VI Certified
+					Deemed-Compliant FFI with Only Low-Value Accounts.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_7_20" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of sponsoring entity in Part VII item 20.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_7_21" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 21 in Part VII Certified
+					Deemed-Compliant Sponsored, Closely Held Investment Vehicle.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_8_22" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 22 in Part VIII Certified
+					Deemed-Compliant Limited Life Debt Investment Entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_9_23" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 23 in Part IX Certified
+					Deemed-Compliant Investment Advisors and Investment Managers.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_24a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 24a in Part X Owner-Documented
+					FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_24b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 24b in Part X Owner-Documented
+					FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_24c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 24c in Part X Owner-Documented
+					FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_24d" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 24d in Part X Owner-Documented
+					FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_11_25a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 25a in Part XI Restricted
+					Distributor.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_11_25b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 25b in Part XI Restricted
+					Distributor.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_11_25c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 25c in Part XI Restricted
+					Distributor.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_12_26" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 26 in Part XII Nonreporting IGA
+					FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_12_26_desc1" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Text appears in the first input field for item 26
+					in Part XII Nonreporting IGA FFI.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_12_26_desc2" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Text appears in the second input field for item
+					26 in Part XII Nonreporting IGA FFI.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_12_26_desc3" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Text appears in the third input field (GIIN) for
+					item 26 in Part XII Nonreporting IGA FFI.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_13_27" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 27 in Part XIII Foreign
+					Government, Government of a U.S. Possession, or Foreign Central
+					Bank of Issue.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_14_28a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 28a in Part XIV International
+					Organization.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_14_28b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 28b in Part XIV International
+					Organization.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29a in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29b in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29c in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29d" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29d in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29e" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29e in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_29f" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29f in Part XV Exempt Retirement
+					Plans.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_16_30" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30 in Part XVI Entity Wholly
+					Owned by Exempt Beneficial Owners.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_17_31" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 31 in Part XVII Territory
+					Financial Institution.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_18_32" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 32 in Part XVIII Excepted
+					Nonfinancial Group Entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_33" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 33 in Part XIX Excepted
+					Nonfinancial Start-Up Company.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_20_34" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 34 in Part XX Excepted
+					Nonfinancial Entity in Liquidation or Bankruptcy.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_21_35" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 35 in Part XXI 501(c)
+					Organization.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_21_35_date" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>501(c) organization date in Part XXI item 35.
+					Must be a date formatted as yyyy-MM-dd</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_22_36" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 36 in Part XXII Non-Profit
+					Organization.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_37a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 37a in Part XXIII Publicly
+					Traded NFFE or NFFE Affiliate of a Publicly Traded Corporation.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_37a_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name one securities exchange upon which the stock
+					is regularly traded (in Part XXIII item 37a).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_37b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 37a in Part XXIII Publicly
+					Traded NFFE or NFFE Affiliate of a Publicly Traded Corporation.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_37b_desc1" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation> The name of the entity, the stock of which is
+					regularly traded on an established securities market (in Part XXIII
+					item 37b).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_37b_desc2" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The name of the securities market on which the
+					stock is regularly traded (in Part XXIII item 37b).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_24_38" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 38 in Part XXIV Excepted
+					Territory NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_25_39" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 39 in Part XXV Active NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_26_40a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 40a in Part XXVI Passive NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_26_40b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 40b in Part XXVI Passive NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_26_40c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 40c in Part XXVI Passive NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_27_41" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 41 in Part XXVII Excepted
+					Inter-Affiliate FFI.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_28_42" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of sponsoring entity</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_28_43" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 43 in Part XXVIII Sponsored
+					Direct Reporting NFFE.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if the customer agrees on all items listed in Part
+					XXIX Certification.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="SubstantialUsOwners">
+		<xsd:annotation>
+			<xsd:documentation>
+				Per W-8BEN-E Part XXX: As required by Part XXVI, provide the name,
+				address, and TIN
+				of each substantial U.S. owner of the NFFE. Please see instructions
+				for definition of
+				substantial U.S. owner.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SubstantialUsOwner" type="SubstantialUsOwner"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubstantialUsOwner">
+		<xsd:annotation>
+			<xsd:documentation>
+				Represents a row in the table located in part XXX in IRS form W-8BEN-E.
+				The individual or legal entity must be part of the account in some
+				other role and have an American tax residency;
+				the attribute external_id indicates the individual or legal entity in
+				the file.
+				Other elements were deprecated.
+			</xsd:documentation>
+		</xsd:annotation>
+		<!-- <xsd:sequence> <xsd:element name="Name" type="xsd:string" minOccurs="0" 
+			maxOccurs="1"/> <xsd:element name="Address" type="Address" minOccurs="0" 
+			maxOccurs="1" /> <xsd:element name="TIN" type="xsd:string" minOccurs="0" 
+			maxOccurs="1" /> <xsd:element name="DOB" type="DOB" minOccurs="0" maxOccurs="1" 
+			/> </xsd:sequence> -->
+		<xsd:attribute name="external_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the individual or legal entity at the external entity.
+				</xsd:documentation>
+			</xsd:annotation>
+
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="FormW8IMY">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information for completing a Form W-8IMY to be used by
+				vustomers declaring as withholding agent according to the FATCA
+				regulations. All part and item numbers are referring to the W-8IMY
+				Form approved by American IRS (internal Revenue Service). For more
+				details, look at the specific regulations.
+				Address details will be defaulted from the application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Name of organization that is acting as
+					intermediary (Part I item 1).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country_of_incorporation" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Country of incorporation or organization (Part I
+					item 2).
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="disregarded_entity_name" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of disregarded entity (Part 1 item 3).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="entity_type" type="W8IMY_Box4_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 3 Status (entity type) (Part I item 4).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fatca_status" type="W8IMY_Box5_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 4 Status (FATCA status) (Part I item 5).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="residence_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="city" type="xsd:string" use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_address" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_city" type="xsd:string"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mailing_country" type="CountryCode_Type"
+			use="prohibited">
+			<xsd:annotation>
+				<xsd:documentation>Address details will be defaulted from the
+					application.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_tin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>U.S. taxpayer identification number (TIN), if
+					required (Part I item 8).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_tin_type" type="US_TIN_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>U.S. taxpayer identification number (TIN), if
+					required (Part I item 8).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="giin" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>GIIN (Part I item 9a).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="reference_number" type="xsd:int"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Reference number(s) (Part I item 10).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="box_11_status" type="W8IMY_Box11_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Chapter 4 Status (FATCA status) (Part II item
+					11).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14a" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14a (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14b" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14b (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14c" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14c (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14c_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					List of accounts reported on item 14c (Part 3 - Qualified Intermediary)
+					of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14d" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14d (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14d_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					List of accounts reported on item 14d (Part 3 - Qualified Intermediary)
+					of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14e" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14e (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14e_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					List of accounts reported on item 14e (Part 3 - Qualified Intermediary)
+					of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14e_i" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14e(i) (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_3_14e_ii" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 14e(ii) (Part 3 - Qualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_15a" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 15a (Part 4 - Nonqualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_15b" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 15b (Part 4 - Nonqualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_15c" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 15c (Part 4 - Nonqualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_4_15d" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 15d (Part 4 - Nonqualified
+					Intermediary) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_5_16a" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 16a (Part 5 - Territory
+					Financial Institution) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_5_16b" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 16b (Part 5 - Territory
+					Financial Institution) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_5_16c" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 16c (Part 5 - Territory
+					Financial Institution) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_6_17a" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 17a (Part 6 - Certain U.S.
+					Branches) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_6_17b" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 17b (Part 6 - Certain U.S.
+					Branches) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_6_17c" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 17c (Part 6 - Certain U.S.
+					Branches) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_7_18" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 18 (Part 7 - WP or WT) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_8_19" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 19 (Part 8 - Nonwithholding
+					Foreign Partnership) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_9_20" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 20 (Part 9 - Nonparticipating
+					FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_21" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Name of sponsoring entity on item 20 (Part 9 -
+					Nonparticipating FFI) of W-8IMY.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_21a" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of sponsoring entity on item 21a (Part 10 - Sponsored FFI) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_21b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 21b (Part 10 - Sponsored FFI) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_10_21c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 21c (Part 10 - Sponsored FFI) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_11_22a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 22a (Part 11 - Owner-documented
+					FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_11_22b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 22b (Part 11 - Owner-documented
+					FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_11_22c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 22c (Part 11 - Owner-documented
+					FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_12_23" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 23 (Part 12 - Certified
+					Deemed-Complaint Nonregistering Local Bank) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_13_24" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 24 (Part 13 - Certified
+					Deemed-Complaint FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_14_25a" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of sponsoring entity on item 25a (Part 14 - Certified
+					Deemed-Complaint Sponsored) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_14_25b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 25b (Part 14 - Certified
+					Deemed-Complaint Sponsored) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_15_26" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 26 (Part 15 - Certified
+					Deemed-Complaint Limited Life Debt) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_16_27a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 27a (Part 16 - Restricted
+					Distributor) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_16_27b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 27b (Part 16 - Restricted
+					Distributor) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_16_27c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 27c (Part 16 - Restricted
+					Distributor) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_17_28" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 28 (Part 17 - Foreign Central
+					Bank Issuer) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_18_29" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 29 (Part 18 - Nonreporting IGA
+					FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_18_29_desc1" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Country to be reported on item 29 (Part 18 - Nonreporting IGA FFI) of
+					W-8IMY.
+					Preferrably use ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_18_29_desc2" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Reason for provisions to be reported on item 29 (Part 18 - Nonreporting
+					IGA FFI) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_18_29_desc3" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					GIIN to be reported on item 29 (Part 18 - Nonreporting IGA FFI) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30a (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30b (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30c" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30c (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30d" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30d (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30e" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30e (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_19_30f" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 30f (Part 19 - Exempt Retirement
+					Plans) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_20_31" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 31 (Part 20 - Excepted
+					Nonfinancial Group Entity) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_21_32" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 32 (Part 21 - Excepted
+					Nonfinancial Start-Up Company) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_21_32_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Date informed on item 32 (Part 21 - Excepted Nonfinancial Start-Up
+					Company) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_22_33" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 33 (Part 22 - Excepted
+					Nonfinancial Entity in Liquidation or Bankrupcy) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_22_33_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Date informed on item 33 (Part 22 - Excepted Nonfinancial Entity in
+					Liquidation or Bankrupcy) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_23_34a" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 34a (Part 23 - Publicly Traded
+					NFEE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_34a_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Markets informed on item 34a (Part 23 - Publicly Traded NFEE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_34b" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 34b (Part 23 - Publicly Traded
+					NFEE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_23_34b_desc" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Markets informed on item 34b (Part 23 - Publicly Traded NFEE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="part_24_35" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 35 (Part 24 - Excepted Territory
+					NFEE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_25_36" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 36 (Part 25 - Active NFFE) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_26_37" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 37 (Part 26 - Passive NFFE) of
+					W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_27_38" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of sponsored entity reported on item 38 (Part 27 - Sponsored
+					Direct Reporting NFFE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="part_27_39" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if certifying item 39 (Part 27 - Sponsored Direct
+					Reporting NFFE) of W-8IMY.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cert" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					To be set to True if the customer agrees on all items listed in Part
+					XXVIII Certification.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="FormCRS">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information for completing CRS Form for
+				the
+				customer who resides in a country that participates in
+				common reporting standards.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ControllingPerson" type="ControllingPersonType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="oecd_status" type="OECDStatusType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>OECD Status for legal entity.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ControllingPersonType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Controlling Person.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="designation" type="DesignationType"
+			use="optional" />
+	</xsd:complexType>
+</xsd:schema>        

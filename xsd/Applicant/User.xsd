@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="../IBCustEnumerations.xsd" />
+	<xsd:include schemaLocation="SimpleTypes.xsd" />
+
+	<xsd:complexType name="User">
+		<xsd:annotation>
+			<xsd:documentation>
+				A user is an individual with specific access to
+				one or more
+				customer accounts. A user must be linked to an individual
+				through a specified id.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserPrivilege" type="UserPrivilege"
+				minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Ignored for the first/primary user who is
+						automatically
+						set up with the OWNER role.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MDServices" type="MDServicesType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for a user in the IB database
+					(IBUser_Rtab.id).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_user_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the user at the external entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_individual_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier at the external entity for the
+					individual
+					associated with this user. Required to create the
+					association within the IB database.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="encrypted_password" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					encrypted_password
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="encrypted_key_name" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					encrypted_key_name
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="prefix" type="UserNamePrefix_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Prefix to be used to generate the IB username for
+					the user.
+					Required only for additional users. Ignored for the
+					first/primary user, the username generated for the id_string
+					of the
+					customer is automatically set as the username for the
+					first/primary
+					user.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="UserPrivilege">
+		<xsd:annotation>
+			<xsd:documentation>
+				A user is privileged for a specified account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="external_acct_id" type="xsd:string"
+			use="required" />
+		<xsd:attribute name="privilege" type="Privilege_Type"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="MDServicesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of Market Data Services the user is
+				requesting subscription
+				to.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="service" type="xsd:nonNegativeInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

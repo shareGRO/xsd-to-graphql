@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="../IBCustEnumerations.xsd" />
+
+	<xsd:complexType name="Documents">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of documents that are a part of the IB
+				Customer
+				Application process that were signed/agreed by the customer
+				on the
+				remote application which generated this Electronic Customer
+				Application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Document" type="Document" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Document">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of a document signed/reviewed by the
+				client.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SignedBy" type="xsd:string" minOccurs="0"
+				maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Electronic signature of the document, it is legally equivalent to a manual
+						signature
+						and should be verified by Broker/Advisor.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AttachedFile" type="AttachedFileType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Attached file representing the document.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="form_no" type="xsd:nonNegativeInteger"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Form Number for the document.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exec_login_ts" type="xsd:nonNegativeInteger"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Login timestamp for the session in which the
+					customer
+					signed this document on the remote application using ISO
+					8601 Basic Format YYYYMMDDhhmmss and considering NY time (EST/EDT).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exec_ts" type="xsd:nonNegativeInteger"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Timestamp of the execution of the agreement by
+					the customer
+					on the remote application in the ISO 8601 Basic Format
+					YYYYMMDDhhmmss and considering NY time (EST/EDT).
+					Execution here refers to the customer
+					hitting enter after acknowledging or
+					signing the agreement
+					depending on whether the agreement requires
+					just an
+					acknowledgement or a signature.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Character string typed in by the customer as
+					signature to
+					execute an agreement requiring a signature. Must match
+					the
+					name of the account signatory and it is restricted to one
+					name.
+					When the agreement requires signatures from all
+					holders then use
+					element SignedBy.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_acct_id" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the account at the external entity
+					for which
+					the customer executed this agreement. This id will be used
+					to record the agreement for the corresponding IB account.
+					Only
+					required for agreements needed per account for a
+					customer opening
+					multiple accounts. For single accounts this
+					is implicit.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_individual_id" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier at the external entity for the
+					individual
+					executing the agreement. Must be an individual listed on
+					the
+					application. Ignored for INDIVIDUAL applications as
+					agreements
+					must be executed by the Account Holder.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AttachedFileType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information about the attached file that contains
+				the document.
+				The document could be send as an additional file, zipped in one
+				file.
+				Only electronic image formats, like JPG, GIF and PDF, are accepted.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="file_name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Attached file name.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="file_length" type="xsd:integer"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Document file size in bytes when not compacted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sha1_checksum" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Document file SHA-1 hash code (checksum).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+</xsd:schema>

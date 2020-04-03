@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="../IBCustEnumerations.xsd" />
+	<xsd:include schemaLocation="SimpleTypes.xsd" />
+
+	<xsd:complexType name="DVPInstruction">
+		<xsd:annotation>
+			<xsd:documentation>
+				A DVP instruction specifies the settlement
+				information for
+				clear-away trading.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="id" type="xsd:string" use="optional" />
+		<xsd:attribute name="external_id" type="xsd:string" use="required" />
+		<xsd:attribute name="ExternalAcctID" type="xsd:string" />
+		<xsd:attribute name="AcctID" type="xsd:string" />
+		<xsd:attribute name="Name" type="xsd:string" use="required" />
+		<xsd:attribute name="Type" type="DVP_Type" use="required" />
+		<xsd:attribute name="Role" type="DVPRole_Type" use="required" />
+		<xsd:attribute name="AgentID" type="xsd:string" use="required" />
+		<xsd:attribute name="FirmID" type="xsd:string" use="required" />
+		<xsd:attribute name="AccountID" type="xsd:string" use="required" />
+		<xsd:attribute name="AgentName" type="xsd:string" use="required" />
+		<xsd:attribute name="AccountName" type="xsd:string" use="required" />
+		<xsd:attribute name="DayDoID" type="xsd:string" use="required" />
+		<xsd:attribute name="TXGroupCode" type="TXGroupCode_Type"
+			use="required" />
+		<xsd:attribute name="BrokerCode" type="xsd:string" use="required" />
+		<xsd:attribute name="AssetClass" type="AssetClass_Type"
+			use="required" />
+		<xsd:attribute name="Exchange" type="ExchangeCode_Type"
+			use="required" />
+		<xsd:attribute name="PrepayTax" type="xsd:boolean" use="optional"
+			default="false" />
+		<xsd:attribute name="PrepayCommission" type="xsd:boolean"
+			use="optional" default="false" />
+		<xsd:attribute name="Default" type="xsd:boolean" use="optional"
+			default="true" />
+		<xsd:attribute name="Expiry" type="xsd:date" use="required" />
+	</xsd:complexType>
+
+
+</xsd:schema>

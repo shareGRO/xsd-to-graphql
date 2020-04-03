@@ -1,0 +1,791 @@
+<!-- Schema definitions related to management requests for accounts already 
+	created. -->
+
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="Applicant/Customer.xsd" />
+	<xsd:include schemaLocation="Applicant/Documents.xsd" />
+	<xsd:include schemaLocation="IBCust_import.xsd" />
+	<xsd:include schemaLocation="Applicant/Account.xsd" />
+
+	<xsd:element name="AcctMgmtRequests">
+		<xsd:annotation>
+			<xsd:documentation>
+				A set of account management function requests for
+				accounts
+				belonging to a specific external entity. Account specified
+				on
+				any request must already be open.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DuplicateAcct" type="DuplicateAcctRequest"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="DepositNotification" type="DepositNotificationType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="RecurringTransaction" type="RecurringTransactionType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="ACHInstruction" type="ACHInstructionType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="DocumentSubmission" type="DocumentSubmissionType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="InformationChange" type="InformationChange"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="LinkDuplicateAccount" type="LinkDuplicateAccount"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="AddTradingPermissions" type="AddTradingPermissions"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="RemoveTradingPermissions" type="RemoveTradingPermissions"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="EnrollInSYEP" type="EnrollInSYEP"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="LeaveSYEP" type="LeaveSYEP"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="AddMiFIRData" type="AddMiFIRData"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="UpdateCredentials" type="UpdateCredentials"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="AllocateVAN" type="AllocateVAN"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="ProcessDocuments" type="ProcessDocumentsType"
+					minOccurs="0" maxOccurs="1" />
+				<xsd:element name="ChangeMarginType" type="ChangeMarginType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="ChangeFinancialInformation" type="ChangeFinancialInformation"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="GetJavaScript" type="GetJavaScript"
+					minOccurs="0" maxOccurs="1" />
+				<xsd:element name="YodleeSession" type="YodleeSession"
+					minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="DocumentSubmissionType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A set of documents to be submitted for accounts
+				that
+				have tasks waiting for them.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Document" type="Document" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client
+					account for which
+					the documents are submitted
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="input_language" type="languageList"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Language used on textual information. Default is "en".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="has_translation" type="xsd:boolean"
+			default="false" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicated if the file contains translated information from
+					another language to English. This attribute is used only
+					when input_language is different than "en". Default is "false"
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="DuplicateAcctRequest" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>
+				Request to duplicate customer's existing account
+				at IB. Only
+				available for Advisor Client accounts. In addition to
+				trading
+				configuration, Advisor Client Fees and Commission Schedules
+				will
+				also be duplicated. the duplicate account will have a different
+				account id and will be accessible with the customer's existing
+				user
+				session.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor Client account to be
+					duplicated.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="no_of_duplicates" type="xsd:nonNegativeInteger"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Number of duplicate accounts required, if not
+					provided
+					defaults to one.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="LinkDuplicateAccount">
+		<xsd:annotation>
+			<xsd:documentation>
+				Request to duplicate customer's existing account
+				at IB and make
+				the new account client of the advisor. The duplicated
+				account
+				will have a different account id and will be accessible with
+				the customer's existing user session. The advisor decides if
+				client will
+				trade or not using the new account.
+
+				Only available for Advisor Client accounts.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID to be duplicated. Should not be
+					client of the
+					advisor.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					ID used by the advisor to identify the new
+					account
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="client_active_trading" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the account owner will
+					activelly trade.
+					For advisor clients, the default value is false.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AddTradingPermissions">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more exchange access bundles specified by
+				country or
+				other grouping.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradingPermission" type="TradingPermission"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					Trading Permissions will be added.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="RemoveTradingPermissions">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more exchange access bundles specified by
+				country or
+				other grouping.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradingPermission" type="TradingPermission"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					Trading Permissions will be removed.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="ChangeMarginType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Request account margin type change
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					Margin Type will be changed
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="new_margin" type="Margin_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation> New margin type for the account
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChangeFinancialInformation">
+		<xsd:annotation>
+			<xsd:documentation>
+				Request financial information change. Provided new
+				parameters replace
+				the corresponding old ones.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:sequence>
+			<xsd:element name="NewFinancialInformation" type="FinancialInformation"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation> Changed financial information for the account
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					Financial Information will be changed
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="EnrollInSYEP">
+		<xsd:annotation>
+			<xsd:documentation>
+				Enroll in SYEP Program.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Documents" type="Documents" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					request to Enroll in SYEP Program will be submitted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="LeaveSYEP">
+		<xsd:annotation>
+			<xsd:documentation>
+				Leave SYEP Program.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					request to leave SYEP Program will be submitted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AddMiFIRData">
+		<xsd:annotation>
+			<xsd:documentation>
+				Add MiFIR Data.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:sequence>
+			<xsd:element name="Identification" type="IndividualIdentification"
+				minOccurs="0" maxOccurs="5" />
+		</xsd:sequence>
+
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					MiFIR data will be added.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="title" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Nature of association of an individual or entity with the
+					customer
+					account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpdateCredentials">
+		<xsd:annotation>
+			<xsd:documentation>
+				Update Password, Email or Phone Number associated
+				with the account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UpdatePassword" type="UpdatePassword"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="UpdateEmail" type="UpdateEmail"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="UpdatePhone" type="UpdatePhone"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="reference_user_name" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					User Name of Advisor/Broker Client account for which
+					Account Credentials will be updated.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpdatePassword">
+		<xsd:annotation>
+			<xsd:documentation>
+				Used to Update Password associated with the Account
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="encrypted_password" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Encrypted Password
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="encrypted_key_name" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Encrypted Key Name
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="token" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Verification token sent to Email Address or Phone Number associated with the
+					Account
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpdateEmail">
+		<xsd:annotation>
+			<xsd:documentation>
+				Used to Update Email Address associated with the Account
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="email" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Updated Email Address
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="token" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Verification token sent to Updated Email Address
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpdatePhone">
+		<xsd:annotation>
+			<xsd:documentation>
+				Used to Update Phone number associated with the Account.
+				Phone number can we either added, removed or updated.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:sequence>
+			<xsd:element name="Phone" type="PhoneInfo" minOccurs="1"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Detailed information about phone.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+
+		<xsd:attribute name="action" type="ActionType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Actions that can be performed on the Phone Number
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="token" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Verification token sent to Updated Mobile Phone
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AllocateVAN">
+		<xsd:annotation>
+			<xsd:documentation>
+				Allocate VAN.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:attribute name="reference_account_id" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					IB Account ID of the Advisor/Broker Client account for which
+					VAN will be allocated.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="currency" type="Currency_Type"
+			default="USD" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The currency in which amount is being deposited.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="country_code" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Two digit Country code from where Wire Transfer
+					Deposit will
+					originate.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ProcessDocumentsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A set of documents to be submitted for accounts
+				that
+				have tasks waiting for them.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Document" type="Document" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="input_language" type="languageList"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Language used on textual information. Default is "en".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="has_translation" type="xsd:boolean"
+			default="false" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicated if the file contains translated information from
+					another language to English. This attribute is used only
+					when input_language is different than "en". Default is "false"
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="GetJavaScript">
+		<xsd:annotation>
+			<xsd:documentation>
+				Returns encryption code embedded with the public
+				key and name of an RSA Key Pair from the Key Pair pool
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="method" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The name of the method. Should be getCodeWithPublicKey
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="YodleeSession">
+		<xsd:annotation>
+			<xsd:documentation>
+				Returns encryption code embedded with the public
+				key and name of an RSA Key Pair from the Key Pair pool
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="request" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The name of the request. can be either startYodlee or finishYodlee
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="username" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The IB username associated with the request.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="item_account_id" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The Yodlee item account id associated with the request. Only needed
+					for finishYodlee.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="acct_id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The IB account ID. Only needed for finishYodlee.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+
+	<!-- ** Support for Information change of entities and accounts -->
+	<xsd:complexType name="InformationChange">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information change (add, modify, delete) of entities and accounts
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:sequence>
+			<xsd:element name="AddEntity" type="AddEntity" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xsd:element name="UpdateEntity" type="UpdateEntity"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="DeleteEntity" type="DeleteEntity"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+
+		<xsd:attribute name="ib_acct_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates the IB account ID to apply the changes
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+	</xsd:complexType>
+
+	<xsd:complexType name="AddEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information about a new entity (individual or legal) to be associated to the
+				account;
+				relationship is mandatory.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AddRelationship" type="AddRelationship"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:choice>
+				<xsd:element name="Individual" type="Individual" />
+				<xsd:element name="LegalEntity" type="LegalEntity" />
+			</xsd:choice>
+			<xsd:element name="Document" type="Document" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpdateEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				Updated information about the entity (individual, legal, trust or
+				organization).
+				All information is considered as new values, attributes not included
+				will maintain
+				the current value.
+				Relationships could be added or deleted but, at any time, the entity must be
+				associated to the account by, at least, one relationship.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AddRelationship" type="AddRelationship"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="DeleteRelationship" type="DeleteRelationship"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:choice>
+				<xsd:element name="Individual" type="Individual" />
+				<xsd:element name="LegalEntity" type="LegalEntity" />
+				<xsd:element name="Trust" type="Trust" />
+				<xsd:element name="Organization" type="Organization" />
+			</xsd:choice>
+			<xsd:element name="Document" type="Document" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="ib_entity_id" type="xsd:integer"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the entity at IB.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="DeleteEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				Delete the entity and all relationships.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:attribute name="ib_entity_id" type="xsd:integer"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the entity at IB.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AddRelationship">
+		<xsd:annotation>
+			<xsd:documentation>
+				Add relationship between entity and account. Name is mandatory,
+				ownership percentage
+				depends on type of relationship.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:attribute name="name" type="RelationshipEnum" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Relationship name, based on a list of possible values.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ownership_percentage" type="xsd:integer"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Ownership ppercentage is value between 1 and 100; the sum of all entities
+					should be 100.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="DeleteRelationship">
+		<xsd:annotation>
+			<xsd:documentation>
+				Deletes the entity relationship to the account. The entity must remain
+				associated
+				by other relationship.
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:attribute name="name" type="RelationshipEnum" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Relationship name, based on a list of possible values.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<!-- ** Type used only for updates on organizations ** It is a simplified 
+		type of OrganizationApplicant -->
+
+	<xsd:complexType name="Organization">
+		<xsd:annotation>
+			<xsd:documentation>
+				An organization which is the customer and
+				beneficial owner of an
+				account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identification" type="OrganizationIdentification"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- ** Type used only for updates on trusts ** It is a simplified type 
+		of TrustApplicant -->
+
+	<xsd:complexType name="Trust">
+		<xsd:annotation>
+			<xsd:documentation>
+				A Trust which is the customer and beneficial owner
+				of an
+				account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identification" type="TrustIdentification"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>        

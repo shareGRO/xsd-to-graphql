@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:complexType name="Email">
+		<xsd:annotation>
+			<xsd:documentation>
+				EMail address
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="email" type="xsd:string" use="required" />
+	</xsd:complexType>
+	<xsd:complexType name="Security">
+		<xsd:annotation>
+			<xsd:documentation>
+				For customer identification by telephone.
+				challenge/response,
+				aka hint/phrase, aka question/answer
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="Challenge" type="xsd:string" use="required" />
+		<xsd:attribute name="Response" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="Address">
+		<xsd:annotation>
+			<xsd:documentation>A general street address.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="street_1" type="xsd:string" use="required" />
+		<xsd:attribute name="street_2" type="xsd:string" use="optional" />
+		<xsd:attribute name="city" type="xsd:string" use="required" />
+		<xsd:attribute name="state" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Use ISO codes for states/provinces instead of
+					names; only for US and
+					Canada two letters abbreviations are accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries instead
+					of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="postal_code" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+
+	<xsd:simpleType name="UserNamePrefix_Type">
+
+		<xsd:annotation>
+			<xsd:documentation>
+				Prefix used to generate a username.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-z]{5,6}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DOB">
+		<xsd:annotation>
+			<xsd:documentation>
+				A date specifically for a birthday.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:date"></xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

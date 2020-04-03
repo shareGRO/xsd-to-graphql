@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="../IBCustEnumerations.xsd" />
+	<xsd:include schemaLocation="Customer.xsd" />
+	<xsd:include schemaLocation="DVPInstruction.xsd" />
+	<xsd:include schemaLocation="SimpleTypes.xsd" />
+
+	<xsd:complexType name="Account">
+		<xsd:annotation>
+			<xsd:documentation>
+				An account is the brokerage account which provides
+				trading
+				access, funds, and positions.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InvestmentObjectives" type="InvestmentObjectivesType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BrokerageServices" type="BrokerageServices"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Capabilities" type="Capabilities"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads, ignored for retail
+						accounts. For retail accounts capabilities are derived
+						from trading
+						access requested.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradingPermissions" type="TradingPermissions"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommissionConfigs" type="CommissionConfigs"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required to configure commission structure
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AllExchangeAccess" type="AllExchangeAccess"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads, ignored for retail
+						accounts. For retail accounts exchange access is set
+						based on
+						qualified trading access.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DVPInstructions" type="DVPInstructions"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="TradingLimits" type="TradingLimits"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="AdvisorWrapFees" type="AdvisorWrapFeesType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for advisor client accounts.
+						Alternatively, it is possible to set fees
+						based on templates created on Account Management.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="Fees" type="FeesTemplateBasedType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Fees are set based on a template created on
+						Account Management. Advisors should
+						inform the fees to be payed by the client account; for brokers it is
+						optional.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ClientCommissionSchedule" type="CommissionScheduleType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Valid only for Broker clients, ignored for all
+						others.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ClientInterestMarkupSchedule" type="InterestMarkupScheduleType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Valid only for Broker clients, ignored for all
+						others.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="Decendent" type="IRADecedent"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Details of the deceased from whom the IRA
+						account was
+						inherited. Required for inherited IRA accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IRABeneficiaries" type="IRABeneficiariesType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						List of beneficiaries for an IRA Account.
+						Required for
+						IRA accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ExtPositionsTransfer" type="ExtPositionsTransferType"
+				minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element name="DepositNotification" type="DepositNotificationType"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="ACHInstruction" type="ACHInstructionType"
+				minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element name="RecurringTransaction" type="RecurringTransactionType"
+				minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+
+			<xsd:element name="Custodian" type="CustodianType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Custodian for a UGMA/UTMA account
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SuccessorCustodian" type="CustodianType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Successor Custodian for a UGMA/UTMA account
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Account Identifier in the IB database
+					(CustomerAccount_Rtab.acct_id).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the account at the external
+					entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="base_currency" type="Currency_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Base Currency for the account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="multicurrency" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if this account is
+					multi-currency capable.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="margin" type="Margin_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of margin rules to be applied to the
+					account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="IRA" type="xsd:boolean" use="optional"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if this is an IRA account. IRA
+					accounts
+					only permitted for US Legal Residents opening an Individual
+					account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="IRA_type" type="IRA_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of IRA account. Required if this is an IRA
+					account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="IRA_official_title" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for inherited IRA if transferring from
+					an external
+					account with a matching title. The title at the
+					transferring
+					institution.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="client_active_trading" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the account owner will
+					actively trade.
+					For advisor clients, the default value is false; for broker
+					clients the
+					value is always true.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="duplicate" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the account should be cloned
+					for this
+					customer to create a duplicate account with the same
+					configuration. Only applicable for Advisor Client accounts.
+					In
+					addition to trading configuration, Advisor Client Fees
+					and
+					Commission Schedules will also be duplicated. The cloned
+					account
+					will have a different account id and be accessible
+					via the same user
+					session. Cloning request will not be
+					processed until the original
+					account is approved and opened.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="no_of_duplicates" type="xsd:nonNegativeInteger"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Number of duplicate accounts required if the
+					account is to
+					be duplicated. Required if duplication is requested
+					and
+					multiple duplicates are needed. If not provided, default
+					will be
+					a single duplicate account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="stock_yield_program" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the account will participate on
+					Stock Yield
+					Enhancement Program that allows lending of shares to
+					traders
+					who want to sell them short and are willing to pay a fee
+					to
+					borrow them. Specific agreements must be signed. Default
+					value is false.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="alias" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Account alias that will appear on account
+					statements, trading platform
+					and Account Management screens. Ideally
+					it should be easier to remember
+					than the account ID.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="BrokerageServices">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more brokerage services.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BrokerageService" type="BrokerageService"
+				maxOccurs="3" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TradingPermissions">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more exchange access bundles specified by
+				country or
+				other grouping.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradingPermission" type="TradingPermission"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CommissionConfigs">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more commission configuration settings (either for securities or
+				commodities or both)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CommissionConfig" type="CommissionConfig"
+				maxOccurs="2" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AllExchangeAccess">
+		<xsd:annotation>
+			<xsd:documentation>
+				If a trading permission bundle would provide
+				improper exchange
+				access, then specify exactly a set of exchanges.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ExchangeAccess" type="ExchangeAccess"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Capabilities">
+		<xsd:annotation>
+			<xsd:documentation>
+				A set of capabilities will be inferred from the
+				trading
+				permissions. However, additional capabilities can be
+				specified.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Capability" type="Capability"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Capability">
+		<xsd:annotation>
+			<xsd:documentation>An ACES account capability.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="Capability_Type" use="required" />
+	</xsd:complexType>
+
+
+	<xsd:complexType name="DVPInstructions">
+		<xsd:annotation>
+			<xsd:documentation>
+				For IBExecution and/or IBPrime service, DVP
+				instructions provide
+				the clear-away trading permissions.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DVPInstruction" type="DVPInstruction"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InvestmentObjectivesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Investment objectives of the customer.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="objective" type="InvestmentObjective_Type"
+				minOccurs="1" maxOccurs="6" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BrokerageService">
+		<xsd:annotation>
+			<xsd:documentation>
+				An ACES account brokerage service.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="BrokerageService_Type"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="TradingPermission">
+		<xsd:annotation>
+			<xsd:documentation>
+				An ACES account trading bundle.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="asset_class" type="AssetClass_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Deprecated. Not required as a exchange bundle
+					comprises of
+					combinations of exchange and asset class.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exchange_group" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code for a bundle of trading permissions
+					(ExchangeBundle_Rtab.code).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country" type="Country_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Country
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="product" type="Product_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Product Type
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="CommissionConfig">
+		<xsd:annotation>
+			<xsd:documentation>
+				An ACES account commission structure.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="style" type="CommissionStyle" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Commission Style (Possible values include Bundled or Unbundled)
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="type" type="CommissionType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Commission Type (Possible values include Securities or Commodities)
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ExchangeAccess">
+		<xsd:annotation>
+			<xsd:documentation>
+				An ACES account exchange access.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="asset_class" type="AssetClass_Type"
+			use="required" />
+		<xsd:attribute name="exchange" type="ExchangeCode_Type"
+			use="required" />
+	</xsd:complexType>
+	<xsd:complexType name="AssetClass">
+		<xsd:annotation>
+			<xsd:documentation>
+				An ACES asset class, aka financial instrument
+				type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="AssetClass_Type" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="TradingLimits">
+		<xsd:annotation>
+			<xsd:documentation>
+				Various limits for the llimit tracking mechanism.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OrderValueLimits" type="OrderValueLimits" />
+			<xsd:element name="EFPQuantityLimits" type="EFPQuantityLimits" />
+			<xsd:element name="OrderQuantityLimit" type="OrderQuantityLimit"
+				maxOccurs="9" />
+			<xsd:element name="DayQuantityLimit" type="DayQuantityLimit"
+				maxOccurs="9" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OrderValueLimits">
+		<xsd:annotation>
+			<xsd:documentation>Per day order value limits.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="max_order_value" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="max_gross_value" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="max_net_value" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="net_contract_limit" type="xsd:decimal"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="EFPQuantityLimits">
+		<xsd:annotation>
+			<xsd:documentation>EFP order quantity limits.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="max_nominal_efp_per_order" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="max_net_efp_trades" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="max_gross_efp_trades" type="xsd:nonNegativeInteger"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="OrderQuantityLimit">
+		<xsd:annotation>
+			<xsd:documentation>
+				Per asset class order quantity limit.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="asset" type="AssetClass_Type" use="required" />
+		<xsd:attribute name="quantity" type="xsd:nonNegativeInteger"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="DayQuantityLimit">
+		<xsd:annotation>
+			<xsd:documentation>
+				Per asset class day quantity limit.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="asset" type="AssetClass_Type" use="required" />
+		<xsd:attribute name="quantity" type="xsd:nonNegativeInteger"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="AdvisorWrapFeesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Advisor Wrap Fee details for a client account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="automated_fees_details" type="AutomatedWrapFeeDetailsType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="highWaterMarkConfigHwma" type="HighWaterMarkType"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if High Water Mark is set for PERCENTOFPROFIT.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="highWaterMarkConfigHwmq" type="HighWaterMarkType"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if High Water Mark is set for PERCENTOFPROFIT_QUARTER.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="strategy" type="AdvisorWrapFeeStrategies_Type"
+			use="optional" default="NO_FEES" />
+		<xsd:attribute name="ChargeAdvisor" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					This is for AdvisorWrapFees.isChargeAdvisor and
+					indicates whether commissions will be charged to the advisor
+					account
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ChargeOtherFeesToAdvisor" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					This is for BillingConfiguration and indicates
+					whether other fees will be charged to the advisor account
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AutomatedWrapFeeDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of an Automated Advisor Wrap Fee Strategy
+				for a Client.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="per_trade_markups" type="CommissionScheduleType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if the Automated Wrap Fee type is
+						PERTRADE.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="annual_blended_percentage" type="AnnualBlendedPercentage"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="AutomatedWrapFees_Type"
+			use="required" />
+		<xsd:attribute name="max_fee" type="xsd:decimal" use="optional" />
+		<xsd:attribute name="num_contracts" type="xsd:nonNegativeInteger"
+			use="optional" default="1" />
+
+		<xsd:attribute name="PostFrequency" type="xsd:string"
+			use="optional" />
+
+		<xsd:attribute name="PercentOfNLVCap" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					This is the optional monthly invoice percentage
+					cap. When provided, it limits the advisor monthly invoice to a
+					certain percentage of the client's Net Asset Value. Mutualy
+					exclusive with PercentOfNLVCap_Q.
+					When used in combination with
+					type.INVOICE_LIMIT it implies both a percentage and absolute amount
+					cap (whichever is reached first).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PercentOfNLVCap_Q" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					This is the optional monthly invoice percentage
+					cap. When provided, it limits the advisor quarterly invoice to a
+					certain percentage of the client's Net Asset Value. Mutualy
+					exclusive with PercentOfNLVCap.
+					When used in combination with
+					type.INVOICE_LIMIT_Q it implies both a percentage and absolute
+					amount cap (whichever is reached first).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AnnualBlendedPercentage">
+		<xsd:annotation>
+			<xsd:documentation>
+				Annualize Blended Percentage
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="BlendedFrom" type="xsd:string" use="optional"></xsd:attribute>
+		<xsd:attribute name="BlendedTo" type="xsd:string" use="optional"></xsd:attribute>
+		<xsd:attribute name="Percentage" type="xsd:string" use="optional"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="HighWaterMarkType">
+		<xsd:annotation>
+			<xsd:documentation>
+				HighWaterMark Setup.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="hwm" type="HighWaterMarkConfigurationType"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="previousLosses" type="PreviousLossesType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="HighWaterMarkConfigurationType">
+		<xsd:annotation>
+			<xsd:documentation>
+				HighWaterMark Configuration.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="NumberOfPeriods" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="ProrateForWithdrawals" type="xsd:boolean"
+			use="optional" default="false" />
+	</xsd:complexType>
+	<xsd:complexType name="PreviousLossesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Previous Losses for HighWaterMark.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="loss" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="quarter" type="xsd:nonNegativeInteger"
+			use="optional" />
+		<xsd:attribute name="year" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="currency" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+
+	<xsd:complexType name="CommissionScheduleType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Schedule of commission markups.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="markup" type="CommissionMarkupType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="pricing_structure" type="PricingStructureType"
+			use="optional" default="FIXED" />
+	</xsd:complexType>
+
+	<xsd:complexType name="CommissionMarkupType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Specific markup in a commission schedule.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="stair" type="MarkupStaircaseType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="code" type="xsd:string" use="required" />
+		<xsd:attribute name="minimum" type="xsd:decimal" use="optional" />
+		<xsd:attribute name="maximum" type="xsd:decimal" use="optional" />
+		<xsd:attribute name="type" type="CommissionMarkups_Type"
+			use="required" />
+		<xsd:attribute name="amount" type="xsd:decimal" use="optional" />
+		<xsd:attribute name="plus_cost" type="xsd:boolean" use="optional"
+			default="false" />
+	</xsd:complexType>
+
+	<xsd:complexType name="MarkupStaircaseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A break in the markup staircase of a commission
+				schedule.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="break" type="xsd:decimal" use="optional" />
+		<xsd:attribute name="amount" type="xsd:decimal" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="InterestMarkupScheduleType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Schedule of interest rate markups.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="markup" type="InterestMarkupType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterestMarkupType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Interest Rate markups for a specific currency.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="currency" type="Currency_Type" use="required" />
+		<xsd:attribute name="debit_markup" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="ib_debit_markup" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="credit_markdown" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="short_credit_markdown" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="short_cfd_credit_markdown" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="long_cfd_debit_markdown" type="xsd:decimal"
+			use="optional" />
+		<xsd:attribute name="short_index_cfd_credit_markdown"
+			type="xsd:decimal" use="optional" />
+		<xsd:attribute name="long_index_cfd_debit_markdown"
+			type="xsd:decimal" use="optional" />
+	</xsd:complexType>
+
+	<xsd:element name="ExtPositionsTransfers">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details for transferring positions from a third
+				party broker to
+				IB using a specific transfer mechanism such as ACATS
+				or ATON for
+				one or more customer accounts at IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ExtPositionsTransfer" type="ExtPositionsTransferType"
+					minOccurs="1" maxOccurs="unbounded">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+
+	</xsd:element>
+
+	<xsd:complexType name="FeesTemplateBasedType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Fees setup.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="template_name" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Fees template name previously created on Account
+					Management.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ExtPositionsTransferType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details for transferring positions from a third
+				party broker to
+				IB using a specific transfer mechanism such as ACATS
+				or ATON.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialStockPositions" type="PartialStockPositions"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartialBondPositions" type="PartialBondPositions"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartialOptionPositions" type="PartialOptionPositions"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartialWarrantPositions" type="PartialWarrantPositions"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartialFundPositions" type="PartialFundPositions"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartialCashPositions" type="PartialCashPositions"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="PositionsTransfer_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Scope of transfer being requested, full or
+					partial.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sub_type" type="PositionsTransfer_SubType"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of transfer being requested, ACATS, ATON,
+					etc.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="broker_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Industry standard Id for the broker from whom the
+					positions
+					need to be transfered.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="broker_name" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name for the broker from whom the positions need
+					to be
+					transfered as known to IB.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="acct_at_broker" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer Account at the third party broker from
+					which to
+					transfer positions
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="src_IRA_type" type="IRA_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					IRA type of the account at the third party broker
+					from which
+					positions are to be transferred to an IB IRA account.
+					Only
+					required if the destination account at IB is an IRA account.
+					The type must match the IB account type otherwise transfer
+					will be
+					rejected.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="margin_loan" type="xsd:boolean"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if customer has a margin loan at
+					third-party broker.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="short_pos" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if customer's account at the
+					third-party
+					holds any short positions.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="option_pos" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if customer's account at the
+					third-party
+					holds any options positions.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ib_acct" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer Account at IB to which to transfer
+					positions. Only
+					relevant for independent position transfer loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="third_party_type" type="xsd:string"
+			use="optional" default="Not informed">
+			<xsd:annotation>
+				<xsd:documentation>
+					Third party type for ACATS transfers
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="approximate_acct_value" type="xsd:positiveInteger"
+			use="optional" default="1">
+			<xsd:annotation>
+				<xsd:documentation>
+					Approximate account values for ACATS transfers
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ssn" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					SSN of the account owner. SSN or EIN must be
+					provided.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ein" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					EIN of the account owner. SSN or EIN must be
+					provided.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="signature" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Signature authorizing the ACATS transfers
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="authorize_to_remove_fund" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Is used to indicate whether mutual funds are OK
+					to be excluded from ACATS transfer.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialStockPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of stock positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialStockPosition" type="PartialStockPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialStockPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of a stock position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="symbol" type="xsd:string" use="required" />
+		<xsd:attribute name="number_of_shares" type="xsd:long" />
+		<xsd:attribute name="is_all" type="xsd:boolean" default="false" />
+		<xsd:attribute name="position" type="PositionType"
+			default="LONG" />
+		<xsd:attribute name="exchange" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialBondPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of bond positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialBondPosition" type="PartialBondPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialBondPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of a bond position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="cusip_number" type="xsd:string"
+			use="required" />
+		<xsd:attribute name="number_of_bonds" type="xsd:long" />
+		<xsd:attribute name="is_all" type="xsd:boolean" default="false" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialOptionPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of option positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialOptionPosition" type="PartialOptionPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialOptionPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of an option position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="symbol" type="xsd:string" use="required" />
+		<xsd:attribute name="number_of_contracts" type="xsd:long" />
+		<xsd:attribute name="is_all" type="xsd:boolean" default="false" />
+		<xsd:attribute name="position" type="PositionType"
+			default="LONG" />
+		<xsd:attribute name="option_type" type="OptionType"
+			default="CALL" />
+		<xsd:attribute name="strike_price" type="xsd:long" use="required" />
+		<xsd:attribute name="expiration_date" type="xsd:string"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialWarrantPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of warrant positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialWarrantPosition" type="PartialWarrantPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialWarrantPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of a warrant position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="symbol" type="xsd:string" use="required" />
+		<xsd:attribute name="number_of_shares" type="xsd:long" />
+		<xsd:attribute name="is_all" type="xsd:boolean" default="false" />
+		<xsd:attribute name="position" type="PositionType"
+			default="LONG" />
+		<xsd:attribute name="option_type" type="OptionType"
+			default="CALL" />
+		<xsd:attribute name="strike_price" type="xsd:long" />
+		<xsd:attribute name="expiration_date" type="xsd:string" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialFundPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of fund positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialFundPosition" type="PartialFundPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialFundPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of a fund position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="symbol" type="xsd:string" />
+		<xsd:attribute name="number_of_shares" type="xsd:long" />
+		<xsd:attribute name="is_all" type="xsd:boolean" default="false" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialCashPositions">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information required to complete partial
+				transfer
+				of cash positions held in external accounts over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartialCashPosition" type="PartialCashPosition"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartialCashPosition">
+		<xsd:annotation>
+			<xsd:documentation>
+				Information required to complete partial transfer
+				of a cash position held in external account over to IB.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="amount" type="xsd:float" />
+		<xsd:attribute name="is_margin_loan" type="xsd:boolean"
+			default="false" />
+		<xsd:attribute name="is_full_cash" type="xsd:boolean"
+			default="false" />
+	</xsd:complexType>
+
+	<xsd:complexType name="DepositNotificationType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Notification details for deposit to be used to
+				fund the account
+				from an external source.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CheckDetails" type="CheckDetailsType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="WireDetails" type="WireDetailsType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ACHDetails" type="ACHDetailsType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="IRADepositDetails" type="IRADepositDetailsType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="Deposit_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Method being used to deposit funds in the IB
+					account from an
+					external source.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="amount" type="xsd:decimal" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The amount being deposited.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="currency" type="Currency_Type"
+			default="USD" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The currency in which amount is being deposited.
+					For check
+					deposits and customer initiated ACH transfers, the only
+					supported currency is USD.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ib_acct" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer Account at IB for which this Deposit
+					Notification
+					is being set. Only relevant for notifications sent as
+					part
+					of Account Management Requests for open IB accounts.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="CheckDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of the check being used to fund the
+				customer account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="check_number" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The Check Number of the check being used to fund
+					the
+					deposit.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="routing_number" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					ABA Routing Number of the Bank on which the check
+					is drawn
+					as noted on the check.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="acct_number" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Account Number of the customer at the Bank on
+					which the
+					check is drawn as noted on the check.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="WireDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of the wire being used to fund the
+				customer account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="bank_name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of the Bank from which the deposit Wire
+					Transfer will
+					originate.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="country_code" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Two digit Country code from where Wire Transfer
+					Deposit will
+					originate.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="reference_number" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Reference Number or Payment ID of the Wire
+					Transfer provided
+					by the Bank.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ACHDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of the ACH transfer being used to fund the
+				customer
+				account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="cust_init_ACH" type="xsd:boolean"
+			default="true" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the ACH deposit will be
+					initiated by the
+					customer or by IB. Current support limited to
+					customer
+					initiated, the default.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="bank_name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of the Bank from which the ACH transfer will
+					originate.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="IRADepositDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Additional deposit details relevant to a deposit
+				to an IRA
+				account. Required for deposit notifications for IRA
+				accounts.
+				These details must be provided in addition to the basic
+				deposit
+				type specific details.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="deposit_type" type="IRADeposit_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Whether a contribution or a rollover.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tax_year" type="IRAContribTaxYear_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Tax year of the contribution for contrbution
+					deposits. Prior
+					year contributions only allowed until the tax
+					deadline
+					(4/15). Such deposits will only be allowed if they settle
+					on
+					time (by 4/15).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="from_ira_type" type="IRA_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of the source IRA account, only required for
+					rollover
+					deposits. Rollover deposits currently restricted to be from
+					Traditional, Roth and SEP IRA accounts only. Inherited IRA
+					accounts
+					may not be the source of a rollover deposit
+					notification.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="RecurringTransactionType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of scheduled periodic withdrawals or
+				deposits between
+				the account and an external source. Currently, only
+				ACH
+				withdrawals are supported.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ACHInstruction" type="ACHInstructionType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="IRAWithdrawalDetails" type="IRAWithdrawalDetailsType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="RecurringTx_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of recurring transaction,
+					Deposit/withdrawal.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="method" type="Deposit_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Method being used to transfer funds between the
+					IB account
+					and external source.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="instruction" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Name of the instruction used to transfer funds.
+					May be the
+					name of an existing instruction for the account or a new
+					instruction being specified as part of the transaction
+					request.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="frequency" type="RecurringTxFreq_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Frequency at which the transfer should occur.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="start_date" type="xsd:date" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Date from which transfers should commence.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="end_date" type="xsd:date" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Date on which transfers should terminate. When
+					not
+					specified, will be repeated perpetually.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Nick name for the recurring transaction
+					instruction.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="amount" type="xsd:decimal" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					The amount being deposited.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="currency" type="Currency_Type"
+			default="USD" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The currency in which amount is being
+					deposited/withdrawn.
+					For check deposits, customer initiated ACH
+					transfers and IB
+					initiated ACH transfers, the only supported
+					currency is USD.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ib_acct" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer Account at IB for which this recurring
+					transaction
+					is being set. Only relevant for instructions sent as
+					part of
+					Account Management Requests for open IB accounts.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ACHInstructionType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of an ACH instruction to be used to
+				transfer funds
+				between the account and an external source. Currently
+				only
+				instructions for credit transactions initiated by IB are
+				supported.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="cust_init_ACH" type="xsd:boolean"
+			default="false" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the ACH deposit will be
+					initiated by the
+					customer or by IB. Current support limited to IB
+					initiated,
+					the default.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="type" type="ACHInstructionTx_Type"
+			default="CREDIT" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of transactions for which this instruction
+					may be used.
+					Currently, only credit is supported.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Nick name for the ACH instruction.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ib_acct" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer Account at IB for which this ACH
+					Instruction
+					is being set. Only relevant for instructions sent as
+					part
+					of Account Management Requests for open IB accounts and
+					not included as part of Recurring Transactions. ACH
+					instructions could be created only on the first 30 days
+					from the account opening, after that the user should
+					use Account Management application.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="bank_country" type="CountryCode_Type"
+			default="USA" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The bank country, currently, ACH is only
+					supported for US
+					banks. Preferrably use ISO codes for countries
+					instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="currency" type="Currency_Type"
+			default="USD" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Currency of the bank account, currently, only USD
+					bank
+					accounts are supported.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="routing_number" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					ABA Routing Number of the Bank.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="acct_number" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Account Number of the customer at the Bank.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="IRAWithdrawalDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Additional details relevant to a withdrawal from
+				an IRA account.
+				Required for withdrawal instruction for IRA accounts.
+				These
+				details must be provided in addition to the basic withdrawal
+				type specific details.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="distribution_type" type="IRADistribution_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>Type of distribution.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="excess_contrib_yr" type="xsd:nonNegativeInteger"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Year from which excess contribution is being
+					withdrawn.
+					Required if the distribution type specified is
+					EXCESS_CONTRIB.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fed_tax_rate" type="xsd:decimal"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The tax rate for federal withholding from the
+					withdrawal. If
+					not specified, implies customer indicates no
+					withholding.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="legal_residence_state" type="StateCode_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					State of legal residence of the customer.
+					Use ISO codes for states/provinces instead of names; only for US and
+					Canada two letters abbreviations are accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="state_tax_rate" type="xsd:decimal"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The tax rate for state withholding from the
+					withdrawal. If
+					not specified, implies customer indicates no
+					withholding.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="CustodianType">
+		<xsd:annotation>
+			<xsd:documentation>
+				One individual or a legal entity that is the custodian for a UGMA /
+				UTMA. Legal entities
+				must detail one employee to be the signatory.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Individual" type="Individual"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LegalEntity" type="LegalEntity"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Employee" type="Individual" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

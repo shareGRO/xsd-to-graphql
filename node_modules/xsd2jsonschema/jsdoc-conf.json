@@ -1,0 +1,54 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "source": {
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./static"
+                ]
+            },
+            "includeDate": false
+        },
+        "logoFile": "400dpiLogoCropped.png",
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "dateFormat": "ddd MMM Do YYYY",
+        "outputSourceFiles": false,
+        "outputSourcePath": false,
+        "systemName": "Xsd2JsonSchema",
+        "footer": "Happy Footer!",
+        "copyright": "Xsd2JsonSchema Copyright © 2019 DrewHarbor LLC",
+        "navType": "vertical",
+        "theme": "oblivion",
+        "linenums": true,
+        "collapseSymbols": false,
+        "inverseNav": false,
+        "protocol": "html://",
+        "methodHeadingReturns": false
+    },
+    "markdown": {
+        "parser": "evilstreak",
+        "dialect": "Maruku",
+        "hardwrap": false
+    },
+    "opts": {
+        "encoding": "utf8",
+        "readme": "./README.md",
+        "destination": "docs-generated/",
+        "recurse": true,
+        "verbose": true
+    }
+}

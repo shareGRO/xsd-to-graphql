@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.interactivebrokers.com/schemas/IBCust_import"
+	targetNamespace="http://www.interactivebrokers.com/schemas/IBCust_import"
+	elementFormDefault="qualified" version="2.0">
+
+	<xsd:include schemaLocation="../IBCustEnumerations.xsd" />
+	<xsd:include schemaLocation="../IBCust_tax_info.xsd" />
+	<xsd:include schemaLocation="Account.xsd" />
+	<xsd:include schemaLocation="WithholdingStatements.xsd" />
+	<xsd:include schemaLocation="SimpleTypes.xsd" />
+
+	<xsd:complexType name="Customer">
+		<xsd:annotation>
+			<xsd:documentation>
+				A customer is the beneficial owner of an account.
+				Customer
+				details are specific to the customer type and expected in
+				corresponding elements.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Organization" type="OrganizationApplicant"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Details of a customer of type ORG.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AccountHolder" type="IndividualApplicant"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Details of a customer of type INDIVIDUAL.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="JointHolders" type="JointApplicant"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Details of a customer of type JOINT.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trust" type="TrustApplicant"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Details of a customer of type TRUST.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer identifier in the IB database
+					(Applicant_Rtab.id)
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer identifier from the external entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="transfer_us_micro_cap_stock" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to identify whether US Micro Cap Stocks will
+					be transferred to this account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="type" type="Customer_Type" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of customer according to IB's classification
+					of
+					customers (Applicant_Rtab.type). Required for non-FT loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="prefix" type="UserNamePrefix_Type"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Prefix to be used to generate the primary user
+					name for the
+					IB account of this customer. Required for non-FT loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="email" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Primary email address of the customer. Required
+					for non-FT
+					loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="md_status_nonpro" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Trading status of the customer w.r.t Market Data
+					subscriptions. Required for non-FT loads. Ignored for ORG
+					customers
+					where it is defaulted to false.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="preferred_primary_language" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferred Primary Language for receiving
+					Communications/Notifications.
+					Preference can be set via Message
+					Center.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="preferred_secondary_language" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferred Secondary Language for receiving
+					Communications/Notifications.
+					Preference can be set via Message
+					Center.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="legal_residence_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Country of legal residence of the customer. Only
+					relevant
+					for Non-Disclosed Broker Clients not subscribing to market
+					data and therefore not providing the primary holder details
+					where
+					this is normally set. Preferrably use ISO codes for countries
+					instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tax_treaty_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Country with US Tax Treaty applicable to
+					Customer. Only
+					applicable to Non-Disclosed Broker Clients.
+					Preferrably use
+					ISO codes for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="meet_aml_standard" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer meets anti-money laundering standards.
+					Only
+					applicable to Non-Disclosed Broker Clients.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="has_direct_trading_access" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Customer have direct trading access using one of
+					IB plataforms. Only
+					applicable to Non-Disclosed Broker Clients.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="origin_country" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Country of origin of the applicant. Currently
+					only used to
+					distinguish Non-Resident Indians. Preferrably use ISO
+					codes
+					for countries instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="termination_age" type="xsd:integer"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Termination age. Used to terminate accounts
+					created for minors when they
+					reach the termination age.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="governing_state" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Use ISO codes for states/provinces instead of
+					names;
+					only for US and Canada two letters abbreviations are
+					accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opt_for_debit_card" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Apply for Interactive Broker's Debit Card for the
+					account holder during registration;
+					use with Individual or Joint
+					accounts only.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="robo_fa_client" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Specify that account is a ROBO account;
+					use with
+					Individual or Joint accounts only.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="independent_account" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Specify that the account is an independent
+					account.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="IndividualIdentification">
+		<xsd:annotation>
+			<xsd:documentation>
+				All possible forms of indentification for an
+				individual. SSN is
+				required for US citizens and legal residents. For
+				non-US
+				customers, at least one form of identification must be
+				provided.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="citizenship" type="xsd:string" use="required" />
+		<xsd:attribute name="SSN" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Must be numeric, 9 digits no dashes.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="DriversLicense" type="xsd:string"
+			use="optional" />
+		<xsd:attribute name="Passport" type="xsd:string" use="optional" />
+		<xsd:attribute name="AlienCard" type="xsd:string" use="optional" />
+		<xsd:attribute name="NationalCard" type="xsd:string"
+			use="optional" />
+		<xsd:attribute name="IssuingCountry" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LegalResidenceCountry" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for non-FT loads. Preferrably use ISO
+					codes for countries
+					instead of names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LegalResidenceState" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for US legal residents. Use ISO codes
+					for states/provinces instead of names;
+					only for US and Canada two
+					letters abbreviations are accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="EducationalQualification" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for legal Indian residents or citizens
+					of India.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="FathersName" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for legal Indian residents or citizens
+					of India.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hasGreenCard" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for legal Indian residents or citizens
+					of India.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PANNumber" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for legal Indian residents or citizens
+					of India.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TaxId" type="xsd:string" use="optional" />
+		<xsd:attribute name="ProofOfAgeCard" type="xsd:string"
+			use="optional" />
+	</xsd:complexType>
+
+	<xsd:complexType name="OrganizationApplicant">
+		<xsd:annotation>
+			<xsd:documentation>
+				An organization which is the customer and
+				beneficial owner of an
+				account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identification" type="OrganizationIdentification"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="AccountSupport" type="AccountSupportType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FinancialInformation" type="FinancialInformation"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AccreditedInvestorInformation" type="AccreditedInvestorInformation"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="PrimaryTrader" type="PrimaryTrader"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ControllingOfficer" type="ControllingOfficer"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssociatedEntities" type="AssociatedEntities"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="RegulatedMemberships" type="RegulatedMemberships"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TaxResidencies" type="TaxResidencies"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required information due to FATCA changes: tax
+						regulations require us to
+						collect
+						information about customer's tax
+						residency and we may be obligated to share
+						that information with
+						the regulators.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8BenE" type="FormW8BENE" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>One type of W8 is required if the beneficial
+						owner is not a US entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8IMY" type="FormW8IMY" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>One type of W8 is required if the beneficial
+						owner is not a US entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WithholdingStatement" type="WithholdingStatementType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Withholding statement for the acct, to be used
+						by QI Brokers.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+		<xsd:attribute name="type_of_trading" type="TradingFor_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Nature of trading to be carried out by the
+					organization
+					using this account. Current support limited to Firm
+					trading
+					for non-FT loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="type" type="OrgApplicant_Type" use="optional"
+			default="CORPORATION">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of organization
+					(OrganizationApplicant_Rtab.type).
+					Required for non-FT loads.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_org_us_subsidiary" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag that indicates if the organization is a
+					foreign organization with a US subsidiary
+					doing trading business
+					with IB.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_qualified_intermediary" type="xsd:boolean"
+			use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag that indicates if hte organization is a
+					Qualified Intermediary according
+					to the criteria used by US IRS for
+					tax proposes.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="has_assumed_primary_reporting"
+			type="xsd:boolean" use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag that indicates if the organization has
+					assumed the role of primary reporting according
+					to the criteria used
+					by US IRS for tax proposes.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="has_accepted_primary_withholding"
+			type="xsd:boolean" use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag that indicates if hte organization has
+					accepted the role of primary withholding according
+					to the criteria
+					used by US IRS for tax proposes.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="us_tax_purpose_type" type="USTaxPurposeType"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					US tax purpose.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="IndividualApplicant">
+		<xsd:annotation>
+			<xsd:documentation>
+				An individual who is the customer and beneficial
+				owner of an
+				account. Ownership and Title are fixed at 100% and
+				Account
+				Holder respectively and provided values will be ignored.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AccountHolderDetails" type="AssociatedIndividual"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="FinancialInformation" type="FinancialInformation"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="RegulatedMemberships" type="RegulatedMemberships"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AccreditedInvestorInformation" type="AccreditedInvestorInformation"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TaxInformation" type="IndividualTaxInformation"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Tax information required for individuals. This
+						element is being deprecated, we suggest to use
+						FATCA elements.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WithholdingStatement" type="WithholdingStatementType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Withholding statement for the acct, to be used
+						by QI Brokers.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="JointApplicant">
+		<xsd:annotation>
+			<xsd:documentation>
+				Pair of individuals who are the joint customers
+				and joint
+				beneficial owners of an account. Only Joint applications of
+				type
+				tennants common may specify ownership for the holders, for the
+				rest this is ignored.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FirstHolderDetails" type="AssociatedIndividual"
+				minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Title is fixed as First Holder, provided value
+						is
+						ignored.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondHolderDetails" type="AssociatedIndividual"
+				minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Title is fixed as Second Holder, provided value
+						is
+						ignored.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinancialInformation" type="FinancialInformation"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="RegulatedMemberships" type="RegulatedMemberships"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AccreditedInvestorInformation" type="AccreditedInvestorInformation"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TaxInformation" type="IndividualTaxInformation"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Tax information required for individuals. This
+						element is being deprecated, we suggest to use
+						FATCA elements.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WithholdingStatement" type="WithholdingStatementType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Withholding statement for the acct, to be used
+						by QI Brokers.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="Joint_Type" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Type of Joint customer (JointApplicant_Rtab.type)
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="TrustApplicant">
+		<xsd:annotation>
+			<xsd:documentation>
+				A Trust which is the customer and beneficial owner
+				of an
+				account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identification" type="TrustIdentification"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="FinancialInformation" type="FinancialInformation"
+				minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for non-FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegulatoryInformation" type="RegulatoryInformation"
+				minOccurs="1" maxOccurs="2" />
+			<xsd:element name="RegulatedMemberships" type="RegulatedMemberships"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Only supported for FT loads.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AccreditedInvestorInformation" type="AccreditedInvestorInformation"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Trustees" type="TrusteesType"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Beneficiaries" type="AssociationTypeEntities"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Grantors" type="AssociationTypeEntities"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="TaxResidencies" type="TaxResidencies"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required information due to FATCA changes: tax
+						regulations require us to
+						collect
+						information about customer's tax
+						residency and we may be obligated to share
+						that information with
+						the regulators.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8BenE" type="FormW8BENE" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>One type of W8 is required if the beneficial
+						owner is not a US entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8IMY" type="FormW8IMY" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>One type of W8 is required if the beneficial
+						owner is not a US entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WithholdingStatement" type="WithholdingStatementType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Withholding statement for the acct, to be used
+						by QI Brokers.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="third_party_mgmt" type="xsd:boolean"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the account will be accessed
+					by a third
+					party advisor or professional manager. If so, the
+					customer
+					market data status will be defaulted to professional per
+					Exchange requirements.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="trust_type" type="TrustTypeList"
+			use="optional" default="US_TAXABLE_TRUST">
+			<xsd:annotation>
+				<xsd:documentation>
+					According to US IRS, for taxes purposes, the
+					trust is classified as
+					Complex, Single, Grantor os US Taxable?
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="OrganizationIdentification">
+		<xsd:annotation>
+			<xsd:documentation>
+				The organization name will be the account title
+				for cashiering
+				functions. Otherwise, this information is compliance
+				mandated.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PlaceOfBusiness" type="Address"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Official address of the organization.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MailingAddress" type="Address"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Mailing address of the organization if different
+						from
+						the place of business. Required if flag indicating a
+						different
+						mailing address is set.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Phones" type="PhonesList" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+		<xsd:attribute name="business_description" type="xsd:string"
+			use="required" />
+		<xsd:attribute name="identification" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Standard Official Identification for the
+					organization. For a
+					US organization this will be its Tax ID (EIN or
+					SSN).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="identification_country" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formation_country" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formation_state" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Use ISO codes for states/provinces instead of
+					names; only for US and
+					Canada two letters abbreviations are
+					accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="same_mail_address" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate that the customer mailing
+					address is the
+					same as its place of business.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the inforamtion is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="LegalEntityIdentification">
+		<xsd:annotation>
+			<xsd:documentation>
+				Partial organization identification information.
+				For associated
+				legal entities of an organizational customer.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PlaceOfBusiness" type="Address"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Official address of the entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MailingAddress" type="Address"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Mailing address of the entity if different from
+						the
+						place of business. Required if flag indicating a
+						different
+						mailing address is set.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="identification" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Standard Official Identification for the entity.
+					For a US
+					legal entity this will be its Tax ID.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identification_country" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formation_country" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formation_type" type="Organization_Type"
+			use="required" />
+		<xsd:attribute name="exchange_code" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Standard code for the exchange on which this
+					entity is
+					listed. Required for an entity of formation_type public.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exchange_symbol" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Symbol of the entity's listing on the exchange.
+					Required if
+					entity formation_type is public.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="same_mail_address" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate that the entity mailing address
+					is the same
+					as its place of business.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="TrustIdentification">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Trust name will be the account title for
+				cashiering
+				functions. Otherwise, this information is compliance
+				mandated.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Address" type="Address" minOccurs="1"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Official address of the Trust.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MailingAddress" type="Address"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Mailing address of the Trust if different from
+						the
+						official address. Required if flag indicating a
+						different
+						mailing address is set.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Phones" type="PhonesList" />
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+		<xsd:attribute name="type_of_trust" type="xsd:string"
+			use="required" />
+		<xsd:attribute name="purpose_of_trust" type="xsd:string"
+			use="required" />
+		<xsd:attribute name="date_formed" type="DOB" use="required" />
+		<xsd:attribute name="formation_country" type="CountryCode_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formation_state" type="StateCode_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Use ISO codes for states/provinces instead of
+					names; only for US and
+					Canada two letters abbreviations are
+					accepted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="registration_number" type="xsd:string"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Registration Number for the Trust. For a US Trust
+					this will
+					be its Tax ID.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="registration_type" type="TIN_Type"
+			use="required" />
+		<xsd:attribute name="registration_country" type="CountryCode_Type"
+			use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="same_mail_address" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate that the customer mailing
+					address is the
+					same as its place of business.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the information is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AssociatedEntities">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more individuals or legal entities that are
+				associated
+				with the customer.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AssociatedIndividual" type="AssociatedIndividual"
+				minOccurs="1" maxOccurs="9" />
+			<xsd:element name="AssociatedEntity" type="AssociatedEntity"
+				minOccurs="0" maxOccurs="9" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IRABeneficiariesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more individuals or legal entities who are
+				the primary
+				and contingent beneficiaries of the IRA account. At least
+				one
+				primary beneficiary, individual or legal entity, must be
+				provided. Net ownership of primary and contingent beneficiaries
+				must
+				add up to 100% for each beneficary type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PrimaryBeneficiary" type="IRAPrimaryBeneficiary"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="PrimaryBeneficiaryEntity" type="IRAPrimaryBeneficiaryEntity"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="ContingentBeneficiary" type="IRAContingentBeneficiary"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="ContingentBeneficiaryEntity" type="IRAContingentBeneficiaryEntity"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="spouse_primary_beneficary" type="xsd:boolean"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the spouse is the primary
+					beneficiary of
+					the IRA account. Required for a married account
+					holder. If
+					spouse is not the primary beneficiary then a signed
+					spousal
+					consent is required.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="AssociationTypeEntities">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more individuals or legal entities with a
+				specific
+				association with the customer as defined by the declaring
+				element.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Individual" type="Individual"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="LegalEntity" type="LegalEntity"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrusteesType">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more individuals or legal entities that are
+				the trustees
+				of the Trust.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Individual" type="TrusteeIndividual"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="Entity" type="TrusteeEntityType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TrusteeIndividual">
+		<xsd:annotation>
+			<xsd:documentation>
+				A individual that is the trustee of a trust. An
+				individual trustee
+				must must inform job title and occupation.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Occupation" type="xsd:string"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="IsNFA_Registered" type="xsd:boolean"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="NFA_RegistrationNumber" type="xsd:string"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="TrusteeEntityType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A legal entity that is the trustee of a trust. An
+				entity trustee
+				must detail an employee signatory.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegalEntity" type="LegalEntity"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Employee" type="Individual" minOccurs="1"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FinancialInformation">
+		<xsd:annotation>
+			<xsd:documentation>
+				Financial information about the customer required
+				to qualify
+				them for trading and brokerage services. All amount values
+				must
+				be in USD.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InvestmentExperience" type="InvestmentExperience" />
+			<xsd:element name="InvestmentObjectives" type="InvestmentObjectivesType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Deprecated. Should be provided individually for
+						each
+						account being added for the customer using the
+						InvestmentObjectives sub-element of an Account element.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AdditionalSourceOfIncome" type="AdditionalSourceOfIncomeType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="SourcesOfWealth" type="SourcesOfWealthType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="net_worth" type="xsd:decimal" use="required" />
+		<xsd:attribute name="liquid_net_worth" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="annual_net_income" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="total_assets" type="xsd:decimal"
+			use="required" />
+		<xsd:attribute name="source_of_funds" type="xsd:string"
+			use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Required for Organizations and Trusts and for
+					Individuals
+					noting Unemployed/Retired/Student/At-Home
+					Trader/Homemaker as Employment Type.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the inforamtion is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="AdditionalSourceOfIncomeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				The customer's additional source of income;
+				optional for employed individuals; required for
+				unemployed, retired,
+				student, at-home trader and
+				homemakers. The sum of percentages must
+				be
+				exactly 100%; each type of source of income should be
+				mentioned
+				only one.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SourceOfIncome" type="SourceOfIncomeType"
+				maxOccurs="12" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SourceOfIncomeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Additional source of income.
+				Note: Source of Income will be deprecated from June 1, 2019 onwards.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="source_type" type="SourceOfFunds_Type"
+			use="required" />
+		<xsd:attribute name="percentage" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="description" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="SourcesOfWealthType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Customer's source of wealth; required for all account types. 
+				The sum of percentages must be exactly 100%; 
+				each type of source of wealth should be mentioned only one.
+				Note: Source of Wealth will become mandatory from June 1, 2019 onwards.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SourceOfWealth" type="SourceOfWealthType"
+				maxOccurs="9" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SourceOfWealthType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Source of wealth.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="source_type" type="WealthSource_Type"
+			use="required" />
+		<xsd:attribute name="percentage" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="is_used_for_funds" type="xsd:boolean" />
+		<xsd:attribute name="description" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="InvestmentExperience">
+		<xsd:annotation>
+			<xsd:documentation>
+				The customer's experience and knowledge with the
+				various
+				financial instruments required to qualify trading in those
+				instruments.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AssetExperience" type="AssetExperience"
+				maxOccurs="12" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AssetExperience">
+		<xsd:annotation>
+			<xsd:documentation>
+				Trading experience and knowledge for a specific
+				financial
+				instrument.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="asset_class" type="AssetClass_Type"
+			use="required" />
+		<xsd:attribute name="years_trading" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="trades_per_year" type="xsd:nonNegativeInteger"
+			use="required" />
+		<xsd:attribute name="knowledge_level" type="KnowledgeLevel_Type"
+			use="required" />
+	</xsd:complexType>
+	<xsd:complexType name="AccreditedInvestorInformation">
+		<xsd:annotation>
+			<xsd:documentation>
+				Our five accredited investor questions. See a
+				printed
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="q1" type="xsd:boolean" use="optional"
+			default="true" />
+		<xsd:attribute name="q2" type="xsd:boolean" use="optional"
+			default="true" />
+		<xsd:attribute name="q3" type="xsd:boolean" use="optional"
+			default="true" />
+		<xsd:attribute name="q4" type="xsd:boolean" use="optional"
+			default="true" />
+		<xsd:attribute name="q5" type="xsd:boolean" use="optional"
+			default="true" />
+	</xsd:complexType>
+
+	<xsd:complexType name="RegulatoryInformation">
+		<xsd:annotation>
+			<xsd:documentation>
+				All information which is required for compliance
+				reasons. The
+				attribute names are codes for the various types of
+				organizations
+				that the customer must declare.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="RegulatoryDetails" type="RegulatoryDetail"
+					maxOccurs="unbounded" />
+				<xsd:element name="RegulatoryDetail" type="RegulatoryDetail"
+					maxOccurs="unbounded" />
+			</xsd:choice>
+			<xsd:element name="SelfRegulatedMembership" type="SelfRegulatedMembershipType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AffiliationDetails" type="AffiliationDetailsType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FinancialOrgType" type="FinancialOrgType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="ORGRegulatoryInfo" type="ORGRegulatoryInfoType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the inforamtion is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="RegulatoryDetail">
+		<xsd:annotation>
+			<xsd:documentation>
+				Specific questions about regulatory issues. An
+				enumeration of
+				question codes will be declared. See a paper
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="RegulatoryIssueCode_Type"
+			use="required" />
+		<xsd:attribute name="status" type="xsd:boolean" use="optional"
+			default="false" />
+		<xsd:attribute name="details" type="xsd:string" use="optional" />
+		<xsd:attribute name="detail" type="xsd:string" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="SelfRegulatedMembershipType">
+		<xsd:annotation>
+			<xsd:documentation>
+				List of exchanges and self regulated organizations
+				the customer
+				is a member of.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="exchanges" type="xsd:string"
+				minOccurs="0" maxOccurs="1" default="" />
+			<xsd:element name="organizations" type="xsd:string"
+				minOccurs="0" maxOccurs="1" default="" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AffiliationDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Details of customer or customer household member
+				affiliated to
+				a broker dealer, bank, hedge fund or other financial
+				services company.
+				Informing company_id, additional information like
+				name, address and
+				phone are
+				optional. Company_id is a number assigned
+				by IB for companies
+				already participating in our Employee Track
+				program. An updated list
+				could
+				be obtained with IB Customer Services.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="affiliation_relationship" type="xsd:string"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Relationship with the account holder. It would
+						be self, spouse,
+						partner, child or the best way to describe the
+						case.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="person_name" type="xsd:string"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Person full name, no abbreviations.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="company_id" type="xsd:integer"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="company" type="xsd:string" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Company full name, no abbreviations.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="company_mailing_address" type="Address"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="company_phone" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Preferably the phone number of the company's
+						Compliance department.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="company_email_address" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Preferably the email address of the company's
+						Compliance department.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="is_duplicate_stmt_required" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if IB should send duplicated statements
+					to customers. For those
+					incldued on FINRA Rule 3210
+					or equivalent on
+					his/her jurisdiction, the expected answer is true,
+					as they need to
+					submit one
+					copy to his/her employer compliance office.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="FinancialOrgType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Specific questions about financial org types. See
+				a paper
+				application.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="FinancialOrgCodeType"
+			use="required" />
+	</xsd:complexType>
+	<xsd:complexType name="RegulatedMemberships">
+		<xsd:annotation>
+			<xsd:documentation>
+				One or more regulated memberships.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RegulatedMembership" type="RegulatedMembership"
+				maxOccurs="9" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegulatedMembership">
+		<xsd:annotation>
+			<xsd:documentation>
+				We must know of the membership in any regulated
+				organizations.
+				E.g. an NYSE or NASD member.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="organization_code" type="xsd:string"
+			use="optional" default="NASD" />
+		<xsd:attribute name="membership_id" type="xsd:string"
+			use="optional" default="IBKR" />
+	</xsd:complexType>
+	<xsd:complexType name="PublicCompanyInfoType">
+		<xsd:sequence>
+			<xsd:element name="ExchangeTradedOn" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="" />
+			<xsd:element name="QuotedSymbol" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ORGRegulatorType">
+		<xsd:sequence>
+			<xsd:element name="RegulatorName" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="" />
+			<xsd:element name="RegulatorCountry" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="">
+				<xsd:annotation>
+					<xsd:documentation>
+						Preferrably use ISO codes for countries
+						instead
+						of names.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegulatedInCapacity" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="" />
+			<xsd:element name="RegulatorId" type="xsd:string"
+				minOccurs="1" maxOccurs="1" default="" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ORGRegulatoryInfoType">
+		<xsd:sequence>
+			<xsd:element name="PublicCompanyInfo" type="PublicCompanyInfoType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ORGRegulator" type="ORGRegulatorType"
+				minOccurs="0" maxOccurs="3" />
+		</xsd:sequence>
+		<xsd:attribute name="is_public" type="xsd:boolean" use="optional"
+			default="false" />
+		<xsd:attribute name="is_regulated" type="xsd:boolean"
+			use="optional" default="false" />
+	</xsd:complexType>
+	<xsd:complexType name="AssociatedIndividual">
+		<xsd:annotation>
+			<xsd:documentation>
+				An individual who is associated with this customer
+				and
+				qualification of the association.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="3" />
+				</xsd:sequence>
+				<xsd:attribute name="AuthorizedPerson" type="xsd:boolean"
+					default="false">
+					<xsd:annotation>
+						<xsd:documentation>
+							Indicates if the Associated Individual is an
+							Authorized Person [ The
+							person signing and completing the
+							application ] .
+							Defualt value is False.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PrimaryTrader">
+		<xsd:annotation>
+			<xsd:documentation>
+				The individual who will be associated with the
+				trading session
+				for the Organization's account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="1"
+						maxOccurs="1" />
+					<!-- application expects value = TRADER -->
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ControllingOfficer">
+		<xsd:annotation>
+			<xsd:documentation>
+				The CEO of the customer's organization.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="1"
+						maxOccurs="1" />
+					<!-- application expects value = CEO -->
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IRAPrimaryBeneficiary">
+		<xsd:annotation>
+			<xsd:documentation>
+				The individual who is the primary beneficiary of
+				the IRA
+				account. Here the Ownership denotes the beneficiary's share.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="1" /> <!-- application expects value = IRA_BENEFICIARY -->
+					<xsd:element name="Relationship" type="IRABeneficiaryRelation_Type"
+						minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IRAPrimaryBeneficiaryEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Legal Entity that is the primary beneficiary
+				of the IRA
+				account. Here the Ownership denotes the beneficiary's
+				share.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="SimpleLegalEntityType">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="1" /> <!-- application expects value = IRA_BENEFICIARY -->
+					<xsd:element name="Relationship" type="IRABeneficiaryRelation_Type"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="Executor" type="Individual"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Details of the Trustee/Executor where the
+								beneficiary is a Trust. Only considered if the
+								beneficiary
+								specified is a Trust, then too,
+								optional. Only the name is
+								required, address may
+								optionally be provided.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ExecutionDate" type="xsd:date"
+						minOccurs="1" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Date of execution of the Trust or Will.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ArticleOfWill" type="xsd:string"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Article of the Will. Required for Trust
+								Beneficiaries.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IRAContingentBeneficiary">
+		<xsd:annotation>
+			<xsd:documentation>
+				The individual who is the contingent beneficiary
+				of the IRA
+				account. Here the Ownership denotes the beneficiary's
+				share.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="1" /> <!-- application expects value = CONTINGENT -->
+					<xsd:element name="Relationship" type="IRABeneficiaryRelation_Type"
+						minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IRAContingentBeneficiaryEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Legal Entity that is the contingent
+				beneficiary of the IRA
+				account. Here the Ownership denotes the
+				beneficiary's share.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="SimpleLegalEntityType">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="1" />  <!-- application expects value = CONTINGENT -->
+					<xsd:element name="Relationship" type="IRABeneficiaryRelation_Type"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="Executor" type="Individual"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Details of the Trustee/Executor where the
+								beneficiary is a Trust. Only considered if the
+								beneficiary
+								specified is a Trust, then too,
+								optional. Only the name is
+								required, address may
+								optionally be provided.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ExecutionDate" type="xsd:date"
+						minOccurs="1" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Date of execution of the Trust or Will.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ArticleOfWill" type="xsd:string"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								Article of the Will. Required for Trust
+								Beneficiaries.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IRADecedent">
+		<xsd:annotation>
+			<xsd:documentation>
+				The deceased individual from whom the IRA account
+				is being
+				inherited. Required information for a decedent is the name,
+				date
+				of birth, date of death, SSN and the inheritor type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Individual">
+				<xsd:sequence>
+					<xsd:element name="DateOfDeath" type="DOB" minOccurs="1"
+						maxOccurs="1" />
+					<xsd:element name="Title" type="Title" minOccurs="1"
+						maxOccurs="1" /> <!-- application expects value = IRA_DECEDENT -->
+					<xsd:element name="InheritorType" type="InheritedIRABeneficiary_Type"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="Relationship"
+						type="InheritedIRABeneficiaryRelation_Type" minOccurs="1"
+						maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="AssociatedEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				A legal entity which is associated with this
+				customer and
+				qualification of the association.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="LegalEntity">
+				<xsd:sequence>
+					<xsd:element name="Ownership" type="Ownership" />
+					<xsd:element name="Title" type="Title" minOccurs="0"
+						maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Individual">
+		<xsd:annotation>
+			<xsd:documentation>
+				A general individual. Identification information
+				is mandatory.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="IndividualName" />
+			<xsd:element name="DOB" type="DOB" />
+			<xsd:element name="CountryOfBirth" type="xsd:string"
+				minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Preferrably use ISO codes for countries
+						instead
+						of names.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Gender" type="Gender_Type" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="MaritalStatus" type="MaritalStatus_Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for individuals associated with
+						Individual or
+						Joint accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumDependents" type="xsd:nonNegativeInteger"
+				minOccurs="0" maxOccurs="1" default="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for individuals associated with
+						Individual or
+						Joint accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Residence" type="Address" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="MailingAddress" type="Address"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Phones" type="PhonesList" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Email" type="Email" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Identification" type="IndividualIdentification"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="EmploymentType" type="Employment_Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for individuals associated with
+						Individual or
+						Joint accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmploymentDetails" type="EmploymentDetailsType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for individuals associated with
+						Individual or
+						Joint accounts that specify Employed or Self-employed
+						as
+						theyir employment type.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmployeeTitle" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Job title of the individual at his employer.
+						Required
+						for individuals associated with Organization accounts.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TaxResidencies" type="TaxResidencies"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required information due to FATCA changes: tax
+						regulations require us to
+						collect
+						information about customer's tax
+						residency and we may be obligated to share
+						that information with
+						the regulators.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W9" type="FormW9" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required for a US citizen or US person including
+						resident alien
+						individual.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W8Ben" type="FormW8BEN" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if the beneficial owner is not a US
+						person.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CRS" type="FormCRS" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required if the beneficial owner is part of
+						IB-UK entity.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the individual in the IB database
+					(Individual_Rtab.id).
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="external_id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifier for the individual at the external
+					entity.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="same_mail_address" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the individual's mailing
+					address is the
+					same as the residential address.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_authorized_to_sign_on_behalf_of_owner"
+			type="xsd:boolean" use="optional" default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the individual is authorized
+					to sign forms and
+					documents
+					related to tax information on behalf of
+					the account owner.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_us_tax_resident" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the individual is US tax
+					resident according to
+					the
+					American legislation.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the inforamtion is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="EntityName">
+		<xsd:annotation>
+			<xsd:documentation>A legal entity's name.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="LegalEntity">
+		<xsd:annotation>
+			<xsd:documentation>
+				A legal entity is anything other than an
+				individual.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="EntityName" />
+			<xsd:element name="Location" type="Address" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Deprecated. Entity's primary address must be
+						noted via
+						its place of business in the identification element.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Phones" type="PhonesList" />
+			<xsd:element name="Email" type="Email" />
+			<xsd:element name="LegalEntityIdentification" type="LegalEntityIdentification" />
+			<xsd:element name="TaxResidencies" type="TaxResidencies"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Required information due to FATCA changes: tax
+						regulations require us to
+						collect
+						information about customer's tax
+						residency and we may be obligated to share
+						that information with
+						the regulators.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional" />
+		<xsd:attribute name="external_id" type="xsd:string" use="required" />
+		<xsd:attribute name="is_us_tax_resident" type="xsd:boolean"
+			use="optional" default="true">
+			<xsd:annotation>
+				<xsd:documentation>
+					Flag to indicate if the legal entity is US tax
+					resident according to
+					the American legislation.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_translated" type="xsd:boolean"
+			default="false">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicates if the inforamtion is the translated
+					version. It is used
+					only when providing information in a different
+					language and English.
+					Default values is "false".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="Ownership">
+		<xsd:annotation>
+			<xsd:documentation>
+				Defines ownership with a specified percentage.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="percentage" type="xsd:nonNegativeInteger"
+			use="optional" default="0" />
+	</xsd:complexType>
+	<xsd:complexType name="Title">
+		<xsd:annotation>
+			<xsd:documentation>
+				Nature of association of an individual or entity
+				with the
+				customer account.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="code" type="Association_Type"
+					use="optional" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="IndividualName">
+		<xsd:annotation>
+			<xsd:documentation>
+				An individual's name as components.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="salutation" type="Salutation_Type"
+			use="required" />
+		<xsd:attribute name="first" type="xsd:string" use="required" />
+		<xsd:attribute name="last" type="xsd:string" use="required" />
+		<xsd:attribute name="middle" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Middle initial, just one letter.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="suffix" type="Suffix_Type" use="optional" />
+		<xsd:attribute name="title" type="xsd:string" use="optional" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PhoneInfo">
+		<xsd:annotation>
+			<xsd:documentation>
+				Required information about phone numbers. Country
+				is default to residential or business address
+				but when address is
+				provided in non-English characters, country is mandatory, referrably
+				use ISO codes for countries
+				instead of names.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="type" type="Phone_Type" use="required" />
+		<xsd:attribute name="number" type="xsd:string" use="required" />
+		<xsd:attribute name="country" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Preferrably use ISO codes for countries
+					instead of
+					names.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="is_verified" type="xsd:boolean"
+			use="optional" default="false" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PhonesList">
+		<xsd:annotation>
+			<xsd:documentation>
+				Direct contact details for an individual via Phone
+				or Fax.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Phone" type="PhoneInfo" minOccurs="1"
+				maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Detailed information about phone.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccountSupportType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Account Support classifies organizations in 4
+				categories of
+				trading intentions.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BusinessDescription" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PrimaryContributor" type="PrimaryContributorType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Administrator" type="AdministratorType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AdministratorContactPerson" type="AdministratorContactPersonType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OwnersResideUS" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="SolicitOwnersResideUS" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AcceptOwnersResideUS" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="TradeIntention_Type"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="SimpleLegalEntityType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A legal entity is anything other than an
+				individual. A simple
+				legal entity being asscoiated with an account in
+				tertiary
+				capacity such as IRA beneficiary where the entity's name is
+				the
+				only required piece of information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="EntityName" />
+			<xsd:element name="Location" type="Address" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="optional" />
+		<xsd:attribute name="external_id" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="PrimaryContributorType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Family vehicle accts must have a primary
+				contributor
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FirstName" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="MiddleInitial" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LastName" type="xsd:string" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="Suffix" type="Suffix_Type" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Employer" type="xsd:string" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="Occupation" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Address" type="Address" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="SourceOfFunds" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AdministratorType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Family vehicle accts must have a primary
+				contributor
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FirstName" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="MiddleInitial" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LastName" type="xsd:string" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="Suffix" type="Suffix_Type" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Address" type="Address" minOccurs="1"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AdministratorContactPersonType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Family vehicle accts must have a primary
+				contributor
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FirstName" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="MiddleInitial" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LastName" type="xsd:string" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="Suffix" type="Suffix_Type" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="PhoneNumber" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="EmploymentDetailsType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Employment details of the customer.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="employer" type="xsd:string" minOccurs="1"
+				maxOccurs="1" />
+			<xsd:element name="occupation" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="employer_business" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="employer_address" type="Address"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="employer_phone" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>
