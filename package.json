@@ -19,6 +19,7 @@
   "homepage": "https://github.com/brotsky/xsd-to-graphql#readme",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "lodash": "^4.17.15",
     "path": "^0.12.7",
     "xsd2jsonschema": "^0.3.4"
   }
