@@ -19,9 +19,8 @@
         // ... do a call to server using introspectionQuery provided
         // or just return pre-fetched introspection
         return fetch(ibkr, {
-          method: 'post',
+          method: 'get',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({query: introspectionQuery}),
         }).then(response => response.json());
       }
 
