@@ -1,0 +1,1527 @@
+
+schema {
+  query: Queries
+}
+
+type Queries {
+  Applications: Applications!
+  AcctMgmtRequests: AcctMgmtRequests!
+}
+
+type Users {
+    User: User
+}
+type User {
+    UserPrivilege: UserPrivilege
+  MDServices: MDServicesType
+  id: String
+  external_user_id: String
+  external_individual_id: String
+  encrypted_password: String
+  encrypted_key_name: String
+  prefix: UserNamePrefix_Type
+}
+type Pending_Tasks {
+    Pending_Task: Pending_Task
+}
+type Pending_Task {
+    Task_Number: Int
+  Form_Number: Int
+  Form_Name: String
+  Action: String
+  Is_Required_For_Approval: Boolean
+  Is_Required_For_Trading: Boolean
+  Is_Online_Task: Boolean
+}
+type Execution {
+    Execution_date: String
+  Process_File: String
+  Client: String
+  Client_Master_Acct: String
+}
+type Errors {
+    Error: Int
+}
+type Entities {
+    Entity: Entity
+}
+type Entity {
+    external_ID: String
+}
+type Documents {
+    Document: Document
+}
+type Document {
+    SignedBy: Int
+  AttachedFile: AttachedFileType
+  form_no: Int
+  exec_login_ts: Int
+  exec_ts: Int
+  signature: String
+  external_acct_id: String
+  external_individual_id: String
+}
+type ResponseApplication {
+    Customer: String
+  Users: Users
+  Accounts: Accounts
+  Entities: Entities
+  Documents: Documents
+  Pending_Tasks: Pending_Tasks
+  Errors: Errors
+  External_ID: String
+  Status: String
+}
+type Accounts {
+    Account: Account
+}
+type Account {
+    InvestmentObjectives: InvestmentObjectivesType
+  BrokerageServices: BrokerageServices
+  Capabilities: Capabilities
+  TradingPermissions: TradingPermissions
+  CommissionConfigs: CommissionConfigs
+  AllExchangeAccess: AllExchangeAccess
+  DVPInstructions: DVPInstructions
+  TradingLimits: TradingLimits
+  AdvisorWrapFees: AdvisorWrapFeesType
+  Fees: FeesTemplateBasedType
+  ClientCommissionSchedule: CommissionScheduleType
+  ClientInterestMarkupSchedule: InterestMarkupScheduleType
+  Decendent: IRADecedent
+  IRABeneficiaries: IRABeneficiariesType
+  ExtPositionsTransfer: ExtPositionsTransferType
+  DepositNotification: DepositNotificationType
+  ACHInstruction: ACHInstructionType
+  RecurringTransaction: RecurringTransactionType
+  Custodian: CustodianType
+  SuccessorCustodian: CustodianType
+  id: String
+  external_id: String
+  base_currency: Currency_Type
+  multicurrency: Boolean
+  margin: Margin_Type
+  IRA: Boolean
+  IRA_type: IRA_Type
+  IRA_official_title: String
+  client_active_trading: Boolean
+  duplicate: Boolean
+  no_of_duplicates: Int
+  stock_yield_program: Boolean
+  alias: String
+}
+type Process {
+    Execution: Execution
+  Applications: Applications
+}
+type Applications {
+    Application: Application
+}
+type AcctMgmt {
+    WithholdingStatements: WithholdingStatementsType
+}
+type IndividualTaxInformation {
+    W9: FormW9
+  W8Ben: FormW8BEN
+  CRS: FormCRS
+  W8BenE: FormW8BENE
+}
+type TaxResidencies {
+    TaxResidency: TaxResidency
+}
+type TaxResidency {
+    country: String
+  TIN: String
+  TINType: TIN_Type
+}
+type FormW8BEN {
+    name: String
+  country_of_citizenship: CountryCode_Type
+  residence_address: String
+  city: String
+  country: CountryCode_Type
+  mailing_address: String
+  mailing_city: String
+  mailing_country: CountryCode_Type
+  tin: String
+  foreign_tax_id: String
+  tin_or_explanation_reqd_to_create_accounts: Boolean
+  explanation: ExplanationType
+  reference_number: Int
+  part_2_9a_country: String
+  part_2_10_article: String
+  part_2_10_percent: String
+  part_2_10_income_type: String
+  part_2_10_reasons: String
+  cert: Boolean
+  signature_type: SignatureType
+  blank_form: Boolean
+  tax_form_file: String
+  proprietary_form_number: Int
+}
+type FormW9 {
+    name: String
+  business_name: String
+  customer_type: W9Customer_Type
+  tax_classification: String
+  other_customer_type: String
+  tin: String
+  tin_type: TIN_Type
+  cert1: Boolean
+  cert2: Boolean
+  cert3: Boolean
+  cert4: Boolean
+  fatca_exempt_payee_code: ExemptPayeeCode_Type
+  fatca_exempt_report_code: ExemptReportCode_Type
+  signature_type: SignatureType
+  blank_form: Boolean
+  tax_form_file: String
+  proprietary_form_number: Int
+}
+type FormW8BENE {
+    SubstantialUsOwners: SubstantialUsOwners
+  name: String
+  disregarded_entity_name: String
+  entity_type: W8BENE_Box4_Type
+  fatca_status: W8BENE_Box5_Type
+  residence_address: String
+  city: String
+  country: CountryCode_Type
+  mailing_address: String
+  mailing_city: String
+  mailing_country: CountryCode_Type
+  us_tin: String
+  giin: String
+  foreign_tin: String
+  tin_or_explanation_reqd_to_create_accounts: Boolean
+  explanation: ExplanationType
+  reference_number: Int
+  box_11_status: W8BENE_Box11_Type
+  part_3_14a: Boolean
+  part_3_14a_country: String
+  part_3_14b: Boolean
+  part_3_14c: Boolean
+  part_3_15_article: String
+  part_3_15_wh_rate: String
+  part_3_15_income_type: String
+  part_3_15_reasons: String
+  part_4_16: String
+  part_4_17_i: Boolean
+  part_4_17_ii: Boolean
+  part_5_18: Boolean
+  part_6_19: Boolean
+  part_7_20: String
+  part_7_21: Boolean
+  part_8_22: Boolean
+  part_9_23: Boolean
+  part_10_24a: Boolean
+  part_10_24b: Boolean
+  part_10_24c: Boolean
+  part_10_24d: Boolean
+  part_11_25a: Boolean
+  part_11_25b: Boolean
+  part_11_25c: Boolean
+  part_12_26: Boolean
+  part_12_26_desc1: String
+  part_12_26_desc2: String
+  part_12_26_desc3: String
+  part_13_27: Boolean
+  part_14_28a: Boolean
+  part_14_28b: Boolean
+  part_15_29a: Boolean
+  part_15_29b: Boolean
+  part_15_29c: Boolean
+  part_15_29d: Boolean
+  part_15_29e: Boolean
+  part_15_29f: Boolean
+  part_16_30: Boolean
+  part_17_31: Boolean
+  part_18_32: Boolean
+  part_19_33: Boolean
+  part_20_34: Boolean
+  part_21_35: Boolean
+  part_21_35_date: String
+  part_22_36: Boolean
+  part_23_37a: Boolean
+  part_23_37a_desc: String
+  part_23_37b: Boolean
+  part_23_37b_desc1: String
+  part_23_37b_desc2: String
+  part_24_38: Boolean
+  part_25_39: Boolean
+  part_26_40a: Boolean
+  part_26_40b: Boolean
+  part_26_40c: Boolean
+  part_27_41: Boolean
+  part_28_42: String
+  part_28_43: Boolean
+  cert: Boolean
+}
+type SubstantialUsOwners {
+    SubstantialUsOwner: SubstantialUsOwner
+}
+type SubstantialUsOwner {
+    external_id: String
+}
+type FormW8IMY {
+    name: String
+  country_of_incorporation: String
+  disregarded_entity_name: String
+  entity_type: W8IMY_Box4_Type
+  fatca_status: W8IMY_Box5_Type
+  residence_address: String
+  city: String
+  country: CountryCode_Type
+  mailing_address: String
+  mailing_city: String
+  mailing_country: CountryCode_Type
+  us_tin: String
+  us_tin_type: US_TIN_Type
+  giin: String
+  reference_number: Int
+  box_11_status: W8IMY_Box11_Type
+  part_3_14a: Boolean
+  part_3_14b: Boolean
+  part_3_14c: Boolean
+  part_3_14c_desc: String
+  part_3_14d: Boolean
+  part_3_14d_desc: String
+  part_3_14e: Boolean
+  part_3_14e_desc: String
+  part_3_14e_i: Boolean
+  part_3_14e_ii: Boolean
+  part_4_15a: Boolean
+  part_4_15b: Boolean
+  part_4_15c: Boolean
+  part_4_15d: Boolean
+  part_5_16a: Boolean
+  part_5_16b: Boolean
+  part_5_16c: Boolean
+  part_6_17a: Boolean
+  part_6_17b: Boolean
+  part_6_17c: Boolean
+  part_7_18: Boolean
+  part_8_19: Boolean
+  part_9_20: Boolean
+  part_10_21: String
+  part_10_21a: String
+  part_10_21b: Boolean
+  part_10_21c: Boolean
+  part_11_22a: Boolean
+  part_11_22b: Boolean
+  part_11_22c: Boolean
+  part_12_23: Boolean
+  part_13_24: Boolean
+  part_14_25a: String
+  part_14_25b: Boolean
+  part_15_26: Boolean
+  part_16_27a: Boolean
+  part_16_27b: Boolean
+  part_16_27c: Boolean
+  part_17_28: Boolean
+  part_18_29: Boolean
+  part_18_29_desc1: String
+  part_18_29_desc2: String
+  part_18_29_desc3: String
+  part_19_30a: Boolean
+  part_19_30b: Boolean
+  part_19_30c: Boolean
+  part_19_30d: Boolean
+  part_19_30e: Boolean
+  part_19_30f: Boolean
+  part_20_31: Boolean
+  part_21_32: Boolean
+  part_21_32_desc: String
+  part_22_33: Boolean
+  part_22_33_desc: String
+  part_23_34a: Boolean
+  part_23_34a_desc: String
+  part_23_34b: Boolean
+  part_23_34b_desc: String
+  part_24_35: Boolean
+  part_25_36: Boolean
+  part_26_37: Boolean
+  part_27_38: String
+  part_27_39: Boolean
+  cert: Boolean
+}
+type FormCRS {
+    ControllingPerson: ControllingPersonType
+  oecd_status: OECDStatusType
+}
+type ControllingPersonType {
+    designation: DesignationType
+}
+type Synchronization {
+    Applications: NewApplications
+  Actions: Actions
+  Additions: Additions
+  Modifications: Modifications
+}
+type AllDVPInstructions {
+    DVPInstruction: DVPInstruction
+}
+type NewApplications {
+    Application: Application
+}
+type Additions {
+    Application: Application
+  Account: Account
+}
+type Actions {
+    Action: Action
+}
+type Modifications {
+    Customer: Customer
+  Account: Account
+  User: User
+}
+type Action {
+    action: String
+}
+type AcctMgmtRequests {
+    DuplicateAcct: DuplicateAcctRequest
+  DepositNotification: DepositNotificationType
+  RecurringTransaction: RecurringTransactionType
+  ACHInstruction: ACHInstructionType
+  DocumentSubmission: DocumentSubmissionType
+  InformationChange: InformationChange
+  LinkDuplicateAccount: LinkDuplicateAccount
+  AddTradingPermissions: AddTradingPermissions
+  RemoveTradingPermissions: RemoveTradingPermissions
+  EnrollInSYEP: EnrollInSYEP
+  LeaveSYEP: LeaveSYEP
+  AddMiFIRData: AddMiFIRData
+  UpdateCredentials: UpdateCredentials
+  AllocateVAN: AllocateVAN
+  ProcessDocuments: ProcessDocumentsType
+  ChangeMarginType: ChangeMarginType
+  ChangeFinancialInformation: ChangeFinancialInformation
+  GetJavaScript: GetJavaScript
+  YodleeSession: YodleeSession
+}
+type DocumentSubmissionType {
+    Document: Document
+  reference_account_id: String
+  input_language: languageList
+  has_translation: Boolean
+}
+type DuplicateAcctRequest {
+    reference_account_id: String
+  no_of_duplicates: Int
+}
+type LinkDuplicateAccount {
+    reference_account_id: String
+  external_account_id: String
+  client_active_trading: Boolean
+}
+type AddTradingPermissions {
+    TradingPermission: TradingPermission
+  reference_account_id: String
+}
+type RemoveTradingPermissions {
+    TradingPermission: TradingPermission
+  reference_account_id: String
+}
+type ChangeMarginType {
+    reference_account_id: String
+  new_margin: Margin_Type
+}
+type ChangeFinancialInformation {
+    NewFinancialInformation: FinancialInformation
+  reference_account_id: String
+}
+type EnrollInSYEP {
+    Documents: Documents
+  reference_account_id: String
+}
+type LeaveSYEP {
+    reference_account_id: String
+}
+type AddMiFIRData {
+    Identification: IndividualIdentification
+  reference_account_id: String
+  title: String
+}
+type UpdateCredentials {
+    UpdatePassword: UpdatePassword
+  UpdateEmail: UpdateEmail
+  UpdatePhone: UpdatePhone
+  reference_user_name: String
+}
+type UpdatePassword {
+    encrypted_password: String
+  encrypted_key_name: String
+  token: String
+}
+type UpdateEmail {
+    email: String
+  token: String
+}
+type UpdatePhone {
+    Phone: PhoneInfo
+  action: ActionType
+  token: String
+}
+type AllocateVAN {
+    reference_account_id: String
+  currency: Currency_Type
+  country_code: String
+}
+type ProcessDocumentsType {
+    Document: Document
+  input_language: languageList
+  has_translation: Boolean
+}
+type GetJavaScript {
+    method: String
+}
+type YodleeSession {
+    request: String
+  username: String
+  item_account_id: String
+  acct_id: String
+}
+type InformationChange {
+    AddEntity: AddEntity
+  UpdateEntity: UpdateEntity
+  DeleteEntity: DeleteEntity
+  ib_acct_id: String
+}
+type AddEntity {
+    AddRelationship: AddRelationship
+  Document: Document
+}
+type UpdateEntity {
+    AddRelationship: AddRelationship
+  DeleteRelationship: DeleteRelationship
+  Document: Document
+  ib_entity_id: Int
+}
+type DeleteEntity {
+    ib_entity_id: Int
+}
+type AddRelationship {
+    name: RelationshipEnum
+  ownership_percentage: Int
+}
+type DeleteRelationship {
+    name: RelationshipEnum
+}
+type Organization {
+    Identification: OrganizationIdentification
+  RegulatoryInformation: RegulatoryInformation
+}
+type Trust {
+    Identification: TrustIdentification
+  RegulatoryInformation: RegulatoryInformation
+}
+enum Customer_Type {
+  VALUE
+}
+enum Capability_Type {
+  VALUE
+}
+enum BrokerageService_Type {
+  VALUE
+}
+enum AssetClass_Type {
+  VALUE
+}
+enum Product_Type {
+  VALUE
+}
+enum Country_Type {
+  VALUE
+}
+enum KnowledgeLevel_Type {
+  VALUE
+}
+type CountryCode_Type {
+  id: String!
+}
+  type StateCode_Type {
+  id: String!
+}
+  enum Association_Type {
+  VALUE
+}
+enum Privilege_Type {
+  VALUE
+}
+enum TradingFor_Type {
+  VALUE
+}
+enum DVP_Type {
+  VALUE
+}
+enum DVPRole_Type {
+  VALUE
+}
+enum Margin_Type {
+  VALUE
+}
+enum Currency_Type {
+  VALUE
+}
+enum TXGroupCode_Type {
+  VALUE
+}
+enum ExchangeCode_Type {
+  VALUE
+}
+enum Organization_Type {
+  VALUE
+}
+enum RegulatoryIssueCode_Type {
+  VALUE
+}
+enum Joint_Type {
+  VALUE
+}
+enum InvestmentObjective_Type {
+  VALUE
+}
+enum MaritalStatus_Type {
+  VALUE
+}
+enum Employment_Type {
+  VALUE
+}
+enum OrgApplicant_Type {
+  VALUE
+}
+enum AdvisorWrapFeeStrategies_Type {
+  VALUE
+}
+enum AutomatedWrapFees_Type {
+  VALUE
+}
+enum QuarterHWM_Type {
+  VALUE
+}
+enum CommissionMarkups_Type {
+  VALUE
+}
+enum IRA_Type {
+  VALUE
+}
+enum IRABeneficiaryRelation_Type {
+  VALUE
+}
+enum InheritedIRABeneficiaryRelation_Type {
+  VALUE
+}
+enum InheritedIRABeneficiary_Type {
+  VALUE
+}
+enum IRADeposit_Type {
+  VALUE
+}
+enum IRAContribTaxYear_Type {
+  VALUE
+}
+enum PositionsTransfer_Type {
+  VALUE
+}
+enum PositionsTransfer_SubType {
+  VALUE
+}
+enum W9Customer_Type {
+  VALUE
+}
+enum TIN_Type {
+  VALUE
+}
+enum Deposit_Type {
+  VALUE
+}
+enum RecurringTx_Type {
+  VALUE
+}
+enum RecurringTxFreq_Type {
+  VALUE
+}
+enum ACHInstructionTx_Type {
+  VALUE
+}
+enum IRADistribution_Type {
+  VALUE
+}
+enum Salutation_Type {
+  VALUE
+}
+enum Suffix_Type {
+  VALUE
+}
+enum Gender_Type {
+  VALUE
+}
+enum TradeIntention_Type {
+  VALUE
+}
+enum SourceOfFunds_Type {
+  VALUE
+}
+enum WealthSource_Type {
+  VALUE
+}
+enum Phone_Type {
+  VALUE
+}
+enum RelationshipEnum {
+  VALUE
+}
+enum W8BENE_Box4_Type {
+  VALUE
+}
+enum W8BENE_Box5_Type {
+  VALUE
+}
+enum W8BENE_Box11_Type {
+  VALUE
+}
+enum W8IMY_Box4_Type {
+  VALUE
+}
+enum W8IMY_Box5_Type {
+  VALUE
+}
+enum W8IMY_Box11_Type {
+  VALUE
+}
+enum US_TIN_Type {
+  VALUE
+}
+enum ExemptPayeeCode_Type {
+  VALUE
+}
+enum ExemptReportCode_Type {
+  VALUE
+}
+enum USTaxPurposeType {
+  VALUE
+}
+enum FinancialOrgCodeType {
+  VALUE
+}
+enum TrustTypeList {
+  VALUE
+}
+enum languageList {
+  VALUE
+}
+enum SignatureType {
+  VALUE
+}
+enum CommissionType {
+  VALUE
+}
+enum CommissionStyle {
+  VALUE
+}
+enum PricingStructureType {
+  VALUE
+}
+enum DesignationType {
+  VALUE
+}
+enum OECDStatusType {
+  VALUE
+}
+enum PositionType {
+  VALUE
+}
+enum OptionType {
+  VALUE
+}
+enum ExplanationType {
+  VALUE
+}
+enum ActionType {
+  VALUE
+}
+enum QIClassEnum {
+  VALUE
+}
+enum FatcaCompliantEnum {
+  VALUE
+}
+type WithholdingStatementsType {
+    WithholdingStatement: WithholdingStatementType
+  qi_class: QIClassEnum
+  signature: String
+  signature_timestamp: Int
+}
+type WithholdingStatementType {
+    acct_id: String
+  fatca_compliant_type: FatcaCompliantEnum
+  us_backup_withholding: Boolean
+  treaty_country: String
+  is_corporation: Boolean
+  is_flow_through: Boolean
+  effective_date: String
+  dividend_rate: Float
+  interest_rate: Float
+  us_other_rate: Float
+  eci_rate: Float
+}
+type UserPrivilege {
+    external_acct_id: String
+  privilege: Privilege_Type
+}
+type MDServicesType {
+    service: Int
+}
+type Email {
+    email: String
+}
+type Security {
+    Challenge: String
+  Response: String
+}
+type Address {
+    street_1: String
+  street_2: String
+  city: String
+  state: String
+  country: String
+  postal_code: String
+}
+type UserNamePrefix_Type {
+  id: String!
+}
+  type DOB {
+  id: String!
+}
+  type AttachedFileType {
+    file_name: String
+  file_length: Int
+  sha1_checksum: String
+}
+type DVPInstruction {
+    id: String
+  external_id: String
+  ExternalAcctID: String
+  AcctID: String
+  Name: String
+  Type: DVP_Type
+  Role: DVPRole_Type
+  AgentID: String
+  FirmID: String
+  AccountID: String
+  AgentName: String
+  AccountName: String
+  DayDoID: String
+  TXGroupCode: TXGroupCode_Type
+  BrokerCode: String
+  AssetClass: AssetClass_Type
+  Exchange: ExchangeCode_Type
+  PrepayTax: Boolean
+  PrepayCommission: Boolean
+  Default: Boolean
+  Expiry: String
+}
+type Customer {
+    Organization: OrganizationApplicant
+  AccountHolder: IndividualApplicant
+  JointHolders: JointApplicant
+  Trust: TrustApplicant
+  id: String
+  external_id: String
+  transfer_us_micro_cap_stock: Boolean
+  type: Customer_Type
+  prefix: UserNamePrefix_Type
+  email: String
+  md_status_nonpro: Boolean
+  preferred_primary_language: String
+  preferred_secondary_language: String
+  legal_residence_country: String
+  tax_treaty_country: String
+  meet_aml_standard: Boolean
+  has_direct_trading_access: Boolean
+  origin_country: String
+  termination_age: Int
+  governing_state: String
+  opt_for_debit_card: Boolean
+  robo_fa_client: Boolean
+  independent_account: Boolean
+}
+type IndividualIdentification {
+    citizenship: String
+  SSN: String
+  DriversLicense: String
+  Passport: String
+  AlienCard: String
+  NationalCard: String
+  IssuingCountry: String
+  LegalResidenceCountry: String
+  LegalResidenceState: String
+  EducationalQualification: String
+  FathersName: String
+  hasGreenCard: Boolean
+  PANNumber: String
+  TaxId: String
+  ProofOfAgeCard: String
+}
+type OrganizationApplicant {
+    Identification: OrganizationIdentification
+  AccountSupport: AccountSupportType
+  FinancialInformation: FinancialInformation
+  AccreditedInvestorInformation: AccreditedInvestorInformation
+  RegulatoryInformation: RegulatoryInformation
+  PrimaryTrader: PrimaryTrader
+  ControllingOfficer: ControllingOfficer
+  AssociatedEntities: AssociatedEntities
+  RegulatedMemberships: RegulatedMemberships
+  TaxResidencies: TaxResidencies
+  W8BenE: FormW8BENE
+  W8IMY: FormW8IMY
+  WithholdingStatement: WithholdingStatementType
+  type_of_trading: TradingFor_Type
+  type: OrgApplicant_Type
+  is_org_us_subsidiary: Boolean
+  is_qualified_intermediary: Boolean
+  has_assumed_primary_reporting: Boolean
+  has_accepted_primary_withholding: Boolean
+  us_tax_purpose_type: USTaxPurposeType
+}
+type IndividualApplicant {
+    AccountHolderDetails: AssociatedIndividual
+  FinancialInformation: FinancialInformation
+  RegulatoryInformation: RegulatoryInformation
+  RegulatedMemberships: RegulatedMemberships
+  AccreditedInvestorInformation: AccreditedInvestorInformation
+  TaxInformation: IndividualTaxInformation
+  WithholdingStatement: WithholdingStatementType
+}
+type JointApplicant {
+    FirstHolderDetails: AssociatedIndividual
+  SecondHolderDetails: AssociatedIndividual
+  FinancialInformation: FinancialInformation
+  RegulatoryInformation: RegulatoryInformation
+  RegulatedMemberships: RegulatedMemberships
+  AccreditedInvestorInformation: AccreditedInvestorInformation
+  TaxInformation: IndividualTaxInformation
+  WithholdingStatement: WithholdingStatementType
+  type: Joint_Type
+}
+type TrustApplicant {
+    Identification: TrustIdentification
+  FinancialInformation: FinancialInformation
+  RegulatoryInformation: RegulatoryInformation
+  RegulatedMemberships: RegulatedMemberships
+  AccreditedInvestorInformation: AccreditedInvestorInformation
+  Trustees: TrusteesType
+  Beneficiaries: AssociationTypeEntities
+  Grantors: AssociationTypeEntities
+  TaxResidencies: TaxResidencies
+  W8BenE: FormW8BENE
+  W8IMY: FormW8IMY
+  WithholdingStatement: WithholdingStatementType
+  third_party_mgmt: Boolean
+  trust_type: TrustTypeList
+}
+type OrganizationIdentification {
+    PlaceOfBusiness: Address
+  MailingAddress: Address
+  Phones: PhonesList
+  name: String
+  business_description: String
+  identification: String
+  identification_country: String
+  formation_country: String
+  formation_state: String
+  same_mail_address: Boolean
+  is_translated: Boolean
+}
+type LegalEntityIdentification {
+    PlaceOfBusiness: Address
+  MailingAddress: Address
+  identification: String
+  identification_country: String
+  formation_country: String
+  formation_type: Organization_Type
+  exchange_code: String
+  exchange_symbol: String
+  same_mail_address: Boolean
+}
+type TrustIdentification {
+    Address: Address
+  MailingAddress: Address
+  Phones: PhonesList
+  name: String
+  type_of_trust: String
+  purpose_of_trust: String
+  date_formed: DOB
+  formation_country: CountryCode_Type
+  formation_state: StateCode_Type
+  registration_number: String
+  registration_type: TIN_Type
+  registration_country: CountryCode_Type
+  same_mail_address: Boolean
+  is_translated: Boolean
+}
+type AssociatedEntities {
+    AssociatedIndividual: AssociatedIndividual
+  AssociatedEntity: AssociatedEntity
+}
+type IRABeneficiariesType {
+    PrimaryBeneficiary: IRAPrimaryBeneficiary
+  PrimaryBeneficiaryEntity: IRAPrimaryBeneficiaryEntity
+  ContingentBeneficiary: IRAContingentBeneficiary
+  ContingentBeneficiaryEntity: IRAContingentBeneficiaryEntity
+  spouse_primary_beneficary: Boolean
+}
+type AssociationTypeEntities {
+    Individual: Individual
+  LegalEntity: LegalEntity
+}
+type TrusteesType {
+    Individual: TrusteeIndividual
+  Entity: TrusteeEntityType
+}
+type TrusteeIndividual {
+  content: Individual!
+}
+type TrusteeEntityType {
+    LegalEntity: LegalEntity
+  Employee: Individual
+}
+type FinancialInformation {
+    InvestmentExperience: InvestmentExperience
+  InvestmentObjectives: InvestmentObjectivesType
+  AdditionalSourceOfIncome: AdditionalSourceOfIncomeType
+  SourcesOfWealth: SourcesOfWealthType
+  net_worth: Float
+  liquid_net_worth: Float
+  annual_net_income: Float
+  total_assets: Float
+  source_of_funds: String
+  is_translated: Boolean
+}
+type AdditionalSourceOfIncomeType {
+    SourceOfIncome: SourceOfIncomeType
+}
+type SourceOfIncomeType {
+    source_type: SourceOfFunds_Type
+  percentage: Int
+  description: String
+}
+type SourcesOfWealthType {
+    SourceOfWealth: SourceOfWealthType
+}
+type SourceOfWealthType {
+    source_type: WealthSource_Type
+  percentage: Int
+  is_used_for_funds: Boolean
+  description: String
+}
+type InvestmentExperience {
+    AssetExperience: AssetExperience
+}
+type AssetExperience {
+    asset_class: AssetClass_Type
+  years_trading: Int
+  trades_per_year: Int
+  knowledge_level: KnowledgeLevel_Type
+}
+type AccreditedInvestorInformation {
+    q1: Boolean
+  q2: Boolean
+  q3: Boolean
+  q4: Boolean
+  q5: Boolean
+}
+type RegulatoryInformation {
+    SelfRegulatedMembership: SelfRegulatedMembershipType
+  AffiliationDetails: AffiliationDetailsType
+  FinancialOrgType: FinancialOrgType
+  ORGRegulatoryInfo: ORGRegulatoryInfoType
+  is_translated: Boolean
+}
+type RegulatoryDetail {
+    code: RegulatoryIssueCode_Type
+  status: Boolean
+  details: String
+  detail: String
+}
+type SelfRegulatedMembershipType {
+    exchanges: String
+  organizations: String
+}
+type AffiliationDetailsType {
+    affiliation_relationship: String
+  person_name: String
+  company_id: Int
+  company: String
+  company_mailing_address: Address
+  company_phone: String
+  company_email_address: String
+  is_duplicate_stmt_required: Boolean
+}
+type FinancialOrgType {
+    code: FinancialOrgCodeType
+}
+type RegulatedMemberships {
+    RegulatedMembership: RegulatedMembership
+}
+type RegulatedMembership {
+    organization_code: String
+  membership_id: String
+}
+type PublicCompanyInfoType {
+    ExchangeTradedOn: String
+  QuotedSymbol: String
+}
+type ORGRegulatorType {
+    RegulatorName: String
+  RegulatorCountry: String
+  RegulatedInCapacity: String
+  RegulatorId: String
+}
+type ORGRegulatoryInfoType {
+    PublicCompanyInfo: PublicCompanyInfoType
+  ORGRegulator: ORGRegulatorType
+  is_public: Boolean
+  is_regulated: Boolean
+}
+type AssociatedIndividual {
+  content: Individual!
+}
+type PrimaryTrader {
+  content: Individual!
+}
+type ControllingOfficer {
+  content: Individual!
+}
+type IRAPrimaryBeneficiary {
+  content: Individual!
+}
+type IRAPrimaryBeneficiaryEntity {
+  content: SimpleLegalEntityType!
+}
+type IRAContingentBeneficiary {
+  content: Individual!
+}
+type IRAContingentBeneficiaryEntity {
+  content: SimpleLegalEntityType!
+}
+type IRADecedent {
+  content: Individual!
+}
+type AssociatedEntity {
+  content: LegalEntity!
+}
+type Individual {
+    Name: IndividualName
+  DOB: DOB
+  CountryOfBirth: String
+  Gender: Gender_Type
+  MaritalStatus: MaritalStatus_Type
+  NumDependents: Int
+  Residence: Address
+  MailingAddress: Address
+  Phones: PhonesList
+  Email: Email
+  Identification: IndividualIdentification
+  EmploymentType: Employment_Type
+  EmploymentDetails: EmploymentDetailsType
+  EmployeeTitle: String
+  TaxResidencies: TaxResidencies
+  W9: FormW9
+  W8Ben: FormW8BEN
+  CRS: FormCRS
+  id: String
+  external_id: String
+  same_mail_address: Boolean
+  is_authorized_to_sign_on_behalf_of_owner: Boolean
+  is_us_tax_resident: Boolean
+  is_translated: Boolean
+}
+type EntityName {
+    name: String
+}
+type LegalEntity {
+    Name: EntityName
+  Location: Address
+  Phones: PhonesList
+  Email: Email
+  LegalEntityIdentification: LegalEntityIdentification
+  TaxResidencies: TaxResidencies
+  id: String
+  external_id: String
+  is_us_tax_resident: Boolean
+  is_translated: Boolean
+}
+type Ownership {
+    percentage: Int
+}
+type Title {
+    code: Association_Type
+}
+type IndividualName {
+    salutation: Salutation_Type
+  first: String
+  last: String
+  middle: String
+  suffix: Suffix_Type
+  title: String
+}
+type PhoneInfo {
+    type: Phone_Type
+  number: String
+  country: String
+  is_verified: Boolean
+}
+type PhonesList {
+    Phone: PhoneInfo
+}
+type AccountSupportType {
+    BusinessDescription: String
+  PrimaryContributor: PrimaryContributorType
+  Administrator: AdministratorType
+  AdministratorContactPerson: AdministratorContactPersonType
+  OwnersResideUS: Boolean
+  SolicitOwnersResideUS: Boolean
+  AcceptOwnersResideUS: Boolean
+  type: TradeIntention_Type
+}
+type SimpleLegalEntityType {
+    Name: EntityName
+  Location: Address
+  id: String
+  external_id: String
+}
+type PrimaryContributorType {
+    FirstName: String
+  MiddleInitial: String
+  LastName: String
+  Suffix: Suffix_Type
+  Employer: String
+  Occupation: String
+  Address: Address
+  SourceOfFunds: String
+}
+type AdministratorType {
+    FirstName: String
+  MiddleInitial: String
+  LastName: String
+  Suffix: Suffix_Type
+  Address: Address
+}
+type AdministratorContactPersonType {
+    FirstName: String
+  MiddleInitial: String
+  LastName: String
+  Suffix: Suffix_Type
+  PhoneNumber: String
+}
+type EmploymentDetailsType {
+    employer: String
+  occupation: String
+  employer_business: String
+  employer_address: Address
+  employer_phone: String
+}
+type Application {
+    Customer: Customer
+  Accounts: Accounts
+  Users: Users
+  Documents: Documents
+  master_account_id: String
+  id: String
+  input_language: languageList
+  has_translation: Boolean
+  paper_account: Boolean
+}
+type BrokerageServices {
+    BrokerageService: BrokerageService
+}
+type TradingPermissions {
+    TradingPermission: TradingPermission
+}
+type CommissionConfigs {
+    CommissionConfig: CommissionConfig
+}
+type AllExchangeAccess {
+    ExchangeAccess: ExchangeAccess
+}
+type Capabilities {
+    Capability: Capability
+}
+type Capability {
+    code: Capability_Type
+}
+type DVPInstructions {
+    DVPInstruction: DVPInstruction
+}
+type InvestmentObjectivesType {
+    objective: InvestmentObjective_Type
+}
+type BrokerageService {
+    code: BrokerageService_Type
+}
+type TradingPermission {
+    asset_class: AssetClass_Type
+  exchange_group: String
+  country: Country_Type
+  product: Product_Type
+}
+type CommissionConfig {
+    style: CommissionStyle
+  type: CommissionType
+}
+type ExchangeAccess {
+    asset_class: AssetClass_Type
+  exchange: ExchangeCode_Type
+}
+type AssetClass {
+    code: AssetClass_Type
+}
+type TradingLimits {
+    OrderValueLimits: OrderValueLimits
+  EFPQuantityLimits: EFPQuantityLimits
+  OrderQuantityLimit: OrderQuantityLimit
+  DayQuantityLimit: DayQuantityLimit
+}
+type OrderValueLimits {
+    max_order_value: Float
+  max_gross_value: Float
+  max_net_value: Float
+  net_contract_limit: Float
+}
+type EFPQuantityLimits {
+    max_nominal_efp_per_order: Int
+  max_net_efp_trades: Int
+  max_gross_efp_trades: Int
+}
+type OrderQuantityLimit {
+    asset: AssetClass_Type
+  quantity: Int
+}
+type DayQuantityLimit {
+    asset: AssetClass_Type
+  quantity: Int
+}
+type AdvisorWrapFeesType {
+    automated_fees_details: AutomatedWrapFeeDetailsType
+  highWaterMarkConfigHwma: HighWaterMarkType
+  highWaterMarkConfigHwmq: HighWaterMarkType
+  strategy: AdvisorWrapFeeStrategies_Type
+  ChargeAdvisor: Boolean
+  ChargeOtherFeesToAdvisor: Boolean
+}
+type AutomatedWrapFeeDetailsType {
+    per_trade_markups: CommissionScheduleType
+  annual_blended_percentage: AnnualBlendedPercentage
+  type: AutomatedWrapFees_Type
+  max_fee: Float
+  num_contracts: Int
+  PostFrequency: String
+  PercentOfNLVCap: String
+  PercentOfNLVCap_Q: String
+}
+type AnnualBlendedPercentage {
+    BlendedFrom: String
+  BlendedTo: String
+  Percentage: String
+}
+type HighWaterMarkType {
+    hwm: HighWaterMarkConfigurationType
+  previousLosses: PreviousLossesType
+}
+type HighWaterMarkConfigurationType {
+    NumberOfPeriods: Int
+  ProrateForWithdrawals: Boolean
+}
+type PreviousLossesType {
+    loss: Int
+  quarter: Int
+  year: Int
+  currency: String
+}
+type CommissionScheduleType {
+    markup: CommissionMarkupType
+  pricing_structure: PricingStructureType
+}
+type CommissionMarkupType {
+    stair: MarkupStaircaseType
+  code: String
+  minimum: Float
+  maximum: Float
+  type: CommissionMarkups_Type
+  amount: Float
+  plus_cost: Boolean
+}
+type MarkupStaircaseType {
+    break: Float
+  amount: Float
+}
+type InterestMarkupScheduleType {
+    markup: InterestMarkupType
+}
+type InterestMarkupType {
+    currency: Currency_Type
+  debit_markup: Float
+  ib_debit_markup: Float
+  credit_markdown: Float
+  short_credit_markdown: Float
+  short_cfd_credit_markdown: Float
+  long_cfd_debit_markdown: Float
+  short_index_cfd_credit_markdown: Float
+  long_index_cfd_debit_markdown: Float
+}
+type ExtPositionsTransfers {
+    ExtPositionsTransfer: ExtPositionsTransferType
+}
+type FeesTemplateBasedType {
+    template_name: String
+}
+type ExtPositionsTransferType {
+    PartialStockPositions: PartialStockPositions
+  PartialBondPositions: PartialBondPositions
+  PartialOptionPositions: PartialOptionPositions
+  PartialWarrantPositions: PartialWarrantPositions
+  PartialFundPositions: PartialFundPositions
+  PartialCashPositions: PartialCashPositions
+  type: PositionsTransfer_Type
+  sub_type: PositionsTransfer_SubType
+  broker_id: String
+  broker_name: String
+  acct_at_broker: String
+  src_IRA_type: IRA_Type
+  margin_loan: Boolean
+  short_pos: Boolean
+  option_pos: Boolean
+  ib_acct: String
+  third_party_type: String
+  approximate_acct_value: Int
+  ssn: String
+  ein: String
+  signature: String
+  authorize_to_remove_fund: Boolean
+}
+type PartialStockPositions {
+    PartialStockPosition: PartialStockPosition
+}
+type PartialStockPosition {
+    symbol: String
+  number_of_shares: Int
+  is_all: Boolean
+  position: PositionType
+  exchange: String
+}
+type PartialBondPositions {
+    PartialBondPosition: PartialBondPosition
+}
+type PartialBondPosition {
+    cusip_number: String
+  number_of_bonds: Int
+  is_all: Boolean
+}
+type PartialOptionPositions {
+    PartialOptionPosition: PartialOptionPosition
+}
+type PartialOptionPosition {
+    symbol: String
+  number_of_contracts: Int
+  is_all: Boolean
+  position: PositionType
+  option_type: OptionType
+  strike_price: Int
+  expiration_date: String
+}
+type PartialWarrantPositions {
+    PartialWarrantPosition: PartialWarrantPosition
+}
+type PartialWarrantPosition {
+    symbol: String
+  number_of_shares: Int
+  is_all: Boolean
+  position: PositionType
+  option_type: OptionType
+  strike_price: Int
+  expiration_date: String
+}
+type PartialFundPositions {
+    PartialFundPosition: PartialFundPosition
+}
+type PartialFundPosition {
+    symbol: String
+  number_of_shares: Int
+  is_all: Boolean
+}
+type PartialCashPositions {
+    PartialCashPosition: PartialCashPosition
+}
+type PartialCashPosition {
+    amount: Float
+  is_margin_loan: Boolean
+  is_full_cash: Boolean
+}
+type DepositNotificationType {
+    CheckDetails: CheckDetailsType
+  WireDetails: WireDetailsType
+  ACHDetails: ACHDetailsType
+  IRADepositDetails: IRADepositDetailsType
+  type: Deposit_Type
+  amount: Float
+  currency: Currency_Type
+  ib_acct: String
+}
+type CheckDetailsType {
+    check_number: String
+  routing_number: String
+  acct_number: String
+}
+type WireDetailsType {
+    bank_name: String
+  country_code: String
+  reference_number: String
+}
+type ACHDetailsType {
+    cust_init_ACH: Boolean
+  bank_name: String
+}
+type IRADepositDetailsType {
+    deposit_type: IRADeposit_Type
+  tax_year: IRAContribTaxYear_Type
+  from_ira_type: IRA_Type
+}
+type RecurringTransactionType {
+    ACHInstruction: ACHInstructionType
+  IRAWithdrawalDetails: IRAWithdrawalDetailsType
+  type: RecurringTx_Type
+  method: Deposit_Type
+  instruction: String
+  frequency: RecurringTxFreq_Type
+  start_date: String
+  end_date: String
+  name: String
+  amount: Float
+  currency: Currency_Type
+  ib_acct: String
+}
+type ACHInstructionType {
+    cust_init_ACH: Boolean
+  type: ACHInstructionTx_Type
+  name: String
+  ib_acct: String
+  bank_country: CountryCode_Type
+  currency: Currency_Type
+  routing_number: String
+  acct_number: String
+}
+type IRAWithdrawalDetailsType {
+    distribution_type: IRADistribution_Type
+  excess_contrib_yr: Int
+  fed_tax_rate: Float
+  legal_residence_state: StateCode_Type
+  state_tax_rate: Float
+}
+type CustodianType {
+    Individual: Individual
+  LegalEntity: LegalEntity
+  Employee: Individual
+}

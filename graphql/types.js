@@ -781,6 +781,12 @@ const graphQLTypes = [
     "deprecationReason": null
     },
     {
+      "name": "STRING",
+      "description": "Location adjacent to a string definition.",
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
     "name": "OBJECT",
     "description": "Location adjacent to an object type definition.",
     "isDeprecated": false,

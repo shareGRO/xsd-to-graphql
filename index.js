@@ -2,10 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const Xsd2JsonSchema = require('xsd2jsonschema').Xsd2JsonSchema;
 const { isNil, get, uniq, split, last, toUpper } = require('lodash');
+const { buildSchema, printSchema, introspectionQuery, buildClientSchema, graphqlSync, getIntrospectionQuery, graphql } = require('graphql');
 
 const { graphQLTypes } = require('./graphql/types');
+const{ createType } = require('./graphql/createType');
 // const { introspectionQuery } = require('graphql'); 
  
+
 const getAllFiles = function(dirPath, arrayOfFiles) {
   files = fs.readdirSync(dirPath)
  
@@ -20,42 +23,6 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
   })
  
   return arrayOfFiles
-}
-
-const isAttr = (prop) => String(prop).substr(0,1) === '@';
-
-const getFields = (properties) => {
-  if (isNil(properties) ) return null;
-  // console.log('properties', properties);
-  const propKeys = Object.keys(properties);
-  const fields = propKeys.map((key) => {
-    const isAttribute = isAttr(key);
-    const description = get(properties[key], 'description', null);
-    const ref = last(split(get(properties[key], '$ref', null), '/'));
-    const name = isAttribute ? key.substr(1, key.length) : key;
-
-    const typeName = ref !== '' ? ref : get(properties[key], 'type', name);
-
-    const type = isAttribute ? {
-      kind: 'OBJECT',
-      name: typeName,
-     } : {
-      kind: 'OBJECT',
-      name: typeName,
-     };
-    
-    return {
-      name,
-      isAttribute,
-      description,
-      type,
-      args: [],
-      isDeprecated: false,
-      deprecationReason: null,
-      // debug: properties,
-    }
-  })
-  return fields;
 }
 
 const getScalars = (data) => {
@@ -105,58 +72,55 @@ allFiles.forEach((file) => {
   const { definitions } = jsonSchema;
   
   dataObjects = {
-    ...dataObjects,
     ...definitions,
+    ...dataObjects,
   };
 })
 
 const scalars = getScalars(dataObjects);
 const keys = Object.keys(dataObjects);
-const types = keys.map((key) => {
-  const {
-    description,
-    type,
-    properties,
-  } = dataObjects[key];
+const types = keys.map(key => createType(key, dataObjects))
 
-  return {
-    kind: toUpper(type), // there is something wrong here
-    name: key,
-    description,
-    fields: getFields(properties),
-    interfaces: [],
-    enumValues: null,
-    possibleTypes: null,
-    // debugData: dataObjects[key],
-  }
-  
-  return dataObjects[key];
-})
+// const introspection = {
+//   data: {
+//     __schema: {
+//       queryType: {
+//         name: 'Account',
+//       },
+//       mutationType: null,
+//       subscriptionType: null,
+//       types: [
+//         ...getScalars(dataObjects),
+//         ...types,
+//         ...graphQLTypes,
+//       ],
+//       directives: [],
+//     }
+//   }
+// }
 
-const introspection = {
-  data: {
-    __schema: {
-      queryType: {
-        name: 'Account',
-      },
-      mutationType: null,
-      subscriptionType: null,
-      types: [
-        ...getScalars(dataObjects),
-        ...types,
-        ...graphQLTypes,
-      ],
-      directives: [],
-    }
-  }
+let schema = `
+schema {
+  query: Queries
 }
 
-const final = JSON.stringify(introspection, null, 2);
+type Queries {
+  Applications: Applications!
+  AcctMgmtRequests: AcctMgmtRequests!
+}
 
-// console.log(JSON.stringify(allDefinitions, null, 2));
+`;
+types.forEach(type => {
+  schema += `${type.graphQLType}`;
+})
 
-fs.writeFile('final.json', final, 'utf8', () => {});
+fs.writeFile('schema.txt', schema, 'utf8', () => {});
 
-	// var result = jgeXml.parse(xml,function(state,token) {
-	// 	//...
-	// });
+const schemaObject = buildSchema(schema);
+
+const g = graphql(schemaObject, getIntrospectionQuery()).then(data => {
+  const final = JSON.stringify(data, null, 2);  
+  fs.writeFile('final.json', final, 'utf8', () => {});
+}).catch(e => {
+  console.error(e);
+})

@@ -9,7 +9,7 @@
 	<xsd:include schemaLocation="Pending_Tasks.xsd" />
 	<xsd:include schemaLocation="Errors.xsd" />
 
-	<xsd:complexType name="Application">
+	<xsd:complexType name="ResponseApplication">
 		<xsd:annotation>
 			<xsd:documentation>
 				Specifies details about the new application
