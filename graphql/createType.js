@@ -68,8 +68,6 @@ module.exports.createType = (key, data) => {
     required,
   } = data[key];
 
-  console.log('data[key]', data[key]);
-
   let kind = isNil(properties) ? toUpper(type) : 'OBJECT';
   // if (kind === 'STRING') kind = 'SCALAR';
 
