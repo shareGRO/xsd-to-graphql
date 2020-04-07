@@ -706,37 +706,37 @@ type Trust {
   RegulatoryInformation: RegulatoryInformation
 }
 """
-ACES Enumeration. Note: IRA is deprecated
+ACES Enumeration. Note: IRA is deprecated - Accepted Values: INDIVIDUAL, JOINT, TRUST, UGMA, UTMA, ORG, IRA
 """
 enum Customer_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: BOND, FOP, FUND, FUT, MRGN, MULT, OPT, SSF, CFD, STK
 """
 enum Capability_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: IBClearing, IBExecution, IBPrime
 """
 enum BrokerageService_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: BILL, BOND, CASH, CFD, COMB, FOP, FUND, FUT, OPT, SSF, STK, WAR
 """
 enum AssetClass_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: BONDS, FUTURES, FOREX, FUTURES OPTIONS, MUTUAL FUNDS, STOCKS, SINGLE STOCK FUTURES, OPTIONS, STOCK OPTIONS
 """
 enum Product_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: AUSTRALIA, AUSTRIA, BELGIUM, CANADA, FRANCE, GERMANY, HONG KONG, ITALY, JAPAN, KOREA, MEXICO, NORWAY, SINGAPORE, SPAIN, SWEDEN, SWITZERLAND, THE NETHERLANDS, UNITED KINGDOM, UNITED STATES, HK-CHINA
 """
 enum Country_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Extensive, Good, Limited, None
 """
 enum KnowledgeLevel_Type {
 VALUES
@@ -753,342 +753,342 @@ type StateCode_Type {
   id: String!
 }
   """
-ACES enumeration
+ACES enumeration - Accepted Values: Account Holder, FIRST HOLDER, SECOND HOLDER, TRADER, CEO, SECRETARY, TREASURER, OWNER, PRINCIPAL, SHAREHOLDER, TRUSTEE, BENEFICIARY, GRANTOR, Employee, CONTINGENT, IRA_BENEFICIARY, IRA DECEDENT, COMP_OFFICER, Other Officer, Controlling Officer, SIGNATORY, NON-EMPLOYEE, CUSTODIAN, SUCCESSOR_CUSTODIAN, DIRECTOR, PARTNER, CUSTODIAN EMPLOYEE
 """
 enum Association_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: OWNER, TRADER, CUSTOM, NONE
 """
 enum Privilege_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: FIRM, CUSTOMER
 """
 enum TradingFor_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: DTCID, NSCC, CMTA, GUS, OCCSSF
 """
 enum DVP_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: E, C, B
 """
 enum DVPRole_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: RegT, Margin, PortfolioMargin, GPMargin, Cash, REGT, MARGIN, PORTFOLIOMARGIN, GPMARGIN, CASH
 """
 enum Margin_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: USD, EUR, GBP, CAD, JPY, HKD, AUD, CHF, MXN, SEK, NZD, HUF, CZK, CNH, DKK, RUB, ILS, NOK, SGD, PLN, ZAR
 """
 enum Currency_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: G, Z, R, N
 """
 enum TXGroupCode_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: NYSE, AMEX, NASDAQ, CBOE, ISE, BOX, PHLX, PSE
 """
 enum ExchangeCode_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: PUBLIC, PRIVATE, OTHER
 """
 enum Organization_Type {
 VALUES
 }"""
-Deprecated. Keeping this for backward compatibility.
+Deprecated. Keeping this for backward compatibility. - Accepted Values: CRIMINAL, AFFILIATION, CFTCREGISTERED, IBACCOUNTS, REGULATORYCONTROL, BROKERDEALER, EXCHANGEMEMBERSHIP, STOCKCONTROL, DISPUTE, INVESTIGATION, MEMBERSHIP
 """
 enum RegulatoryIssueCode_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: community, joint_tenants, tenants_common, tbe
 """
 enum Joint_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Trading, Growth, Speculation, Hedging, Preservation, Income
 """
 enum InvestmentObjective_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: S, M, W, D, C
 """
 enum MaritalStatus_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: UNEMPLOYED, EMPLOYED, SELFEMPLOYED, RETIRED, STUDENT, ATHOMETRADER, HOMEMAKER
 """
 enum Employment_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: LLC, CORPORATION, PARTNERSHIP, UNINCORPORATED BUSINESS
 """
 enum OrgApplicant_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: AUTOMATED, DIRECTBILLING, NO_FEES
 """
 enum AdvisorWrapFeeStrategies_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: ANNUALFLATFEE, ANNUALFLATFEE_MONTHLY, ANNUALFLATFEE_QUATERLY, PERCENTOFEQUITY, PERCENTOFEQUITY_MONTHLY, PERCENTOFEQUITY_QUATERLY, PERCENTOFEQUITY_QUARTERLY, PERCENTOFPROFIT, PERCENTOFPROFIT_QUARTER, INVOICE_LIMIT, INVOICE_LIMIT_Q, PERTRADE
 """
 enum AutomatedWrapFees_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: 1, 2, 3, 4
 """
 enum QuarterHWM_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: FA, FM, PM
 """
 enum CommissionMarkups_Type {
 VALUES
 }"""
-SEP-Inherited
+SEP-Inherited - Accepted Values: RI, RO, RT, SP, ED, TH, RH, SH
 """
 enum IRA_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Brother, Daughter, Estate, Father, Husband, Mother, Other, Sister, Son, Wife, Charity, Trust, Spouse, Child, Sibling, Parent, Grandchild, Common Law Partner
 """
 enum IRABeneficiaryRelation_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Other, Trust, Spouse, Individual
 """
 enum InheritedIRABeneficiaryRelation_Type {
 VALUES
 }"""
-Other
+Other - Accepted Values: S, I, T, O
 """
 enum InheritedIRABeneficiary_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: contribution, rollover
 """
 enum IRADeposit_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: current, prior
 """
 enum IRAContribTaxYear_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: FULL, PARTIAL
 """
 enum PositionsTransfer_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: ACATS, ATON
 """
 enum PositionsTransfer_SubType {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Individual, Corporation, Partnership, LLC, Other
 """
 enum W9Customer_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: SSN, EIN, NonUS_NationalId
 """
 enum TIN_Type {
 VALUES
 }"""
-ACES enumeration, SKIP_DEPOSIT is for clients who will fund later, after the account is opened
+ACES enumeration, SKIP_DEPOSIT is for clients who will fund later, after the account is opened - Accepted Values: CHECK, WIRE, ACH, SKIP_DEPOSIT
 """
 enum Deposit_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: DEPOSIT, WITHDRAWAL
 """
 enum RecurringTx_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: MONTHLY, QUARTERLY, YEARLY
 """
 enum RecurringTxFreq_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: CREDIT, DEBIT, BOTH
 """
 enum ACHInstructionTx_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: NORMAL, EARLY, EARLY_EXCEPT, DEATH, DISABILITY, EXCESS_CONTRIB
 """
 enum IRADistribution_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Mr., Mrs., Ms., Dr.
 """
 enum Salutation_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Jr., Sr., I, II, III, IV, V
 """
 enum Suffix_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: M, F, Male, Female
 """
 enum Gender_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: FINANCIALINSTITUTION, PROPRIETARYTRADING, FAMILYINVVEHICLE, OPERATINGBUSINESS, BROKERDEALER, LICENSEDADVISOR
 """
 enum TradeIntention_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: CONSULTING, DISABILITY, INHERITANCE, INTEREST, REALESTATE, RENTAL, SEVERANCE, SPOUSE, TRADINGANDINVESTMENTS, PENSIONANDSOCIALSECURITY, UNEMPLOYMENT, OTHER
 """
 enum SourceOfFunds_Type {
 VALUES
 }"""
-ACES enumeration Values with the prefix SOW-IND should be used with Individual/Joint accounts. Values with the prefix SOW-ORG should be used with Org/Trust accounts.
+ACES enumeration Values with the prefix SOW-IND should be used with Individual/Joint accounts. Values with the prefix SOW-ORG should be used with Org/Trust accounts. - Accepted Values: SOW-IND-Allowance, SOW-IND-Disability, SOW-IND-Income, SOW-IND-Inheritance, SOW-IND-Interest, SOW-IND-MarketProfit, SOW-IND-Other, SOW-IND-Pension, SOW-IND-Property, SOW-ORG-Business, SOW-ORG-MarketTradingProfits, SOW-ORG-Other, SOW-ORG-OwnerEquity, SOW-ORG-Property, SOW-ORG-RetainedEarnings
 """
 enum WealthSource_Type {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: Work, Home, Fax, Mobile, Mobile (work), Mobile (other), Business, Other (voice)
 """
 enum Phone_Type {
 VALUES
 }"""
-List of possible relationships between entities and accounts.
+List of possible relationships between entities and accounts. - Accepted Values: Account_Holder, Spouse, Firstholder, Secondholder, Trader, Secretary, Treasurer, Ceo, Owner, Trustee, Beneficiary, Grantor, Director, Principal, Shareholder, Partner, Controlling_Officer, Beneficialowner, Signatory, Comp_Officer, Superv_Broker, Pooled_User, Financial_User, Contingent, Ira_Beneficiary, Employee, Non_Employee, Fund_Admin, Fund_Contact, Firm_Admin, Firm_Billing, Firm_Clearing, Firm_Sales, Firm_Trading, Firm_User, Account_Admin, Account_Billing, Account_Clearing, Account_Sales, Account_Trading, User_Individual, Fund_Manager, Investment_Advisor, Shf_Investmanager, Advisory_Principal, Advisory_Signatory, Associated_Fund, Primary_Contributor, Administrator, Contact, Lead_Compliance_Officer, Compliance_Officer, Other_Officer, Apply_User, Transfer_On_Death_Legator, Tod_Primary_Beneficiary, Tod_Contingent_Beneficiary, Nominee, Nominee_Guardian, Ira_Decedent, Authorized_Person, Promoter, Wholetime_Director, Nominee_Owner, Third_Party_Admin, Compliance_Contact, Trust_Controller, Trust_Applicant, Organization_Applicant, Mm_Contact, Reg_Rep, Plan_Sponsor, Plan_Sponsor_Officer, Pension_Admin, Pension_Admin_Contact, Accountant, Joint_Applicant, Custodian_Employee, Successor_Custodian, Custodian, Successor_Custodian_Employee, Chief_Compliance_Officer, Chief_Financial_Officer, Trading_Officer, Child, Parent, Sibling, Estate, As_Interest_May_Appear, Ira_Present_Trust, Other, Life_Partner, Common_Law_Partner, Grandchild, Charity, Trust_Ira, Successor_Holder, Head_Of_Desk, Cftc_Non_Applicant_Ocr_Contact, Ocr_Account_Controller, Cftc_Applicant_Ocr_Contact
 """
 enum RelationshipEnum {
 VALUES
 }"""
-W-8BEN-E Box 4 - Chapter 3 Status (entity type)
+W-8BEN-E Box 4 - Chapter 3 Status (entity type) - Accepted Values: CORPORATION, DISREGARDED_ENTITY, PARTNERSHIP, SIMPLE_TRUST, GRANTOR_TRUST, COMPLEX_TRUST, ESTATE, GOVERNMENT, CENTRAL_BANK_OF_ISSUE, TAX_EXEMPT_ORGANIZATION, PRIVATE_FOUNDATION
 """
 enum W8BENE_Box4_Type {
 VALUES
 }"""
-Box 5 - Chapter 4 Status (FATCA status)
+Box 5 - Chapter 4 Status (FATCA status) - Accepted Values: NONPARTICIPATING_FFI, PARICIPATING_FFI, REPORTING_MODEL_1_FFI, REPORTING_MODEL_2_FFI, REGISTERED_DEEMED_COMPLIANT_FFI, SPONSORED_FFI, CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK, CERTIFIED_DEEMED_COMPLIANT_FFI, CERTIFIED_DEEMED_COMPLIANT_SPONSORED_VEHICLE, CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT, CERTIFIED_DEEMED_COMPLIANT_INVESTMENT_ADVISORS, OWNER_DOCUMENTED_FFI, RESTRICTED_DISTRIBUTOR, NONREPORTING_IGA_FFI, FOREIGN_GOVERNMENT, INTERNATIONAL_ORGANIZATION, EXEMPT_RETIREMENT_PLANS, ENTITY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS, TERRITORY_FINANCIAL_INSTITUTION, NONFINANCIAL_GROUP, EXCEPTED_NONFINANCIAL_STARTUP, EXCEPTED_NONFINANCIAL_ENTITY, AN_501_C_ORGANIZATION, NONPROFIT_ORGANIZATION, PUBLICLY_TRADED_NFFE, EXCEPTED_TERRITORY_NFFE, ACTIVE_NFFE, PASSIVE_NFFE, EXCEPTED_INTER_AFFILIATE_FFI, DIRECT_REPORTING_NFFE, SPONSORED_DIRECT_REPORTING_NFFE
 """
 enum W8BENE_Box5_Type {
 VALUES
 }"""
-W-8BEN-E Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment
+W-8BEN-E Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment - Accepted Values: LIMITED_BRANCH, US_BRANCH, PARTICIPATING_FFI, REPORTING_MODEL_1_FFI, REPORTING_MODEL_2_FFI
 """
 enum W8BENE_Box11_Type {
 VALUES
 }"""
-W-8IMY Box 4 - Chapter 3 Status (entity type)
+W-8IMY Box 4 - Chapter 3 Status (entity type) - Accepted Values: QUALIFIED_INTERMEDIARY, NONQUALIFIED_INTERMEDIARY, TERRITORY_FINANCIAL, US_BRANCH, WITHHOLDING_FOREIGN_PARTNERSHIP, WITHHOLDING_FOREIGN_TRUST, NONWITHHOLDING_FOREIGN_PARTNERSHIP, NONWITHHOLDING_FOREIGN_SIMPLE_TRUST, NONWITHHOLDING_FOREIGN_GRANTOR_TRUST
 """
 enum W8IMY_Box4_Type {
 VALUES
 }"""
-W-8IMY Box 5 - Chapter 4 Status (entity type)
+W-8IMY Box 5 - Chapter 4 Status (entity type) - Accepted Values: NONPARTICIPATING_FFI, PARTICIPATING_FFI, REPORTING_MODEL1_FFI, REPORTING_MODEL2_FFI, REGISTERED_DEEMED_COMPLAINT, TERRITORY_FINANCIAL_INSTITUTION, SPONSORED_FFI, CERTIFIED_DEEMED_COMPLAINT_FFI, CERTIFIED_DEEMED_COMPLAINT_SPONSORED, CERTIFIED_DEEMED_COMPLAINT_LIMITED_LIFE_DEBT, OWNER_DOCUMENTED_FFI, RESTRICTED_DISTRIBUTOR, FOREIGN_CENTRAL_BANK_ISSUE, NONREPORTING_IGA_FFO, EXEMPT_RETIREMENT_PLAN, EXCEPTED_NONFINANCIAL_GROUP_ENTITY, EXCEPTED_NONFINANCIAL_STARTUP_COMPANY, EXCEPTED_NONFINANCIAL_ENTITY_IN_LIQUIDATION, PUBLICLY_TRADED_NFFE, EXCEPTED_TERRITORY_NFFE, ACTIVE_NFFE, PASSIVE_NFFE, DIRECT_REPORTING_NFFE, SPONSORED_DIRECT_REPORTING_NFFE
 """
 enum W8IMY_Box5_Type {
 VALUES
 }"""
-W-8IMY Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment
+W-8IMY Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment - Accepted Values: LIMITED_BRANCH, US_BRANCH, PARTICIPATING_FFI, REPORTING_MODEL_1_FFI, REPORTING_MODEL_2_FFI
 """
 enum W8IMY_Box11_Type {
 VALUES
 }"""
-W-8IMY Box 8 - Part 1 - Item 8 - US Taxpayer Identification Number Type
+W-8IMY Box 8 - Part 1 - Item 8 - US Taxpayer Identification Number Type - Accepted Values: QI-EIN, WP-EIN, WT-EIN, EIN, SSN, ITIN
 """
 enum US_TIN_Type {
 VALUES
 }"""
-undefined
+undefined - Accepted Values: ORG_EXEMPT, THE_US, DC, FOREIGN_GOVERNMENT, CORPORATION, DEALER_IN_SEC_OR_COMM, FUTURES_COMMISSION_MERCHANT, REAL_ESTATE, ENTITY_UNDER_INV_COMP_ACT_1940, COMMON_TRUST_FUND, FINANCIAL_INSTITUTION, MIDDLEMAN, EXEMPT_UNDER_SECTION_664
 """
 enum ExemptPayeeCode_Type {
 VALUES
 }"""
-undefined
+undefined - Accepted Values: EXEMPT_UNDER_SECTION_501_A, THE_US, DC, CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C, CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C, DEALER_IN_SEC_OR_COMM, REAL_ESTATE, REGULATED_INVESTMENT_COMPANY, COMMON_TRUST_FUND, BANK_AS_DEFINED_IN_SECTION_581, BROKER, EXEMPT_UNDER_SECTION_664, EXEMPT_UNDER_SECTION_403_OR_457
 """
 enum ExemptReportCode_Type {
 VALUES
 }"""
-Corporation - C Partnership - P Disregarded Entity - E
+Corporation - C Partnership - P Disregarded Entity - E - Accepted Values: C, P, E
 """
 enum USTaxPurposeType {
 VALUES
 }"""
-Org is a foreign bank - 2 Org is a licensed securities broker or dealer - 3 Org is a licensed futures commission merchant - 5 Org is a mutual fund, hedge fund, private equity - 21 Org is a licensed forex dealer - 22 Org is a licensed money transmitter -23 Org is an employee benefit plan regulated under ERISA - 25 Org is a US federally regulated or state regulated bank -31 Org is a US registered swap dealer - 33 Org is a US registered major swap participant - 34 Org is an insuarance company regulated by a US state - 35 Org is a nonUS insurance company regulated outside of the US - 36 Org is a department or agency of the US - 37 Org is a licensed advisor or investment manager for securities, futures, or forex trading - 38
+Org is a foreign bank - 2 Org is a licensed securities broker or dealer - 3 Org is a licensed futures commission merchant - 5 Org is a mutual fund, hedge fund, private equity - 21 Org is a licensed forex dealer - 22 Org is a licensed money transmitter -23 Org is an employee benefit plan regulated under ERISA - 25 Org is a US federally regulated or state regulated bank -31 Org is a US registered swap dealer - 33 Org is a US registered major swap participant - 34 Org is an insuarance company regulated by a US state - 35 Org is a nonUS insurance company regulated outside of the US - 36 Org is a department or agency of the US - 37 Org is a licensed advisor or investment manager for securities, futures, or forex trading - 38 - Accepted Values: 2, 3, 5, 21, 22, 23, 25, 31, 33, 34, 35, 36, 37, 38
 """
 enum FinancialOrgCodeType {
 VALUES
 }"""
-undefined
+undefined - Accepted Values: COMPLEX_TRUST, SINGLE_TRUST, GRANTOR_TRUST, US_TAXABLE_TRUST
 """
 enum TrustTypeList {
 VALUES
 }"""
-Values are subset of W3C.
+Values are subset of W3C. - Accepted Values: en, zh-Hans, ja, ru
 """
 enum languageList {
 VALUES
 }"""
-Possibles Signature Types
+Possibles Signature Types - Accepted Values: Electronic, Physical
 """
 enum SignatureType {
 VALUES
 }"""
-Commission Types
+Commission Types - Accepted Values: Commodities, Securities
 """
 enum CommissionType {
 VALUES
 }"""
-Commission Styles
+Commission Styles - Accepted Values: Bundled, Unbundled
 """
 enum CommissionStyle {
 VALUES
 }"""
-Used only for brokers; it indicates the type of price structure
+Used only for brokers; it indicates the type of price structure - Accepted Values: FIXED, TIERED
 """
 enum PricingStructureType {
 VALUES
 }"""
-It indicates the desigation of Controlling Person for CRS Tax Reporting
+It indicates the desigation of Controlling Person for CRS Tax Reporting - Accepted Values: SENIOR_MGMT_OFFICER, BY_OWNERSHIP, BY_OTHER_MEANS
 """
 enum DesignationType {
 VALUES
 }"""
-OECD Statuses
+OECD Statuses - Accepted Values: DEPOSITORY_INSTITUTION, CUSTODIAL_INSTITUTION, SPECIFIED_INSURANCE_COMPANY, INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION, INVESTMENT_ENTITY_NOT_LISTED, PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE, OTHER_ACTIVE_NON_FINANCIAL_ENTITY, PASSIVE_NON_FINANCIAL_ENTITY, EXEMPT_RETIREMENT_PLAN, NON_REPORTING_FI, OTHER_INVESTMENT_ENTITY, FINANCIAL_INSTITUTION, NON_REPORTING_FINANCIAL_INSTITUTION
 """
 enum OECDStatusType {
 VALUES
 }"""
-Position Types
+Position Types - Accepted Values: LONG, SHORT
 """
 enum PositionType {
 VALUES
 }"""
-Option Types
+Option Types - Accepted Values: CALL, PUT
 """
 enum OptionType {
 VALUES
 }"""
-Explanation for not providing either TIN or Foreign Tax Id: 1. [US_TIN] Account holder possesses US TIN; it will be added to W8 Form. 2. [TIN_NOT_DISCLOSED] Country issues TIN; however, account holder is exempt from disclosing TIN under laws of the country. 3. [TIN_NOT_REQUIRED] Account holder is not legally required to obtain TIN. 4. [TIN_NOT_ISSUED] Country does not issue TIN.
+Explanation for not providing either TIN or Foreign Tax Id: 1. [US_TIN] Account holder possesses US TIN; it will be added to W8 Form. 2. [TIN_NOT_DISCLOSED] Country issues TIN; however, account holder is exempt from disclosing TIN under laws of the country. 3. [TIN_NOT_REQUIRED] Account holder is not legally required to obtain TIN. 4. [TIN_NOT_ISSUED] Country does not issue TIN. - Accepted Values: US_TIN, TIN_NOT_DISCLOSED, TIN_NOT_REQUIRED, TIN_NOT_ISSUED
 """
 enum ExplanationType {
 VALUES
 }"""
-ACES enumeration
+ACES enumeration - Accepted Values: ADD, UPDATE, REMOVE
 """
 enum ActionType {
 VALUES
 }"""
-Enumeration of Qualified Intermediary Types
+Enumeration of Qualified Intermediary Types - Accepted Values: QI-RO, QI-RO-US, QI-RO-USW, QI-RW, QI-RW-US, QI-RW-USW
 """
 enum QIClassEnum {
 VALUES
 }"""
-Enumeration of FATCA Compliance Types
+Enumeration of FATCA Compliance Types - Accepted Values: FATCA_COMPLIANT, NON_CONSENTING_US_ACCOUNT, NON_COOPERATIVE_ACCOUNT
 """
 enum FatcaCompliantEnum {
 VALUES

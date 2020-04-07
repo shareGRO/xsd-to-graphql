@@ -103,11 +103,11 @@ type ${key} {
     if (isArray(enumValues)){
       let values = '';
       enumValues.forEach((value, index) => {
-        values += `  ${value.replace('-', '_')}
+        values += `  ${value}
 `;
       })
       graphQLType = `"""
-${description}
+${description} - Accepted Values: ${enumValues.join(', ')}
 """
 enum ${key} {
 VALUES
