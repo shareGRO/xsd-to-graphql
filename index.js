@@ -1,13 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 const Xsd2JsonSchema = require('xsd2jsonschema').Xsd2JsonSchema;
-const { isNil, get, uniq, split, last, toUpper } = require('lodash');
+const { isNil, get, uniq, split, last, toUpper, indexOf, join, upperCase, pad } = require('lodash');
 const { buildSchema, printSchema, introspectionQuery, buildClientSchema, graphqlSync, getIntrospectionQuery, graphql } = require('graphql');
 
 const { graphQLTypes } = require('./graphql/types');
 const{ createType } = require('./graphql/createType');
-// const { introspectionQuery } = require('graphql'); 
  
+const elementsToGenerateJSON = ['Applications'];
+const elementsToIgnore = [
+  'Applications/Application/Customer/Organization',
+  'Applications/Application/Customer/JointHolders',
+  'Applications/Application/Customer/Trust'  
+];
+const elementsToHardCode = {
+  'Applications/Application/Customer/AccountHolder/TaxInformation/W9/@customer_type': 'Individual',
+};
 
 const getAllFiles = function(dirPath, arrayOfFiles) {
   files = fs.readdirSync(dirPath)
@@ -81,6 +89,51 @@ const scalars = getScalars(dataObjects);
 const keys = Object.keys(dataObjects);
 const types = keys.map(key => createType(key, dataObjects))
 
+const getEnumValues = (elementKey) => get(dataObjects[elementKey], 'enum', []);
+
+const values = getEnumValues('Customer_Type');
+console.log('values', values);
+
+const getElement = (elementKey, parentPath) => {
+  const element = dataObjects[elementKey];
+  const elementProperties = get(element, 'properties', null);
+  if (isNil(elementProperties)) return {};
+  const propertyKeys = Object.keys(elementProperties);
+  const finalElement = {};
+  propertyKeys.forEach(key => {
+    const path = `${parentPath}/${key}`;
+    if (indexOf(elementsToIgnore, path) === -1) {
+      let ref = last(split(get(elementProperties[key], '$ref', null), '/'));
+      if (ref === '') ref = last(split(get(elementProperties[key], 'oneOf[0].$ref', null), '/'));
+      const type = get(elementProperties[key], 'type', null);
+      const isAttribute = String(key).substr(0,1) === '@' || type !== null;
+      const el = getElement(ref, path);
+      if (isAttribute) {
+        let attrType = isNil(type) ? ref : pad(upperCase(type), '__');
+        if (attrType === '') attrType = upperCase(get(elementProperties[key], 'oneOf[0].type', null))
+        const enumValues = getEnumValues(attrType);
+        const finalValue = elementsToHardCode[path];
+        finalElement[key] = isNil(finalValue)
+          ? `${attrType}${enumValues.length > 0 ? ' : ' : ''}${join(enumValues, '|')}`
+          : finalValue;
+      } else {
+        finalElement[key] = {
+          // _path: path,
+          // _element: element,
+          ...el,
+        }
+      }
+    }
+  })
+  return finalElement;
+}
+
+elementsToGenerateJSON.forEach(elKey => {
+  const json = JSON.stringify(getElement(elKey, elKey), null, 2);  
+  fs.writeFile(`element-json/${elKey}.json`, json, 'utf8', () => {});
+});
+
+
 // const introspection = {
 //   data: {
 //     __schema: {
@@ -132,4 +185,6 @@ const g = graphql(schemaObject, getIntrospectionQuery()).then(data => {
   console.error(e);
 })
 
+const minSchema = `
 
+`;

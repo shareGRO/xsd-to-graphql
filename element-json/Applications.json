@@ -1,0 +1,1304 @@
+{
+  "Application": {
+    "Customer": {
+      "AccountHolder": {
+        "AccountHolderDetails": {},
+        "FinancialInformation": {
+          "InvestmentExperience": {
+            "AssetExperience": {
+              "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+              "@years_trading": "INTEGER",
+              "@trades_per_year": "INTEGER",
+              "@knowledge_level": "KnowledgeLevel_Type : Extensive|Good|Limited|None"
+            }
+          },
+          "InvestmentObjectives": {
+            "objective": {}
+          },
+          "AdditionalSourceOfIncome": {
+            "SourceOfIncome": {
+              "@source_type": "SourceOfFunds_Type : CONSULTING|DISABILITY|INHERITANCE|INTEREST|REALESTATE|RENTAL|SEVERANCE|SPOUSE|TRADINGANDINVESTMENTS|PENSIONANDSOCIALSECURITY|UNEMPLOYMENT|OTHER",
+              "@percentage": "INTEGER",
+              "@description": "STRING"
+            }
+          },
+          "SourcesOfWealth": {
+            "SourceOfWealth": {
+              "@source_type": "WealthSource_Type : SOW-IND-Allowance|SOW-IND-Disability|SOW-IND-Income|SOW-IND-Inheritance|SOW-IND-Interest|SOW-IND-MarketProfit|SOW-IND-Other|SOW-IND-Pension|SOW-IND-Property|SOW-ORG-Business|SOW-ORG-MarketTradingProfits|SOW-ORG-Other|SOW-ORG-OwnerEquity|SOW-ORG-Property|SOW-ORG-RetainedEarnings",
+              "@percentage": "INTEGER",
+              "@is_used_for_funds": "BOOLEAN",
+              "@description": "STRING"
+            }
+          },
+          "@net_worth": "NUMBER",
+          "@liquid_net_worth": "NUMBER",
+          "@annual_net_income": "NUMBER",
+          "@total_assets": "NUMBER",
+          "@source_of_funds": "STRING",
+          "@is_translated": "BOOLEAN"
+        },
+        "RegulatoryInformation": {
+          "SelfRegulatedMembership": {
+            "exchanges": "STRING",
+            "organizations": "STRING"
+          },
+          "AffiliationDetails": {
+            "affiliation_relationship": "STRING",
+            "person_name": "STRING",
+            "company_id": "INTEGER",
+            "company": "STRING",
+            "company_mailing_address": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "company_phone": "STRING",
+            "company_email_address": "STRING",
+            "@is_duplicate_stmt_required": "BOOLEAN"
+          },
+          "FinancialOrgType": {
+            "@code": "FinancialOrgCodeType : 2|3|5|21|22|23|25|31|33|34|35|36|37|38"
+          },
+          "ORGRegulatoryInfo": {
+            "PublicCompanyInfo": {
+              "ExchangeTradedOn": "STRING",
+              "QuotedSymbol": "STRING"
+            },
+            "ORGRegulator": {
+              "RegulatorName": "STRING",
+              "RegulatorCountry": "STRING",
+              "RegulatedInCapacity": "STRING",
+              "RegulatorId": "STRING"
+            },
+            "@is_public": "BOOLEAN",
+            "@is_regulated": "BOOLEAN"
+          },
+          "@is_translated": "BOOLEAN"
+        },
+        "RegulatedMemberships": {
+          "RegulatedMembership": {
+            "@organization_code": "STRING",
+            "@membership_id": "STRING"
+          }
+        },
+        "AccreditedInvestorInformation": {
+          "@q1": "BOOLEAN",
+          "@q2": "BOOLEAN",
+          "@q3": "BOOLEAN",
+          "@q4": "BOOLEAN",
+          "@q5": "BOOLEAN"
+        },
+        "TaxInformation": {
+          "W9": {
+            "@name": "STRING",
+            "@business_name": "STRING",
+            "@customer_type": "Individual",
+            "@tax_classification": "STRING",
+            "@other_customer_type": "STRING",
+            "@tin": "STRING",
+            "@tin_type": "TIN_Type : SSN|EIN|NonUS_NationalId",
+            "@cert1": "BOOLEAN",
+            "@cert2": "BOOLEAN",
+            "@cert3": "BOOLEAN",
+            "@cert4": "BOOLEAN",
+            "@fatca_exempt_payee_code": "ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664",
+            "@fatca_exempt_report_code": "ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457",
+            "@signature_type": "SignatureType : Electronic|Physical",
+            "@blank_form": "BOOLEAN",
+            "@tax_form_file": "STRING",
+            "@proprietary_form_number": "INTEGER"
+          },
+          "W8Ben": {
+            "@name": "STRING",
+            "@country_of_citizenship": "CountryCode_Type",
+            "@residence_address": "STRING",
+            "@city": "STRING",
+            "@country": "CountryCode_Type",
+            "@mailing_address": "STRING",
+            "@mailing_city": "STRING",
+            "@mailing_country": "CountryCode_Type",
+            "@tin": "STRING",
+            "@foreign_tax_id": "STRING",
+            "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+            "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+            "@reference_number": "INTEGER",
+            "@part_2_9a_country": "STRING",
+            "@part_2_10_article": "STRING",
+            "@part_2_10_percent": "STRING",
+            "@part_2_10_income_type": "STRING",
+            "@part_2_10_reasons": "STRING",
+            "@cert": "BOOLEAN",
+            "@signature_type": "SignatureType : Electronic|Physical",
+            "@blank_form": "BOOLEAN",
+            "@tax_form_file": "STRING",
+            "@proprietary_form_number": "INTEGER"
+          },
+          "CRS": {
+            "ControllingPerson": {
+              "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
+            },
+            "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
+          },
+          "W8BenE": {
+            "SubstantialUsOwners": {
+              "SubstantialUsOwner": {
+                "@external_id": "STRING"
+              }
+            },
+            "@name": "STRING",
+            "@disregarded_entity_name": "STRING",
+            "@entity_type": "W8BENE_Box4_Type : CORPORATION|DISREGARDED_ENTITY|PARTNERSHIP|SIMPLE_TRUST|GRANTOR_TRUST|COMPLEX_TRUST|ESTATE|GOVERNMENT|CENTRAL_BANK_OF_ISSUE|TAX_EXEMPT_ORGANIZATION|PRIVATE_FOUNDATION",
+            "@fatca_status": "W8BENE_Box5_Type : NONPARTICIPATING_FFI|PARICIPATING_FFI|REPORTING_MODEL_1_FFI|REPORTING_MODEL_2_FFI|REGISTERED_DEEMED_COMPLIANT_FFI|SPONSORED_FFI|CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK|CERTIFIED_DEEMED_COMPLIANT_FFI|CERTIFIED_DEEMED_COMPLIANT_SPONSORED_VEHICLE|CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT|CERTIFIED_DEEMED_COMPLIANT_INVESTMENT_ADVISORS|OWNER_DOCUMENTED_FFI|RESTRICTED_DISTRIBUTOR|NONREPORTING_IGA_FFI|FOREIGN_GOVERNMENT|INTERNATIONAL_ORGANIZATION|EXEMPT_RETIREMENT_PLANS|ENTITY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS|TERRITORY_FINANCIAL_INSTITUTION|NONFINANCIAL_GROUP|EXCEPTED_NONFINANCIAL_STARTUP|EXCEPTED_NONFINANCIAL_ENTITY|AN_501_C_ORGANIZATION|NONPROFIT_ORGANIZATION|PUBLICLY_TRADED_NFFE|EXCEPTED_TERRITORY_NFFE|ACTIVE_NFFE|PASSIVE_NFFE|EXCEPTED_INTER_AFFILIATE_FFI|DIRECT_REPORTING_NFFE|SPONSORED_DIRECT_REPORTING_NFFE",
+            "@residence_address": "STRING",
+            "@city": "STRING",
+            "@country": "CountryCode_Type",
+            "@mailing_address": "STRING",
+            "@mailing_city": "STRING",
+            "@mailing_country": "CountryCode_Type",
+            "@us_tin": "STRING",
+            "@giin": "STRING",
+            "@foreign_tin": "STRING",
+            "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+            "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+            "@reference_number": "INTEGER",
+            "@box_11_status": "W8BENE_Box11_Type : LIMITED_BRANCH|US_BRANCH|PARTICIPATING_FFI|REPORTING_MODEL_1_FFI|REPORTING_MODEL_2_FFI",
+            "@part_3_14a": "BOOLEAN",
+            "@part_3_14a_country": "STRING",
+            "@part_3_14b": "BOOLEAN",
+            "@part_3_14c": "BOOLEAN",
+            "@part_3_15_article": "STRING",
+            "@part_3_15_wh_rate": "STRING",
+            "@part_3_15_income_type": "STRING",
+            "@part_3_15_reasons": "STRING",
+            "@part_4_16": "STRING",
+            "@part_4_17_i": "BOOLEAN",
+            "@part_4_17_ii": "BOOLEAN",
+            "@part_5_18": "BOOLEAN",
+            "@part_6_19": "BOOLEAN",
+            "@part_7_20": "STRING",
+            "@part_7_21": "BOOLEAN",
+            "@part_8_22": "BOOLEAN",
+            "@part_9_23": "BOOLEAN",
+            "@part_10_24a": "BOOLEAN",
+            "@part_10_24b": "BOOLEAN",
+            "@part_10_24c": "BOOLEAN",
+            "@part_10_24d": "BOOLEAN",
+            "@part_11_25a": "BOOLEAN",
+            "@part_11_25b": "BOOLEAN",
+            "@part_11_25c": "BOOLEAN",
+            "@part_12_26": "BOOLEAN",
+            "@part_12_26_desc1": "STRING",
+            "@part_12_26_desc2": "STRING",
+            "@part_12_26_desc3": "STRING",
+            "@part_13_27": "BOOLEAN",
+            "@part_14_28a": "BOOLEAN",
+            "@part_14_28b": "BOOLEAN",
+            "@part_15_29a": "BOOLEAN",
+            "@part_15_29b": "BOOLEAN",
+            "@part_15_29c": "BOOLEAN",
+            "@part_15_29d": "BOOLEAN",
+            "@part_15_29e": "BOOLEAN",
+            "@part_15_29f": "BOOLEAN",
+            "@part_16_30": "BOOLEAN",
+            "@part_17_31": "BOOLEAN",
+            "@part_18_32": "BOOLEAN",
+            "@part_19_33": "BOOLEAN",
+            "@part_20_34": "BOOLEAN",
+            "@part_21_35": "BOOLEAN",
+            "@part_21_35_date": "STRING",
+            "@part_22_36": "BOOLEAN",
+            "@part_23_37a": "BOOLEAN",
+            "@part_23_37a_desc": "STRING",
+            "@part_23_37b": "BOOLEAN",
+            "@part_23_37b_desc1": "STRING",
+            "@part_23_37b_desc2": "STRING",
+            "@part_24_38": "BOOLEAN",
+            "@part_25_39": "BOOLEAN",
+            "@part_26_40a": "BOOLEAN",
+            "@part_26_40b": "BOOLEAN",
+            "@part_26_40c": "BOOLEAN",
+            "@part_27_41": "BOOLEAN",
+            "@part_28_42": "STRING",
+            "@part_28_43": "BOOLEAN",
+            "@cert": "BOOLEAN"
+          }
+        },
+        "WithholdingStatement": {
+          "@acct_id": "STRING",
+          "@fatca_compliant_type": "FatcaCompliantEnum : FATCA_COMPLIANT|NON_CONSENTING_US_ACCOUNT|NON_COOPERATIVE_ACCOUNT",
+          "@us_backup_withholding": "BOOLEAN",
+          "@treaty_country": "STRING",
+          "@is_corporation": "BOOLEAN",
+          "@is_flow_through": "BOOLEAN",
+          "@effective_date": "STRING",
+          "@dividend_rate": "NUMBER",
+          "@interest_rate": "NUMBER",
+          "@us_other_rate": "NUMBER",
+          "@eci_rate": "NUMBER"
+        }
+      },
+      "@id": "STRING",
+      "@external_id": "STRING",
+      "@transfer_us_micro_cap_stock": "BOOLEAN",
+      "@type": "Customer_Type : INDIVIDUAL|JOINT|TRUST|UGMA|UTMA|ORG|IRA",
+      "@prefix": "UserNamePrefix_Type",
+      "@email": "STRING",
+      "@md_status_nonpro": "BOOLEAN",
+      "@preferred_primary_language": "STRING",
+      "@preferred_secondary_language": "STRING",
+      "@legal_residence_country": "STRING",
+      "@tax_treaty_country": "STRING",
+      "@meet_aml_standard": "BOOLEAN",
+      "@has_direct_trading_access": "BOOLEAN",
+      "@origin_country": "STRING",
+      "@termination_age": "INTEGER",
+      "@governing_state": "STRING",
+      "@opt_for_debit_card": "BOOLEAN",
+      "@robo_fa_client": "BOOLEAN",
+      "@independent_account": "BOOLEAN"
+    },
+    "Accounts": {
+      "Account": {
+        "InvestmentObjectives": {
+          "objective": {}
+        },
+        "BrokerageServices": {
+          "BrokerageService": {
+            "@code": "BrokerageService_Type : IBClearing|IBExecution|IBPrime"
+          }
+        },
+        "Capabilities": {
+          "Capability": {
+            "@code": "Capability_Type : BOND|FOP|FUND|FUT|MRGN|MULT|OPT|SSF|CFD|STK"
+          }
+        },
+        "TradingPermissions": {
+          "TradingPermission": {
+            "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+            "@exchange_group": "STRING",
+            "@country": "Country_Type : AUSTRALIA|AUSTRIA|BELGIUM|CANADA|FRANCE|GERMANY|HONG KONG|ITALY|JAPAN|KOREA|MEXICO|NORWAY|SINGAPORE|SPAIN|SWEDEN|SWITZERLAND|THE NETHERLANDS|UNITED KINGDOM|UNITED STATES|HK-CHINA",
+            "@product": "Product_Type : BONDS|FUTURES|FOREX|FUTURES OPTIONS|MUTUAL FUNDS|STOCKS|SINGLE STOCK FUTURES|OPTIONS|STOCK OPTIONS"
+          }
+        },
+        "CommissionConfigs": {
+          "CommissionConfig": {
+            "@style": "CommissionStyle : Bundled|Unbundled",
+            "@type": "CommissionType : Commodities|Securities"
+          }
+        },
+        "AllExchangeAccess": {
+          "ExchangeAccess": {
+            "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+            "@exchange": "ExchangeCode_Type : NYSE|AMEX|NASDAQ|CBOE|ISE|BOX|PHLX|PSE"
+          }
+        },
+        "DVPInstructions": {
+          "DVPInstruction": {
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@ExternalAcctID": "STRING",
+            "@AcctID": "STRING",
+            "@Name": "STRING",
+            "@Type": "DVP_Type : DTCID|NSCC|CMTA|GUS|OCCSSF",
+            "@Role": "DVPRole_Type : E|C|B",
+            "@AgentID": "STRING",
+            "@FirmID": "STRING",
+            "@AccountID": "STRING",
+            "@AgentName": "STRING",
+            "@AccountName": "STRING",
+            "@DayDoID": "STRING",
+            "@TXGroupCode": "TXGroupCode_Type : G|Z|R|N",
+            "@BrokerCode": "STRING",
+            "@AssetClass": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+            "@Exchange": "ExchangeCode_Type : NYSE|AMEX|NASDAQ|CBOE|ISE|BOX|PHLX|PSE",
+            "@PrepayTax": "BOOLEAN",
+            "@PrepayCommission": "BOOLEAN",
+            "@Default": "BOOLEAN",
+            "@Expiry": "STRING"
+          }
+        },
+        "TradingLimits": {
+          "OrderValueLimits": {
+            "@max_order_value": "NUMBER",
+            "@max_gross_value": "NUMBER",
+            "@max_net_value": "NUMBER",
+            "@net_contract_limit": "NUMBER"
+          },
+          "EFPQuantityLimits": {
+            "@max_nominal_efp_per_order": "INTEGER",
+            "@max_net_efp_trades": "INTEGER",
+            "@max_gross_efp_trades": "INTEGER"
+          },
+          "OrderQuantityLimit": {
+            "@asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+            "@quantity": "INTEGER"
+          },
+          "DayQuantityLimit": {
+            "@asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
+            "@quantity": "INTEGER"
+          }
+        },
+        "AdvisorWrapFees": {
+          "automated_fees_details": {
+            "per_trade_markups": {
+              "markup": {
+                "stair": {
+                  "@break": "NUMBER",
+                  "@amount": "NUMBER"
+                },
+                "@code": "STRING",
+                "@minimum": "NUMBER",
+                "@maximum": "NUMBER",
+                "@type": "CommissionMarkups_Type : FA|FM|PM",
+                "@amount": "NUMBER",
+                "@plus_cost": "BOOLEAN"
+              },
+              "@pricing_structure": "PricingStructureType : FIXED|TIERED"
+            },
+            "annual_blended_percentage": {
+              "@BlendedFrom": "STRING",
+              "@BlendedTo": "STRING",
+              "@Percentage": "STRING"
+            },
+            "@type": "AutomatedWrapFees_Type : ANNUALFLATFEE|ANNUALFLATFEE_MONTHLY|ANNUALFLATFEE_QUATERLY|PERCENTOFEQUITY|PERCENTOFEQUITY_MONTHLY|PERCENTOFEQUITY_QUATERLY|PERCENTOFEQUITY_QUARTERLY|PERCENTOFPROFIT|PERCENTOFPROFIT_QUARTER|INVOICE_LIMIT|INVOICE_LIMIT_Q|PERTRADE",
+            "@max_fee": "NUMBER",
+            "@num_contracts": "INTEGER",
+            "@PostFrequency": "STRING",
+            "@PercentOfNLVCap": "STRING",
+            "@PercentOfNLVCap_Q": "STRING"
+          },
+          "highWaterMarkConfigHwma": {
+            "hwm": {
+              "@NumberOfPeriods": "INTEGER",
+              "@ProrateForWithdrawals": "BOOLEAN"
+            },
+            "previousLosses": {
+              "@loss": "INTEGER",
+              "@quarter": "INTEGER",
+              "@year": "INTEGER",
+              "@currency": "STRING"
+            }
+          },
+          "highWaterMarkConfigHwmq": {
+            "hwm": {
+              "@NumberOfPeriods": "INTEGER",
+              "@ProrateForWithdrawals": "BOOLEAN"
+            },
+            "previousLosses": {
+              "@loss": "INTEGER",
+              "@quarter": "INTEGER",
+              "@year": "INTEGER",
+              "@currency": "STRING"
+            }
+          },
+          "@strategy": "AdvisorWrapFeeStrategies_Type : AUTOMATED|DIRECTBILLING|NO_FEES",
+          "@ChargeAdvisor": "BOOLEAN",
+          "@ChargeOtherFeesToAdvisor": "BOOLEAN"
+        },
+        "Fees": {
+          "@template_name": "STRING"
+        },
+        "ClientCommissionSchedule": {
+          "markup": {
+            "stair": {
+              "@break": "NUMBER",
+              "@amount": "NUMBER"
+            },
+            "@code": "STRING",
+            "@minimum": "NUMBER",
+            "@maximum": "NUMBER",
+            "@type": "CommissionMarkups_Type : FA|FM|PM",
+            "@amount": "NUMBER",
+            "@plus_cost": "BOOLEAN"
+          },
+          "@pricing_structure": "PricingStructureType : FIXED|TIERED"
+        },
+        "ClientInterestMarkupSchedule": {
+          "markup": {
+            "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+            "@debit_markup": "NUMBER",
+            "@ib_debit_markup": "NUMBER",
+            "@credit_markdown": "NUMBER",
+            "@short_credit_markdown": "NUMBER",
+            "@short_cfd_credit_markdown": "NUMBER",
+            "@long_cfd_debit_markdown": "NUMBER",
+            "@short_index_cfd_credit_markdown": "NUMBER",
+            "@long_index_cfd_debit_markdown": "NUMBER"
+          }
+        },
+        "Decendent": {},
+        "IRABeneficiaries": {
+          "PrimaryBeneficiary": {},
+          "PrimaryBeneficiaryEntity": {},
+          "ContingentBeneficiary": {},
+          "ContingentBeneficiaryEntity": {},
+          "@spouse_primary_beneficary": "BOOLEAN"
+        },
+        "ExtPositionsTransfer": {
+          "PartialStockPositions": {
+            "PartialStockPosition": {
+              "@symbol": "STRING",
+              "@number_of_shares": "INTEGER",
+              "@is_all": "BOOLEAN",
+              "@position": "PositionType : LONG|SHORT",
+              "@exchange": "STRING"
+            }
+          },
+          "PartialBondPositions": {
+            "PartialBondPosition": {
+              "@cusip_number": "STRING",
+              "@number_of_bonds": "INTEGER",
+              "@is_all": "BOOLEAN"
+            }
+          },
+          "PartialOptionPositions": {
+            "PartialOptionPosition": {
+              "@symbol": "STRING",
+              "@number_of_contracts": "INTEGER",
+              "@is_all": "BOOLEAN",
+              "@position": "PositionType : LONG|SHORT",
+              "@option_type": "OptionType : CALL|PUT",
+              "@strike_price": "INTEGER",
+              "@expiration_date": "STRING"
+            }
+          },
+          "PartialWarrantPositions": {
+            "PartialWarrantPosition": {
+              "@symbol": "STRING",
+              "@number_of_shares": "INTEGER",
+              "@is_all": "BOOLEAN",
+              "@position": "PositionType : LONG|SHORT",
+              "@option_type": "OptionType : CALL|PUT",
+              "@strike_price": "INTEGER",
+              "@expiration_date": "STRING"
+            }
+          },
+          "PartialFundPositions": {
+            "PartialFundPosition": {
+              "@symbol": "STRING",
+              "@number_of_shares": "INTEGER",
+              "@is_all": "BOOLEAN"
+            }
+          },
+          "PartialCashPositions": {
+            "PartialCashPosition": {
+              "@amount": "NUMBER",
+              "@is_margin_loan": "BOOLEAN",
+              "@is_full_cash": "BOOLEAN"
+            }
+          },
+          "@type": "PositionsTransfer_Type : FULL|PARTIAL",
+          "@sub_type": "PositionsTransfer_SubType : ACATS|ATON",
+          "@broker_id": "STRING",
+          "@broker_name": "STRING",
+          "@acct_at_broker": "STRING",
+          "@src_IRA_type": "IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH",
+          "@margin_loan": "BOOLEAN",
+          "@short_pos": "BOOLEAN",
+          "@option_pos": "BOOLEAN",
+          "@ib_acct": "STRING",
+          "@third_party_type": "STRING",
+          "@approximate_acct_value": "INTEGER",
+          "@ssn": "STRING",
+          "@ein": "STRING",
+          "@signature": "STRING",
+          "@authorize_to_remove_fund": "BOOLEAN"
+        },
+        "DepositNotification": {
+          "CheckDetails": {
+            "@check_number": "STRING",
+            "@routing_number": "STRING",
+            "@acct_number": "STRING"
+          },
+          "WireDetails": {
+            "@bank_name": "STRING",
+            "@country_code": "STRING",
+            "@reference_number": "STRING"
+          },
+          "ACHDetails": {
+            "@cust_init_ACH": "BOOLEAN",
+            "@bank_name": "STRING"
+          },
+          "IRADepositDetails": {
+            "@deposit_type": "IRADeposit_Type : contribution|rollover",
+            "@tax_year": "IRAContribTaxYear_Type : current|prior",
+            "@from_ira_type": "IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH"
+          },
+          "@type": "Deposit_Type : CHECK|WIRE|ACH|SKIP_DEPOSIT",
+          "@amount": "NUMBER",
+          "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+          "@ib_acct": "STRING"
+        },
+        "ACHInstruction": {
+          "@cust_init_ACH": "BOOLEAN",
+          "@type": "ACHInstructionTx_Type : CREDIT|DEBIT|BOTH",
+          "@name": "STRING",
+          "@ib_acct": "STRING",
+          "@bank_country": "CountryCode_Type",
+          "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+          "@routing_number": "STRING",
+          "@acct_number": "STRING"
+        },
+        "RecurringTransaction": {
+          "ACHInstruction": {
+            "@cust_init_ACH": "BOOLEAN",
+            "@type": "ACHInstructionTx_Type : CREDIT|DEBIT|BOTH",
+            "@name": "STRING",
+            "@ib_acct": "STRING",
+            "@bank_country": "CountryCode_Type",
+            "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+            "@routing_number": "STRING",
+            "@acct_number": "STRING"
+          },
+          "IRAWithdrawalDetails": {
+            "@distribution_type": "IRADistribution_Type : NORMAL|EARLY|EARLY_EXCEPT|DEATH|DISABILITY|EXCESS_CONTRIB",
+            "@excess_contrib_yr": "INTEGER",
+            "@fed_tax_rate": "NUMBER",
+            "@legal_residence_state": "StateCode_Type",
+            "@state_tax_rate": "NUMBER"
+          },
+          "@type": "RecurringTx_Type : DEPOSIT|WITHDRAWAL",
+          "@method": "Deposit_Type : CHECK|WIRE|ACH|SKIP_DEPOSIT",
+          "@instruction": "STRING",
+          "@frequency": "RecurringTxFreq_Type : MONTHLY|QUARTERLY|YEARLY",
+          "@start_date": "STRING",
+          "@end_date": "STRING",
+          "@name": "STRING",
+          "@amount": "NUMBER",
+          "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+          "@ib_acct": "STRING"
+        },
+        "Custodian": {
+          "Individual": {
+            "Name": {
+              "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
+              "@first": "STRING",
+              "@last": "STRING",
+              "@middle": "STRING",
+              "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
+              "@title": "STRING"
+            },
+            "DOB": {},
+            "CountryOfBirth": "STRING",
+            "Gender": {},
+            "MaritalStatus": {},
+            "NumDependents": "INTEGER",
+            "Residence": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "MailingAddress": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "Identification": {
+              "@citizenship": "STRING",
+              "@SSN": "STRING",
+              "@DriversLicense": "STRING",
+              "@Passport": "STRING",
+              "@AlienCard": "STRING",
+              "@NationalCard": "STRING",
+              "@IssuingCountry": "STRING",
+              "@LegalResidenceCountry": "STRING",
+              "@LegalResidenceState": "STRING",
+              "@EducationalQualification": "STRING",
+              "@FathersName": "STRING",
+              "@hasGreenCard": "BOOLEAN",
+              "@PANNumber": "STRING",
+              "@TaxId": "STRING",
+              "@ProofOfAgeCard": "STRING"
+            },
+            "EmploymentType": {},
+            "EmploymentDetails": {
+              "employer": "STRING",
+              "occupation": "STRING",
+              "employer_business": "STRING",
+              "employer_address": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "employer_phone": "STRING"
+            },
+            "EmployeeTitle": "STRING",
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "W9": {
+              "@name": "STRING",
+              "@business_name": "STRING",
+              "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
+              "@tax_classification": "STRING",
+              "@other_customer_type": "STRING",
+              "@tin": "STRING",
+              "@tin_type": "TIN_Type : SSN|EIN|NonUS_NationalId",
+              "@cert1": "BOOLEAN",
+              "@cert2": "BOOLEAN",
+              "@cert3": "BOOLEAN",
+              "@cert4": "BOOLEAN",
+              "@fatca_exempt_payee_code": "ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664",
+              "@fatca_exempt_report_code": "ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "W8Ben": {
+              "@name": "STRING",
+              "@country_of_citizenship": "CountryCode_Type",
+              "@residence_address": "STRING",
+              "@city": "STRING",
+              "@country": "CountryCode_Type",
+              "@mailing_address": "STRING",
+              "@mailing_city": "STRING",
+              "@mailing_country": "CountryCode_Type",
+              "@tin": "STRING",
+              "@foreign_tax_id": "STRING",
+              "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+              "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+              "@reference_number": "INTEGER",
+              "@part_2_9a_country": "STRING",
+              "@part_2_10_article": "STRING",
+              "@part_2_10_percent": "STRING",
+              "@part_2_10_income_type": "STRING",
+              "@part_2_10_reasons": "STRING",
+              "@cert": "BOOLEAN",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "CRS": {
+              "ControllingPerson": {
+                "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
+              },
+              "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@same_mail_address": "BOOLEAN",
+            "@is_authorized_to_sign_on_behalf_of_owner": "BOOLEAN",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          },
+          "LegalEntity": {
+            "Name": {
+              "@name": "STRING"
+            },
+            "Location": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "LegalEntityIdentification": {
+              "PlaceOfBusiness": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "MailingAddress": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "@identification": "STRING",
+              "@identification_country": "STRING",
+              "@formation_country": "STRING",
+              "@formation_type": "Organization_Type : PUBLIC|PRIVATE|OTHER",
+              "@exchange_code": "STRING",
+              "@exchange_symbol": "STRING",
+              "@same_mail_address": "BOOLEAN"
+            },
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          },
+          "Employee": {
+            "Name": {
+              "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
+              "@first": "STRING",
+              "@last": "STRING",
+              "@middle": "STRING",
+              "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
+              "@title": "STRING"
+            },
+            "DOB": {},
+            "CountryOfBirth": "STRING",
+            "Gender": {},
+            "MaritalStatus": {},
+            "NumDependents": "INTEGER",
+            "Residence": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "MailingAddress": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "Identification": {
+              "@citizenship": "STRING",
+              "@SSN": "STRING",
+              "@DriversLicense": "STRING",
+              "@Passport": "STRING",
+              "@AlienCard": "STRING",
+              "@NationalCard": "STRING",
+              "@IssuingCountry": "STRING",
+              "@LegalResidenceCountry": "STRING",
+              "@LegalResidenceState": "STRING",
+              "@EducationalQualification": "STRING",
+              "@FathersName": "STRING",
+              "@hasGreenCard": "BOOLEAN",
+              "@PANNumber": "STRING",
+              "@TaxId": "STRING",
+              "@ProofOfAgeCard": "STRING"
+            },
+            "EmploymentType": {},
+            "EmploymentDetails": {
+              "employer": "STRING",
+              "occupation": "STRING",
+              "employer_business": "STRING",
+              "employer_address": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "employer_phone": "STRING"
+            },
+            "EmployeeTitle": "STRING",
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "W9": {
+              "@name": "STRING",
+              "@business_name": "STRING",
+              "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
+              "@tax_classification": "STRING",
+              "@other_customer_type": "STRING",
+              "@tin": "STRING",
+              "@tin_type": "TIN_Type : SSN|EIN|NonUS_NationalId",
+              "@cert1": "BOOLEAN",
+              "@cert2": "BOOLEAN",
+              "@cert3": "BOOLEAN",
+              "@cert4": "BOOLEAN",
+              "@fatca_exempt_payee_code": "ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664",
+              "@fatca_exempt_report_code": "ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "W8Ben": {
+              "@name": "STRING",
+              "@country_of_citizenship": "CountryCode_Type",
+              "@residence_address": "STRING",
+              "@city": "STRING",
+              "@country": "CountryCode_Type",
+              "@mailing_address": "STRING",
+              "@mailing_city": "STRING",
+              "@mailing_country": "CountryCode_Type",
+              "@tin": "STRING",
+              "@foreign_tax_id": "STRING",
+              "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+              "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+              "@reference_number": "INTEGER",
+              "@part_2_9a_country": "STRING",
+              "@part_2_10_article": "STRING",
+              "@part_2_10_percent": "STRING",
+              "@part_2_10_income_type": "STRING",
+              "@part_2_10_reasons": "STRING",
+              "@cert": "BOOLEAN",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "CRS": {
+              "ControllingPerson": {
+                "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
+              },
+              "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@same_mail_address": "BOOLEAN",
+            "@is_authorized_to_sign_on_behalf_of_owner": "BOOLEAN",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          }
+        },
+        "SuccessorCustodian": {
+          "Individual": {
+            "Name": {
+              "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
+              "@first": "STRING",
+              "@last": "STRING",
+              "@middle": "STRING",
+              "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
+              "@title": "STRING"
+            },
+            "DOB": {},
+            "CountryOfBirth": "STRING",
+            "Gender": {},
+            "MaritalStatus": {},
+            "NumDependents": "INTEGER",
+            "Residence": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "MailingAddress": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "Identification": {
+              "@citizenship": "STRING",
+              "@SSN": "STRING",
+              "@DriversLicense": "STRING",
+              "@Passport": "STRING",
+              "@AlienCard": "STRING",
+              "@NationalCard": "STRING",
+              "@IssuingCountry": "STRING",
+              "@LegalResidenceCountry": "STRING",
+              "@LegalResidenceState": "STRING",
+              "@EducationalQualification": "STRING",
+              "@FathersName": "STRING",
+              "@hasGreenCard": "BOOLEAN",
+              "@PANNumber": "STRING",
+              "@TaxId": "STRING",
+              "@ProofOfAgeCard": "STRING"
+            },
+            "EmploymentType": {},
+            "EmploymentDetails": {
+              "employer": "STRING",
+              "occupation": "STRING",
+              "employer_business": "STRING",
+              "employer_address": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "employer_phone": "STRING"
+            },
+            "EmployeeTitle": "STRING",
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "W9": {
+              "@name": "STRING",
+              "@business_name": "STRING",
+              "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
+              "@tax_classification": "STRING",
+              "@other_customer_type": "STRING",
+              "@tin": "STRING",
+              "@tin_type": "TIN_Type : SSN|EIN|NonUS_NationalId",
+              "@cert1": "BOOLEAN",
+              "@cert2": "BOOLEAN",
+              "@cert3": "BOOLEAN",
+              "@cert4": "BOOLEAN",
+              "@fatca_exempt_payee_code": "ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664",
+              "@fatca_exempt_report_code": "ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "W8Ben": {
+              "@name": "STRING",
+              "@country_of_citizenship": "CountryCode_Type",
+              "@residence_address": "STRING",
+              "@city": "STRING",
+              "@country": "CountryCode_Type",
+              "@mailing_address": "STRING",
+              "@mailing_city": "STRING",
+              "@mailing_country": "CountryCode_Type",
+              "@tin": "STRING",
+              "@foreign_tax_id": "STRING",
+              "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+              "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+              "@reference_number": "INTEGER",
+              "@part_2_9a_country": "STRING",
+              "@part_2_10_article": "STRING",
+              "@part_2_10_percent": "STRING",
+              "@part_2_10_income_type": "STRING",
+              "@part_2_10_reasons": "STRING",
+              "@cert": "BOOLEAN",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "CRS": {
+              "ControllingPerson": {
+                "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
+              },
+              "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@same_mail_address": "BOOLEAN",
+            "@is_authorized_to_sign_on_behalf_of_owner": "BOOLEAN",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          },
+          "LegalEntity": {
+            "Name": {
+              "@name": "STRING"
+            },
+            "Location": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "LegalEntityIdentification": {
+              "PlaceOfBusiness": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "MailingAddress": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "@identification": "STRING",
+              "@identification_country": "STRING",
+              "@formation_country": "STRING",
+              "@formation_type": "Organization_Type : PUBLIC|PRIVATE|OTHER",
+              "@exchange_code": "STRING",
+              "@exchange_symbol": "STRING",
+              "@same_mail_address": "BOOLEAN"
+            },
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          },
+          "Employee": {
+            "Name": {
+              "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
+              "@first": "STRING",
+              "@last": "STRING",
+              "@middle": "STRING",
+              "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
+              "@title": "STRING"
+            },
+            "DOB": {},
+            "CountryOfBirth": "STRING",
+            "Gender": {},
+            "MaritalStatus": {},
+            "NumDependents": "INTEGER",
+            "Residence": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "MailingAddress": {
+              "@street_1": "STRING",
+              "@street_2": "STRING",
+              "@city": "STRING",
+              "@state": "STRING",
+              "@country": "STRING",
+              "@postal_code": "STRING"
+            },
+            "Phones": {
+              "Phone": {
+                "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
+                "@number": "STRING",
+                "@country": "STRING",
+                "@is_verified": "BOOLEAN"
+              }
+            },
+            "Email": {
+              "@email": "STRING"
+            },
+            "Identification": {
+              "@citizenship": "STRING",
+              "@SSN": "STRING",
+              "@DriversLicense": "STRING",
+              "@Passport": "STRING",
+              "@AlienCard": "STRING",
+              "@NationalCard": "STRING",
+              "@IssuingCountry": "STRING",
+              "@LegalResidenceCountry": "STRING",
+              "@LegalResidenceState": "STRING",
+              "@EducationalQualification": "STRING",
+              "@FathersName": "STRING",
+              "@hasGreenCard": "BOOLEAN",
+              "@PANNumber": "STRING",
+              "@TaxId": "STRING",
+              "@ProofOfAgeCard": "STRING"
+            },
+            "EmploymentType": {},
+            "EmploymentDetails": {
+              "employer": "STRING",
+              "occupation": "STRING",
+              "employer_business": "STRING",
+              "employer_address": {
+                "@street_1": "STRING",
+                "@street_2": "STRING",
+                "@city": "STRING",
+                "@state": "STRING",
+                "@country": "STRING",
+                "@postal_code": "STRING"
+              },
+              "employer_phone": "STRING"
+            },
+            "EmployeeTitle": "STRING",
+            "TaxResidencies": {
+              "TaxResidency": {
+                "@country": "STRING",
+                "@TIN": "STRING",
+                "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
+              }
+            },
+            "W9": {
+              "@name": "STRING",
+              "@business_name": "STRING",
+              "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
+              "@tax_classification": "STRING",
+              "@other_customer_type": "STRING",
+              "@tin": "STRING",
+              "@tin_type": "TIN_Type : SSN|EIN|NonUS_NationalId",
+              "@cert1": "BOOLEAN",
+              "@cert2": "BOOLEAN",
+              "@cert3": "BOOLEAN",
+              "@cert4": "BOOLEAN",
+              "@fatca_exempt_payee_code": "ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664",
+              "@fatca_exempt_report_code": "ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "W8Ben": {
+              "@name": "STRING",
+              "@country_of_citizenship": "CountryCode_Type",
+              "@residence_address": "STRING",
+              "@city": "STRING",
+              "@country": "CountryCode_Type",
+              "@mailing_address": "STRING",
+              "@mailing_city": "STRING",
+              "@mailing_country": "CountryCode_Type",
+              "@tin": "STRING",
+              "@foreign_tax_id": "STRING",
+              "@tin_or_explanation_reqd_to_create_accounts": "BOOLEAN",
+              "@explanation": "ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED",
+              "@reference_number": "INTEGER",
+              "@part_2_9a_country": "STRING",
+              "@part_2_10_article": "STRING",
+              "@part_2_10_percent": "STRING",
+              "@part_2_10_income_type": "STRING",
+              "@part_2_10_reasons": "STRING",
+              "@cert": "BOOLEAN",
+              "@signature_type": "SignatureType : Electronic|Physical",
+              "@blank_form": "BOOLEAN",
+              "@tax_form_file": "STRING",
+              "@proprietary_form_number": "INTEGER"
+            },
+            "CRS": {
+              "ControllingPerson": {
+                "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
+              },
+              "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
+            },
+            "@id": "STRING",
+            "@external_id": "STRING",
+            "@same_mail_address": "BOOLEAN",
+            "@is_authorized_to_sign_on_behalf_of_owner": "BOOLEAN",
+            "@is_us_tax_resident": "BOOLEAN",
+            "@is_translated": "BOOLEAN"
+          }
+        },
+        "@id": "STRING",
+        "@external_id": "STRING",
+        "@base_currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
+        "@multicurrency": "BOOLEAN",
+        "@margin": "Margin_Type : RegT|Margin|PortfolioMargin|GPMargin|Cash|REGT|MARGIN|PORTFOLIOMARGIN|GPMARGIN|CASH",
+        "@IRA": "BOOLEAN",
+        "@IRA_type": "IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH",
+        "@IRA_official_title": "STRING",
+        "@client_active_trading": "BOOLEAN",
+        "@duplicate": "BOOLEAN",
+        "@no_of_duplicates": "INTEGER",
+        "@stock_yield_program": "BOOLEAN",
+        "@alias": "STRING"
+      }
+    },
+    "Users": {
+      "User": {
+        "UserPrivilege": {
+          "@external_acct_id": "STRING",
+          "@privilege": "Privilege_Type : OWNER|TRADER|CUSTOM|NONE"
+        },
+        "MDServices": {
+          "service": {}
+        },
+        "@id": "STRING",
+        "@external_user_id": "STRING",
+        "@external_individual_id": "STRING",
+        "@encrypted_password": "STRING",
+        "@encrypted_key_name": "STRING",
+        "@prefix": "UserNamePrefix_Type"
+      }
+    },
+    "Documents": {
+      "Document": {
+        "SignedBy": {},
+        "AttachedFile": {
+          "@file_name": "STRING",
+          "@file_length": "INTEGER",
+          "@sha1_checksum": "STRING"
+        },
+        "@form_no": "INTEGER",
+        "@exec_login_ts": "INTEGER",
+        "@exec_ts": "INTEGER",
+        "@signature": "STRING",
+        "@external_acct_id": "STRING",
+        "@external_individual_id": "STRING"
+      }
+    },
+    "@master_account_id": "STRING",
+    "@id": "STRING",
+    "@input_language": "languageList : en|zh-Hans|ja|ru",
+    "@has_translation": "BOOLEAN",
+    "@paper_account": "BOOLEAN"
+  }
+}
