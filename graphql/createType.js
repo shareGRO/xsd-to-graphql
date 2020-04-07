@@ -1,12 +1,13 @@
-const { isNil, get, uniq, split, last, toUpper, isArray, capitalize } = require('lodash');
+const { isNil, get, uniq, split, last, toUpper, isArray, capitalize, toArray, indexOf } = require('lodash');
 
 const isAttr = (prop) => String(prop).substr(0,1) === '@';
 
-const getFields = (properties) => {
+const getFields = (properties, required) => {
   if (isNil(properties) ) return null;
   const propKeys = Object.keys(properties);
   const fields = propKeys.map((key) => {
     const isAttribute = isAttr(key);
+    const isRequired = indexOf(required, key) > -1;
     const description = get(properties[key], 'description', null);
     const ref = last(split(get(properties[key], '$ref', null), '/'));
     const name = isAttribute ? key.substr(1, key.length) : key;
@@ -46,6 +47,7 @@ const getFields = (properties) => {
       name,
       typeName,
       isAttribute,
+      isRequired,
       description,
       type,
       args: [],
@@ -63,16 +65,25 @@ module.exports.createType = (key, data) => {
     type,
     properties,
     enum: enumValues,
+    required,
   } = data[key];
+
+  console.log('data[key]', data[key]);
 
   let kind = isNil(properties) ? toUpper(type) : 'OBJECT';
   // if (kind === 'STRING') kind = 'SCALAR';
 
-  const fields = getFields(properties);
+  const fields = getFields(properties, toArray(required));
 
   let graphQLTypeFields = '';
   if(isArray(fields)) fields.forEach(field => {
-    graphQLTypeFields += `  ${field.name}: ${field.typeName}
+    const requiredString = field.isRequired ? '!' : '';
+
+    if (!isNil(field.description)) graphQLTypeFields += `"""
+${field.description}
+"""
+`;
+    graphQLTypeFields += `  ${field.name}: ${field.typeName}${requiredString}
 `
   })
 
