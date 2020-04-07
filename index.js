@@ -104,9 +104,15 @@ schema {
   query: Queries
 }
 
+"""
+This is a base query used for this documentation only, it is not related to IBKR
+"""
 type Queries {
-  Applications: Applications!
+  Process: Process!
+  AcctMgmt: AcctMgmt!
   AcctMgmtRequests: AcctMgmtRequests!
+  Errors: Errors!
+  Pending_Tasks: Pending_Tasks!
 }
 
 `;
@@ -114,13 +120,16 @@ types.forEach(type => {
   schema += `${type.graphQLType}`;
 })
 
-fs.writeFile('schema.txt', schema, 'utf8', () => {});
 
 const schemaObject = buildSchema(schema);
 
 const g = graphql(schemaObject, getIntrospectionQuery()).then(data => {
   const final = JSON.stringify(data, null, 2);  
   fs.writeFile('final.json', final, 'utf8', () => {});
+  fs.writeFile('schema.txt', schema, 'utf8', () => {});
 }).catch(e => {
+  fs.writeFile('schema.txt', schema, 'utf8', () => {});
   console.error(e);
 })
+
+

@@ -13,11 +13,18 @@ const getFields = (properties) => {
 
     let typeName = ref !== '' ? ref : capitalize(get(properties[key], 'type', name));
     if (!isNil(properties[key].oneOf)) {
-      const ref = last(split(get(properties[key], 'oneOf[0].$ref', null), '/'));
-      const type = get(properties[key], 'oneOf[0].type', null);
-      typeName = isNil(type) ? ref : capitalize(type)
+      const ref1 = last(split(get(properties[key], 'oneOf[0].$ref', null), '/'));
+      const type1 = get(properties[key], 'oneOf[0].type', null);
+      const typeName1 = isNil(type1) ? ref1 : capitalize(type1);
+      const ref2 = last(split(get(properties[key], 'oneOf[1].$ref', null), '/'));
+      const type2 = get(properties[key], 'oneOf[1].type', null);
+      const typeName2 = isNil(type2) ? ref2 : capitalize(type2);
+      if (typeName2 === 'Array') {
+        typeName = `${typeName1}`;
+      } else {
+        typeName = `${typeName1}`;
+      }
     } else if (!isNil(properties[key].allOf)) {
-      console.log('properties[key].allOf', properties[key].allOf);
       const ref = last(split(get(properties[key], 'allOf[0].$ref', null), '/'));
       const type = get(properties[key], 'allOf[0].type', null);
       typeName = isNil(type) ? ref : capitalize(type)
@@ -58,16 +65,10 @@ module.exports.createType = (key, data) => {
     enum: enumValues,
   } = data[key];
 
-  if (key === 'Customer_Type') {
-    console.log('data[key]', data[key]);
-    console.log('enumValues', enumValues);
-  }
-
   let kind = isNil(properties) ? toUpper(type) : 'OBJECT';
   // if (kind === 'STRING') kind = 'SCALAR';
 
   const fields = getFields(properties);
-  // console.log('fields', fields);
 
   let graphQLTypeFields = '';
   if(isArray(fields)) fields.forEach(field => {
@@ -75,31 +76,43 @@ module.exports.createType = (key, data) => {
 `
   })
 
-  let graphQLType = `type ${key} {
+  let graphQLType = `"""
+${description}
+"""
+type ${key} {
   id: String!
 }
   `;
   if (isArray(fields)) {
-    graphQLType = `type ${key} {
+    graphQLType = `"""
+${description}
+"""
+type ${key} {
   ${graphQLTypeFields}}
 `;
   } else {
     const ref = last(split(get(data[key], 'allOf[0].$ref', null), '/'));
-    if (ref !== '') graphQLType = `type ${key} {
+    if (ref !== '') graphQLType = `"""
+${description}
+"""
+type ${key} {
   content: ${ref}!
 }
 `;
 }
     if (isArray(enumValues)){
       let values = '';
-      Customer
-      graphQLType = `enum ${key} {
-  VALUE
-}
+      enumValues.forEach((value, index) => {
+        values += `  ${value.replace('-', '_')}
 `;
+      })
+      graphQLType = `"""
+${description}
+"""
+enum ${key} {
+VALUES
+}`;
 }
-
- // console.log('graphQLType', graphQLType);
 
   return {
     kind, // there is something wrong here

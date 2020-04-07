@@ -854,10 +854,10 @@
         {
           "kind": "OBJECT",
           "name": "Queries",
-          "description": null,
+          "description": "This is a base query used for this documentation only, it is not related to IBKR",
           "fields": [
             {
-              "name": "Applications",
+              "name": "Process",
               "description": null,
               "args": [],
               "type": {
@@ -865,7 +865,23 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "Applications",
+                  "name": "Process",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AcctMgmt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "AcctMgmt",
                   "ofType": null
                 }
               },
@@ -887,6 +903,38 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "Errors",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Errors",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Pending_Tasks",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Pending_Tasks",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -897,7 +945,7 @@
         {
           "kind": "OBJECT",
           "name": "Users",
-          "description": null,
+          "description": "One or more users can be specified.",
           "fields": [
             {
               "name": "User",
@@ -920,7 +968,7 @@
         {
           "kind": "OBJECT",
           "name": "User",
-          "description": null,
+          "description": "Prefix to be used to generate the IB username for the user. Required only for additional users. Ignored for the first/primary user, the username generated for the id_string of the customer is automatically set as the username for the first/primary user.",
           "fields": [
             {
               "name": "UserPrivilege",
@@ -1027,7 +1075,7 @@
         {
           "kind": "OBJECT",
           "name": "Pending_Tasks",
-          "description": null,
+          "description": "undefined",
           "fields": [
             {
               "name": "Pending_Task",
@@ -1050,7 +1098,7 @@
         {
           "kind": "OBJECT",
           "name": "Pending_Task",
-          "description": null,
+          "description": "Indicates whether task is an online task or not.",
           "fields": [
             {
               "name": "Task_Number",
@@ -1155,7 +1203,7 @@
         {
           "kind": "OBJECT",
           "name": "Execution",
-          "description": null,
+          "description": "Specifies details about execution of the request.",
           "fields": [
             {
               "name": "Execution_date",
@@ -1214,7 +1262,7 @@
         {
           "kind": "OBJECT",
           "name": "Errors",
-          "description": null,
+          "description": "Specifies error messages when application is not processed successfully via ECA.",
           "fields": [
             {
               "name": "Error",
@@ -1237,7 +1285,7 @@
         {
           "kind": "OBJECT",
           "name": "Entities",
-          "description": null,
+          "description": "undefined",
           "fields": [
             {
               "name": "Entity",
@@ -1260,7 +1308,7 @@
         {
           "kind": "OBJECT",
           "name": "Entity",
-          "description": null,
+          "description": "External ID associated with the entity.",
           "fields": [
             {
               "name": "external_ID",
@@ -1283,7 +1331,7 @@
         {
           "kind": "OBJECT",
           "name": "Documents",
-          "description": null,
+          "description": "List of documents that are a part of the IB Customer Application process that were signed/agreed by the customer on the remote application which generated this Electronic Customer Application.",
           "fields": [
             {
               "name": "Document",
@@ -1306,7 +1354,7 @@
         {
           "kind": "OBJECT",
           "name": "Document",
-          "description": null,
+          "description": "Identifier at the external entity for the individual executing the agreement. Must be an individual listed on the application. Ignored for INDIVIDUAL applications as agreements must be executed by the Account Holder.",
           "fields": [
             {
               "name": "SignedBy",
@@ -1413,7 +1461,7 @@
         {
           "kind": "OBJECT",
           "name": "ResponseApplication",
-          "description": null,
+          "description": "Specifies whether the application was successfully processed or not.",
           "fields": [
             {
               "name": "Customer",
@@ -1532,7 +1580,7 @@
         {
           "kind": "OBJECT",
           "name": "Accounts",
-          "description": null,
+          "description": "One or more accounts to be added for a customer.",
           "fields": [
             {
               "name": "Account",
@@ -1555,7 +1603,7 @@
         {
           "kind": "OBJECT",
           "name": "Account",
-          "description": null,
+          "description": "Account alias that will appear on account statements, trading platform and Account Management screens. Ideally it should be easier to remember than the account ID.",
           "fields": [
             {
               "name": "InvestmentObjectives",
@@ -1962,7 +2010,7 @@
         {
           "kind": "OBJECT",
           "name": "Process",
-          "description": null,
+          "description": "Top Level Element.",
           "fields": [
             {
               "name": "Execution",
@@ -1997,7 +2045,7 @@
         {
           "kind": "OBJECT",
           "name": "Applications",
-          "description": null,
+          "description": "A set of applications belonging to a specific external entity.",
           "fields": [
             {
               "name": "Application",
@@ -2020,7 +2068,7 @@
         {
           "kind": "OBJECT",
           "name": "AcctMgmt",
-          "description": null,
+          "description": "Direct actions available on Account Management to modify existing accounts.",
           "fields": [
             {
               "name": "WithholdingStatements",
@@ -2043,7 +2091,7 @@
         {
           "kind": "OBJECT",
           "name": "IndividualTaxInformation",
-          "description": null,
+          "description": "Tax information about the customer required by the IRS. A Form W-9 or W-8 is required for all customers except customers of IB-India. Type deprecated, preferrable to use FormW9 or FormW8.",
           "fields": [
             {
               "name": "W9",
@@ -2102,7 +2150,7 @@
         {
           "kind": "OBJECT",
           "name": "TaxResidencies",
-          "description": null,
+          "description": "Tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators.",
           "fields": [
             {
               "name": "TaxResidency",
@@ -2125,7 +2173,7 @@
         {
           "kind": "OBJECT",
           "name": "TaxResidency",
-          "description": null,
+          "description": "In case of US TIN we must declare the TIN type: it's either SSN or EIN.",
           "fields": [
             {
               "name": "country",
@@ -2172,7 +2220,7 @@
         {
           "kind": "OBJECT",
           "name": "FormW8BEN",
-          "description": null,
+          "description": "Form number in case broker/advisor sends proprietary blank forms.",
           "fields": [
             {
               "name": "name",
@@ -2459,7 +2507,7 @@
         {
           "kind": "OBJECT",
           "name": "FormW9",
-          "description": null,
+          "description": "Form number in case broker/advisor sends proprietary blank forms.",
           "fields": [
             {
               "name": "name",
@@ -2674,7 +2722,7 @@
         {
           "kind": "OBJECT",
           "name": "FormW8BENE",
-          "description": null,
+          "description": "To be set to True if the customer agrees on all items listed in Part XXIX Certification.",
           "fields": [
             {
               "name": "SubstantialUsOwners",
@@ -3609,7 +3657,7 @@
         {
           "kind": "OBJECT",
           "name": "SubstantialUsOwners",
-          "description": null,
+          "description": "Per W-8BEN-E Part XXX: As required by Part XXVI, provide the name, address, and TIN of each substantial U.S. owner of the NFFE. Please see instructions for definition of substantial U.S. owner.",
           "fields": [
             {
               "name": "SubstantialUsOwner",
@@ -3632,7 +3680,7 @@
         {
           "kind": "OBJECT",
           "name": "SubstantialUsOwner",
-          "description": null,
+          "description": "Identifier for the individual or legal entity at the external entity.",
           "fields": [
             {
               "name": "external_id",
@@ -3655,7 +3703,7 @@
         {
           "kind": "OBJECT",
           "name": "FormW8IMY",
-          "description": null,
+          "description": "To be set to True if the customer agrees on all items listed in Part XXVIII Certification.",
           "fields": [
             {
               "name": "name",
@@ -4626,7 +4674,7 @@
         {
           "kind": "OBJECT",
           "name": "FormCRS",
-          "description": null,
+          "description": "OECD Status for legal entity.",
           "fields": [
             {
               "name": "ControllingPerson",
@@ -4661,7 +4709,7 @@
         {
           "kind": "OBJECT",
           "name": "ControllingPersonType",
-          "description": null,
+          "description": "Controlling Person.",
           "fields": [
             {
               "name": "designation",
@@ -4684,7 +4732,7 @@
         {
           "kind": "OBJECT",
           "name": "Synchronization",
-          "description": null,
+          "description": "A set of synchronization elements.",
           "fields": [
             {
               "name": "Applications",
@@ -4743,7 +4791,7 @@
         {
           "kind": "OBJECT",
           "name": "AllDVPInstructions",
-          "description": null,
+          "description": "For IBExecution and/or IBPrime service, DVP instructions provide the clear-away trading permissions.",
           "fields": [
             {
               "name": "DVPInstruction",
@@ -4766,7 +4814,7 @@
         {
           "kind": "OBJECT",
           "name": "NewApplications",
-          "description": null,
+          "description": "A set of applications.",
           "fields": [
             {
               "name": "Application",
@@ -4789,7 +4837,7 @@
         {
           "kind": "OBJECT",
           "name": "Additions",
-          "description": null,
+          "description": "A set of customer and customer account additions.",
           "fields": [
             {
               "name": "Application",
@@ -4824,7 +4872,7 @@
         {
           "kind": "OBJECT",
           "name": "Actions",
-          "description": null,
+          "description": "A set of customer and customer account actions.",
           "fields": [
             {
               "name": "Action",
@@ -4847,7 +4895,7 @@
         {
           "kind": "OBJECT",
           "name": "Modifications",
-          "description": null,
+          "description": "A set of customer and customer account additions.",
           "fields": [
             {
               "name": "Customer",
@@ -4894,7 +4942,7 @@
         {
           "kind": "OBJECT",
           "name": "Action",
-          "description": null,
+          "description": "A single customer or customer account action.",
           "fields": [
             {
               "name": "action",
@@ -4917,7 +4965,7 @@
         {
           "kind": "OBJECT",
           "name": "AcctMgmtRequests",
-          "description": null,
+          "description": "A set of account management function requests for accounts belonging to a specific external entity. Account specified on any request must already be open.",
           "fields": [
             {
               "name": "DuplicateAcct",
@@ -5156,7 +5204,7 @@
         {
           "kind": "OBJECT",
           "name": "DocumentSubmissionType",
-          "description": null,
+          "description": "Indicated if the file contains translated information from another language to English. This attribute is used only when input_language is different than \"en\". Default is \"false\"",
           "fields": [
             {
               "name": "Document",
@@ -5215,7 +5263,7 @@
         {
           "kind": "OBJECT",
           "name": "DuplicateAcctRequest",
-          "description": null,
+          "description": "Number of duplicate accounts required, if not provided defaults to one.",
           "fields": [
             {
               "name": "reference_account_id",
@@ -5250,7 +5298,7 @@
         {
           "kind": "OBJECT",
           "name": "LinkDuplicateAccount",
-          "description": null,
+          "description": "Flag to indicate if the account owner will activelly trade. For advisor clients, the default value is false.",
           "fields": [
             {
               "name": "reference_account_id",
@@ -5297,7 +5345,7 @@
         {
           "kind": "OBJECT",
           "name": "AddTradingPermissions",
-          "description": null,
+          "description": "IB Account ID of the Advisor/Broker Client account for which Trading Permissions will be added.",
           "fields": [
             {
               "name": "TradingPermission",
@@ -5332,7 +5380,7 @@
         {
           "kind": "OBJECT",
           "name": "RemoveTradingPermissions",
-          "description": null,
+          "description": "IB Account ID of the Advisor/Broker Client account for which Trading Permissions will be removed.",
           "fields": [
             {
               "name": "TradingPermission",
@@ -5367,7 +5415,7 @@
         {
           "kind": "OBJECT",
           "name": "ChangeMarginType",
-          "description": null,
+          "description": "New margin type for the account",
           "fields": [
             {
               "name": "reference_account_id",
@@ -5402,7 +5450,7 @@
         {
           "kind": "OBJECT",
           "name": "ChangeFinancialInformation",
-          "description": null,
+          "description": "IB Account ID of the Advisor/Broker Client account for which Financial Information will be changed",
           "fields": [
             {
               "name": "NewFinancialInformation",
@@ -5437,7 +5485,7 @@
         {
           "kind": "OBJECT",
           "name": "EnrollInSYEP",
-          "description": null,
+          "description": "IB Account ID of the Advisor/Broker Client account for which request to Enroll in SYEP Program will be submitted.",
           "fields": [
             {
               "name": "Documents",
@@ -5472,7 +5520,7 @@
         {
           "kind": "OBJECT",
           "name": "LeaveSYEP",
-          "description": null,
+          "description": "IB Account ID of the Advisor/Broker Client account for which request to leave SYEP Program will be submitted.",
           "fields": [
             {
               "name": "reference_account_id",
@@ -5495,7 +5543,7 @@
         {
           "kind": "OBJECT",
           "name": "AddMiFIRData",
-          "description": null,
+          "description": "Nature of association of an individual or entity with the customer account.",
           "fields": [
             {
               "name": "Identification",
@@ -5542,7 +5590,7 @@
         {
           "kind": "OBJECT",
           "name": "UpdateCredentials",
-          "description": null,
+          "description": "User Name of Advisor/Broker Client account for which Account Credentials will be updated.",
           "fields": [
             {
               "name": "UpdatePassword",
@@ -5601,7 +5649,7 @@
         {
           "kind": "OBJECT",
           "name": "UpdatePassword",
-          "description": null,
+          "description": "Verification token sent to Email Address or Phone Number associated with the Account",
           "fields": [
             {
               "name": "encrypted_password",
@@ -5648,7 +5696,7 @@
         {
           "kind": "OBJECT",
           "name": "UpdateEmail",
-          "description": null,
+          "description": "Verification token sent to Updated Email Address",
           "fields": [
             {
               "name": "email",
@@ -5683,7 +5731,7 @@
         {
           "kind": "OBJECT",
           "name": "UpdatePhone",
-          "description": null,
+          "description": "Verification token sent to Updated Mobile Phone",
           "fields": [
             {
               "name": "Phone",
@@ -5730,7 +5778,7 @@
         {
           "kind": "OBJECT",
           "name": "AllocateVAN",
-          "description": null,
+          "description": "Two digit Country code from where Wire Transfer Deposit will originate.",
           "fields": [
             {
               "name": "reference_account_id",
@@ -5777,7 +5825,7 @@
         {
           "kind": "OBJECT",
           "name": "ProcessDocumentsType",
-          "description": null,
+          "description": "Indicated if the file contains translated information from another language to English. This attribute is used only when input_language is different than \"en\". Default is \"false\"",
           "fields": [
             {
               "name": "Document",
@@ -5824,7 +5872,7 @@
         {
           "kind": "OBJECT",
           "name": "GetJavaScript",
-          "description": null,
+          "description": "The name of the method. Should be getCodeWithPublicKey",
           "fields": [
             {
               "name": "method",
@@ -5847,7 +5895,7 @@
         {
           "kind": "OBJECT",
           "name": "YodleeSession",
-          "description": null,
+          "description": "The IB account ID. Only needed for finishYodlee.",
           "fields": [
             {
               "name": "request",
@@ -5906,7 +5954,7 @@
         {
           "kind": "OBJECT",
           "name": "InformationChange",
-          "description": null,
+          "description": "Indicates the IB account ID to apply the changes",
           "fields": [
             {
               "name": "AddEntity",
@@ -5965,7 +6013,7 @@
         {
           "kind": "OBJECT",
           "name": "AddEntity",
-          "description": null,
+          "description": "Information about a new entity (individual or legal) to be associated to the account; relationship is mandatory.",
           "fields": [
             {
               "name": "AddRelationship",
@@ -6000,7 +6048,7 @@
         {
           "kind": "OBJECT",
           "name": "UpdateEntity",
-          "description": null,
+          "description": "Identifier for the entity at IB.",
           "fields": [
             {
               "name": "AddRelationship",
@@ -6059,7 +6107,7 @@
         {
           "kind": "OBJECT",
           "name": "DeleteEntity",
-          "description": null,
+          "description": "Identifier for the entity at IB.",
           "fields": [
             {
               "name": "ib_entity_id",
@@ -6082,7 +6130,7 @@
         {
           "kind": "OBJECT",
           "name": "AddRelationship",
-          "description": null,
+          "description": "Ownership ppercentage is value between 1 and 100; the sum of all entities should be 100.",
           "fields": [
             {
               "name": "name",
@@ -6117,7 +6165,7 @@
         {
           "kind": "OBJECT",
           "name": "DeleteRelationship",
-          "description": null,
+          "description": "Relationship name, based on a list of possible values.",
           "fields": [
             {
               "name": "name",
@@ -6140,7 +6188,7 @@
         {
           "kind": "OBJECT",
           "name": "Organization",
-          "description": null,
+          "description": "An organization which is the customer and beneficial owner of an account.",
           "fields": [
             {
               "name": "Identification",
@@ -6175,7 +6223,7 @@
         {
           "kind": "OBJECT",
           "name": "Trust",
-          "description": null,
+          "description": "A Trust which is the customer and beneficial owner of an account.",
           "fields": [
             {
               "name": "Identification",
@@ -6210,13 +6258,13 @@
         {
           "kind": "ENUM",
           "name": "Customer_Type",
-          "description": null,
+          "description": "ACES Enumeration. Note: IRA is deprecated",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6227,13 +6275,13 @@
         {
           "kind": "ENUM",
           "name": "Capability_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6244,13 +6292,13 @@
         {
           "kind": "ENUM",
           "name": "BrokerageService_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6261,13 +6309,13 @@
         {
           "kind": "ENUM",
           "name": "AssetClass_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6278,13 +6326,13 @@
         {
           "kind": "ENUM",
           "name": "Product_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6295,13 +6343,13 @@
         {
           "kind": "ENUM",
           "name": "Country_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6312,13 +6360,13 @@
         {
           "kind": "ENUM",
           "name": "KnowledgeLevel_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6329,7 +6377,7 @@
         {
           "kind": "OBJECT",
           "name": "CountryCode_Type",
-          "description": null,
+          "description": "Please refer to ISO 3166-1 for 3-letter country codes (http://www.iso.org)",
           "fields": [
             {
               "name": "id",
@@ -6356,7 +6404,7 @@
         {
           "kind": "OBJECT",
           "name": "StateCode_Type",
-          "description": null,
+          "description": "Please refer to ISO 3166-1? for 2-letter state codes (http://www.iso.org)",
           "fields": [
             {
               "name": "id",
@@ -6383,13 +6431,13 @@
         {
           "kind": "ENUM",
           "name": "Association_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6400,13 +6448,13 @@
         {
           "kind": "ENUM",
           "name": "Privilege_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6417,13 +6465,13 @@
         {
           "kind": "ENUM",
           "name": "TradingFor_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6434,13 +6482,13 @@
         {
           "kind": "ENUM",
           "name": "DVP_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6451,13 +6499,13 @@
         {
           "kind": "ENUM",
           "name": "DVPRole_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6468,13 +6516,13 @@
         {
           "kind": "ENUM",
           "name": "Margin_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6485,13 +6533,13 @@
         {
           "kind": "ENUM",
           "name": "Currency_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6502,13 +6550,13 @@
         {
           "kind": "ENUM",
           "name": "TXGroupCode_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6519,13 +6567,13 @@
         {
           "kind": "ENUM",
           "name": "ExchangeCode_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6536,13 +6584,13 @@
         {
           "kind": "ENUM",
           "name": "Organization_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6553,13 +6601,13 @@
         {
           "kind": "ENUM",
           "name": "RegulatoryIssueCode_Type",
-          "description": null,
+          "description": "Deprecated. Keeping this for backward compatibility.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6570,13 +6618,13 @@
         {
           "kind": "ENUM",
           "name": "Joint_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6587,13 +6635,13 @@
         {
           "kind": "ENUM",
           "name": "InvestmentObjective_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6604,13 +6652,13 @@
         {
           "kind": "ENUM",
           "name": "MaritalStatus_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6621,13 +6669,13 @@
         {
           "kind": "ENUM",
           "name": "Employment_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6638,13 +6686,13 @@
         {
           "kind": "ENUM",
           "name": "OrgApplicant_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6655,13 +6703,13 @@
         {
           "kind": "ENUM",
           "name": "AdvisorWrapFeeStrategies_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6672,13 +6720,13 @@
         {
           "kind": "ENUM",
           "name": "AutomatedWrapFees_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6689,13 +6737,13 @@
         {
           "kind": "ENUM",
           "name": "QuarterHWM_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6706,13 +6754,13 @@
         {
           "kind": "ENUM",
           "name": "CommissionMarkups_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6723,13 +6771,13 @@
         {
           "kind": "ENUM",
           "name": "IRA_Type",
-          "description": null,
+          "description": "SEP-Inherited",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6740,13 +6788,13 @@
         {
           "kind": "ENUM",
           "name": "IRABeneficiaryRelation_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6757,13 +6805,13 @@
         {
           "kind": "ENUM",
           "name": "InheritedIRABeneficiaryRelation_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6774,13 +6822,13 @@
         {
           "kind": "ENUM",
           "name": "InheritedIRABeneficiary_Type",
-          "description": null,
+          "description": "Other",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6791,13 +6839,13 @@
         {
           "kind": "ENUM",
           "name": "IRADeposit_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6808,13 +6856,13 @@
         {
           "kind": "ENUM",
           "name": "IRAContribTaxYear_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6825,13 +6873,13 @@
         {
           "kind": "ENUM",
           "name": "PositionsTransfer_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6842,13 +6890,13 @@
         {
           "kind": "ENUM",
           "name": "PositionsTransfer_SubType",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6859,13 +6907,13 @@
         {
           "kind": "ENUM",
           "name": "W9Customer_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6876,13 +6924,13 @@
         {
           "kind": "ENUM",
           "name": "TIN_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6893,13 +6941,13 @@
         {
           "kind": "ENUM",
           "name": "Deposit_Type",
-          "description": null,
+          "description": "ACES enumeration, SKIP_DEPOSIT is for clients who will fund later, after the account is opened",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6910,13 +6958,13 @@
         {
           "kind": "ENUM",
           "name": "RecurringTx_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6927,13 +6975,13 @@
         {
           "kind": "ENUM",
           "name": "RecurringTxFreq_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6944,13 +6992,13 @@
         {
           "kind": "ENUM",
           "name": "ACHInstructionTx_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6961,13 +7009,13 @@
         {
           "kind": "ENUM",
           "name": "IRADistribution_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6978,13 +7026,13 @@
         {
           "kind": "ENUM",
           "name": "Salutation_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6995,13 +7043,13 @@
         {
           "kind": "ENUM",
           "name": "Suffix_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7012,13 +7060,13 @@
         {
           "kind": "ENUM",
           "name": "Gender_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7029,13 +7077,13 @@
         {
           "kind": "ENUM",
           "name": "TradeIntention_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7046,13 +7094,13 @@
         {
           "kind": "ENUM",
           "name": "SourceOfFunds_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7063,13 +7111,13 @@
         {
           "kind": "ENUM",
           "name": "WealthSource_Type",
-          "description": null,
+          "description": "ACES enumeration Values with the prefix SOW-IND should be used with Individual/Joint accounts. Values with the prefix SOW-ORG should be used with Org/Trust accounts.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7080,13 +7128,13 @@
         {
           "kind": "ENUM",
           "name": "Phone_Type",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7097,13 +7145,13 @@
         {
           "kind": "ENUM",
           "name": "RelationshipEnum",
-          "description": null,
+          "description": "List of possible relationships between entities and accounts.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7114,13 +7162,13 @@
         {
           "kind": "ENUM",
           "name": "W8BENE_Box4_Type",
-          "description": null,
+          "description": "W-8BEN-E Box 4 - Chapter 3 Status (entity type)",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7131,13 +7179,13 @@
         {
           "kind": "ENUM",
           "name": "W8BENE_Box5_Type",
-          "description": null,
+          "description": "Box 5 - Chapter 4 Status (FATCA status)",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7148,13 +7196,13 @@
         {
           "kind": "ENUM",
           "name": "W8BENE_Box11_Type",
-          "description": null,
+          "description": "W-8BEN-E Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7165,13 +7213,13 @@
         {
           "kind": "ENUM",
           "name": "W8IMY_Box4_Type",
-          "description": null,
+          "description": "W-8IMY Box 4 - Chapter 3 Status (entity type)",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7182,13 +7230,13 @@
         {
           "kind": "ENUM",
           "name": "W8IMY_Box5_Type",
-          "description": null,
+          "description": "W-8IMY Box 5 - Chapter 4 Status (entity type)",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7199,13 +7247,13 @@
         {
           "kind": "ENUM",
           "name": "W8IMY_Box11_Type",
-          "description": null,
+          "description": "W-8IMY Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7216,13 +7264,13 @@
         {
           "kind": "ENUM",
           "name": "US_TIN_Type",
-          "description": null,
+          "description": "W-8IMY Box 8 - Part 1 - Item 8 - US Taxpayer Identification Number Type",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7233,13 +7281,13 @@
         {
           "kind": "ENUM",
           "name": "ExemptPayeeCode_Type",
-          "description": null,
+          "description": "undefined",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7250,13 +7298,13 @@
         {
           "kind": "ENUM",
           "name": "ExemptReportCode_Type",
-          "description": null,
+          "description": "undefined",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7267,13 +7315,13 @@
         {
           "kind": "ENUM",
           "name": "USTaxPurposeType",
-          "description": null,
+          "description": "Corporation - C Partnership - P Disregarded Entity - E",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7284,13 +7332,13 @@
         {
           "kind": "ENUM",
           "name": "FinancialOrgCodeType",
-          "description": null,
+          "description": "Org is a foreign bank - 2 Org is a licensed securities broker or dealer - 3 Org is a licensed futures commission merchant - 5 Org is a mutual fund, hedge fund, private equity - 21 Org is a licensed forex dealer - 22 Org is a licensed money transmitter -23 Org is an employee benefit plan regulated under ERISA - 25 Org is a US federally regulated or state regulated bank -31 Org is a US registered swap dealer - 33 Org is a US registered major swap participant - 34 Org is an insuarance company regulated by a US state - 35 Org is a nonUS insurance company regulated outside of the US - 36 Org is a department or agency of the US - 37 Org is a licensed advisor or investment manager for securities, futures, or forex trading - 38",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7301,13 +7349,13 @@
         {
           "kind": "ENUM",
           "name": "TrustTypeList",
-          "description": null,
+          "description": "undefined",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7318,13 +7366,13 @@
         {
           "kind": "ENUM",
           "name": "languageList",
-          "description": null,
+          "description": "Values are subset of W3C.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7335,13 +7383,13 @@
         {
           "kind": "ENUM",
           "name": "SignatureType",
-          "description": null,
+          "description": "Possibles Signature Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7352,13 +7400,13 @@
         {
           "kind": "ENUM",
           "name": "CommissionType",
-          "description": null,
+          "description": "Commission Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7369,13 +7417,13 @@
         {
           "kind": "ENUM",
           "name": "CommissionStyle",
-          "description": null,
+          "description": "Commission Styles",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7386,13 +7434,13 @@
         {
           "kind": "ENUM",
           "name": "PricingStructureType",
-          "description": null,
+          "description": "Used only for brokers; it indicates the type of price structure",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7403,13 +7451,13 @@
         {
           "kind": "ENUM",
           "name": "DesignationType",
-          "description": null,
+          "description": "It indicates the desigation of Controlling Person for CRS Tax Reporting",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7420,13 +7468,13 @@
         {
           "kind": "ENUM",
           "name": "OECDStatusType",
-          "description": null,
+          "description": "OECD Statuses",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7437,13 +7485,13 @@
         {
           "kind": "ENUM",
           "name": "PositionType",
-          "description": null,
+          "description": "Position Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7454,13 +7502,13 @@
         {
           "kind": "ENUM",
           "name": "OptionType",
-          "description": null,
+          "description": "Option Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7471,13 +7519,13 @@
         {
           "kind": "ENUM",
           "name": "ExplanationType",
-          "description": null,
+          "description": "Explanation for not providing either TIN or Foreign Tax Id: 1. [US_TIN] Account holder possesses US TIN; it will be added to W8 Form. 2. [TIN_NOT_DISCLOSED] Country issues TIN; however, account holder is exempt from disclosing TIN under laws of the country. 3. [TIN_NOT_REQUIRED] Account holder is not legally required to obtain TIN. 4. [TIN_NOT_ISSUED] Country does not issue TIN.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7488,13 +7536,13 @@
         {
           "kind": "ENUM",
           "name": "ActionType",
-          "description": null,
+          "description": "ACES enumeration",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7505,13 +7553,13 @@
         {
           "kind": "ENUM",
           "name": "QIClassEnum",
-          "description": null,
+          "description": "Enumeration of Qualified Intermediary Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7522,13 +7570,13 @@
         {
           "kind": "ENUM",
           "name": "FatcaCompliantEnum",
-          "description": null,
+          "description": "Enumeration of FATCA Compliance Types",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
-              "name": "VALUE",
+              "name": "VALUES",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7539,7 +7587,7 @@
         {
           "kind": "OBJECT",
           "name": "WithholdingStatementsType",
-          "description": null,
+          "description": "Timestamp of the signature using ISO 8601 Basic Format YYYYMMDDhhmmss and considering NY time (EST/EDT).",
           "fields": [
             {
               "name": "WithholdingStatement",
@@ -7598,7 +7646,7 @@
         {
           "kind": "OBJECT",
           "name": "WithholdingStatementType",
-          "description": null,
+          "description": "Tax rate applicable to US ECI income; mandatory when the account is flow-through. All rates can be entered with up to 2 digits of precision.",
           "fields": [
             {
               "name": "acct_id",
@@ -7751,7 +7799,7 @@
         {
           "kind": "OBJECT",
           "name": "UserPrivilege",
-          "description": null,
+          "description": "A user is privileged for a specified account.",
           "fields": [
             {
               "name": "external_acct_id",
@@ -7786,7 +7834,7 @@
         {
           "kind": "OBJECT",
           "name": "MDServicesType",
-          "description": null,
+          "description": "List of Market Data Services the user is requesting subscription to.",
           "fields": [
             {
               "name": "service",
@@ -7809,7 +7857,7 @@
         {
           "kind": "OBJECT",
           "name": "Email",
-          "description": null,
+          "description": "EMail address",
           "fields": [
             {
               "name": "email",
@@ -7832,7 +7880,7 @@
         {
           "kind": "OBJECT",
           "name": "Security",
-          "description": null,
+          "description": "For customer identification by telephone. challenge/response, aka hint/phrase, aka question/answer",
           "fields": [
             {
               "name": "Challenge",
@@ -7867,7 +7915,7 @@
         {
           "kind": "OBJECT",
           "name": "Address",
-          "description": null,
+          "description": "Preferrably use ISO codes for countries instead of names.",
           "fields": [
             {
               "name": "street_1",
@@ -7950,7 +7998,7 @@
         {
           "kind": "OBJECT",
           "name": "UserNamePrefix_Type",
-          "description": null,
+          "description": "Prefix used to generate a username.",
           "fields": [
             {
               "name": "id",
@@ -7977,7 +8025,7 @@
         {
           "kind": "OBJECT",
           "name": "DOB",
-          "description": null,
+          "description": "A date specifically for a birthday.",
           "fields": [
             {
               "name": "id",
@@ -8004,7 +8052,7 @@
         {
           "kind": "OBJECT",
           "name": "AttachedFileType",
-          "description": null,
+          "description": "Document file SHA-1 hash code (checksum).",
           "fields": [
             {
               "name": "file_name",
@@ -8051,7 +8099,7 @@
         {
           "kind": "OBJECT",
           "name": "DVPInstruction",
-          "description": null,
+          "description": "A DVP instruction specifies the settlement information for clear-away trading.",
           "fields": [
             {
               "name": "id",
@@ -8314,7 +8362,7 @@
         {
           "kind": "OBJECT",
           "name": "Customer",
-          "description": null,
+          "description": "Specify that the account is an independent account.",
           "fields": [
             {
               "name": "Organization",
@@ -8601,7 +8649,7 @@
         {
           "kind": "OBJECT",
           "name": "IndividualIdentification",
-          "description": null,
+          "description": "Required for legal Indian residents or citizens of India.",
           "fields": [
             {
               "name": "citizenship",
@@ -8792,7 +8840,7 @@
         {
           "kind": "OBJECT",
           "name": "OrganizationApplicant",
-          "description": null,
+          "description": "US tax purpose.",
           "fields": [
             {
               "name": "Identification",
@@ -9043,7 +9091,7 @@
         {
           "kind": "OBJECT",
           "name": "IndividualApplicant",
-          "description": null,
+          "description": "An individual who is the customer and beneficial owner of an account. Ownership and Title are fixed at 100% and Account Holder respectively and provided values will be ignored.",
           "fields": [
             {
               "name": "AccountHolderDetails",
@@ -9138,7 +9186,7 @@
         {
           "kind": "OBJECT",
           "name": "JointApplicant",
-          "description": null,
+          "description": "Type of Joint customer (JointApplicant_Rtab.type)",
           "fields": [
             {
               "name": "FirstHolderDetails",
@@ -9257,7 +9305,7 @@
         {
           "kind": "OBJECT",
           "name": "TrustApplicant",
-          "description": null,
+          "description": "According to US IRS, for taxes purposes, the trust is classified as Complex, Single, Grantor os US Taxable?",
           "fields": [
             {
               "name": "Identification",
@@ -9436,7 +9484,7 @@
         {
           "kind": "OBJECT",
           "name": "OrganizationIdentification",
-          "description": null,
+          "description": "Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "PlaceOfBusiness",
@@ -9579,7 +9627,7 @@
         {
           "kind": "OBJECT",
           "name": "LegalEntityIdentification",
-          "description": null,
+          "description": "Flag to indicate that the entity mailing address is the same as its place of business.",
           "fields": [
             {
               "name": "PlaceOfBusiness",
@@ -9698,7 +9746,7 @@
         {
           "kind": "OBJECT",
           "name": "TrustIdentification",
-          "description": null,
+          "description": "Indicates if the information is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "Address",
@@ -9877,7 +9925,7 @@
         {
           "kind": "OBJECT",
           "name": "AssociatedEntities",
-          "description": null,
+          "description": "One or more individuals or legal entities that are associated with the customer.",
           "fields": [
             {
               "name": "AssociatedIndividual",
@@ -9912,7 +9960,7 @@
         {
           "kind": "OBJECT",
           "name": "IRABeneficiariesType",
-          "description": null,
+          "description": "Flag to indicate if the spouse is the primary beneficiary of the IRA account. Required for a married account holder. If spouse is not the primary beneficiary then a signed spousal consent is required.",
           "fields": [
             {
               "name": "PrimaryBeneficiary",
@@ -9983,7 +10031,7 @@
         {
           "kind": "OBJECT",
           "name": "AssociationTypeEntities",
-          "description": null,
+          "description": "One or more individuals or legal entities with a specific association with the customer as defined by the declaring element.",
           "fields": [
             {
               "name": "Individual",
@@ -10018,7 +10066,7 @@
         {
           "kind": "OBJECT",
           "name": "TrusteesType",
-          "description": null,
+          "description": "One or more individuals or legal entities that are the trustees of the Trust.",
           "fields": [
             {
               "name": "Individual",
@@ -10053,7 +10101,7 @@
         {
           "kind": "OBJECT",
           "name": "TrusteeIndividual",
-          "description": null,
+          "description": "A individual that is the trustee of a trust. An individual trustee must must inform job title and occupation.",
           "fields": [
             {
               "name": "content",
@@ -10080,7 +10128,7 @@
         {
           "kind": "OBJECT",
           "name": "TrusteeEntityType",
-          "description": null,
+          "description": "A legal entity that is the trustee of a trust. An entity trustee must detail an employee signatory.",
           "fields": [
             {
               "name": "LegalEntity",
@@ -10115,7 +10163,7 @@
         {
           "kind": "OBJECT",
           "name": "FinancialInformation",
-          "description": null,
+          "description": "Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "InvestmentExperience",
@@ -10246,7 +10294,7 @@
         {
           "kind": "OBJECT",
           "name": "AdditionalSourceOfIncomeType",
-          "description": null,
+          "description": "The customer's additional source of income; optional for employed individuals; required for unemployed, retired, student, at-home trader and homemakers. The sum of percentages must be exactly 100%; each type of source of income should be mentioned only one.",
           "fields": [
             {
               "name": "SourceOfIncome",
@@ -10269,7 +10317,7 @@
         {
           "kind": "OBJECT",
           "name": "SourceOfIncomeType",
-          "description": null,
+          "description": "Additional source of income. Note: Source of Income will be deprecated from June 1, 2019 onwards.",
           "fields": [
             {
               "name": "source_type",
@@ -10316,7 +10364,7 @@
         {
           "kind": "OBJECT",
           "name": "SourcesOfWealthType",
-          "description": null,
+          "description": "Customer's source of wealth; required for all account types. The sum of percentages must be exactly 100%; each type of source of wealth should be mentioned only one. Note: Source of Wealth will become mandatory from June 1, 2019 onwards.",
           "fields": [
             {
               "name": "SourceOfWealth",
@@ -10339,7 +10387,7 @@
         {
           "kind": "OBJECT",
           "name": "SourceOfWealthType",
-          "description": null,
+          "description": "Source of wealth.",
           "fields": [
             {
               "name": "source_type",
@@ -10398,7 +10446,7 @@
         {
           "kind": "OBJECT",
           "name": "InvestmentExperience",
-          "description": null,
+          "description": "The customer's experience and knowledge with the various financial instruments required to qualify trading in those instruments.",
           "fields": [
             {
               "name": "AssetExperience",
@@ -10421,7 +10469,7 @@
         {
           "kind": "OBJECT",
           "name": "AssetExperience",
-          "description": null,
+          "description": "Trading experience and knowledge for a specific financial instrument.",
           "fields": [
             {
               "name": "asset_class",
@@ -10480,7 +10528,7 @@
         {
           "kind": "OBJECT",
           "name": "AccreditedInvestorInformation",
-          "description": null,
+          "description": "Our five accredited investor questions. See a printed application.",
           "fields": [
             {
               "name": "q1",
@@ -10551,7 +10599,7 @@
         {
           "kind": "OBJECT",
           "name": "RegulatoryInformation",
-          "description": null,
+          "description": "Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "SelfRegulatedMembership",
@@ -10622,7 +10670,7 @@
         {
           "kind": "OBJECT",
           "name": "RegulatoryDetail",
-          "description": null,
+          "description": "Specific questions about regulatory issues. An enumeration of question codes will be declared. See a paper application.",
           "fields": [
             {
               "name": "code",
@@ -10681,7 +10729,7 @@
         {
           "kind": "OBJECT",
           "name": "SelfRegulatedMembershipType",
-          "description": null,
+          "description": "List of exchanges and self regulated organizations the customer is a member of.",
           "fields": [
             {
               "name": "exchanges",
@@ -10716,7 +10764,7 @@
         {
           "kind": "OBJECT",
           "name": "AffiliationDetailsType",
-          "description": null,
+          "description": "Indicates if IB should send duplicated statements to customers. For those incldued on FINRA Rule 3210 or equivalent on his/her jurisdiction, the expected answer is true, as they need to submit one copy to his/her employer compliance office.",
           "fields": [
             {
               "name": "affiliation_relationship",
@@ -10823,7 +10871,7 @@
         {
           "kind": "OBJECT",
           "name": "FinancialOrgType",
-          "description": null,
+          "description": "Specific questions about financial org types. See a paper application.",
           "fields": [
             {
               "name": "code",
@@ -10846,7 +10894,7 @@
         {
           "kind": "OBJECT",
           "name": "RegulatedMemberships",
-          "description": null,
+          "description": "One or more regulated memberships.",
           "fields": [
             {
               "name": "RegulatedMembership",
@@ -10869,7 +10917,7 @@
         {
           "kind": "OBJECT",
           "name": "RegulatedMembership",
-          "description": null,
+          "description": "We must know of the membership in any regulated organizations. E.g. an NYSE or NASD member.",
           "fields": [
             {
               "name": "organization_code",
@@ -10904,7 +10952,7 @@
         {
           "kind": "OBJECT",
           "name": "PublicCompanyInfoType",
-          "description": null,
+          "description": "undefined",
           "fields": [
             {
               "name": "ExchangeTradedOn",
@@ -10939,7 +10987,7 @@
         {
           "kind": "OBJECT",
           "name": "ORGRegulatorType",
-          "description": null,
+          "description": "undefined",
           "fields": [
             {
               "name": "RegulatorName",
@@ -10998,7 +11046,7 @@
         {
           "kind": "OBJECT",
           "name": "ORGRegulatoryInfoType",
-          "description": null,
+          "description": "undefined",
           "fields": [
             {
               "name": "PublicCompanyInfo",
@@ -11057,7 +11105,7 @@
         {
           "kind": "OBJECT",
           "name": "AssociatedIndividual",
-          "description": null,
+          "description": "An individual who is associated with this customer and qualification of the association.",
           "fields": [
             {
               "name": "content",
@@ -11084,7 +11132,7 @@
         {
           "kind": "OBJECT",
           "name": "PrimaryTrader",
-          "description": null,
+          "description": "The individual who will be associated with the trading session for the Organization's account.",
           "fields": [
             {
               "name": "content",
@@ -11111,7 +11159,7 @@
         {
           "kind": "OBJECT",
           "name": "ControllingOfficer",
-          "description": null,
+          "description": "The CEO of the customer's organization.",
           "fields": [
             {
               "name": "content",
@@ -11138,7 +11186,7 @@
         {
           "kind": "OBJECT",
           "name": "IRAPrimaryBeneficiary",
-          "description": null,
+          "description": "The individual who is the primary beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.",
           "fields": [
             {
               "name": "content",
@@ -11165,7 +11213,7 @@
         {
           "kind": "OBJECT",
           "name": "IRAPrimaryBeneficiaryEntity",
-          "description": null,
+          "description": "The Legal Entity that is the primary beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.",
           "fields": [
             {
               "name": "content",
@@ -11192,7 +11240,7 @@
         {
           "kind": "OBJECT",
           "name": "IRAContingentBeneficiary",
-          "description": null,
+          "description": "The individual who is the contingent beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.",
           "fields": [
             {
               "name": "content",
@@ -11219,7 +11267,7 @@
         {
           "kind": "OBJECT",
           "name": "IRAContingentBeneficiaryEntity",
-          "description": null,
+          "description": "The Legal Entity that is the contingent beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.",
           "fields": [
             {
               "name": "content",
@@ -11246,7 +11294,7 @@
         {
           "kind": "OBJECT",
           "name": "IRADecedent",
-          "description": null,
+          "description": "The deceased individual from whom the IRA account is being inherited. Required information for a decedent is the name, date of birth, date of death, SSN and the inheritor type.",
           "fields": [
             {
               "name": "content",
@@ -11273,7 +11321,7 @@
         {
           "kind": "OBJECT",
           "name": "AssociatedEntity",
-          "description": null,
+          "description": "A legal entity which is associated with this customer and qualification of the association.",
           "fields": [
             {
               "name": "content",
@@ -11300,7 +11348,7 @@
         {
           "kind": "OBJECT",
           "name": "Individual",
-          "description": null,
+          "description": "Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "Name",
@@ -11599,7 +11647,7 @@
         {
           "kind": "OBJECT",
           "name": "EntityName",
-          "description": null,
+          "description": "A legal entity's name.",
           "fields": [
             {
               "name": "name",
@@ -11622,7 +11670,7 @@
         {
           "kind": "OBJECT",
           "name": "LegalEntity",
-          "description": null,
+          "description": "Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is \"false\".",
           "fields": [
             {
               "name": "Name",
@@ -11753,7 +11801,7 @@
         {
           "kind": "OBJECT",
           "name": "Ownership",
-          "description": null,
+          "description": "Defines ownership with a specified percentage.",
           "fields": [
             {
               "name": "percentage",
@@ -11776,7 +11824,7 @@
         {
           "kind": "OBJECT",
           "name": "Title",
-          "description": null,
+          "description": "Nature of association of an individual or entity with the customer account.",
           "fields": [
             {
               "name": "code",
@@ -11799,7 +11847,7 @@
         {
           "kind": "OBJECT",
           "name": "IndividualName",
-          "description": null,
+          "description": "Middle initial, just one letter.",
           "fields": [
             {
               "name": "salutation",
@@ -11882,7 +11930,7 @@
         {
           "kind": "OBJECT",
           "name": "PhoneInfo",
-          "description": null,
+          "description": "Preferrably use ISO codes for countries instead of names.",
           "fields": [
             {
               "name": "type",
@@ -11941,7 +11989,7 @@
         {
           "kind": "OBJECT",
           "name": "PhonesList",
-          "description": null,
+          "description": "Direct contact details for an individual via Phone or Fax.",
           "fields": [
             {
               "name": "Phone",
@@ -11964,7 +12012,7 @@
         {
           "kind": "OBJECT",
           "name": "AccountSupportType",
-          "description": null,
+          "description": "Account Support classifies organizations in 4 categories of trading intentions.",
           "fields": [
             {
               "name": "BusinessDescription",
@@ -12071,7 +12119,7 @@
         {
           "kind": "OBJECT",
           "name": "SimpleLegalEntityType",
-          "description": null,
+          "description": "A legal entity is anything other than an individual. A simple legal entity being asscoiated with an account in tertiary capacity such as IRA beneficiary where the entity's name is the only required piece of information.",
           "fields": [
             {
               "name": "Name",
@@ -12130,7 +12178,7 @@
         {
           "kind": "OBJECT",
           "name": "PrimaryContributorType",
-          "description": null,
+          "description": "Family vehicle accts must have a primary contributor",
           "fields": [
             {
               "name": "FirstName",
@@ -12237,7 +12285,7 @@
         {
           "kind": "OBJECT",
           "name": "AdministratorType",
-          "description": null,
+          "description": "Family vehicle accts must have a primary contributor",
           "fields": [
             {
               "name": "FirstName",
@@ -12308,7 +12356,7 @@
         {
           "kind": "OBJECT",
           "name": "AdministratorContactPersonType",
-          "description": null,
+          "description": "Family vehicle accts must have a primary contributor",
           "fields": [
             {
               "name": "FirstName",
@@ -12379,7 +12427,7 @@
         {
           "kind": "OBJECT",
           "name": "EmploymentDetailsType",
-          "description": null,
+          "description": "Employment details of the customer.",
           "fields": [
             {
               "name": "employer",
@@ -12450,7 +12498,7 @@
         {
           "kind": "OBJECT",
           "name": "Application",
-          "description": null,
+          "description": "Indicates if the file is for Paper Account. Default is \"false\"",
           "fields": [
             {
               "name": "Customer",
@@ -12569,7 +12617,7 @@
         {
           "kind": "OBJECT",
           "name": "BrokerageServices",
-          "description": null,
+          "description": "One or more brokerage services.",
           "fields": [
             {
               "name": "BrokerageService",
@@ -12592,7 +12640,7 @@
         {
           "kind": "OBJECT",
           "name": "TradingPermissions",
-          "description": null,
+          "description": "One or more exchange access bundles specified by country or other grouping.",
           "fields": [
             {
               "name": "TradingPermission",
@@ -12615,7 +12663,7 @@
         {
           "kind": "OBJECT",
           "name": "CommissionConfigs",
-          "description": null,
+          "description": "One or more commission configuration settings (either for securities or commodities or both)",
           "fields": [
             {
               "name": "CommissionConfig",
@@ -12638,7 +12686,7 @@
         {
           "kind": "OBJECT",
           "name": "AllExchangeAccess",
-          "description": null,
+          "description": "If a trading permission bundle would provide improper exchange access, then specify exactly a set of exchanges.",
           "fields": [
             {
               "name": "ExchangeAccess",
@@ -12661,7 +12709,7 @@
         {
           "kind": "OBJECT",
           "name": "Capabilities",
-          "description": null,
+          "description": "A set of capabilities will be inferred from the trading permissions. However, additional capabilities can be specified.",
           "fields": [
             {
               "name": "Capability",
@@ -12684,7 +12732,7 @@
         {
           "kind": "OBJECT",
           "name": "Capability",
-          "description": null,
+          "description": "An ACES account capability.",
           "fields": [
             {
               "name": "code",
@@ -12707,7 +12755,7 @@
         {
           "kind": "OBJECT",
           "name": "DVPInstructions",
-          "description": null,
+          "description": "For IBExecution and/or IBPrime service, DVP instructions provide the clear-away trading permissions.",
           "fields": [
             {
               "name": "DVPInstruction",
@@ -12730,7 +12778,7 @@
         {
           "kind": "OBJECT",
           "name": "InvestmentObjectivesType",
-          "description": null,
+          "description": "Investment objectives of the customer.",
           "fields": [
             {
               "name": "objective",
@@ -12753,7 +12801,7 @@
         {
           "kind": "OBJECT",
           "name": "BrokerageService",
-          "description": null,
+          "description": "An ACES account brokerage service.",
           "fields": [
             {
               "name": "code",
@@ -12776,7 +12824,7 @@
         {
           "kind": "OBJECT",
           "name": "TradingPermission",
-          "description": null,
+          "description": "Product Type",
           "fields": [
             {
               "name": "asset_class",
@@ -12835,7 +12883,7 @@
         {
           "kind": "OBJECT",
           "name": "CommissionConfig",
-          "description": null,
+          "description": "Commission Type (Possible values include Securities or Commodities)",
           "fields": [
             {
               "name": "style",
@@ -12870,7 +12918,7 @@
         {
           "kind": "OBJECT",
           "name": "ExchangeAccess",
-          "description": null,
+          "description": "An ACES account exchange access.",
           "fields": [
             {
               "name": "asset_class",
@@ -12905,7 +12953,7 @@
         {
           "kind": "OBJECT",
           "name": "AssetClass",
-          "description": null,
+          "description": "An ACES asset class, aka financial instrument type.",
           "fields": [
             {
               "name": "code",
@@ -12928,7 +12976,7 @@
         {
           "kind": "OBJECT",
           "name": "TradingLimits",
-          "description": null,
+          "description": "Various limits for the llimit tracking mechanism.",
           "fields": [
             {
               "name": "OrderValueLimits",
@@ -12987,7 +13035,7 @@
         {
           "kind": "OBJECT",
           "name": "OrderValueLimits",
-          "description": null,
+          "description": "Per day order value limits.",
           "fields": [
             {
               "name": "max_order_value",
@@ -13046,7 +13094,7 @@
         {
           "kind": "OBJECT",
           "name": "EFPQuantityLimits",
-          "description": null,
+          "description": "EFP order quantity limits.",
           "fields": [
             {
               "name": "max_nominal_efp_per_order",
@@ -13093,7 +13141,7 @@
         {
           "kind": "OBJECT",
           "name": "OrderQuantityLimit",
-          "description": null,
+          "description": "Per asset class order quantity limit.",
           "fields": [
             {
               "name": "asset",
@@ -13128,7 +13176,7 @@
         {
           "kind": "OBJECT",
           "name": "DayQuantityLimit",
-          "description": null,
+          "description": "Per asset class day quantity limit.",
           "fields": [
             {
               "name": "asset",
@@ -13163,7 +13211,7 @@
         {
           "kind": "OBJECT",
           "name": "AdvisorWrapFeesType",
-          "description": null,
+          "description": "This is for BillingConfiguration and indicates whether other fees will be charged to the advisor account",
           "fields": [
             {
               "name": "automated_fees_details",
@@ -13246,7 +13294,7 @@
         {
           "kind": "OBJECT",
           "name": "AutomatedWrapFeeDetailsType",
-          "description": null,
+          "description": "This is the optional monthly invoice percentage cap. When provided, it limits the advisor quarterly invoice to a certain percentage of the client's Net Asset Value. Mutualy exclusive with PercentOfNLVCap. When used in combination with type.INVOICE_LIMIT_Q it implies both a percentage and absolute amount cap (whichever is reached first).",
           "fields": [
             {
               "name": "per_trade_markups",
@@ -13353,7 +13401,7 @@
         {
           "kind": "OBJECT",
           "name": "AnnualBlendedPercentage",
-          "description": null,
+          "description": "Annualize Blended Percentage",
           "fields": [
             {
               "name": "BlendedFrom",
@@ -13400,7 +13448,7 @@
         {
           "kind": "OBJECT",
           "name": "HighWaterMarkType",
-          "description": null,
+          "description": "HighWaterMark Setup.",
           "fields": [
             {
               "name": "hwm",
@@ -13435,7 +13483,7 @@
         {
           "kind": "OBJECT",
           "name": "HighWaterMarkConfigurationType",
-          "description": null,
+          "description": "HighWaterMark Configuration.",
           "fields": [
             {
               "name": "NumberOfPeriods",
@@ -13470,7 +13518,7 @@
         {
           "kind": "OBJECT",
           "name": "PreviousLossesType",
-          "description": null,
+          "description": "Previous Losses for HighWaterMark.",
           "fields": [
             {
               "name": "loss",
@@ -13529,7 +13577,7 @@
         {
           "kind": "OBJECT",
           "name": "CommissionScheduleType",
-          "description": null,
+          "description": "Schedule of commission markups.",
           "fields": [
             {
               "name": "markup",
@@ -13564,7 +13612,7 @@
         {
           "kind": "OBJECT",
           "name": "CommissionMarkupType",
-          "description": null,
+          "description": "Specific markup in a commission schedule.",
           "fields": [
             {
               "name": "stair",
@@ -13659,7 +13707,7 @@
         {
           "kind": "OBJECT",
           "name": "MarkupStaircaseType",
-          "description": null,
+          "description": "A break in the markup staircase of a commission schedule.",
           "fields": [
             {
               "name": "break",
@@ -13694,7 +13742,7 @@
         {
           "kind": "OBJECT",
           "name": "InterestMarkupScheduleType",
-          "description": null,
+          "description": "Schedule of interest rate markups.",
           "fields": [
             {
               "name": "markup",
@@ -13717,7 +13765,7 @@
         {
           "kind": "OBJECT",
           "name": "InterestMarkupType",
-          "description": null,
+          "description": "Interest Rate markups for a specific currency.",
           "fields": [
             {
               "name": "currency",
@@ -13836,7 +13884,7 @@
         {
           "kind": "OBJECT",
           "name": "ExtPositionsTransfers",
-          "description": null,
+          "description": "Details for transferring positions from a third party broker to IB using a specific transfer mechanism such as ACATS or ATON for one or more customer accounts at IB.",
           "fields": [
             {
               "name": "ExtPositionsTransfer",
@@ -13859,7 +13907,7 @@
         {
           "kind": "OBJECT",
           "name": "FeesTemplateBasedType",
-          "description": null,
+          "description": "Fees template name previously created on Account Management.",
           "fields": [
             {
               "name": "template_name",
@@ -13882,7 +13930,7 @@
         {
           "kind": "OBJECT",
           "name": "ExtPositionsTransferType",
-          "description": null,
+          "description": "Is used to indicate whether mutual funds are OK to be excluded from ACATS transfer.",
           "fields": [
             {
               "name": "PartialStockPositions",
@@ -14157,7 +14205,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialStockPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of stock positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialStockPosition",
@@ -14180,7 +14228,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialStockPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of a stock position held in external account over to IB.",
           "fields": [
             {
               "name": "symbol",
@@ -14251,7 +14299,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialBondPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of bond positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialBondPosition",
@@ -14274,7 +14322,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialBondPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of a bond position held in external account over to IB.",
           "fields": [
             {
               "name": "cusip_number",
@@ -14321,7 +14369,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialOptionPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of option positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialOptionPosition",
@@ -14344,7 +14392,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialOptionPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of an option position held in external account over to IB.",
           "fields": [
             {
               "name": "symbol",
@@ -14439,7 +14487,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialWarrantPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of warrant positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialWarrantPosition",
@@ -14462,7 +14510,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialWarrantPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of a warrant position held in external account over to IB.",
           "fields": [
             {
               "name": "symbol",
@@ -14557,7 +14605,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialFundPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of fund positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialFundPosition",
@@ -14580,7 +14628,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialFundPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of a fund position held in external account over to IB.",
           "fields": [
             {
               "name": "symbol",
@@ -14627,7 +14675,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialCashPositions",
-          "description": null,
+          "description": "All information required to complete partial transfer of cash positions held in external accounts over to IB.",
           "fields": [
             {
               "name": "PartialCashPosition",
@@ -14650,7 +14698,7 @@
         {
           "kind": "OBJECT",
           "name": "PartialCashPosition",
-          "description": null,
+          "description": "Information required to complete partial transfer of a cash position held in external account over to IB.",
           "fields": [
             {
               "name": "amount",
@@ -14697,7 +14745,7 @@
         {
           "kind": "OBJECT",
           "name": "DepositNotificationType",
-          "description": null,
+          "description": "Customer Account at IB for which this Deposit Notification is being set. Only relevant for notifications sent as part of Account Management Requests for open IB accounts.",
           "fields": [
             {
               "name": "CheckDetails",
@@ -14804,7 +14852,7 @@
         {
           "kind": "OBJECT",
           "name": "CheckDetailsType",
-          "description": null,
+          "description": "Account Number of the customer at the Bank on which the check is drawn as noted on the check.",
           "fields": [
             {
               "name": "check_number",
@@ -14851,7 +14899,7 @@
         {
           "kind": "OBJECT",
           "name": "WireDetailsType",
-          "description": null,
+          "description": "Reference Number or Payment ID of the Wire Transfer provided by the Bank.",
           "fields": [
             {
               "name": "bank_name",
@@ -14898,7 +14946,7 @@
         {
           "kind": "OBJECT",
           "name": "ACHDetailsType",
-          "description": null,
+          "description": "Name of the Bank from which the ACH transfer will originate.",
           "fields": [
             {
               "name": "cust_init_ACH",
@@ -14933,7 +14981,7 @@
         {
           "kind": "OBJECT",
           "name": "IRADepositDetailsType",
-          "description": null,
+          "description": "Type of the source IRA account, only required for rollover deposits. Rollover deposits currently restricted to be from Traditional, Roth and SEP IRA accounts only. Inherited IRA accounts may not be the source of a rollover deposit notification.",
           "fields": [
             {
               "name": "deposit_type",
@@ -14980,7 +15028,7 @@
         {
           "kind": "OBJECT",
           "name": "RecurringTransactionType",
-          "description": null,
+          "description": "Customer Account at IB for which this recurring transaction is being set. Only relevant for instructions sent as part of Account Management Requests for open IB accounts.",
           "fields": [
             {
               "name": "ACHInstruction",
@@ -15135,7 +15183,7 @@
         {
           "kind": "OBJECT",
           "name": "ACHInstructionType",
-          "description": null,
+          "description": "Account Number of the customer at the Bank.",
           "fields": [
             {
               "name": "cust_init_ACH",
@@ -15242,7 +15290,7 @@
         {
           "kind": "OBJECT",
           "name": "IRAWithdrawalDetailsType",
-          "description": null,
+          "description": "The tax rate for state withholding from the withdrawal. If not specified, implies customer indicates no withholding.",
           "fields": [
             {
               "name": "distribution_type",
@@ -15313,7 +15361,7 @@
         {
           "kind": "OBJECT",
           "name": "CustodianType",
-          "description": null,
+          "description": "One individual or a legal entity that is the custodian for a UGMA / UTMA. Legal entities must detail one employee to be the signatory.",
           "fields": [
             {
               "name": "Individual",

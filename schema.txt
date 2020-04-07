@@ -3,14 +3,26 @@ schema {
   query: Queries
 }
 
+"""
+This is a base query used for this documentation only, it is not related to IBKR
+"""
 type Queries {
-  Applications: Applications!
+  Process: Process!
+  AcctMgmt: AcctMgmt!
   AcctMgmtRequests: AcctMgmtRequests!
+  Errors: Errors!
+  Pending_Tasks: Pending_Tasks!
 }
 
+"""
+One or more users can be specified.
+"""
 type Users {
     User: User
 }
+"""
+Prefix to be used to generate the IB username for the user. Required only for additional users. Ignored for the first/primary user, the username generated for the id_string of the customer is automatically set as the username for the first/primary user.
+"""
 type User {
     UserPrivilege: UserPrivilege
   MDServices: MDServicesType
@@ -21,9 +33,15 @@ type User {
   encrypted_key_name: String
   prefix: UserNamePrefix_Type
 }
+"""
+undefined
+"""
 type Pending_Tasks {
     Pending_Task: Pending_Task
 }
+"""
+Indicates whether task is an online task or not.
+"""
 type Pending_Task {
     Task_Number: Int
   Form_Number: Int
@@ -33,24 +51,42 @@ type Pending_Task {
   Is_Required_For_Trading: Boolean
   Is_Online_Task: Boolean
 }
+"""
+Specifies details about execution of the request.
+"""
 type Execution {
     Execution_date: String
   Process_File: String
   Client: String
   Client_Master_Acct: String
 }
+"""
+Specifies error messages when application is not processed successfully via ECA.
+"""
 type Errors {
     Error: Int
 }
+"""
+undefined
+"""
 type Entities {
     Entity: Entity
 }
+"""
+External ID associated with the entity.
+"""
 type Entity {
     external_ID: String
 }
+"""
+List of documents that are a part of the IB Customer Application process that were signed/agreed by the customer on the remote application which generated this Electronic Customer Application.
+"""
 type Documents {
     Document: Document
 }
+"""
+Identifier at the external entity for the individual executing the agreement. Must be an individual listed on the application. Ignored for INDIVIDUAL applications as agreements must be executed by the Account Holder.
+"""
 type Document {
     SignedBy: Int
   AttachedFile: AttachedFileType
@@ -61,6 +97,9 @@ type Document {
   external_acct_id: String
   external_individual_id: String
 }
+"""
+Specifies whether the application was successfully processed or not.
+"""
 type ResponseApplication {
     Customer: String
   Users: Users
@@ -72,9 +111,15 @@ type ResponseApplication {
   External_ID: String
   Status: String
 }
+"""
+One or more accounts to be added for a customer.
+"""
 type Accounts {
     Account: Account
 }
+"""
+Account alias that will appear on account statements, trading platform and Account Management screens. Ideally it should be easier to remember than the account ID.
+"""
 type Account {
     InvestmentObjectives: InvestmentObjectivesType
   BrokerageServices: BrokerageServices
@@ -110,30 +155,51 @@ type Account {
   stock_yield_program: Boolean
   alias: String
 }
+"""
+Top Level Element.
+"""
 type Process {
     Execution: Execution
   Applications: Applications
 }
+"""
+A set of applications belonging to a specific external entity.
+"""
 type Applications {
     Application: Application
 }
+"""
+Direct actions available on Account Management to modify existing accounts.
+"""
 type AcctMgmt {
     WithholdingStatements: WithholdingStatementsType
 }
+"""
+Tax information about the customer required by the IRS. A Form W-9 or W-8 is required for all customers except customers of IB-India. Type deprecated, preferrable to use FormW9 or FormW8.
+"""
 type IndividualTaxInformation {
     W9: FormW9
   W8Ben: FormW8BEN
   CRS: FormCRS
   W8BenE: FormW8BENE
 }
+"""
+Tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators.
+"""
 type TaxResidencies {
     TaxResidency: TaxResidency
 }
+"""
+In case of US TIN we must declare the TIN type: it's either SSN or EIN.
+"""
 type TaxResidency {
     country: String
   TIN: String
   TINType: TIN_Type
 }
+"""
+Form number in case broker/advisor sends proprietary blank forms.
+"""
 type FormW8BEN {
     name: String
   country_of_citizenship: CountryCode_Type
@@ -159,6 +225,9 @@ type FormW8BEN {
   tax_form_file: String
   proprietary_form_number: Int
 }
+"""
+Form number in case broker/advisor sends proprietary blank forms.
+"""
 type FormW9 {
     name: String
   business_name: String
@@ -178,6 +247,9 @@ type FormW9 {
   tax_form_file: String
   proprietary_form_number: Int
 }
+"""
+To be set to True if the customer agrees on all items listed in Part XXIX Certification.
+"""
 type FormW8BENE {
     SubstantialUsOwners: SubstantialUsOwners
   name: String
@@ -257,12 +329,21 @@ type FormW8BENE {
   part_28_43: Boolean
   cert: Boolean
 }
+"""
+Per W-8BEN-E Part XXX: As required by Part XXVI, provide the name, address, and TIN of each substantial U.S. owner of the NFFE. Please see instructions for definition of substantial U.S. owner.
+"""
 type SubstantialUsOwners {
     SubstantialUsOwner: SubstantialUsOwner
 }
+"""
+Identifier for the individual or legal entity at the external entity.
+"""
 type SubstantialUsOwner {
     external_id: String
 }
+"""
+To be set to True if the customer agrees on all items listed in Part XXVIII Certification.
+"""
 type FormW8IMY {
     name: String
   country_of_incorporation: String
@@ -345,40 +426,70 @@ type FormW8IMY {
   part_27_39: Boolean
   cert: Boolean
 }
+"""
+OECD Status for legal entity.
+"""
 type FormCRS {
     ControllingPerson: ControllingPersonType
   oecd_status: OECDStatusType
 }
+"""
+Controlling Person.
+"""
 type ControllingPersonType {
     designation: DesignationType
 }
+"""
+A set of synchronization elements.
+"""
 type Synchronization {
     Applications: NewApplications
   Actions: Actions
   Additions: Additions
   Modifications: Modifications
 }
+"""
+For IBExecution and/or IBPrime service, DVP instructions provide the clear-away trading permissions.
+"""
 type AllDVPInstructions {
     DVPInstruction: DVPInstruction
 }
+"""
+A set of applications.
+"""
 type NewApplications {
     Application: Application
 }
+"""
+A set of customer and customer account additions.
+"""
 type Additions {
     Application: Application
   Account: Account
 }
+"""
+A set of customer and customer account actions.
+"""
 type Actions {
     Action: Action
 }
+"""
+A set of customer and customer account additions.
+"""
 type Modifications {
     Customer: Customer
   Account: Account
   User: User
 }
+"""
+A single customer or customer account action.
+"""
 type Action {
     action: String
 }
+"""
+A set of account management function requests for accounts belonging to a specific external entity. Account specified on any request must already be open.
+"""
 type AcctMgmtRequests {
     DuplicateAcct: DuplicateAcctRequest
   DepositNotification: DepositNotificationType
@@ -400,359 +511,599 @@ type AcctMgmtRequests {
   GetJavaScript: GetJavaScript
   YodleeSession: YodleeSession
 }
+"""
+Indicated if the file contains translated information from another language to English. This attribute is used only when input_language is different than "en". Default is "false"
+"""
 type DocumentSubmissionType {
     Document: Document
   reference_account_id: String
   input_language: languageList
   has_translation: Boolean
 }
+"""
+Number of duplicate accounts required, if not provided defaults to one.
+"""
 type DuplicateAcctRequest {
     reference_account_id: String
   no_of_duplicates: Int
 }
+"""
+Flag to indicate if the account owner will activelly trade. For advisor clients, the default value is false.
+"""
 type LinkDuplicateAccount {
     reference_account_id: String
   external_account_id: String
   client_active_trading: Boolean
 }
+"""
+IB Account ID of the Advisor/Broker Client account for which Trading Permissions will be added.
+"""
 type AddTradingPermissions {
     TradingPermission: TradingPermission
   reference_account_id: String
 }
+"""
+IB Account ID of the Advisor/Broker Client account for which Trading Permissions will be removed.
+"""
 type RemoveTradingPermissions {
     TradingPermission: TradingPermission
   reference_account_id: String
 }
+"""
+New margin type for the account
+"""
 type ChangeMarginType {
     reference_account_id: String
   new_margin: Margin_Type
 }
+"""
+IB Account ID of the Advisor/Broker Client account for which Financial Information will be changed
+"""
 type ChangeFinancialInformation {
     NewFinancialInformation: FinancialInformation
   reference_account_id: String
 }
+"""
+IB Account ID of the Advisor/Broker Client account for which request to Enroll in SYEP Program will be submitted.
+"""
 type EnrollInSYEP {
     Documents: Documents
   reference_account_id: String
 }
+"""
+IB Account ID of the Advisor/Broker Client account for which request to leave SYEP Program will be submitted.
+"""
 type LeaveSYEP {
     reference_account_id: String
 }
+"""
+Nature of association of an individual or entity with the customer account.
+"""
 type AddMiFIRData {
     Identification: IndividualIdentification
   reference_account_id: String
   title: String
 }
+"""
+User Name of Advisor/Broker Client account for which Account Credentials will be updated.
+"""
 type UpdateCredentials {
     UpdatePassword: UpdatePassword
   UpdateEmail: UpdateEmail
   UpdatePhone: UpdatePhone
   reference_user_name: String
 }
+"""
+Verification token sent to Email Address or Phone Number associated with the Account
+"""
 type UpdatePassword {
     encrypted_password: String
   encrypted_key_name: String
   token: String
 }
+"""
+Verification token sent to Updated Email Address
+"""
 type UpdateEmail {
     email: String
   token: String
 }
+"""
+Verification token sent to Updated Mobile Phone
+"""
 type UpdatePhone {
     Phone: PhoneInfo
   action: ActionType
   token: String
 }
+"""
+Two digit Country code from where Wire Transfer Deposit will originate.
+"""
 type AllocateVAN {
     reference_account_id: String
   currency: Currency_Type
   country_code: String
 }
+"""
+Indicated if the file contains translated information from another language to English. This attribute is used only when input_language is different than "en". Default is "false"
+"""
 type ProcessDocumentsType {
     Document: Document
   input_language: languageList
   has_translation: Boolean
 }
+"""
+The name of the method. Should be getCodeWithPublicKey
+"""
 type GetJavaScript {
     method: String
 }
+"""
+The IB account ID. Only needed for finishYodlee.
+"""
 type YodleeSession {
     request: String
   username: String
   item_account_id: String
   acct_id: String
 }
+"""
+Indicates the IB account ID to apply the changes
+"""
 type InformationChange {
     AddEntity: AddEntity
   UpdateEntity: UpdateEntity
   DeleteEntity: DeleteEntity
   ib_acct_id: String
 }
+"""
+Information about a new entity (individual or legal) to be associated to the account; relationship is mandatory.
+"""
 type AddEntity {
     AddRelationship: AddRelationship
   Document: Document
 }
+"""
+Identifier for the entity at IB.
+"""
 type UpdateEntity {
     AddRelationship: AddRelationship
   DeleteRelationship: DeleteRelationship
   Document: Document
   ib_entity_id: Int
 }
+"""
+Identifier for the entity at IB.
+"""
 type DeleteEntity {
     ib_entity_id: Int
 }
+"""
+Ownership ppercentage is value between 1 and 100; the sum of all entities should be 100.
+"""
 type AddRelationship {
     name: RelationshipEnum
   ownership_percentage: Int
 }
+"""
+Relationship name, based on a list of possible values.
+"""
 type DeleteRelationship {
     name: RelationshipEnum
 }
+"""
+An organization which is the customer and beneficial owner of an account.
+"""
 type Organization {
     Identification: OrganizationIdentification
   RegulatoryInformation: RegulatoryInformation
 }
+"""
+A Trust which is the customer and beneficial owner of an account.
+"""
 type Trust {
     Identification: TrustIdentification
   RegulatoryInformation: RegulatoryInformation
 }
+"""
+ACES Enumeration. Note: IRA is deprecated
+"""
 enum Customer_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Capability_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum BrokerageService_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum AssetClass_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Product_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Country_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum KnowledgeLevel_Type {
-  VALUE
-}
+VALUES
+}"""
+Please refer to ISO 3166-1 for 3-letter country codes (http://www.iso.org)
+"""
 type CountryCode_Type {
   id: String!
 }
-  type StateCode_Type {
+  """
+Please refer to ISO 3166-1? for 2-letter state codes (http://www.iso.org)
+"""
+type StateCode_Type {
   id: String!
 }
-  enum Association_Type {
-  VALUE
-}
+  """
+ACES enumeration
+"""
+enum Association_Type {
+VALUES
+}"""
+ACES enumeration
+"""
 enum Privilege_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum TradingFor_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum DVP_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum DVPRole_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Margin_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Currency_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum TXGroupCode_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum ExchangeCode_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Organization_Type {
-  VALUE
-}
+VALUES
+}"""
+Deprecated. Keeping this for backward compatibility.
+"""
 enum RegulatoryIssueCode_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Joint_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum InvestmentObjective_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum MaritalStatus_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Employment_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum OrgApplicant_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum AdvisorWrapFeeStrategies_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum AutomatedWrapFees_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum QuarterHWM_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum CommissionMarkups_Type {
-  VALUE
-}
+VALUES
+}"""
+SEP-Inherited
+"""
 enum IRA_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum IRABeneficiaryRelation_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum InheritedIRABeneficiaryRelation_Type {
-  VALUE
-}
+VALUES
+}"""
+Other
+"""
 enum InheritedIRABeneficiary_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum IRADeposit_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum IRAContribTaxYear_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum PositionsTransfer_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum PositionsTransfer_SubType {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum W9Customer_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum TIN_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration, SKIP_DEPOSIT is for clients who will fund later, after the account is opened
+"""
 enum Deposit_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum RecurringTx_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum RecurringTxFreq_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum ACHInstructionTx_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum IRADistribution_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Salutation_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Suffix_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Gender_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum TradeIntention_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum SourceOfFunds_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration Values with the prefix SOW-IND should be used with Individual/Joint accounts. Values with the prefix SOW-ORG should be used with Org/Trust accounts.
+"""
 enum WealthSource_Type {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum Phone_Type {
-  VALUE
-}
+VALUES
+}"""
+List of possible relationships between entities and accounts.
+"""
 enum RelationshipEnum {
-  VALUE
-}
+VALUES
+}"""
+W-8BEN-E Box 4 - Chapter 3 Status (entity type)
+"""
 enum W8BENE_Box4_Type {
-  VALUE
-}
+VALUES
+}"""
+Box 5 - Chapter 4 Status (FATCA status)
+"""
 enum W8BENE_Box5_Type {
-  VALUE
-}
+VALUES
+}"""
+W-8BEN-E Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment
+"""
 enum W8BENE_Box11_Type {
-  VALUE
-}
+VALUES
+}"""
+W-8IMY Box 4 - Chapter 3 Status (entity type)
+"""
 enum W8IMY_Box4_Type {
-  VALUE
-}
+VALUES
+}"""
+W-8IMY Box 5 - Chapter 4 Status (entity type)
+"""
 enum W8IMY_Box5_Type {
-  VALUE
-}
+VALUES
+}"""
+W-8IMY Box 11 - Chapter 4 Status (FATCA status) of disregarded entity or branch receiving payment
+"""
 enum W8IMY_Box11_Type {
-  VALUE
-}
+VALUES
+}"""
+W-8IMY Box 8 - Part 1 - Item 8 - US Taxpayer Identification Number Type
+"""
 enum US_TIN_Type {
-  VALUE
-}
+VALUES
+}"""
+undefined
+"""
 enum ExemptPayeeCode_Type {
-  VALUE
-}
+VALUES
+}"""
+undefined
+"""
 enum ExemptReportCode_Type {
-  VALUE
-}
+VALUES
+}"""
+Corporation - C Partnership - P Disregarded Entity - E
+"""
 enum USTaxPurposeType {
-  VALUE
-}
+VALUES
+}"""
+Org is a foreign bank - 2 Org is a licensed securities broker or dealer - 3 Org is a licensed futures commission merchant - 5 Org is a mutual fund, hedge fund, private equity - 21 Org is a licensed forex dealer - 22 Org is a licensed money transmitter -23 Org is an employee benefit plan regulated under ERISA - 25 Org is a US federally regulated or state regulated bank -31 Org is a US registered swap dealer - 33 Org is a US registered major swap participant - 34 Org is an insuarance company regulated by a US state - 35 Org is a nonUS insurance company regulated outside of the US - 36 Org is a department or agency of the US - 37 Org is a licensed advisor or investment manager for securities, futures, or forex trading - 38
+"""
 enum FinancialOrgCodeType {
-  VALUE
-}
+VALUES
+}"""
+undefined
+"""
 enum TrustTypeList {
-  VALUE
-}
+VALUES
+}"""
+Values are subset of W3C.
+"""
 enum languageList {
-  VALUE
-}
+VALUES
+}"""
+Possibles Signature Types
+"""
 enum SignatureType {
-  VALUE
-}
+VALUES
+}"""
+Commission Types
+"""
 enum CommissionType {
-  VALUE
-}
+VALUES
+}"""
+Commission Styles
+"""
 enum CommissionStyle {
-  VALUE
-}
+VALUES
+}"""
+Used only for brokers; it indicates the type of price structure
+"""
 enum PricingStructureType {
-  VALUE
-}
+VALUES
+}"""
+It indicates the desigation of Controlling Person for CRS Tax Reporting
+"""
 enum DesignationType {
-  VALUE
-}
+VALUES
+}"""
+OECD Statuses
+"""
 enum OECDStatusType {
-  VALUE
-}
+VALUES
+}"""
+Position Types
+"""
 enum PositionType {
-  VALUE
-}
+VALUES
+}"""
+Option Types
+"""
 enum OptionType {
-  VALUE
-}
+VALUES
+}"""
+Explanation for not providing either TIN or Foreign Tax Id: 1. [US_TIN] Account holder possesses US TIN; it will be added to W8 Form. 2. [TIN_NOT_DISCLOSED] Country issues TIN; however, account holder is exempt from disclosing TIN under laws of the country. 3. [TIN_NOT_REQUIRED] Account holder is not legally required to obtain TIN. 4. [TIN_NOT_ISSUED] Country does not issue TIN.
+"""
 enum ExplanationType {
-  VALUE
-}
+VALUES
+}"""
+ACES enumeration
+"""
 enum ActionType {
-  VALUE
-}
+VALUES
+}"""
+Enumeration of Qualified Intermediary Types
+"""
 enum QIClassEnum {
-  VALUE
-}
+VALUES
+}"""
+Enumeration of FATCA Compliance Types
+"""
 enum FatcaCompliantEnum {
-  VALUE
-}
+VALUES
+}"""
+Timestamp of the signature using ISO 8601 Basic Format YYYYMMDDhhmmss and considering NY time (EST/EDT).
+"""
 type WithholdingStatementsType {
     WithholdingStatement: WithholdingStatementType
   qi_class: QIClassEnum
   signature: String
   signature_timestamp: Int
 }
+"""
+Tax rate applicable to US ECI income; mandatory when the account is flow-through. All rates can be entered with up to 2 digits of precision.
+"""
 type WithholdingStatementType {
     acct_id: String
   fatca_compliant_type: FatcaCompliantEnum
@@ -766,20 +1117,35 @@ type WithholdingStatementType {
   us_other_rate: Float
   eci_rate: Float
 }
+"""
+A user is privileged for a specified account.
+"""
 type UserPrivilege {
     external_acct_id: String
   privilege: Privilege_Type
 }
+"""
+List of Market Data Services the user is requesting subscription to.
+"""
 type MDServicesType {
     service: Int
 }
+"""
+EMail address
+"""
 type Email {
     email: String
 }
+"""
+For customer identification by telephone. challenge/response, aka hint/phrase, aka question/answer
+"""
 type Security {
     Challenge: String
   Response: String
 }
+"""
+Preferrably use ISO codes for countries instead of names.
+"""
 type Address {
     street_1: String
   street_2: String
@@ -788,17 +1154,29 @@ type Address {
   country: String
   postal_code: String
 }
+"""
+Prefix used to generate a username.
+"""
 type UserNamePrefix_Type {
   id: String!
 }
-  type DOB {
+  """
+A date specifically for a birthday.
+"""
+type DOB {
   id: String!
 }
-  type AttachedFileType {
+  """
+Document file SHA-1 hash code (checksum).
+"""
+type AttachedFileType {
     file_name: String
   file_length: Int
   sha1_checksum: String
 }
+"""
+A DVP instruction specifies the settlement information for clear-away trading.
+"""
 type DVPInstruction {
     id: String
   external_id: String
@@ -822,6 +1200,9 @@ type DVPInstruction {
   Default: Boolean
   Expiry: String
 }
+"""
+Specify that the account is an independent account.
+"""
 type Customer {
     Organization: OrganizationApplicant
   AccountHolder: IndividualApplicant
@@ -847,6 +1228,9 @@ type Customer {
   robo_fa_client: Boolean
   independent_account: Boolean
 }
+"""
+Required for legal Indian residents or citizens of India.
+"""
 type IndividualIdentification {
     citizenship: String
   SSN: String
@@ -864,6 +1248,9 @@ type IndividualIdentification {
   TaxId: String
   ProofOfAgeCard: String
 }
+"""
+US tax purpose.
+"""
 type OrganizationApplicant {
     Identification: OrganizationIdentification
   AccountSupport: AccountSupportType
@@ -886,6 +1273,9 @@ type OrganizationApplicant {
   has_accepted_primary_withholding: Boolean
   us_tax_purpose_type: USTaxPurposeType
 }
+"""
+An individual who is the customer and beneficial owner of an account. Ownership and Title are fixed at 100% and Account Holder respectively and provided values will be ignored.
+"""
 type IndividualApplicant {
     AccountHolderDetails: AssociatedIndividual
   FinancialInformation: FinancialInformation
@@ -895,6 +1285,9 @@ type IndividualApplicant {
   TaxInformation: IndividualTaxInformation
   WithholdingStatement: WithholdingStatementType
 }
+"""
+Type of Joint customer (JointApplicant_Rtab.type)
+"""
 type JointApplicant {
     FirstHolderDetails: AssociatedIndividual
   SecondHolderDetails: AssociatedIndividual
@@ -906,6 +1299,9 @@ type JointApplicant {
   WithholdingStatement: WithholdingStatementType
   type: Joint_Type
 }
+"""
+According to US IRS, for taxes purposes, the trust is classified as Complex, Single, Grantor os US Taxable?
+"""
 type TrustApplicant {
     Identification: TrustIdentification
   FinancialInformation: FinancialInformation
@@ -922,6 +1318,9 @@ type TrustApplicant {
   third_party_mgmt: Boolean
   trust_type: TrustTypeList
 }
+"""
+Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type OrganizationIdentification {
     PlaceOfBusiness: Address
   MailingAddress: Address
@@ -935,6 +1334,9 @@ type OrganizationIdentification {
   same_mail_address: Boolean
   is_translated: Boolean
 }
+"""
+Flag to indicate that the entity mailing address is the same as its place of business.
+"""
 type LegalEntityIdentification {
     PlaceOfBusiness: Address
   MailingAddress: Address
@@ -946,6 +1348,9 @@ type LegalEntityIdentification {
   exchange_symbol: String
   same_mail_address: Boolean
 }
+"""
+Indicates if the information is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type TrustIdentification {
     Address: Address
   MailingAddress: Address
@@ -962,10 +1367,16 @@ type TrustIdentification {
   same_mail_address: Boolean
   is_translated: Boolean
 }
+"""
+One or more individuals or legal entities that are associated with the customer.
+"""
 type AssociatedEntities {
     AssociatedIndividual: AssociatedIndividual
   AssociatedEntity: AssociatedEntity
 }
+"""
+Flag to indicate if the spouse is the primary beneficiary of the IRA account. Required for a married account holder. If spouse is not the primary beneficiary then a signed spousal consent is required.
+"""
 type IRABeneficiariesType {
     PrimaryBeneficiary: IRAPrimaryBeneficiary
   PrimaryBeneficiaryEntity: IRAPrimaryBeneficiaryEntity
@@ -973,21 +1384,36 @@ type IRABeneficiariesType {
   ContingentBeneficiaryEntity: IRAContingentBeneficiaryEntity
   spouse_primary_beneficary: Boolean
 }
+"""
+One or more individuals or legal entities with a specific association with the customer as defined by the declaring element.
+"""
 type AssociationTypeEntities {
     Individual: Individual
   LegalEntity: LegalEntity
 }
+"""
+One or more individuals or legal entities that are the trustees of the Trust.
+"""
 type TrusteesType {
     Individual: TrusteeIndividual
   Entity: TrusteeEntityType
 }
+"""
+A individual that is the trustee of a trust. An individual trustee must must inform job title and occupation.
+"""
 type TrusteeIndividual {
   content: Individual!
 }
+"""
+A legal entity that is the trustee of a trust. An entity trustee must detail an employee signatory.
+"""
 type TrusteeEntityType {
     LegalEntity: LegalEntity
   Employee: Individual
 }
+"""
+Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type FinancialInformation {
     InvestmentExperience: InvestmentExperience
   InvestmentObjectives: InvestmentObjectivesType
@@ -1000,32 +1426,53 @@ type FinancialInformation {
   source_of_funds: String
   is_translated: Boolean
 }
+"""
+The customer's additional source of income; optional for employed individuals; required for unemployed, retired, student, at-home trader and homemakers. The sum of percentages must be exactly 100%; each type of source of income should be mentioned only one.
+"""
 type AdditionalSourceOfIncomeType {
     SourceOfIncome: SourceOfIncomeType
 }
+"""
+Additional source of income. Note: Source of Income will be deprecated from June 1, 2019 onwards.
+"""
 type SourceOfIncomeType {
     source_type: SourceOfFunds_Type
   percentage: Int
   description: String
 }
+"""
+Customer's source of wealth; required for all account types. The sum of percentages must be exactly 100%; each type of source of wealth should be mentioned only one. Note: Source of Wealth will become mandatory from June 1, 2019 onwards.
+"""
 type SourcesOfWealthType {
     SourceOfWealth: SourceOfWealthType
 }
+"""
+Source of wealth.
+"""
 type SourceOfWealthType {
     source_type: WealthSource_Type
   percentage: Int
   is_used_for_funds: Boolean
   description: String
 }
+"""
+The customer's experience and knowledge with the various financial instruments required to qualify trading in those instruments.
+"""
 type InvestmentExperience {
     AssetExperience: AssetExperience
 }
+"""
+Trading experience and knowledge for a specific financial instrument.
+"""
 type AssetExperience {
     asset_class: AssetClass_Type
   years_trading: Int
   trades_per_year: Int
   knowledge_level: KnowledgeLevel_Type
 }
+"""
+Our five accredited investor questions. See a printed application.
+"""
 type AccreditedInvestorInformation {
     q1: Boolean
   q2: Boolean
@@ -1033,6 +1480,9 @@ type AccreditedInvestorInformation {
   q4: Boolean
   q5: Boolean
 }
+"""
+Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type RegulatoryInformation {
     SelfRegulatedMembership: SelfRegulatedMembershipType
   AffiliationDetails: AffiliationDetailsType
@@ -1040,16 +1490,25 @@ type RegulatoryInformation {
   ORGRegulatoryInfo: ORGRegulatoryInfoType
   is_translated: Boolean
 }
+"""
+Specific questions about regulatory issues. An enumeration of question codes will be declared. See a paper application.
+"""
 type RegulatoryDetail {
     code: RegulatoryIssueCode_Type
   status: Boolean
   details: String
   detail: String
 }
+"""
+List of exchanges and self regulated organizations the customer is a member of.
+"""
 type SelfRegulatedMembershipType {
     exchanges: String
   organizations: String
 }
+"""
+Indicates if IB should send duplicated statements to customers. For those incldued on FINRA Rule 3210 or equivalent on his/her jurisdiction, the expected answer is true, as they need to submit one copy to his/her employer compliance office.
+"""
 type AffiliationDetailsType {
     affiliation_relationship: String
   person_name: String
@@ -1060,59 +1519,107 @@ type AffiliationDetailsType {
   company_email_address: String
   is_duplicate_stmt_required: Boolean
 }
+"""
+Specific questions about financial org types. See a paper application.
+"""
 type FinancialOrgType {
     code: FinancialOrgCodeType
 }
+"""
+One or more regulated memberships.
+"""
 type RegulatedMemberships {
     RegulatedMembership: RegulatedMembership
 }
+"""
+We must know of the membership in any regulated organizations. E.g. an NYSE or NASD member.
+"""
 type RegulatedMembership {
     organization_code: String
   membership_id: String
 }
+"""
+undefined
+"""
 type PublicCompanyInfoType {
     ExchangeTradedOn: String
   QuotedSymbol: String
 }
+"""
+undefined
+"""
 type ORGRegulatorType {
     RegulatorName: String
   RegulatorCountry: String
   RegulatedInCapacity: String
   RegulatorId: String
 }
+"""
+undefined
+"""
 type ORGRegulatoryInfoType {
     PublicCompanyInfo: PublicCompanyInfoType
   ORGRegulator: ORGRegulatorType
   is_public: Boolean
   is_regulated: Boolean
 }
+"""
+An individual who is associated with this customer and qualification of the association.
+"""
 type AssociatedIndividual {
   content: Individual!
 }
+"""
+The individual who will be associated with the trading session for the Organization's account.
+"""
 type PrimaryTrader {
   content: Individual!
 }
+"""
+The CEO of the customer's organization.
+"""
 type ControllingOfficer {
   content: Individual!
 }
+"""
+The individual who is the primary beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.
+"""
 type IRAPrimaryBeneficiary {
   content: Individual!
 }
+"""
+The Legal Entity that is the primary beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.
+"""
 type IRAPrimaryBeneficiaryEntity {
   content: SimpleLegalEntityType!
 }
+"""
+The individual who is the contingent beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.
+"""
 type IRAContingentBeneficiary {
   content: Individual!
 }
+"""
+The Legal Entity that is the contingent beneficiary of the IRA account. Here the Ownership denotes the beneficiary's share.
+"""
 type IRAContingentBeneficiaryEntity {
   content: SimpleLegalEntityType!
 }
+"""
+The deceased individual from whom the IRA account is being inherited. Required information for a decedent is the name, date of birth, date of death, SSN and the inheritor type.
+"""
 type IRADecedent {
   content: Individual!
 }
+"""
+A legal entity which is associated with this customer and qualification of the association.
+"""
 type AssociatedEntity {
   content: LegalEntity!
 }
+"""
+Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type Individual {
     Name: IndividualName
   DOB: DOB
@@ -1139,9 +1646,15 @@ type Individual {
   is_us_tax_resident: Boolean
   is_translated: Boolean
 }
+"""
+A legal entity's name.
+"""
 type EntityName {
     name: String
 }
+"""
+Indicates if the inforamtion is the translated version. It is used only when providing information in a different language and English. Default values is "false".
+"""
 type LegalEntity {
     Name: EntityName
   Location: Address
@@ -1154,12 +1667,21 @@ type LegalEntity {
   is_us_tax_resident: Boolean
   is_translated: Boolean
 }
+"""
+Defines ownership with a specified percentage.
+"""
 type Ownership {
     percentage: Int
 }
+"""
+Nature of association of an individual or entity with the customer account.
+"""
 type Title {
     code: Association_Type
 }
+"""
+Middle initial, just one letter.
+"""
 type IndividualName {
     salutation: Salutation_Type
   first: String
@@ -1168,15 +1690,24 @@ type IndividualName {
   suffix: Suffix_Type
   title: String
 }
+"""
+Preferrably use ISO codes for countries instead of names.
+"""
 type PhoneInfo {
     type: Phone_Type
   number: String
   country: String
   is_verified: Boolean
 }
+"""
+Direct contact details for an individual via Phone or Fax.
+"""
 type PhonesList {
     Phone: PhoneInfo
 }
+"""
+Account Support classifies organizations in 4 categories of trading intentions.
+"""
 type AccountSupportType {
     BusinessDescription: String
   PrimaryContributor: PrimaryContributorType
@@ -1187,12 +1718,18 @@ type AccountSupportType {
   AcceptOwnersResideUS: Boolean
   type: TradeIntention_Type
 }
+"""
+A legal entity is anything other than an individual. A simple legal entity being asscoiated with an account in tertiary capacity such as IRA beneficiary where the entity's name is the only required piece of information.
+"""
 type SimpleLegalEntityType {
     Name: EntityName
   Location: Address
   id: String
   external_id: String
 }
+"""
+Family vehicle accts must have a primary contributor
+"""
 type PrimaryContributorType {
     FirstName: String
   MiddleInitial: String
@@ -1203,6 +1740,9 @@ type PrimaryContributorType {
   Address: Address
   SourceOfFunds: String
 }
+"""
+Family vehicle accts must have a primary contributor
+"""
 type AdministratorType {
     FirstName: String
   MiddleInitial: String
@@ -1210,6 +1750,9 @@ type AdministratorType {
   Suffix: Suffix_Type
   Address: Address
 }
+"""
+Family vehicle accts must have a primary contributor
+"""
 type AdministratorContactPersonType {
     FirstName: String
   MiddleInitial: String
@@ -1217,6 +1760,9 @@ type AdministratorContactPersonType {
   Suffix: Suffix_Type
   PhoneNumber: String
 }
+"""
+Employment details of the customer.
+"""
 type EmploymentDetailsType {
     employer: String
   occupation: String
@@ -1224,6 +1770,9 @@ type EmploymentDetailsType {
   employer_address: Address
   employer_phone: String
 }
+"""
+Indicates if the file is for Paper Account. Default is "false"
+"""
 type Application {
     Customer: Customer
   Accounts: Accounts
@@ -1235,75 +1784,132 @@ type Application {
   has_translation: Boolean
   paper_account: Boolean
 }
+"""
+One or more brokerage services.
+"""
 type BrokerageServices {
     BrokerageService: BrokerageService
 }
+"""
+One or more exchange access bundles specified by country or other grouping.
+"""
 type TradingPermissions {
     TradingPermission: TradingPermission
 }
+"""
+One or more commission configuration settings (either for securities or commodities or both)
+"""
 type CommissionConfigs {
     CommissionConfig: CommissionConfig
 }
+"""
+If a trading permission bundle would provide improper exchange access, then specify exactly a set of exchanges.
+"""
 type AllExchangeAccess {
     ExchangeAccess: ExchangeAccess
 }
+"""
+A set of capabilities will be inferred from the trading permissions. However, additional capabilities can be specified.
+"""
 type Capabilities {
     Capability: Capability
 }
+"""
+An ACES account capability.
+"""
 type Capability {
     code: Capability_Type
 }
+"""
+For IBExecution and/or IBPrime service, DVP instructions provide the clear-away trading permissions.
+"""
 type DVPInstructions {
     DVPInstruction: DVPInstruction
 }
+"""
+Investment objectives of the customer.
+"""
 type InvestmentObjectivesType {
     objective: InvestmentObjective_Type
 }
+"""
+An ACES account brokerage service.
+"""
 type BrokerageService {
     code: BrokerageService_Type
 }
+"""
+Product Type
+"""
 type TradingPermission {
     asset_class: AssetClass_Type
   exchange_group: String
   country: Country_Type
   product: Product_Type
 }
+"""
+Commission Type (Possible values include Securities or Commodities)
+"""
 type CommissionConfig {
     style: CommissionStyle
   type: CommissionType
 }
+"""
+An ACES account exchange access.
+"""
 type ExchangeAccess {
     asset_class: AssetClass_Type
   exchange: ExchangeCode_Type
 }
+"""
+An ACES asset class, aka financial instrument type.
+"""
 type AssetClass {
     code: AssetClass_Type
 }
+"""
+Various limits for the llimit tracking mechanism.
+"""
 type TradingLimits {
     OrderValueLimits: OrderValueLimits
   EFPQuantityLimits: EFPQuantityLimits
   OrderQuantityLimit: OrderQuantityLimit
   DayQuantityLimit: DayQuantityLimit
 }
+"""
+Per day order value limits.
+"""
 type OrderValueLimits {
     max_order_value: Float
   max_gross_value: Float
   max_net_value: Float
   net_contract_limit: Float
 }
+"""
+EFP order quantity limits.
+"""
 type EFPQuantityLimits {
     max_nominal_efp_per_order: Int
   max_net_efp_trades: Int
   max_gross_efp_trades: Int
 }
+"""
+Per asset class order quantity limit.
+"""
 type OrderQuantityLimit {
     asset: AssetClass_Type
   quantity: Int
 }
+"""
+Per asset class day quantity limit.
+"""
 type DayQuantityLimit {
     asset: AssetClass_Type
   quantity: Int
 }
+"""
+This is for BillingConfiguration and indicates whether other fees will be charged to the advisor account
+"""
 type AdvisorWrapFeesType {
     automated_fees_details: AutomatedWrapFeeDetailsType
   highWaterMarkConfigHwma: HighWaterMarkType
@@ -1312,6 +1918,9 @@ type AdvisorWrapFeesType {
   ChargeAdvisor: Boolean
   ChargeOtherFeesToAdvisor: Boolean
 }
+"""
+This is the optional monthly invoice percentage cap. When provided, it limits the advisor quarterly invoice to a certain percentage of the client's Net Asset Value. Mutualy exclusive with PercentOfNLVCap. When used in combination with type.INVOICE_LIMIT_Q it implies both a percentage and absolute amount cap (whichever is reached first).
+"""
 type AutomatedWrapFeeDetailsType {
     per_trade_markups: CommissionScheduleType
   annual_blended_percentage: AnnualBlendedPercentage
@@ -1322,29 +1931,47 @@ type AutomatedWrapFeeDetailsType {
   PercentOfNLVCap: String
   PercentOfNLVCap_Q: String
 }
+"""
+Annualize Blended Percentage
+"""
 type AnnualBlendedPercentage {
     BlendedFrom: String
   BlendedTo: String
   Percentage: String
 }
+"""
+HighWaterMark Setup.
+"""
 type HighWaterMarkType {
     hwm: HighWaterMarkConfigurationType
   previousLosses: PreviousLossesType
 }
+"""
+HighWaterMark Configuration.
+"""
 type HighWaterMarkConfigurationType {
     NumberOfPeriods: Int
   ProrateForWithdrawals: Boolean
 }
+"""
+Previous Losses for HighWaterMark.
+"""
 type PreviousLossesType {
     loss: Int
   quarter: Int
   year: Int
   currency: String
 }
+"""
+Schedule of commission markups.
+"""
 type CommissionScheduleType {
     markup: CommissionMarkupType
   pricing_structure: PricingStructureType
 }
+"""
+Specific markup in a commission schedule.
+"""
 type CommissionMarkupType {
     stair: MarkupStaircaseType
   code: String
@@ -1354,13 +1981,22 @@ type CommissionMarkupType {
   amount: Float
   plus_cost: Boolean
 }
+"""
+A break in the markup staircase of a commission schedule.
+"""
 type MarkupStaircaseType {
     break: Float
   amount: Float
 }
+"""
+Schedule of interest rate markups.
+"""
 type InterestMarkupScheduleType {
     markup: InterestMarkupType
 }
+"""
+Interest Rate markups for a specific currency.
+"""
 type InterestMarkupType {
     currency: Currency_Type
   debit_markup: Float
@@ -1372,12 +2008,21 @@ type InterestMarkupType {
   short_index_cfd_credit_markdown: Float
   long_index_cfd_debit_markdown: Float
 }
+"""
+Details for transferring positions from a third party broker to IB using a specific transfer mechanism such as ACATS or ATON for one or more customer accounts at IB.
+"""
 type ExtPositionsTransfers {
     ExtPositionsTransfer: ExtPositionsTransferType
 }
+"""
+Fees template name previously created on Account Management.
+"""
 type FeesTemplateBasedType {
     template_name: String
 }
+"""
+Is used to indicate whether mutual funds are OK to be excluded from ACATS transfer.
+"""
 type ExtPositionsTransferType {
     PartialStockPositions: PartialStockPositions
   PartialBondPositions: PartialBondPositions
@@ -1402,9 +2047,15 @@ type ExtPositionsTransferType {
   signature: String
   authorize_to_remove_fund: Boolean
 }
+"""
+All information required to complete partial transfer of stock positions held in external accounts over to IB.
+"""
 type PartialStockPositions {
     PartialStockPosition: PartialStockPosition
 }
+"""
+Information required to complete partial transfer of a stock position held in external account over to IB.
+"""
 type PartialStockPosition {
     symbol: String
   number_of_shares: Int
@@ -1412,17 +2063,29 @@ type PartialStockPosition {
   position: PositionType
   exchange: String
 }
+"""
+All information required to complete partial transfer of bond positions held in external accounts over to IB.
+"""
 type PartialBondPositions {
     PartialBondPosition: PartialBondPosition
 }
+"""
+Information required to complete partial transfer of a bond position held in external account over to IB.
+"""
 type PartialBondPosition {
     cusip_number: String
   number_of_bonds: Int
   is_all: Boolean
 }
+"""
+All information required to complete partial transfer of option positions held in external accounts over to IB.
+"""
 type PartialOptionPositions {
     PartialOptionPosition: PartialOptionPosition
 }
+"""
+Information required to complete partial transfer of an option position held in external account over to IB.
+"""
 type PartialOptionPosition {
     symbol: String
   number_of_contracts: Int
@@ -1432,9 +2095,15 @@ type PartialOptionPosition {
   strike_price: Int
   expiration_date: String
 }
+"""
+All information required to complete partial transfer of warrant positions held in external accounts over to IB.
+"""
 type PartialWarrantPositions {
     PartialWarrantPosition: PartialWarrantPosition
 }
+"""
+Information required to complete partial transfer of a warrant position held in external account over to IB.
+"""
 type PartialWarrantPosition {
     symbol: String
   number_of_shares: Int
@@ -1444,22 +2113,37 @@ type PartialWarrantPosition {
   strike_price: Int
   expiration_date: String
 }
+"""
+All information required to complete partial transfer of fund positions held in external accounts over to IB.
+"""
 type PartialFundPositions {
     PartialFundPosition: PartialFundPosition
 }
+"""
+Information required to complete partial transfer of a fund position held in external account over to IB.
+"""
 type PartialFundPosition {
     symbol: String
   number_of_shares: Int
   is_all: Boolean
 }
+"""
+All information required to complete partial transfer of cash positions held in external accounts over to IB.
+"""
 type PartialCashPositions {
     PartialCashPosition: PartialCashPosition
 }
+"""
+Information required to complete partial transfer of a cash position held in external account over to IB.
+"""
 type PartialCashPosition {
     amount: Float
   is_margin_loan: Boolean
   is_full_cash: Boolean
 }
+"""
+Customer Account at IB for which this Deposit Notification is being set. Only relevant for notifications sent as part of Account Management Requests for open IB accounts.
+"""
 type DepositNotificationType {
     CheckDetails: CheckDetailsType
   WireDetails: WireDetailsType
@@ -1470,25 +2154,40 @@ type DepositNotificationType {
   currency: Currency_Type
   ib_acct: String
 }
+"""
+Account Number of the customer at the Bank on which the check is drawn as noted on the check.
+"""
 type CheckDetailsType {
     check_number: String
   routing_number: String
   acct_number: String
 }
+"""
+Reference Number or Payment ID of the Wire Transfer provided by the Bank.
+"""
 type WireDetailsType {
     bank_name: String
   country_code: String
   reference_number: String
 }
+"""
+Name of the Bank from which the ACH transfer will originate.
+"""
 type ACHDetailsType {
     cust_init_ACH: Boolean
   bank_name: String
 }
+"""
+Type of the source IRA account, only required for rollover deposits. Rollover deposits currently restricted to be from Traditional, Roth and SEP IRA accounts only. Inherited IRA accounts may not be the source of a rollover deposit notification.
+"""
 type IRADepositDetailsType {
     deposit_type: IRADeposit_Type
   tax_year: IRAContribTaxYear_Type
   from_ira_type: IRA_Type
 }
+"""
+Customer Account at IB for which this recurring transaction is being set. Only relevant for instructions sent as part of Account Management Requests for open IB accounts.
+"""
 type RecurringTransactionType {
     ACHInstruction: ACHInstructionType
   IRAWithdrawalDetails: IRAWithdrawalDetailsType
@@ -1503,6 +2202,9 @@ type RecurringTransactionType {
   currency: Currency_Type
   ib_acct: String
 }
+"""
+Account Number of the customer at the Bank.
+"""
 type ACHInstructionType {
     cust_init_ACH: Boolean
   type: ACHInstructionTx_Type
@@ -1513,6 +2215,9 @@ type ACHInstructionType {
   routing_number: String
   acct_number: String
 }
+"""
+The tax rate for state withholding from the withdrawal. If not specified, implies customer indicates no withholding.
+"""
 type IRAWithdrawalDetailsType {
     distribution_type: IRADistribution_Type
   excess_contrib_yr: Int
@@ -1520,6 +2225,9 @@ type IRAWithdrawalDetailsType {
   legal_residence_state: StateCode_Type
   state_tax_rate: Float
 }
+"""
+One individual or a legal entity that is the custodian for a UGMA / UTMA. Legal entities must detail one employee to be the signatory.
+"""
 type CustodianType {
     Individual: Individual
   LegalEntity: LegalEntity
