@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const Xsd2JsonSchema = require('xsd2jsonschema').Xsd2JsonSchema;
 const jsonxml = require('jsontoxml');
-const { isNil, get, uniq, split, last, toUpper, indexOf, join, upperCase, pad } = require('lodash');
+const { isNil, get, uniq, split, last, toUpper, indexOf, join, upperCase, pad, toArray } = require('lodash');
 const { buildSchema, printSchema, introspectionQuery, buildClientSchema, graphqlSync, getIntrospectionQuery, graphql } = require('graphql');
 
 const { graphQLTypes } = require('./helpers/types');
@@ -87,25 +87,47 @@ const getEnumValues = (elementKey) => get(dataObjects[elementKey], 'enum', []);
 
 const getElement = (elementKey, parentPath) => {
   const element = dataObjects[elementKey];
-  // console.log('elementKey', elementKey);
-  if (elementKey === 'AccountHolderDetails') {
+  if (elementKey === 'AssociatedIndividual') {
     console.log('element', element);
     console.log('parentPath', parentPath);
   }
-  const elementProperties = get(element, 'properties', null);
+  const elementProperties = get(
+    element, 
+    'properties',
+    get(element, 'allOf[1].properties', null)
+  );
   if (isNil(elementProperties)) return {};
   const propertyKeys = Object.keys(elementProperties);
   const attrs = {};
   const children = [];
   propertyKeys.forEach(key => {
     const path = `${parentPath}/${key}`;
+    let text = `\n<!-- Path: ${path} -->\n`;
+    let elementTypeName = key;
     if (indexOf(elementsToIgnore, path) === -1) {
       let ref = last(split(get(elementProperties[key], '$ref', null), '/'));
       if (ref === '') ref = last(split(get(elementProperties[key], 'oneOf[0].$ref', null), '/'));
+      if (elementKey === 'AssociatedIndividual') console.log('ref', ref);
+      if (ref && ref !== key) {
+        elementTypeName = ref;
+      }
       const type = get(elementProperties[key], 'type', null);
       const isAttribute = String(key).substr(0,1) === '@' || type !== null;
       const el = getElement(ref, path);
-      
+      const typeName = get(el, 'name', false);
+      // if (key === 'AccountHolderDetails') {
+      //   console.log('AccountHolderDetails', elementProperties[key]);
+      //   console.log('ref', ref);
+      // }
+      let typeAttrs = {};
+      let typeChildren = [];
+      if (typeName && typeName !== key) {
+        elementTypeName = typeName;
+        const typeEl = getElement(typeName, path);
+        // if (typeName === 'IndividualApplicant') console.log('IndividualApplicant', typeEl);
+        typeAttrs = typeEl.attrs;
+        typeChildren = toArray(typeEl.children);
+      }
       if (isAttribute) {
         let attrType = isNil(type) ? ref : pad(upperCase(type), '__');
         if (attrType === '') attrType = upperCase(get(elementProperties[key], 'oneOf[0].type', null))
@@ -115,11 +137,23 @@ const getElement = (elementKey, parentPath) => {
           ? `${attrType}${enumValues.length > 0 ? ' : ' : ''}${join(enumValues, '|')}`
           : finalValue;
       } else {
+        const refEl = getElement(elementTypeName, path);
+        if (elementTypeName === 'AssociatedIndividual') console.log('refEl', refEl);
+        text += `<!-- Type: ${elementTypeName} -->`;
         children.push({
           name: key,
-          text: `<!-- Path: ${path} -->`,
-          children: el.children,
-          attrs: el.attrs,
+          text,
+          // debug: el,
+          children: [
+            ...toArray(el.children),
+            ...typeChildren,
+            ...toArray(refEl.children),
+          ],
+          attrs: {
+            ...el.attrs,
+            ...typeAttrs,
+            ...refEl.attrs,
+          },
         })
       }
     }
