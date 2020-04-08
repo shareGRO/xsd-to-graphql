@@ -87,44 +87,32 @@ const getEnumValues = (elementKey) => get(dataObjects[elementKey], 'enum', []);
 
 const getElement = (elementKey, parentPath) => {
   const element = dataObjects[elementKey];
-  if (elementKey === 'AssociatedIndividual') {
-    console.log('element', element);
-    console.log('parentPath', parentPath);
-  }
-  const elementProperties = get(
-    element, 
-    'properties',
-    get(element, 'allOf[1].properties', null)
-  );
+  const elementProperties = get(element, 'properties', get(element, 'allOf[1].properties', null));
   if (isNil(elementProperties)) return {};
   const propertyKeys = Object.keys(elementProperties);
   const attrs = {};
   const children = [];
   propertyKeys.forEach(key => {
     const path = `${parentPath}/${key}`;
-    let text = `\n<!-- Path: ${path} -->\n`;
+    let text = `\n<!-- Path: ${path} -->`;
     let elementTypeName = key;
     if (indexOf(elementsToIgnore, path) === -1) {
       let ref = last(split(get(elementProperties[key], '$ref', null), '/'));
       if (ref === '') ref = last(split(get(elementProperties[key], 'oneOf[0].$ref', null), '/'));
-      if (elementKey === 'AssociatedIndividual') console.log('ref', ref);
       if (ref && ref !== key) {
         elementTypeName = ref;
       }
       const type = get(elementProperties[key], 'type', null);
+      const description = get(elementProperties[key], 'description', false);
+      if (description) text += `\n<!-- Description: ${description} -->`;
       const isAttribute = String(key).substr(0,1) === '@' || type !== null;
       const el = getElement(ref, path);
       const typeName = get(el, 'name', false);
-      // if (key === 'AccountHolderDetails') {
-      //   console.log('AccountHolderDetails', elementProperties[key]);
-      //   console.log('ref', ref);
-      // }
       let typeAttrs = {};
       let typeChildren = [];
       if (typeName && typeName !== key) {
         elementTypeName = typeName;
         const typeEl = getElement(typeName, path);
-        // if (typeName === 'IndividualApplicant') console.log('IndividualApplicant', typeEl);
         typeAttrs = typeEl.attrs;
         typeChildren = toArray(typeEl.children);
       }
@@ -139,11 +127,12 @@ const getElement = (elementKey, parentPath) => {
       } else {
         const refEl = getElement(elementTypeName, path);
         if (elementTypeName === 'AssociatedIndividual') console.log('refEl', refEl);
-        text += `<!-- Type: ${elementTypeName} -->`;
+        text += `\n<!-- Type: ${elementTypeName} -->`;
+        const typeDescription = get(elementProperties[elementTypeName], 'description', false);
+        if (typeDescription) text += `\n<!-- Type Description: ${typeDescription} -->`;
         children.push({
           name: key,
           text,
-          // debug: el,
           children: [
             ...toArray(el.children),
             ...typeChildren,
