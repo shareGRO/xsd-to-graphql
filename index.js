@@ -130,14 +130,13 @@ const getElement = (elementKey, parentPath) => {
         text += `\n<!-- Type: ${elementTypeName} -->`;
         const typeDescription = get(elementProperties[elementTypeName], 'description', false);
         if (typeDescription) text += `\n<!-- Type Description: ${typeDescription} -->`;
+        let childrenArray = toArray(el.children);
+        if (childrenArray.length === 0) childrenArray = toArray(typeChildren);
+        if (childrenArray.length === 0) childrenArray = toArray(refEl.children);
         children.push({
           name: key,
           text,
-          children: [
-            ...toArray(el.children),
-            ...typeChildren,
-            ...toArray(refEl.children),
-          ],
+          children: childrenArray,
           attrs: {
             ...el.attrs,
             ...typeAttrs,
