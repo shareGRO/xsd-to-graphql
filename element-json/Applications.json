@@ -1,11 +1,19 @@
 {
   "Application": {
+    "_path": "Applications/Application",
     "Customer": {
+      "_path": "Applications/Application/Customer",
       "AccountHolder": {
-        "AccountHolderDetails": {},
+        "_path": "Applications/Application/Customer/AccountHolder",
+        "AccountHolderDetails": {
+          "_path": "Applications/Application/Customer/AccountHolder/AccountHolderDetails"
+        },
         "FinancialInformation": {
+          "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation",
           "InvestmentExperience": {
+            "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience",
             "AssetExperience": {
+              "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience/AssetExperience",
               "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
               "@years_trading": "INTEGER",
               "@trades_per_year": "INTEGER",
@@ -13,17 +21,24 @@
             }
           },
           "InvestmentObjectives": {
-            "objective": {}
+            "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives",
+            "objective": {
+              "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives/objective"
+            }
           },
           "AdditionalSourceOfIncome": {
+            "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome",
             "SourceOfIncome": {
+              "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome/SourceOfIncome",
               "@source_type": "SourceOfFunds_Type : CONSULTING|DISABILITY|INHERITANCE|INTEREST|REALESTATE|RENTAL|SEVERANCE|SPOUSE|TRADINGANDINVESTMENTS|PENSIONANDSOCIALSECURITY|UNEMPLOYMENT|OTHER",
               "@percentage": "INTEGER",
               "@description": "STRING"
             }
           },
           "SourcesOfWealth": {
+            "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth",
             "SourceOfWealth": {
+              "_path": "Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth/SourceOfWealth",
               "@source_type": "WealthSource_Type : SOW-IND-Allowance|SOW-IND-Disability|SOW-IND-Income|SOW-IND-Inheritance|SOW-IND-Interest|SOW-IND-MarketProfit|SOW-IND-Other|SOW-IND-Pension|SOW-IND-Property|SOW-ORG-Business|SOW-ORG-MarketTradingProfits|SOW-ORG-Other|SOW-ORG-OwnerEquity|SOW-ORG-Property|SOW-ORG-RetainedEarnings",
               "@percentage": "INTEGER",
               "@is_used_for_funds": "BOOLEAN",
@@ -38,16 +53,20 @@
           "@is_translated": "BOOLEAN"
         },
         "RegulatoryInformation": {
+          "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation",
           "SelfRegulatedMembership": {
+            "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/SelfRegulatedMembership",
             "exchanges": "STRING",
             "organizations": "STRING"
           },
           "AffiliationDetails": {
+            "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails",
             "affiliation_relationship": "STRING",
             "person_name": "STRING",
             "company_id": "INTEGER",
             "company": "STRING",
             "company_mailing_address": {
+              "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails/company_mailing_address",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -60,14 +79,18 @@
             "@is_duplicate_stmt_required": "BOOLEAN"
           },
           "FinancialOrgType": {
+            "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/FinancialOrgType",
             "@code": "FinancialOrgCodeType : 2|3|5|21|22|23|25|31|33|34|35|36|37|38"
           },
           "ORGRegulatoryInfo": {
+            "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo",
             "PublicCompanyInfo": {
+              "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/PublicCompanyInfo",
               "ExchangeTradedOn": "STRING",
               "QuotedSymbol": "STRING"
             },
             "ORGRegulator": {
+              "_path": "Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/ORGRegulator",
               "RegulatorName": "STRING",
               "RegulatorCountry": "STRING",
               "RegulatedInCapacity": "STRING",
@@ -79,12 +102,15 @@
           "@is_translated": "BOOLEAN"
         },
         "RegulatedMemberships": {
+          "_path": "Applications/Application/Customer/AccountHolder/RegulatedMemberships",
           "RegulatedMembership": {
+            "_path": "Applications/Application/Customer/AccountHolder/RegulatedMemberships/RegulatedMembership",
             "@organization_code": "STRING",
             "@membership_id": "STRING"
           }
         },
         "AccreditedInvestorInformation": {
+          "_path": "Applications/Application/Customer/AccountHolder/AccreditedInvestorInformation",
           "@q1": "BOOLEAN",
           "@q2": "BOOLEAN",
           "@q3": "BOOLEAN",
@@ -92,7 +118,9 @@
           "@q5": "BOOLEAN"
         },
         "TaxInformation": {
+          "_path": "Applications/Application/Customer/AccountHolder/TaxInformation",
           "W9": {
+            "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/W9",
             "@name": "STRING",
             "@business_name": "STRING",
             "@customer_type": "Individual",
@@ -112,6 +140,7 @@
             "@proprietary_form_number": "INTEGER"
           },
           "W8Ben": {
+            "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/W8Ben",
             "@name": "STRING",
             "@country_of_citizenship": "CountryCode_Type",
             "@residence_address": "STRING",
@@ -137,14 +166,19 @@
             "@proprietary_form_number": "INTEGER"
           },
           "CRS": {
+            "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/CRS",
             "ControllingPerson": {
+              "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/CRS/ControllingPerson",
               "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
             },
             "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
           },
           "W8BenE": {
+            "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE",
             "SubstantialUsOwners": {
+              "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners",
               "SubstantialUsOwner": {
+                "_path": "Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners/SubstantialUsOwner",
                 "@external_id": "STRING"
               }
             },
@@ -227,6 +261,7 @@
           }
         },
         "WithholdingStatement": {
+          "_path": "Applications/Application/Customer/AccountHolder/WithholdingStatement",
           "@acct_id": "STRING",
           "@fatca_compliant_type": "FatcaCompliantEnum : FATCA_COMPLIANT|NON_CONSENTING_US_ACCOUNT|NON_COOPERATIVE_ACCOUNT",
           "@us_backup_withholding": "BOOLEAN",
@@ -242,41 +277,51 @@
       },
       "@id": "STRING",
       "@external_id": "STRING",
-      "@transfer_us_micro_cap_stock": "BOOLEAN",
-      "@type": "Customer_Type : INDIVIDUAL|JOINT|TRUST|UGMA|UTMA|ORG|IRA",
+      "@type": "INDIVIDUAL",
       "@prefix": "UserNamePrefix_Type",
       "@email": "STRING",
-      "@md_status_nonpro": "BOOLEAN",
+      "@md_status_nonpro": true,
       "@preferred_primary_language": "STRING",
       "@preferred_secondary_language": "STRING",
-      "@legal_residence_country": "STRING",
-      "@tax_treaty_country": "STRING",
-      "@meet_aml_standard": "BOOLEAN",
-      "@has_direct_trading_access": "BOOLEAN",
+      "@legal_residence_country": "USA",
+      "@tax_treaty_country": "USA",
+      "@meet_aml_standard": true,
+      "@has_direct_trading_access": false,
       "@origin_country": "STRING",
       "@termination_age": "INTEGER",
       "@governing_state": "STRING",
-      "@opt_for_debit_card": "BOOLEAN",
-      "@robo_fa_client": "BOOLEAN",
-      "@independent_account": "BOOLEAN"
+      "@opt_for_debit_card": false,
+      "@robo_fa_client": false,
+      "@independent_account": false
     },
     "Accounts": {
+      "_path": "Applications/Application/Accounts",
       "Account": {
+        "_path": "Applications/Application/Accounts/Account",
         "InvestmentObjectives": {
-          "objective": {}
+          "_path": "Applications/Application/Accounts/Account/InvestmentObjectives",
+          "objective": {
+            "_path": "Applications/Application/Accounts/Account/InvestmentObjectives/objective"
+          }
         },
         "BrokerageServices": {
+          "_path": "Applications/Application/Accounts/Account/BrokerageServices",
           "BrokerageService": {
+            "_path": "Applications/Application/Accounts/Account/BrokerageServices/BrokerageService",
             "@code": "BrokerageService_Type : IBClearing|IBExecution|IBPrime"
           }
         },
         "Capabilities": {
+          "_path": "Applications/Application/Accounts/Account/Capabilities",
           "Capability": {
+            "_path": "Applications/Application/Accounts/Account/Capabilities/Capability",
             "@code": "Capability_Type : BOND|FOP|FUND|FUT|MRGN|MULT|OPT|SSF|CFD|STK"
           }
         },
         "TradingPermissions": {
+          "_path": "Applications/Application/Accounts/Account/TradingPermissions",
           "TradingPermission": {
+            "_path": "Applications/Application/Accounts/Account/TradingPermissions/TradingPermission",
             "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
             "@exchange_group": "STRING",
             "@country": "Country_Type : AUSTRALIA|AUSTRIA|BELGIUM|CANADA|FRANCE|GERMANY|HONG KONG|ITALY|JAPAN|KOREA|MEXICO|NORWAY|SINGAPORE|SPAIN|SWEDEN|SWITZERLAND|THE NETHERLANDS|UNITED KINGDOM|UNITED STATES|HK-CHINA",
@@ -284,19 +329,25 @@
           }
         },
         "CommissionConfigs": {
+          "_path": "Applications/Application/Accounts/Account/CommissionConfigs",
           "CommissionConfig": {
+            "_path": "Applications/Application/Accounts/Account/CommissionConfigs/CommissionConfig",
             "@style": "CommissionStyle : Bundled|Unbundled",
             "@type": "CommissionType : Commodities|Securities"
           }
         },
         "AllExchangeAccess": {
+          "_path": "Applications/Application/Accounts/Account/AllExchangeAccess",
           "ExchangeAccess": {
+            "_path": "Applications/Application/Accounts/Account/AllExchangeAccess/ExchangeAccess",
             "@asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
             "@exchange": "ExchangeCode_Type : NYSE|AMEX|NASDAQ|CBOE|ISE|BOX|PHLX|PSE"
           }
         },
         "DVPInstructions": {
+          "_path": "Applications/Application/Accounts/Account/DVPInstructions",
           "DVPInstruction": {
+            "_path": "Applications/Application/Accounts/Account/DVPInstructions/DVPInstruction",
             "@id": "STRING",
             "@external_id": "STRING",
             "@ExternalAcctID": "STRING",
@@ -321,31 +372,41 @@
           }
         },
         "TradingLimits": {
+          "_path": "Applications/Application/Accounts/Account/TradingLimits",
           "OrderValueLimits": {
+            "_path": "Applications/Application/Accounts/Account/TradingLimits/OrderValueLimits",
             "@max_order_value": "NUMBER",
             "@max_gross_value": "NUMBER",
             "@max_net_value": "NUMBER",
             "@net_contract_limit": "NUMBER"
           },
           "EFPQuantityLimits": {
+            "_path": "Applications/Application/Accounts/Account/TradingLimits/EFPQuantityLimits",
             "@max_nominal_efp_per_order": "INTEGER",
             "@max_net_efp_trades": "INTEGER",
             "@max_gross_efp_trades": "INTEGER"
           },
           "OrderQuantityLimit": {
+            "_path": "Applications/Application/Accounts/Account/TradingLimits/OrderQuantityLimit",
             "@asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
             "@quantity": "INTEGER"
           },
           "DayQuantityLimit": {
+            "_path": "Applications/Application/Accounts/Account/TradingLimits/DayQuantityLimit",
             "@asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
             "@quantity": "INTEGER"
           }
         },
         "AdvisorWrapFees": {
+          "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees",
           "automated_fees_details": {
+            "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details",
             "per_trade_markups": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups",
               "markup": {
+                "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup",
                 "stair": {
+                  "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup/stair",
                   "@break": "NUMBER",
                   "@amount": "NUMBER"
                 },
@@ -359,6 +420,7 @@
               "@pricing_structure": "PricingStructureType : FIXED|TIERED"
             },
             "annual_blended_percentage": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/annual_blended_percentage",
               "@BlendedFrom": "STRING",
               "@BlendedTo": "STRING",
               "@Percentage": "STRING"
@@ -371,11 +433,14 @@
             "@PercentOfNLVCap_Q": "STRING"
           },
           "highWaterMarkConfigHwma": {
+            "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma",
             "hwm": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/hwm",
               "@NumberOfPeriods": "INTEGER",
               "@ProrateForWithdrawals": "BOOLEAN"
             },
             "previousLosses": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/previousLosses",
               "@loss": "INTEGER",
               "@quarter": "INTEGER",
               "@year": "INTEGER",
@@ -383,11 +448,14 @@
             }
           },
           "highWaterMarkConfigHwmq": {
+            "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq",
             "hwm": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/hwm",
               "@NumberOfPeriods": "INTEGER",
               "@ProrateForWithdrawals": "BOOLEAN"
             },
             "previousLosses": {
+              "_path": "Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/previousLosses",
               "@loss": "INTEGER",
               "@quarter": "INTEGER",
               "@year": "INTEGER",
@@ -399,11 +467,15 @@
           "@ChargeOtherFeesToAdvisor": "BOOLEAN"
         },
         "Fees": {
+          "_path": "Applications/Application/Accounts/Account/Fees",
           "@template_name": "STRING"
         },
         "ClientCommissionSchedule": {
+          "_path": "Applications/Application/Accounts/Account/ClientCommissionSchedule",
           "markup": {
+            "_path": "Applications/Application/Accounts/Account/ClientCommissionSchedule/markup",
             "stair": {
+              "_path": "Applications/Application/Accounts/Account/ClientCommissionSchedule/markup/stair",
               "@break": "NUMBER",
               "@amount": "NUMBER"
             },
@@ -417,7 +489,9 @@
           "@pricing_structure": "PricingStructureType : FIXED|TIERED"
         },
         "ClientInterestMarkupSchedule": {
+          "_path": "Applications/Application/Accounts/Account/ClientInterestMarkupSchedule",
           "markup": {
+            "_path": "Applications/Application/Accounts/Account/ClientInterestMarkupSchedule/markup",
             "@currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
             "@debit_markup": "NUMBER",
             "@ib_debit_markup": "NUMBER",
@@ -429,17 +503,31 @@
             "@long_index_cfd_debit_markdown": "NUMBER"
           }
         },
-        "Decendent": {},
+        "Decendent": {
+          "_path": "Applications/Application/Accounts/Account/Decendent"
+        },
         "IRABeneficiaries": {
-          "PrimaryBeneficiary": {},
-          "PrimaryBeneficiaryEntity": {},
-          "ContingentBeneficiary": {},
-          "ContingentBeneficiaryEntity": {},
+          "_path": "Applications/Application/Accounts/Account/IRABeneficiaries",
+          "PrimaryBeneficiary": {
+            "_path": "Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary"
+          },
+          "PrimaryBeneficiaryEntity": {
+            "_path": "Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity"
+          },
+          "ContingentBeneficiary": {
+            "_path": "Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary"
+          },
+          "ContingentBeneficiaryEntity": {
+            "_path": "Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity"
+          },
           "@spouse_primary_beneficary": "BOOLEAN"
         },
         "ExtPositionsTransfer": {
+          "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer",
           "PartialStockPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions",
             "PartialStockPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions/PartialStockPosition",
               "@symbol": "STRING",
               "@number_of_shares": "INTEGER",
               "@is_all": "BOOLEAN",
@@ -448,14 +536,18 @@
             }
           },
           "PartialBondPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions",
             "PartialBondPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions/PartialBondPosition",
               "@cusip_number": "STRING",
               "@number_of_bonds": "INTEGER",
               "@is_all": "BOOLEAN"
             }
           },
           "PartialOptionPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions",
             "PartialOptionPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions/PartialOptionPosition",
               "@symbol": "STRING",
               "@number_of_contracts": "INTEGER",
               "@is_all": "BOOLEAN",
@@ -466,7 +558,9 @@
             }
           },
           "PartialWarrantPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions",
             "PartialWarrantPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions/PartialWarrantPosition",
               "@symbol": "STRING",
               "@number_of_shares": "INTEGER",
               "@is_all": "BOOLEAN",
@@ -477,14 +571,18 @@
             }
           },
           "PartialFundPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions",
             "PartialFundPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions/PartialFundPosition",
               "@symbol": "STRING",
               "@number_of_shares": "INTEGER",
               "@is_all": "BOOLEAN"
             }
           },
           "PartialCashPositions": {
+            "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions",
             "PartialCashPosition": {
+              "_path": "Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions/PartialCashPosition",
               "@amount": "NUMBER",
               "@is_margin_loan": "BOOLEAN",
               "@is_full_cash": "BOOLEAN"
@@ -508,21 +606,26 @@
           "@authorize_to_remove_fund": "BOOLEAN"
         },
         "DepositNotification": {
+          "_path": "Applications/Application/Accounts/Account/DepositNotification",
           "CheckDetails": {
+            "_path": "Applications/Application/Accounts/Account/DepositNotification/CheckDetails",
             "@check_number": "STRING",
             "@routing_number": "STRING",
             "@acct_number": "STRING"
           },
           "WireDetails": {
+            "_path": "Applications/Application/Accounts/Account/DepositNotification/WireDetails",
             "@bank_name": "STRING",
             "@country_code": "STRING",
             "@reference_number": "STRING"
           },
           "ACHDetails": {
+            "_path": "Applications/Application/Accounts/Account/DepositNotification/ACHDetails",
             "@cust_init_ACH": "BOOLEAN",
             "@bank_name": "STRING"
           },
           "IRADepositDetails": {
+            "_path": "Applications/Application/Accounts/Account/DepositNotification/IRADepositDetails",
             "@deposit_type": "IRADeposit_Type : contribution|rollover",
             "@tax_year": "IRAContribTaxYear_Type : current|prior",
             "@from_ira_type": "IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH"
@@ -533,6 +636,7 @@
           "@ib_acct": "STRING"
         },
         "ACHInstruction": {
+          "_path": "Applications/Application/Accounts/Account/ACHInstruction",
           "@cust_init_ACH": "BOOLEAN",
           "@type": "ACHInstructionTx_Type : CREDIT|DEBIT|BOTH",
           "@name": "STRING",
@@ -543,7 +647,9 @@
           "@acct_number": "STRING"
         },
         "RecurringTransaction": {
+          "_path": "Applications/Application/Accounts/Account/RecurringTransaction",
           "ACHInstruction": {
+            "_path": "Applications/Application/Accounts/Account/RecurringTransaction/ACHInstruction",
             "@cust_init_ACH": "BOOLEAN",
             "@type": "ACHInstructionTx_Type : CREDIT|DEBIT|BOTH",
             "@name": "STRING",
@@ -554,6 +660,7 @@
             "@acct_number": "STRING"
           },
           "IRAWithdrawalDetails": {
+            "_path": "Applications/Application/Accounts/Account/RecurringTransaction/IRAWithdrawalDetails",
             "@distribution_type": "IRADistribution_Type : NORMAL|EARLY|EARLY_EXCEPT|DEATH|DISABILITY|EXCESS_CONTRIB",
             "@excess_contrib_yr": "INTEGER",
             "@fed_tax_rate": "NUMBER",
@@ -572,8 +679,11 @@
           "@ib_acct": "STRING"
         },
         "Custodian": {
+          "_path": "Applications/Application/Accounts/Account/Custodian",
           "Individual": {
+            "_path": "Applications/Application/Accounts/Account/Custodian/Individual",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Name",
               "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
               "@first": "STRING",
               "@last": "STRING",
@@ -581,12 +691,19 @@
               "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
               "@title": "STRING"
             },
-            "DOB": {},
+            "DOB": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/DOB"
+            },
             "CountryOfBirth": "STRING",
-            "Gender": {},
-            "MaritalStatus": {},
+            "Gender": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Gender"
+            },
+            "MaritalStatus": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/MaritalStatus"
+            },
             "NumDependents": "INTEGER",
             "Residence": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Residence",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -595,6 +712,7 @@
               "@postal_code": "STRING"
             },
             "MailingAddress": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/MailingAddress",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -603,7 +721,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -611,9 +731,11 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Email",
               "@email": "STRING"
             },
             "Identification": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/Identification",
               "@citizenship": "STRING",
               "@SSN": "STRING",
               "@DriversLicense": "STRING",
@@ -630,12 +752,16 @@
               "@TaxId": "STRING",
               "@ProofOfAgeCard": "STRING"
             },
-            "EmploymentType": {},
+            "EmploymentType": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/EmploymentType"
+            },
             "EmploymentDetails": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails",
               "employer": "STRING",
               "occupation": "STRING",
               "employer_business": "STRING",
               "employer_address": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails/employer_address",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -647,13 +773,16 @@
             },
             "EmployeeTitle": "STRING",
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
               }
             },
             "W9": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/W9",
               "@name": "STRING",
               "@business_name": "STRING",
               "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
@@ -673,6 +802,7 @@
               "@proprietary_form_number": "INTEGER"
             },
             "W8Ben": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/W8Ben",
               "@name": "STRING",
               "@country_of_citizenship": "CountryCode_Type",
               "@residence_address": "STRING",
@@ -698,7 +828,9 @@
               "@proprietary_form_number": "INTEGER"
             },
             "CRS": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Individual/CRS",
               "ControllingPerson": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Individual/CRS/ControllingPerson",
                 "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
               },
               "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
@@ -711,10 +843,13 @@
             "@is_translated": "BOOLEAN"
           },
           "LegalEntity": {
+            "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/Name",
               "@name": "STRING"
             },
             "Location": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/Location",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -723,7 +858,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -731,10 +868,13 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/Email",
               "@email": "STRING"
             },
             "LegalEntityIdentification": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification",
               "PlaceOfBusiness": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -743,6 +883,7 @@
                 "@postal_code": "STRING"
               },
               "MailingAddress": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/MailingAddress",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -759,7 +900,9 @@
               "@same_mail_address": "BOOLEAN"
             },
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
@@ -771,7 +914,9 @@
             "@is_translated": "BOOLEAN"
           },
           "Employee": {
+            "_path": "Applications/Application/Accounts/Account/Custodian/Employee",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Name",
               "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
               "@first": "STRING",
               "@last": "STRING",
@@ -779,12 +924,19 @@
               "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
               "@title": "STRING"
             },
-            "DOB": {},
+            "DOB": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/DOB"
+            },
             "CountryOfBirth": "STRING",
-            "Gender": {},
-            "MaritalStatus": {},
+            "Gender": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Gender"
+            },
+            "MaritalStatus": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/MaritalStatus"
+            },
             "NumDependents": "INTEGER",
             "Residence": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Residence",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -793,6 +945,7 @@
               "@postal_code": "STRING"
             },
             "MailingAddress": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/MailingAddress",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -801,7 +954,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -809,9 +964,11 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Email",
               "@email": "STRING"
             },
             "Identification": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/Identification",
               "@citizenship": "STRING",
               "@SSN": "STRING",
               "@DriversLicense": "STRING",
@@ -828,12 +985,16 @@
               "@TaxId": "STRING",
               "@ProofOfAgeCard": "STRING"
             },
-            "EmploymentType": {},
+            "EmploymentType": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/EmploymentType"
+            },
             "EmploymentDetails": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails",
               "employer": "STRING",
               "occupation": "STRING",
               "employer_business": "STRING",
               "employer_address": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails/employer_address",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -845,13 +1006,16 @@
             },
             "EmployeeTitle": "STRING",
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
               }
             },
             "W9": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/W9",
               "@name": "STRING",
               "@business_name": "STRING",
               "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
@@ -871,6 +1035,7 @@
               "@proprietary_form_number": "INTEGER"
             },
             "W8Ben": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/W8Ben",
               "@name": "STRING",
               "@country_of_citizenship": "CountryCode_Type",
               "@residence_address": "STRING",
@@ -896,7 +1061,9 @@
               "@proprietary_form_number": "INTEGER"
             },
             "CRS": {
+              "_path": "Applications/Application/Accounts/Account/Custodian/Employee/CRS",
               "ControllingPerson": {
+                "_path": "Applications/Application/Accounts/Account/Custodian/Employee/CRS/ControllingPerson",
                 "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
               },
               "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
@@ -910,8 +1077,11 @@
           }
         },
         "SuccessorCustodian": {
+          "_path": "Applications/Application/Accounts/Account/SuccessorCustodian",
           "Individual": {
+            "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Name",
               "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
               "@first": "STRING",
               "@last": "STRING",
@@ -919,12 +1089,19 @@
               "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
               "@title": "STRING"
             },
-            "DOB": {},
+            "DOB": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/DOB"
+            },
             "CountryOfBirth": "STRING",
-            "Gender": {},
-            "MaritalStatus": {},
+            "Gender": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Gender"
+            },
+            "MaritalStatus": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MaritalStatus"
+            },
             "NumDependents": "INTEGER",
             "Residence": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Residence",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -933,6 +1110,7 @@
               "@postal_code": "STRING"
             },
             "MailingAddress": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MailingAddress",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -941,7 +1119,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -949,9 +1129,11 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Email",
               "@email": "STRING"
             },
             "Identification": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Identification",
               "@citizenship": "STRING",
               "@SSN": "STRING",
               "@DriversLicense": "STRING",
@@ -968,12 +1150,16 @@
               "@TaxId": "STRING",
               "@ProofOfAgeCard": "STRING"
             },
-            "EmploymentType": {},
+            "EmploymentType": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentType"
+            },
             "EmploymentDetails": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails",
               "employer": "STRING",
               "occupation": "STRING",
               "employer_business": "STRING",
               "employer_address": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails/employer_address",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -985,13 +1171,16 @@
             },
             "EmployeeTitle": "STRING",
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
               }
             },
             "W9": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W9",
               "@name": "STRING",
               "@business_name": "STRING",
               "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
@@ -1011,6 +1200,7 @@
               "@proprietary_form_number": "INTEGER"
             },
             "W8Ben": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W8Ben",
               "@name": "STRING",
               "@country_of_citizenship": "CountryCode_Type",
               "@residence_address": "STRING",
@@ -1036,7 +1226,9 @@
               "@proprietary_form_number": "INTEGER"
             },
             "CRS": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS",
               "ControllingPerson": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS/ControllingPerson",
                 "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
               },
               "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
@@ -1049,10 +1241,13 @@
             "@is_translated": "BOOLEAN"
           },
           "LegalEntity": {
+            "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Name",
               "@name": "STRING"
             },
             "Location": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Location",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -1061,7 +1256,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -1069,10 +1266,13 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Email",
               "@email": "STRING"
             },
             "LegalEntityIdentification": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification",
               "PlaceOfBusiness": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -1081,6 +1281,7 @@
                 "@postal_code": "STRING"
               },
               "MailingAddress": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/MailingAddress",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -1097,7 +1298,9 @@
               "@same_mail_address": "BOOLEAN"
             },
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
@@ -1109,7 +1312,9 @@
             "@is_translated": "BOOLEAN"
           },
           "Employee": {
+            "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee",
             "Name": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Name",
               "@salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
               "@first": "STRING",
               "@last": "STRING",
@@ -1117,12 +1322,19 @@
               "@suffix": "Suffix_Type : Jr.|Sr.|I|II|III|IV|V",
               "@title": "STRING"
             },
-            "DOB": {},
+            "DOB": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/DOB"
+            },
             "CountryOfBirth": "STRING",
-            "Gender": {},
-            "MaritalStatus": {},
+            "Gender": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Gender"
+            },
+            "MaritalStatus": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MaritalStatus"
+            },
             "NumDependents": "INTEGER",
             "Residence": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Residence",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -1131,6 +1343,7 @@
               "@postal_code": "STRING"
             },
             "MailingAddress": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MailingAddress",
               "@street_1": "STRING",
               "@street_2": "STRING",
               "@city": "STRING",
@@ -1139,7 +1352,9 @@
               "@postal_code": "STRING"
             },
             "Phones": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones",
               "Phone": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones/Phone",
                 "@type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
                 "@number": "STRING",
                 "@country": "STRING",
@@ -1147,9 +1362,11 @@
               }
             },
             "Email": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Email",
               "@email": "STRING"
             },
             "Identification": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Identification",
               "@citizenship": "STRING",
               "@SSN": "STRING",
               "@DriversLicense": "STRING",
@@ -1166,12 +1383,16 @@
               "@TaxId": "STRING",
               "@ProofOfAgeCard": "STRING"
             },
-            "EmploymentType": {},
+            "EmploymentType": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentType"
+            },
             "EmploymentDetails": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails",
               "employer": "STRING",
               "occupation": "STRING",
               "employer_business": "STRING",
               "employer_address": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails/employer_address",
                 "@street_1": "STRING",
                 "@street_2": "STRING",
                 "@city": "STRING",
@@ -1183,13 +1404,16 @@
             },
             "EmployeeTitle": "STRING",
             "TaxResidencies": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies",
               "TaxResidency": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies/TaxResidency",
                 "@country": "STRING",
                 "@TIN": "STRING",
                 "@TINType": "TIN_Type : SSN|EIN|NonUS_NationalId"
               }
             },
             "W9": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W9",
               "@name": "STRING",
               "@business_name": "STRING",
               "@customer_type": "W9Customer_Type : Individual|Corporation|Partnership|LLC|Other",
@@ -1209,6 +1433,7 @@
               "@proprietary_form_number": "INTEGER"
             },
             "W8Ben": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W8Ben",
               "@name": "STRING",
               "@country_of_citizenship": "CountryCode_Type",
               "@residence_address": "STRING",
@@ -1234,7 +1459,9 @@
               "@proprietary_form_number": "INTEGER"
             },
             "CRS": {
+              "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS",
               "ControllingPerson": {
+                "_path": "Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS/ControllingPerson",
                 "@designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
               },
               "@oecd_status": "OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION"
@@ -1263,13 +1490,19 @@
       }
     },
     "Users": {
+      "_path": "Applications/Application/Users",
       "User": {
+        "_path": "Applications/Application/Users/User",
         "UserPrivilege": {
+          "_path": "Applications/Application/Users/User/UserPrivilege",
           "@external_acct_id": "STRING",
           "@privilege": "Privilege_Type : OWNER|TRADER|CUSTOM|NONE"
         },
         "MDServices": {
-          "service": {}
+          "_path": "Applications/Application/Users/User/MDServices",
+          "service": {
+            "_path": "Applications/Application/Users/User/MDServices/service"
+          }
         },
         "@id": "STRING",
         "@external_user_id": "STRING",
@@ -1280,9 +1513,14 @@
       }
     },
     "Documents": {
+      "_path": "Applications/Application/Documents",
       "Document": {
-        "SignedBy": {},
+        "_path": "Applications/Application/Documents/Document",
+        "SignedBy": {
+          "_path": "Applications/Application/Documents/Document/SignedBy"
+        },
         "AttachedFile": {
+          "_path": "Applications/Application/Documents/Document/AttachedFile",
           "@file_name": "STRING",
           "@file_length": "INTEGER",
           "@sha1_checksum": "STRING"
@@ -1290,15 +1528,12 @@
         "@form_no": "INTEGER",
         "@exec_login_ts": "INTEGER",
         "@exec_ts": "INTEGER",
-        "@signature": "STRING",
-        "@external_acct_id": "STRING",
-        "@external_individual_id": "STRING"
+        "@signature": "STRING"
       }
     },
-    "@master_account_id": "STRING",
-    "@id": "STRING",
-    "@input_language": "languageList : en|zh-Hans|ja|ru",
-    "@has_translation": "BOOLEAN",
-    "@paper_account": "BOOLEAN"
+    "@master_account_id": "shareGRO Advisor Account ID on IBKR",
+    "@input_language": "en",
+    "@has_translation": false,
+    "@paper_account": false
   }
 }

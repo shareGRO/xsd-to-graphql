@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Xsd2JsonSchema = require('xsd2jsonschema').Xsd2JsonSchema;
+const jsonxml = require('jsontoxml');
 const { isNil, get, uniq, split, last, toUpper, indexOf, join, upperCase, pad } = require('lodash');
 const { buildSchema, printSchema, introspectionQuery, buildClientSchema, graphqlSync, getIntrospectionQuery, graphql } = require('graphql');
 
@@ -9,12 +10,30 @@ const{ createType } = require('./graphql/createType');
  
 const elementsToGenerateJSON = ['Applications'];
 const elementsToIgnore = [
+  'Applications/Application/@id',
   'Applications/Application/Customer/Organization',
   'Applications/Application/Customer/JointHolders',
-  'Applications/Application/Customer/Trust'  
+  'Applications/Application/Customer/Trust',
+  'Applications/Application/Customer/@transfer_us_micro_cap_stock',  // ??
+  'Applications/Application/Customer/IndividualApplicant',
+  'Applications/Application/Documents/Document/@external_acct_id',
+  'Applications/Application/Documents/Document/@external_individual_id'
 ];
 const elementsToHardCode = {
+  'Applications/Application/@master_account_id': 'shareGRO Advisor Account ID on IBKR',
+  'Applications/Application/@has_translation': false, 
+  'Applications/Application/@input_language': 'en',
+  'Applications/Application/@paper_account': false, // these are not paper accounts, correct? yes, that is correct
   'Applications/Application/Customer/AccountHolder/TaxInformation/W9/@customer_type': 'Individual',
+  'Applications/Application/Customer/@type': 'INDIVIDUAL',
+  'Applications/Application/Customer/@md_status_nonpro': true, // not sure about this one but it seems reasonable that all of these would be non-pro accounts? Or are they all pro accounts?
+  'Applications/Application/Customer/@legal_residence_country': 'USA',
+  'Applications/Application/Customer/@tax_treaty_country': 'USA',
+  'Applications/Application/Customer/@meet_aml_standard': true, // I think this is "Anti Money Laundering" .. do we know what the IBKR anti money laundering standard is?
+  'Applications/Application/Customer/@has_direct_trading_access': false, //this looks like one that could be a fixed value. do they have direct access to trading? No, right?
+  'Applications/Application/Customer/@opt_for_debit_card': false,
+  'Applications/Application/Customer/@robo_fa_client': false,
+  'Applications/Application/Customer/@independent_account': false
 };
 
 const getAllFiles = function(dirPath, arrayOfFiles) {
@@ -91,9 +110,6 @@ const types = keys.map(key => createType(key, dataObjects))
 
 const getEnumValues = (elementKey) => get(dataObjects[elementKey], 'enum', []);
 
-const values = getEnumValues('Customer_Type');
-console.log('values', values);
-
 const getElement = (elementKey, parentPath) => {
   const element = dataObjects[elementKey];
   const elementProperties = get(element, 'properties', null);
@@ -118,7 +134,7 @@ const getElement = (elementKey, parentPath) => {
           : finalValue;
       } else {
         finalElement[key] = {
-          // _path: path,
+          _path: path,
           // _element: element,
           ...el,
         }
@@ -129,8 +145,13 @@ const getElement = (elementKey, parentPath) => {
 }
 
 elementsToGenerateJSON.forEach(elKey => {
-  const json = JSON.stringify(getElement(elKey, elKey), null, 2);  
+  const json = JSON.stringify(getElement(elKey, elKey), null, 2);
+  const xmlObject = {};
+  xmlObject[elKey] = getElement(elKey, elKey);
+  // we need the xmlObject to be in the correct format. See https://github.com/ken-franken/node-jsontoxml
+  const xml = jsonxml(xmlObject, { prettyPrint: true, xmlHeader: true });
   fs.writeFile(`element-json/${elKey}.json`, json, 'utf8', () => {});
+  fs.writeFile(`element-xml/${elKey}.xml`, xml, 'utf8', () => {});
 });
 
 
