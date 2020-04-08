@@ -126,7 +126,6 @@ const getElement = (elementKey, parentPath) => {
           : finalValue;
       } else {
         const refEl = getElement(elementTypeName, path);
-        if (elementTypeName === 'AssociatedIndividual') console.log('refEl', refEl);
         text += `\n<!-- Type: ${elementTypeName} -->`;
         const typeDescription = get(elementProperties[elementTypeName], 'description', false);
         if (typeDescription) text += `\n<!-- Type Description: ${typeDescription} -->`;

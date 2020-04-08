@@ -22,20 +22,12 @@
                       "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership -->\n<!-- Type: Ownership -->",
                       "children": [],
                       "attrs": {
-                        "percentage": "INTEGER"
-                      }
-                    },
-                    {
-                      "name": "Title",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Title -->\n<!-- Type: Title -->",
-                      "children": [],
-                      "attrs": {
-                        "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
+                        "percentage": 100
                       }
                     }
                   ],
                   "attrs": {
-                    "AuthorizedPerson": "BOOLEAN"
+                    "AuthorizedPerson": true
                   }
                 },
                 {
@@ -110,8 +102,7 @@
                     }
                   ],
                   "attrs": {
-                    "net_worth": "NUMBER",
-                    "liquid_net_worth": "NUMBER",
+                    "net_worth": 100000,
                     "annual_net_income": "NUMBER",
                     "total_assets": "NUMBER",
                     "source_of_funds": "STRING",
@@ -436,7 +427,6 @@
             "email": "joe@gmail.com",
             "md_status_nonpro": true,
             "legal_residence_country": "USA",
-            "tax_treaty_country": "STRING",
             "meet_aml_standard": true,
             "has_direct_trading_access": false,
             "origin_country": "USA",

@@ -3,29 +3,24 @@
 		<Application master_account_id="4732914" input_language="en" has_translation="false" paper_account="false">
 <!-- Path: Applications/Application -->
 <!-- Type: Application -->
-				<Customer external_id="3242" type="INDIVIDUAL" prefix="share" email="joe@gmail.com" md_status_nonpro="true" legal_residence_country="USA" tax_treaty_country="STRING" meet_aml_standard="true" has_direct_trading_access="false" origin_country="USA" governing_state="TX" opt_for_debit_card="false" robo_fa_client="false" independent_account="false">
+				<Customer external_id="3242" type="INDIVIDUAL" prefix="share" email="joe@gmail.com" md_status_nonpro="true" legal_residence_country="USA" meet_aml_standard="true" has_direct_trading_access="false" origin_country="USA" governing_state="TX" opt_for_debit_card="false" robo_fa_client="false" independent_account="false">
 <!-- Path: Applications/Application/Customer -->
 <!-- Type: Customer -->
 						<AccountHolder>
 <!-- Path: Applications/Application/Customer/AccountHolder -->
 <!-- Description: Details of a customer of type INDIVIDUAL. -->
 <!-- Type: IndividualApplicant -->
-								<AccountHolderDetails AuthorizedPerson="BOOLEAN">
+								<AccountHolderDetails AuthorizedPerson="true">
 <!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails -->
 <!-- Type: AssociatedIndividual -->
-										<Ownership percentage="INTEGER">
+										<Ownership percentage="100">
 <!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership -->
 <!-- Type: Ownership -->
 
 										</Ownership>
-										<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
-<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Title -->
-<!-- Type: Title -->
-
-										</Title>
 
 								</AccountHolderDetails>
-								<FinancialInformation net_worth="NUMBER" liquid_net_worth="NUMBER" annual_net_income="NUMBER" total_assets="NUMBER" source_of_funds="STRING" is_translated="BOOLEAN">
+								<FinancialInformation net_worth="100000" annual_net_income="NUMBER" total_assets="NUMBER" source_of_funds="STRING" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation -->
 <!-- Type: FinancialInformation -->
 										<InvestmentExperience>
