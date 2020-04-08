@@ -115,7 +115,8 @@ const getElement = (elementKey, parentPath) => {
   const elementProperties = get(element, 'properties', null);
   if (isNil(elementProperties)) return {};
   const propertyKeys = Object.keys(elementProperties);
-  const finalElement = {};
+  const attrs = {};
+  const children = [];
   propertyKeys.forEach(key => {
     const path = `${parentPath}/${key}`;
     if (indexOf(elementsToIgnore, path) === -1) {
@@ -129,25 +130,32 @@ const getElement = (elementKey, parentPath) => {
         if (attrType === '') attrType = upperCase(get(elementProperties[key], 'oneOf[0].type', null))
         const enumValues = getEnumValues(attrType);
         const finalValue = elementsToHardCode[path];
-        finalElement[key] = isNil(finalValue)
+        attrs[key.replace('@', '')] = isNil(finalValue)
           ? `${attrType}${enumValues.length > 0 ? ' : ' : ''}${join(enumValues, '|')}`
           : finalValue;
       } else {
-        finalElement[key] = {
-          _path: path,
-          // _element: element,
-          ...el,
-        }
+        children.push({
+          name: key,
+          children: el.children,
+          attrs: el.attrs,
+        })
       }
     }
   })
+  const finalElement = {
+    name: elementKey,
+    // _path: path,
+    // _element: element,
+    children,
+    attrs,
+  }
   return finalElement;
 }
 
 elementsToGenerateJSON.forEach(elKey => {
-  const json = JSON.stringify(getElement(elKey, elKey), null, 2);
-  const xmlObject = {};
-  xmlObject[elKey] = getElement(elKey, elKey);
+  const elementObject = getElement(elKey, elKey);
+  const json = JSON.stringify(elementObject, null, 2);
+  const xmlObject = [ elementObject ];
   // we need the xmlObject to be in the correct format. See https://github.com/ken-franken/node-jsontoxml
   const xml = jsonxml(xmlObject, { prettyPrint: true, xmlHeader: true });
   fs.writeFile(`element-json/${elKey}.json`, json, 'utf8', () => {});
