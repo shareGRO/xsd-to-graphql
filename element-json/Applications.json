@@ -3,24 +3,31 @@
   "children": [
     {
       "name": "Application",
+      "text": "<!-- Path: Applications/Application -->",
       "children": [
         {
           "name": "Customer",
+          "text": "<!-- Path: Applications/Application/Customer -->",
           "children": [
             {
               "name": "AccountHolder",
+              "text": "<!-- Path: Applications/Application/Customer/AccountHolder -->",
               "children": [
                 {
-                  "name": "AccountHolderDetails"
+                  "name": "AccountHolderDetails",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails -->"
                 },
                 {
                   "name": "FinancialInformation",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation -->",
                   "children": [
                     {
                       "name": "InvestmentExperience",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience -->",
                       "children": [
                         {
                           "name": "AssetExperience",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience/AssetExperience -->",
                           "children": [],
                           "attrs": {
                             "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -34,18 +41,22 @@
                     },
                     {
                       "name": "InvestmentObjectives",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives -->",
                       "children": [
                         {
-                          "name": "objective"
+                          "name": "objective",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives/objective -->"
                         }
                       ],
                       "attrs": {}
                     },
                     {
                       "name": "AdditionalSourceOfIncome",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome -->",
                       "children": [
                         {
                           "name": "SourceOfIncome",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome/SourceOfIncome -->",
                           "children": [],
                           "attrs": {
                             "source_type": "SourceOfFunds_Type : CONSULTING|DISABILITY|INHERITANCE|INTEREST|REALESTATE|RENTAL|SEVERANCE|SPOUSE|TRADINGANDINVESTMENTS|PENSIONANDSOCIALSECURITY|UNEMPLOYMENT|OTHER",
@@ -58,9 +69,11 @@
                     },
                     {
                       "name": "SourcesOfWealth",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth -->",
                       "children": [
                         {
                           "name": "SourceOfWealth",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth/SourceOfWealth -->",
                           "children": [],
                           "attrs": {
                             "source_type": "WealthSource_Type : SOW-IND-Allowance|SOW-IND-Disability|SOW-IND-Income|SOW-IND-Inheritance|SOW-IND-Interest|SOW-IND-MarketProfit|SOW-IND-Other|SOW-IND-Pension|SOW-IND-Property|SOW-ORG-Business|SOW-ORG-MarketTradingProfits|SOW-ORG-Other|SOW-ORG-OwnerEquity|SOW-ORG-Property|SOW-ORG-RetainedEarnings",
@@ -84,9 +97,11 @@
                 },
                 {
                   "name": "RegulatoryInformation",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation -->",
                   "children": [
                     {
                       "name": "SelfRegulatedMembership",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/SelfRegulatedMembership -->",
                       "children": [],
                       "attrs": {
                         "exchanges": "STRING",
@@ -95,9 +110,11 @@
                     },
                     {
                       "name": "AffiliationDetails",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails -->",
                       "children": [
                         {
                           "name": "company_mailing_address",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails/company_mailing_address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -121,6 +138,7 @@
                     },
                     {
                       "name": "FinancialOrgType",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/FinancialOrgType -->",
                       "children": [],
                       "attrs": {
                         "code": "FinancialOrgCodeType : 2|3|5|21|22|23|25|31|33|34|35|36|37|38"
@@ -128,9 +146,11 @@
                     },
                     {
                       "name": "ORGRegulatoryInfo",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo -->",
                       "children": [
                         {
                           "name": "PublicCompanyInfo",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/PublicCompanyInfo -->",
                           "children": [],
                           "attrs": {
                             "ExchangeTradedOn": "STRING",
@@ -139,6 +159,7 @@
                         },
                         {
                           "name": "ORGRegulator",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/ORGRegulator -->",
                           "children": [],
                           "attrs": {
                             "RegulatorName": "STRING",
@@ -160,9 +181,11 @@
                 },
                 {
                   "name": "RegulatedMemberships",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships -->",
                   "children": [
                     {
                       "name": "RegulatedMembership",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships/RegulatedMembership -->",
                       "children": [],
                       "attrs": {
                         "organization_code": "STRING",
@@ -174,6 +197,7 @@
                 },
                 {
                   "name": "AccreditedInvestorInformation",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/AccreditedInvestorInformation -->",
                   "children": [],
                   "attrs": {
                     "q1": "BOOLEAN",
@@ -185,9 +209,11 @@
                 },
                 {
                   "name": "TaxInformation",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation -->",
                   "children": [
                     {
                       "name": "W9",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W9 -->",
                       "children": [],
                       "attrs": {
                         "name": "STRING",
@@ -211,6 +237,7 @@
                     },
                     {
                       "name": "W8Ben",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8Ben -->",
                       "children": [],
                       "attrs": {
                         "name": "STRING",
@@ -240,9 +267,11 @@
                     },
                     {
                       "name": "CRS",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS -->",
                       "children": [
                         {
                           "name": "ControllingPerson",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS/ControllingPerson -->",
                           "children": [],
                           "attrs": {
                             "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -255,12 +284,15 @@
                     },
                     {
                       "name": "W8BenE",
+                      "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE -->",
                       "children": [
                         {
                           "name": "SubstantialUsOwners",
+                          "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners -->",
                           "children": [
                             {
                               "name": "SubstantialUsOwner",
+                              "text": "<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners/SubstantialUsOwner -->",
                               "children": [],
                               "attrs": {
                                 "external_id": "STRING"
@@ -354,6 +386,7 @@
                 },
                 {
                   "name": "WithholdingStatement",
+                  "text": "<!-- Path: Applications/Application/Customer/AccountHolder/WithholdingStatement -->",
                   "children": [],
                   "attrs": {
                     "acct_id": "STRING",
@@ -374,21 +407,17 @@
             }
           ],
           "attrs": {
-            "id": "STRING",
-            "external_id": "STRING",
+            "external_id": "3242",
             "type": "INDIVIDUAL",
-            "prefix": "UserNamePrefix_Type",
-            "email": "STRING",
+            "prefix": "share",
+            "email": "joe@gmail.com",
             "md_status_nonpro": true,
-            "preferred_primary_language": "STRING",
-            "preferred_secondary_language": "STRING",
             "legal_residence_country": "USA",
-            "tax_treaty_country": "USA",
+            "tax_treaty_country": "STRING",
             "meet_aml_standard": true,
             "has_direct_trading_access": false,
-            "origin_country": "STRING",
-            "termination_age": "INTEGER",
-            "governing_state": "STRING",
+            "origin_country": "USA",
+            "governing_state": "TX",
             "opt_for_debit_card": false,
             "robo_fa_client": false,
             "independent_account": false
@@ -396,24 +425,30 @@
         },
         {
           "name": "Accounts",
+          "text": "<!-- Path: Applications/Application/Accounts -->",
           "children": [
             {
               "name": "Account",
+              "text": "<!-- Path: Applications/Application/Accounts/Account -->",
               "children": [
                 {
                   "name": "InvestmentObjectives",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives -->",
                   "children": [
                     {
-                      "name": "objective"
+                      "name": "objective",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives/objective -->"
                     }
                   ],
                   "attrs": {}
                 },
                 {
                   "name": "BrokerageServices",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/BrokerageServices -->",
                   "children": [
                     {
                       "name": "BrokerageService",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/BrokerageServices/BrokerageService -->",
                       "children": [],
                       "attrs": {
                         "code": "BrokerageService_Type : IBClearing|IBExecution|IBPrime"
@@ -424,9 +459,11 @@
                 },
                 {
                   "name": "Capabilities",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/Capabilities -->",
                   "children": [
                     {
                       "name": "Capability",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/Capabilities/Capability -->",
                       "children": [],
                       "attrs": {
                         "code": "Capability_Type : BOND|FOP|FUND|FUT|MRGN|MULT|OPT|SSF|CFD|STK"
@@ -437,9 +474,11 @@
                 },
                 {
                   "name": "TradingPermissions",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/TradingPermissions -->",
                   "children": [
                     {
                       "name": "TradingPermission",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/TradingPermissions/TradingPermission -->",
                       "children": [],
                       "attrs": {
                         "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -453,9 +492,11 @@
                 },
                 {
                   "name": "CommissionConfigs",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs -->",
                   "children": [
                     {
                       "name": "CommissionConfig",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs/CommissionConfig -->",
                       "children": [],
                       "attrs": {
                         "style": "CommissionStyle : Bundled|Unbundled",
@@ -467,9 +508,11 @@
                 },
                 {
                   "name": "AllExchangeAccess",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess -->",
                   "children": [
                     {
                       "name": "ExchangeAccess",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess/ExchangeAccess -->",
                       "children": [],
                       "attrs": {
                         "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -481,9 +524,11 @@
                 },
                 {
                   "name": "DVPInstructions",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/DVPInstructions -->",
                   "children": [
                     {
                       "name": "DVPInstruction",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/DVPInstructions/DVPInstruction -->",
                       "children": [],
                       "attrs": {
                         "id": "STRING",
@@ -514,9 +559,11 @@
                 },
                 {
                   "name": "TradingLimits",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/TradingLimits -->",
                   "children": [
                     {
                       "name": "OrderValueLimits",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderValueLimits -->",
                       "children": [],
                       "attrs": {
                         "max_order_value": "NUMBER",
@@ -527,6 +574,7 @@
                     },
                     {
                       "name": "EFPQuantityLimits",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/TradingLimits/EFPQuantityLimits -->",
                       "children": [],
                       "attrs": {
                         "max_nominal_efp_per_order": "INTEGER",
@@ -536,6 +584,7 @@
                     },
                     {
                       "name": "OrderQuantityLimit",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderQuantityLimit -->",
                       "children": [],
                       "attrs": {
                         "asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -544,6 +593,7 @@
                     },
                     {
                       "name": "DayQuantityLimit",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/TradingLimits/DayQuantityLimit -->",
                       "children": [],
                       "attrs": {
                         "asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -555,18 +605,23 @@
                 },
                 {
                   "name": "AdvisorWrapFees",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees -->",
                   "children": [
                     {
                       "name": "automated_fees_details",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details -->",
                       "children": [
                         {
                           "name": "per_trade_markups",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups -->",
                           "children": [
                             {
                               "name": "markup",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup -->",
                               "children": [
                                 {
                                   "name": "stair",
+                                  "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup/stair -->",
                                   "children": [],
                                   "attrs": {
                                     "break": "NUMBER",
@@ -590,6 +645,7 @@
                         },
                         {
                           "name": "annual_blended_percentage",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/annual_blended_percentage -->",
                           "children": [],
                           "attrs": {
                             "BlendedFrom": "STRING",
@@ -609,9 +665,11 @@
                     },
                     {
                       "name": "highWaterMarkConfigHwma",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma -->",
                       "children": [
                         {
                           "name": "hwm",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/hwm -->",
                           "children": [],
                           "attrs": {
                             "NumberOfPeriods": "INTEGER",
@@ -620,6 +678,7 @@
                         },
                         {
                           "name": "previousLosses",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/previousLosses -->",
                           "children": [],
                           "attrs": {
                             "loss": "INTEGER",
@@ -633,9 +692,11 @@
                     },
                     {
                       "name": "highWaterMarkConfigHwmq",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq -->",
                       "children": [
                         {
                           "name": "hwm",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/hwm -->",
                           "children": [],
                           "attrs": {
                             "NumberOfPeriods": "INTEGER",
@@ -644,6 +705,7 @@
                         },
                         {
                           "name": "previousLosses",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/previousLosses -->",
                           "children": [],
                           "attrs": {
                             "loss": "INTEGER",
@@ -664,6 +726,7 @@
                 },
                 {
                   "name": "Fees",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/Fees -->",
                   "children": [],
                   "attrs": {
                     "template_name": "STRING"
@@ -671,12 +734,15 @@
                 },
                 {
                   "name": "ClientCommissionSchedule",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule -->",
                   "children": [
                     {
                       "name": "markup",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup -->",
                       "children": [
                         {
                           "name": "stair",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup/stair -->",
                           "children": [],
                           "attrs": {
                             "break": "NUMBER",
@@ -700,9 +766,11 @@
                 },
                 {
                   "name": "ClientInterestMarkupSchedule",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule -->",
                   "children": [
                     {
                       "name": "markup",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule/markup -->",
                       "children": [],
                       "attrs": {
                         "currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
@@ -720,22 +788,28 @@
                   "attrs": {}
                 },
                 {
-                  "name": "Decendent"
+                  "name": "Decendent",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/Decendent -->"
                 },
                 {
                   "name": "IRABeneficiaries",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries -->",
                   "children": [
                     {
-                      "name": "PrimaryBeneficiary"
+                      "name": "PrimaryBeneficiary",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary -->"
                     },
                     {
-                      "name": "PrimaryBeneficiaryEntity"
+                      "name": "PrimaryBeneficiaryEntity",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity -->"
                     },
                     {
-                      "name": "ContingentBeneficiary"
+                      "name": "ContingentBeneficiary",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary -->"
                     },
                     {
-                      "name": "ContingentBeneficiaryEntity"
+                      "name": "ContingentBeneficiaryEntity",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity -->"
                     }
                   ],
                   "attrs": {
@@ -744,12 +818,15 @@
                 },
                 {
                   "name": "ExtPositionsTransfer",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer -->",
                   "children": [
                     {
                       "name": "PartialStockPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions -->",
                       "children": [
                         {
                           "name": "PartialStockPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions/PartialStockPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -764,9 +841,11 @@
                     },
                     {
                       "name": "PartialBondPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions -->",
                       "children": [
                         {
                           "name": "PartialBondPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions/PartialBondPosition -->",
                           "children": [],
                           "attrs": {
                             "cusip_number": "STRING",
@@ -779,9 +858,11 @@
                     },
                     {
                       "name": "PartialOptionPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions -->",
                       "children": [
                         {
                           "name": "PartialOptionPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions/PartialOptionPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -798,9 +879,11 @@
                     },
                     {
                       "name": "PartialWarrantPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions -->",
                       "children": [
                         {
                           "name": "PartialWarrantPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions/PartialWarrantPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -817,9 +900,11 @@
                     },
                     {
                       "name": "PartialFundPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions -->",
                       "children": [
                         {
                           "name": "PartialFundPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions/PartialFundPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -832,9 +917,11 @@
                     },
                     {
                       "name": "PartialCashPositions",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions -->",
                       "children": [
                         {
                           "name": "PartialCashPosition",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions/PartialCashPosition -->",
                           "children": [],
                           "attrs": {
                             "amount": "NUMBER",
@@ -867,9 +954,11 @@
                 },
                 {
                   "name": "DepositNotification",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/DepositNotification -->",
                   "children": [
                     {
                       "name": "CheckDetails",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/DepositNotification/CheckDetails -->",
                       "children": [],
                       "attrs": {
                         "check_number": "STRING",
@@ -879,6 +968,7 @@
                     },
                     {
                       "name": "WireDetails",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/DepositNotification/WireDetails -->",
                       "children": [],
                       "attrs": {
                         "bank_name": "STRING",
@@ -888,6 +978,7 @@
                     },
                     {
                       "name": "ACHDetails",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/DepositNotification/ACHDetails -->",
                       "children": [],
                       "attrs": {
                         "cust_init_ACH": "BOOLEAN",
@@ -896,6 +987,7 @@
                     },
                     {
                       "name": "IRADepositDetails",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/DepositNotification/IRADepositDetails -->",
                       "children": [],
                       "attrs": {
                         "deposit_type": "IRADeposit_Type : contribution|rollover",
@@ -913,6 +1005,7 @@
                 },
                 {
                   "name": "ACHInstruction",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/ACHInstruction -->",
                   "children": [],
                   "attrs": {
                     "cust_init_ACH": "BOOLEAN",
@@ -927,9 +1020,11 @@
                 },
                 {
                   "name": "RecurringTransaction",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction -->",
                   "children": [
                     {
                       "name": "ACHInstruction",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/ACHInstruction -->",
                       "children": [],
                       "attrs": {
                         "cust_init_ACH": "BOOLEAN",
@@ -944,6 +1039,7 @@
                     },
                     {
                       "name": "IRAWithdrawalDetails",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/IRAWithdrawalDetails -->",
                       "children": [],
                       "attrs": {
                         "distribution_type": "IRADistribution_Type : NORMAL|EARLY|EARLY_EXCEPT|DEATH|DISABILITY|EXCESS_CONTRIB",
@@ -969,12 +1065,15 @@
                 },
                 {
                   "name": "Custodian",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian -->",
                   "children": [
                     {
                       "name": "Individual",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Name -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -986,16 +1085,20 @@
                           }
                         },
                         {
-                          "name": "DOB"
+                          "name": "DOB",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/DOB -->"
                         },
                         {
-                          "name": "Gender"
+                          "name": "Gender",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Gender -->"
                         },
                         {
-                          "name": "MaritalStatus"
+                          "name": "MaritalStatus",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MaritalStatus -->"
                         },
                         {
                           "name": "Residence",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Residence -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1008,6 +1111,7 @@
                         },
                         {
                           "name": "MailingAddress",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MailingAddress -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1020,9 +1124,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1036,6 +1142,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1043,6 +1150,7 @@
                         },
                         {
                           "name": "Identification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Identification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -1063,13 +1171,16 @@
                           }
                         },
                         {
-                          "name": "EmploymentType"
+                          "name": "EmploymentType",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentType -->"
                         },
                         {
                           "name": "EmploymentDetails",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails -->",
                           "children": [
                             {
                               "name": "employer_address",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails/employer_address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1090,9 +1201,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1105,6 +1218,7 @@
                         },
                         {
                           "name": "W9",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1128,6 +1242,7 @@
                         },
                         {
                           "name": "W8Ben",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W8Ben -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1157,9 +1272,11 @@
                         },
                         {
                           "name": "CRS",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS/ControllingPerson -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1185,9 +1302,11 @@
                     },
                     {
                       "name": "LegalEntity",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Name -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING"
@@ -1195,6 +1314,7 @@
                         },
                         {
                           "name": "Location",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Location -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1207,9 +1327,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1223,6 +1345,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1230,9 +1353,11 @@
                         },
                         {
                           "name": "LegalEntityIdentification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification -->",
                           "children": [
                             {
                               "name": "PlaceOfBusiness",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1245,6 +1370,7 @@
                             },
                             {
                               "name": "MailingAddress",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/MailingAddress -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1268,9 +1394,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1291,9 +1419,11 @@
                     },
                     {
                       "name": "Employee",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Name -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -1305,16 +1435,20 @@
                           }
                         },
                         {
-                          "name": "DOB"
+                          "name": "DOB",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/DOB -->"
                         },
                         {
-                          "name": "Gender"
+                          "name": "Gender",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Gender -->"
                         },
                         {
-                          "name": "MaritalStatus"
+                          "name": "MaritalStatus",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MaritalStatus -->"
                         },
                         {
                           "name": "Residence",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Residence -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1327,6 +1461,7 @@
                         },
                         {
                           "name": "MailingAddress",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MailingAddress -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1339,9 +1474,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1355,6 +1492,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1362,6 +1500,7 @@
                         },
                         {
                           "name": "Identification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Identification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -1382,13 +1521,16 @@
                           }
                         },
                         {
-                          "name": "EmploymentType"
+                          "name": "EmploymentType",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentType -->"
                         },
                         {
                           "name": "EmploymentDetails",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails -->",
                           "children": [
                             {
                               "name": "employer_address",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails/employer_address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1409,9 +1551,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1424,6 +1568,7 @@
                         },
                         {
                           "name": "W9",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1447,6 +1592,7 @@
                         },
                         {
                           "name": "W8Ben",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W8Ben -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1476,9 +1622,11 @@
                         },
                         {
                           "name": "CRS",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS/ControllingPerson -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1507,12 +1655,15 @@
                 },
                 {
                   "name": "SuccessorCustodian",
+                  "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian -->",
                   "children": [
                     {
                       "name": "Individual",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Name -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -1524,16 +1675,20 @@
                           }
                         },
                         {
-                          "name": "DOB"
+                          "name": "DOB",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/DOB -->"
                         },
                         {
-                          "name": "Gender"
+                          "name": "Gender",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Gender -->"
                         },
                         {
-                          "name": "MaritalStatus"
+                          "name": "MaritalStatus",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MaritalStatus -->"
                         },
                         {
                           "name": "Residence",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Residence -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1546,6 +1701,7 @@
                         },
                         {
                           "name": "MailingAddress",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MailingAddress -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1558,9 +1714,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1574,6 +1732,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1581,6 +1740,7 @@
                         },
                         {
                           "name": "Identification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Identification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -1601,13 +1761,16 @@
                           }
                         },
                         {
-                          "name": "EmploymentType"
+                          "name": "EmploymentType",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentType -->"
                         },
                         {
                           "name": "EmploymentDetails",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails -->",
                           "children": [
                             {
                               "name": "employer_address",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails/employer_address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1628,9 +1791,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1643,6 +1808,7 @@
                         },
                         {
                           "name": "W9",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1666,6 +1832,7 @@
                         },
                         {
                           "name": "W8Ben",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W8Ben -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1695,9 +1862,11 @@
                         },
                         {
                           "name": "CRS",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS/ControllingPerson -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1723,9 +1892,11 @@
                     },
                     {
                       "name": "LegalEntity",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Name -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING"
@@ -1733,6 +1904,7 @@
                         },
                         {
                           "name": "Location",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Location -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1745,9 +1917,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1761,6 +1935,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1768,9 +1943,11 @@
                         },
                         {
                           "name": "LegalEntityIdentification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification -->",
                           "children": [
                             {
                               "name": "PlaceOfBusiness",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1783,6 +1960,7 @@
                             },
                             {
                               "name": "MailingAddress",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/MailingAddress -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1806,9 +1984,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1829,9 +2009,11 @@
                     },
                     {
                       "name": "Employee",
+                      "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee -->",
                       "children": [
                         {
                           "name": "Name",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Name -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -1843,16 +2025,20 @@
                           }
                         },
                         {
-                          "name": "DOB"
+                          "name": "DOB",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/DOB -->"
                         },
                         {
-                          "name": "Gender"
+                          "name": "Gender",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Gender -->"
                         },
                         {
-                          "name": "MaritalStatus"
+                          "name": "MaritalStatus",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MaritalStatus -->"
                         },
                         {
                           "name": "Residence",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Residence -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1865,6 +2051,7 @@
                         },
                         {
                           "name": "MailingAddress",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MailingAddress -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1877,9 +2064,11 @@
                         },
                         {
                           "name": "Phones",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones -->",
                           "children": [
                             {
                               "name": "Phone",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones/Phone -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1893,6 +2082,7 @@
                         },
                         {
                           "name": "Email",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1900,6 +2090,7 @@
                         },
                         {
                           "name": "Identification",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Identification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -1920,13 +2111,16 @@
                           }
                         },
                         {
-                          "name": "EmploymentType"
+                          "name": "EmploymentType",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentType -->"
                         },
                         {
                           "name": "EmploymentDetails",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails -->",
                           "children": [
                             {
                               "name": "employer_address",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails/employer_address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1947,9 +2141,11 @@
                         },
                         {
                           "name": "TaxResidencies",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies -->",
                           "children": [
                             {
                               "name": "TaxResidency",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies/TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1962,6 +2158,7 @@
                         },
                         {
                           "name": "W9",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1985,6 +2182,7 @@
                         },
                         {
                           "name": "W8Ben",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W8Ben -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2014,9 +2212,11 @@
                         },
                         {
                           "name": "CRS",
+                          "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
+                              "text": "<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS/ControllingPerson -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -2065,12 +2265,15 @@
         },
         {
           "name": "Users",
+          "text": "<!-- Path: Applications/Application/Users -->",
           "children": [
             {
               "name": "User",
+              "text": "<!-- Path: Applications/Application/Users/User -->",
               "children": [
                 {
                   "name": "UserPrivilege",
+                  "text": "<!-- Path: Applications/Application/Users/User/UserPrivilege -->",
                   "children": [],
                   "attrs": {
                     "external_acct_id": "STRING",
@@ -2079,9 +2282,11 @@
                 },
                 {
                   "name": "MDServices",
+                  "text": "<!-- Path: Applications/Application/Users/User/MDServices -->",
                   "children": [
                     {
-                      "name": "service"
+                      "name": "service",
+                      "text": "<!-- Path: Applications/Application/Users/User/MDServices/service -->"
                     }
                   ],
                   "attrs": {}
@@ -2101,15 +2306,19 @@
         },
         {
           "name": "Documents",
+          "text": "<!-- Path: Applications/Application/Documents -->",
           "children": [
             {
               "name": "Document",
+              "text": "<!-- Path: Applications/Application/Documents/Document -->",
               "children": [
                 {
-                  "name": "SignedBy"
+                  "name": "SignedBy",
+                  "text": "<!-- Path: Applications/Application/Documents/Document/SignedBy -->"
                 },
                 {
                   "name": "AttachedFile",
+                  "text": "<!-- Path: Applications/Application/Documents/Document/AttachedFile -->",
                   "children": [],
                   "attrs": {
                     "file_name": "STRING",
@@ -2130,7 +2339,7 @@
         }
       ],
       "attrs": {
-        "master_account_id": "shareGRO Advisor Account ID on IBKR",
+        "master_account_id": "4732914",
         "input_language": "en",
         "has_translation": false,
         "paper_account": false
