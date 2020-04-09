@@ -3,23 +3,23 @@
   "children": [
     {
       "name": "Application",
-      "text": "\n<!-- Path: Applications/Application -->\n<!-- Type: Application -->",
+      "text": "\n<!-- Path: Applications/Application -->\n <!-- Required -->\n<!-- Type: Application -->",
       "children": [
         {
           "name": "Customer",
-          "text": "\n<!-- Path: Applications/Application/Customer -->\n<!-- Type: Customer -->",
+          "text": "\n<!-- Path: Applications/Application/Customer -->\n <!-- Required -->\n<!-- Type: Customer -->",
           "children": [
             {
               "name": "AccountHolder",
-              "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder -->\n<!-- Description: Details of a customer of type INDIVIDUAL. -->\n<!-- Type: IndividualApplicant -->",
+              "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder -->\n <!-- Optional -->\n<!-- Description: Details of a customer of type INDIVIDUAL. -->\n<!-- Type: IndividualApplicant -->",
               "children": [
                 {
                   "name": "AccountHolderDetails",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails -->\n<!-- Type: AssociatedIndividual -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails -->\n <!-- Required -->\n<!-- Type: AssociatedIndividual -->",
                   "children": [
                     {
                       "name": "Ownership",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership -->\n<!-- Type: Ownership -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership -->\n <!-- Required -->\n<!-- Type: Ownership -->",
                       "children": [],
                       "attrs": {
                         "percentage": 100
@@ -31,91 +31,12 @@
                   }
                 },
                 {
-                  "name": "FinancialInformation",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation -->\n<!-- Type: FinancialInformation -->",
-                  "children": [
-                    {
-                      "name": "InvestmentExperience",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience -->\n<!-- Type: InvestmentExperience -->",
-                      "children": [
-                        {
-                          "name": "AssetExperience",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience/AssetExperience -->\n<!-- Type: AssetExperience -->",
-                          "children": [],
-                          "attrs": {
-                            "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
-                            "years_trading": "INTEGER",
-                            "trades_per_year": "INTEGER",
-                            "knowledge_level": "KnowledgeLevel_Type : Extensive|Good|Limited|None"
-                          }
-                        }
-                      ],
-                      "attrs": {}
-                    },
-                    {
-                      "name": "InvestmentObjectives",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives -->\n<!-- Description: Deprecated. Should be provided individually for each account being added for the customer using the InvestmentObjectives sub-element of an Account element. -->\n<!-- Type: InvestmentObjectivesType -->",
-                      "children": [
-                        {
-                          "name": "objective",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives/objective -->\n<!-- Type: InvestmentObjective_Type -->",
-                          "children": [],
-                          "attrs": {}
-                        }
-                      ],
-                      "attrs": {}
-                    },
-                    {
-                      "name": "AdditionalSourceOfIncome",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome -->\n<!-- Type: AdditionalSourceOfIncomeType -->",
-                      "children": [
-                        {
-                          "name": "SourceOfIncome",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome/SourceOfIncome -->\n<!-- Type: SourceOfIncomeType -->",
-                          "children": [],
-                          "attrs": {
-                            "source_type": "SourceOfFunds_Type : CONSULTING|DISABILITY|INHERITANCE|INTEREST|REALESTATE|RENTAL|SEVERANCE|SPOUSE|TRADINGANDINVESTMENTS|PENSIONANDSOCIALSECURITY|UNEMPLOYMENT|OTHER",
-                            "percentage": "INTEGER",
-                            "description": "STRING"
-                          }
-                        }
-                      ],
-                      "attrs": {}
-                    },
-                    {
-                      "name": "SourcesOfWealth",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth -->\n<!-- Type: SourcesOfWealthType -->",
-                      "children": [
-                        {
-                          "name": "SourceOfWealth",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth/SourceOfWealth -->\n<!-- Type: SourceOfWealthType -->",
-                          "children": [],
-                          "attrs": {
-                            "source_type": "WealthSource_Type : SOW-IND-Allowance|SOW-IND-Disability|SOW-IND-Income|SOW-IND-Inheritance|SOW-IND-Interest|SOW-IND-MarketProfit|SOW-IND-Other|SOW-IND-Pension|SOW-IND-Property|SOW-ORG-Business|SOW-ORG-MarketTradingProfits|SOW-ORG-Other|SOW-ORG-OwnerEquity|SOW-ORG-Property|SOW-ORG-RetainedEarnings",
-                            "percentage": "INTEGER",
-                            "is_used_for_funds": "BOOLEAN",
-                            "description": "STRING"
-                          }
-                        }
-                      ],
-                      "attrs": {}
-                    }
-                  ],
-                  "attrs": {
-                    "net_worth": 100000,
-                    "annual_net_income": "NUMBER",
-                    "total_assets": "NUMBER",
-                    "source_of_funds": "STRING",
-                    "is_translated": "BOOLEAN"
-                  }
-                },
-                {
                   "name": "RegulatoryInformation",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation -->\n<!-- Type: RegulatoryInformation -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation -->\n <!-- Required -->\n<!-- Type: RegulatoryInformation -->",
                   "children": [
                     {
                       "name": "SelfRegulatedMembership",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/SelfRegulatedMembership -->\n<!-- Type: SelfRegulatedMembershipType -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/SelfRegulatedMembership -->\n <!-- Optional -->\n<!-- Type: SelfRegulatedMembershipType -->",
                       "children": [],
                       "attrs": {
                         "exchanges": "STRING",
@@ -124,11 +45,11 @@
                     },
                     {
                       "name": "AffiliationDetails",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails -->\n<!-- Type: AffiliationDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails -->\n <!-- Optional -->\n<!-- Type: AffiliationDetailsType -->",
                       "children": [
                         {
                           "name": "company_mailing_address",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails/company_mailing_address -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails/company_mailing_address -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -152,7 +73,7 @@
                     },
                     {
                       "name": "FinancialOrgType",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/FinancialOrgType -->\n<!-- Type: FinancialOrgType -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/FinancialOrgType -->\n <!-- Optional -->\n<!-- Type: FinancialOrgType -->",
                       "children": [],
                       "attrs": {
                         "code": "FinancialOrgCodeType : 2|3|5|21|22|23|25|31|33|34|35|36|37|38"
@@ -160,11 +81,11 @@
                     },
                     {
                       "name": "ORGRegulatoryInfo",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo -->\n<!-- Type: ORGRegulatoryInfoType -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo -->\n <!-- Optional -->\n<!-- Type: ORGRegulatoryInfoType -->",
                       "children": [
                         {
                           "name": "PublicCompanyInfo",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/PublicCompanyInfo -->\n<!-- Type: PublicCompanyInfoType -->",
+                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/PublicCompanyInfo -->\n <!-- Optional -->\n<!-- Type: PublicCompanyInfoType -->",
                           "children": [],
                           "attrs": {
                             "ExchangeTradedOn": "STRING",
@@ -173,7 +94,7 @@
                         },
                         {
                           "name": "ORGRegulator",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/ORGRegulator -->\n<!-- Type: ORGRegulatorType -->",
+                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/ORGRegulator -->\n <!-- Optional -->\n<!-- Type: ORGRegulatorType -->",
                           "children": [],
                           "attrs": {
                             "RegulatorName": "STRING",
@@ -195,11 +116,11 @@
                 },
                 {
                   "name": "RegulatedMemberships",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: RegulatedMemberships -->\n<!-- Type Description: Only supported for FT loads. -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships -->\n <!-- Optional -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: RegulatedMemberships -->\n<!-- Type Description: Only supported for FT loads. -->",
                   "children": [
                     {
                       "name": "RegulatedMembership",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships/RegulatedMembership -->\n<!-- Type: RegulatedMembership -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships/RegulatedMembership -->\n <!-- Required -->\n<!-- Type: RegulatedMembership -->",
                       "children": [],
                       "attrs": {
                         "organization_code": "STRING",
@@ -211,7 +132,7 @@
                 },
                 {
                   "name": "AccreditedInvestorInformation",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccreditedInvestorInformation -->\n<!-- Type: AccreditedInvestorInformation -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/AccreditedInvestorInformation -->\n <!-- Optional -->\n<!-- Type: AccreditedInvestorInformation -->",
                   "children": [],
                   "attrs": {
                     "q1": "BOOLEAN",
@@ -223,11 +144,11 @@
                 },
                 {
                   "name": "TaxInformation",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation -->\n<!-- Description: Tax information required for individuals. This element is being deprecated, we suggest to use FATCA elements. -->\n<!-- Type: IndividualTaxInformation -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation -->\n <!-- Optional -->\n<!-- Description: Tax information required for individuals. This element is being deprecated, we suggest to use FATCA elements. -->\n<!-- Type: IndividualTaxInformation -->",
                   "children": [
                     {
                       "name": "W9",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                       "children": [],
                       "attrs": {
                         "name": "STRING",
@@ -251,7 +172,7 @@
                     },
                     {
                       "name": "W8Ben",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                       "children": [],
                       "attrs": {
                         "name": "STRING",
@@ -281,11 +202,11 @@
                     },
                     {
                       "name": "CRS",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                       "children": [
                         {
                           "name": "ControllingPerson",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                           "children": [],
                           "attrs": {
                             "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -298,15 +219,15 @@
                     },
                     {
                       "name": "W8BenE",
-                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE -->\n<!-- Description: Required if the beneficial owner is not a US entity. -->\n<!-- Type: FormW8BENE -->",
+                      "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US entity. -->\n<!-- Type: FormW8BENE -->",
                       "children": [
                         {
                           "name": "SubstantialUsOwners",
-                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners -->\n<!-- Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->\n<!-- Type: SubstantialUsOwners -->\n<!-- Type Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->",
+                          "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners -->\n <!-- Optional -->\n<!-- Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->\n<!-- Type: SubstantialUsOwners -->\n<!-- Type Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->",
                           "children": [
                             {
                               "name": "SubstantialUsOwner",
-                              "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners/SubstantialUsOwner -->\n<!-- Type: SubstantialUsOwner -->",
+                              "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners/SubstantialUsOwner -->\n <!-- Optional -->\n<!-- Type: SubstantialUsOwner -->",
                               "children": [],
                               "attrs": {
                                 "external_id": "STRING"
@@ -400,7 +321,7 @@
                 },
                 {
                   "name": "WithholdingStatement",
-                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/WithholdingStatement -->\n<!-- Description: Withholding statement for the acct, to be used by QI Brokers. -->\n<!-- Type: WithholdingStatementType -->",
+                  "text": "\n<!-- Path: Applications/Application/Customer/AccountHolder/WithholdingStatement -->\n <!-- Optional -->\n<!-- Description: Withholding statement for the acct, to be used by QI Brokers. -->\n<!-- Type: WithholdingStatementType -->",
                   "children": [],
                   "attrs": {
                     "acct_id": "STRING",
@@ -438,19 +359,19 @@
         },
         {
           "name": "Accounts",
-          "text": "\n<!-- Path: Applications/Application/Accounts -->\n<!-- Type: Accounts -->",
+          "text": "\n<!-- Path: Applications/Application/Accounts -->\n <!-- Required -->\n<!-- Type: Accounts -->",
           "children": [
             {
               "name": "Account",
-              "text": "\n<!-- Path: Applications/Application/Accounts/Account -->\n<!-- Type: Account -->",
+              "text": "\n<!-- Path: Applications/Application/Accounts/Account -->\n <!-- Required -->\n<!-- Type: Account -->",
               "children": [
                 {
                   "name": "InvestmentObjectives",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives -->\n<!-- Description: Required for non-FT loads. -->\n<!-- Type: InvestmentObjectivesType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives -->\n <!-- Optional -->\n<!-- Description: Required for non-FT loads. -->\n<!-- Type: InvestmentObjectivesType -->",
                   "children": [
                     {
                       "name": "objective",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives/objective -->\n<!-- Type: InvestmentObjective_Type -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives/objective -->\n <!-- Required -->\n<!-- Type: InvestmentObjective_Type -->",
                       "children": [],
                       "attrs": {}
                     }
@@ -459,11 +380,11 @@
                 },
                 {
                   "name": "BrokerageServices",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/BrokerageServices -->\n<!-- Type: BrokerageServices -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/BrokerageServices -->\n <!-- Optional -->\n<!-- Type: BrokerageServices -->",
                   "children": [
                     {
                       "name": "BrokerageService",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/BrokerageServices/BrokerageService -->\n<!-- Type: BrokerageService -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/BrokerageServices/BrokerageService -->\n <!-- Required -->\n<!-- Type: BrokerageService -->",
                       "children": [],
                       "attrs": {
                         "code": "BrokerageService_Type : IBClearing|IBExecution|IBPrime"
@@ -474,11 +395,11 @@
                 },
                 {
                   "name": "Capabilities",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Capabilities -->\n<!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->\n<!-- Type: Capabilities -->\n<!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Capabilities -->\n <!-- Optional -->\n<!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->\n<!-- Type: Capabilities -->\n<!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->",
                   "children": [
                     {
                       "name": "Capability",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Capabilities/Capability -->\n<!-- Type: Capability -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Capabilities/Capability -->\n <!-- Required -->\n<!-- Type: Capability -->",
                       "children": [],
                       "attrs": {
                         "code": "Capability_Type : BOND|FOP|FUND|FUT|MRGN|MULT|OPT|SSF|CFD|STK"
@@ -489,11 +410,11 @@
                 },
                 {
                   "name": "TradingPermissions",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingPermissions -->\n<!-- Description: Required for non-FT loads. -->\n<!-- Type: TradingPermissions -->\n<!-- Type Description: Required for non-FT loads. -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingPermissions -->\n <!-- Optional -->\n<!-- Description: Required for non-FT loads. -->\n<!-- Type: TradingPermissions -->\n<!-- Type Description: Required for non-FT loads. -->",
                   "children": [
                     {
                       "name": "TradingPermission",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingPermissions/TradingPermission -->\n<!-- Type: TradingPermission -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingPermissions/TradingPermission -->\n <!-- Required -->\n<!-- Type: TradingPermission -->",
                       "children": [],
                       "attrs": {
                         "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -507,11 +428,11 @@
                 },
                 {
                   "name": "CommissionConfigs",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs -->\n<!-- Description: Required to configure commission structure -->\n<!-- Type: CommissionConfigs -->\n<!-- Type Description: Required to configure commission structure -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs -->\n <!-- Optional -->\n<!-- Description: Required to configure commission structure -->\n<!-- Type: CommissionConfigs -->\n<!-- Type Description: Required to configure commission structure -->",
                   "children": [
                     {
                       "name": "CommissionConfig",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs/CommissionConfig -->\n<!-- Type: CommissionConfig -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/CommissionConfigs/CommissionConfig -->\n <!-- Required -->\n<!-- Type: CommissionConfig -->",
                       "children": [],
                       "attrs": {
                         "style": "CommissionStyle : Bundled|Unbundled",
@@ -523,11 +444,11 @@
                 },
                 {
                   "name": "AllExchangeAccess",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess -->\n<!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->\n<!-- Type: AllExchangeAccess -->\n<!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess -->\n <!-- Optional -->\n<!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->\n<!-- Type: AllExchangeAccess -->\n<!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->",
                   "children": [
                     {
                       "name": "ExchangeAccess",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess/ExchangeAccess -->\n<!-- Type: ExchangeAccess -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess/ExchangeAccess -->\n <!-- Required -->\n<!-- Type: ExchangeAccess -->",
                       "children": [],
                       "attrs": {
                         "asset_class": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -539,11 +460,11 @@
                 },
                 {
                   "name": "DVPInstructions",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/DVPInstructions -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: DVPInstructions -->\n<!-- Type Description: Only supported for FT loads. -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/DVPInstructions -->\n <!-- Optional -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: DVPInstructions -->\n<!-- Type Description: Only supported for FT loads. -->",
                   "children": [
                     {
                       "name": "DVPInstruction",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DVPInstructions/DVPInstruction -->\n<!-- Type: DVPInstruction -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DVPInstructions/DVPInstruction -->\n <!-- Required -->\n<!-- Type: DVPInstruction -->",
                       "children": [],
                       "attrs": {
                         "id": "STRING",
@@ -574,11 +495,11 @@
                 },
                 {
                   "name": "TradingLimits",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: TradingLimits -->\n<!-- Type Description: Only supported for FT loads. -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits -->\n <!-- Optional -->\n<!-- Description: Only supported for FT loads. -->\n<!-- Type: TradingLimits -->\n<!-- Type Description: Only supported for FT loads. -->",
                   "children": [
                     {
                       "name": "OrderValueLimits",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderValueLimits -->\n<!-- Type: OrderValueLimits -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderValueLimits -->\n <!-- Required -->\n<!-- Type: OrderValueLimits -->",
                       "children": [],
                       "attrs": {
                         "max_order_value": "NUMBER",
@@ -589,7 +510,7 @@
                     },
                     {
                       "name": "EFPQuantityLimits",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/EFPQuantityLimits -->\n<!-- Type: EFPQuantityLimits -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/EFPQuantityLimits -->\n <!-- Required -->\n<!-- Type: EFPQuantityLimits -->",
                       "children": [],
                       "attrs": {
                         "max_nominal_efp_per_order": "INTEGER",
@@ -599,7 +520,7 @@
                     },
                     {
                       "name": "OrderQuantityLimit",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderQuantityLimit -->\n<!-- Type: OrderQuantityLimit -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderQuantityLimit -->\n <!-- Required -->\n<!-- Type: OrderQuantityLimit -->",
                       "children": [],
                       "attrs": {
                         "asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -608,7 +529,7 @@
                     },
                     {
                       "name": "DayQuantityLimit",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/DayQuantityLimit -->\n<!-- Type: DayQuantityLimit -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/TradingLimits/DayQuantityLimit -->\n <!-- Required -->\n<!-- Type: DayQuantityLimit -->",
                       "children": [],
                       "attrs": {
                         "asset": "AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR",
@@ -620,23 +541,23 @@
                 },
                 {
                   "name": "AdvisorWrapFees",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees -->\n<!-- Description: Required for advisor client accounts. Alternatively, it is possible to set fees based on templates created on Account Management. -->\n<!-- Type: AdvisorWrapFeesType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees -->\n <!-- Optional -->\n<!-- Description: Required for advisor client accounts. Alternatively, it is possible to set fees based on templates created on Account Management. -->\n<!-- Type: AdvisorWrapFeesType -->",
                   "children": [
                     {
                       "name": "automated_fees_details",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details -->\n<!-- Type: AutomatedWrapFeeDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details -->\n <!-- Optional -->\n<!-- Type: AutomatedWrapFeeDetailsType -->",
                       "children": [
                         {
                           "name": "per_trade_markups",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups -->\n<!-- Description: Required if the Automated Wrap Fee type is PERTRADE. -->\n<!-- Type: CommissionScheduleType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups -->\n <!-- Optional -->\n<!-- Description: Required if the Automated Wrap Fee type is PERTRADE. -->\n<!-- Type: CommissionScheduleType -->",
                           "children": [
                             {
                               "name": "markup",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup -->\n<!-- Type: CommissionMarkupType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup -->\n <!-- Required -->\n<!-- Type: CommissionMarkupType -->",
                               "children": [
                                 {
                                   "name": "stair",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup/stair -->\n<!-- Type: MarkupStaircaseType -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup/stair -->\n <!-- Optional -->\n<!-- Type: MarkupStaircaseType -->",
                                   "children": [],
                                   "attrs": {
                                     "break": "NUMBER",
@@ -660,7 +581,7 @@
                         },
                         {
                           "name": "annual_blended_percentage",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/annual_blended_percentage -->\n<!-- Type: AnnualBlendedPercentage -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/annual_blended_percentage -->\n <!-- Optional -->\n<!-- Type: AnnualBlendedPercentage -->",
                           "children": [],
                           "attrs": {
                             "BlendedFrom": "STRING",
@@ -680,11 +601,11 @@
                     },
                     {
                       "name": "highWaterMarkConfigHwma",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma -->\n<!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT. -->\n<!-- Type: HighWaterMarkType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma -->\n <!-- Optional -->\n<!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT. -->\n<!-- Type: HighWaterMarkType -->",
                       "children": [
                         {
                           "name": "hwm",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/hwm -->\n<!-- Type: HighWaterMarkConfigurationType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/hwm -->\n <!-- Required -->\n<!-- Type: HighWaterMarkConfigurationType -->",
                           "children": [],
                           "attrs": {
                             "NumberOfPeriods": "INTEGER",
@@ -693,7 +614,7 @@
                         },
                         {
                           "name": "previousLosses",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/previousLosses -->\n<!-- Type: PreviousLossesType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/previousLosses -->\n <!-- Optional -->\n<!-- Type: PreviousLossesType -->",
                           "children": [],
                           "attrs": {
                             "loss": "INTEGER",
@@ -707,11 +628,11 @@
                     },
                     {
                       "name": "highWaterMarkConfigHwmq",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq -->\n<!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT_QUARTER. -->\n<!-- Type: HighWaterMarkType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq -->\n <!-- Optional -->\n<!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT_QUARTER. -->\n<!-- Type: HighWaterMarkType -->",
                       "children": [
                         {
                           "name": "hwm",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/hwm -->\n<!-- Type: HighWaterMarkConfigurationType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/hwm -->\n <!-- Required -->\n<!-- Type: HighWaterMarkConfigurationType -->",
                           "children": [],
                           "attrs": {
                             "NumberOfPeriods": "INTEGER",
@@ -720,7 +641,7 @@
                         },
                         {
                           "name": "previousLosses",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/previousLosses -->\n<!-- Type: PreviousLossesType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/previousLosses -->\n <!-- Optional -->\n<!-- Type: PreviousLossesType -->",
                           "children": [],
                           "attrs": {
                             "loss": "INTEGER",
@@ -741,7 +662,7 @@
                 },
                 {
                   "name": "Fees",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Fees -->\n<!-- Description: Fees are set based on a template created on Account Management. Advisors should inform the fees to be payed by the client account; for brokers it is optional. -->\n<!-- Type: FeesTemplateBasedType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Fees -->\n <!-- Optional -->\n<!-- Description: Fees are set based on a template created on Account Management. Advisors should inform the fees to be payed by the client account; for brokers it is optional. -->\n<!-- Type: FeesTemplateBasedType -->",
                   "children": [],
                   "attrs": {
                     "template_name": "STRING"
@@ -749,15 +670,15 @@
                 },
                 {
                   "name": "ClientCommissionSchedule",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule -->\n<!-- Description: Valid only for Broker clients, ignored for all others. -->\n<!-- Type: CommissionScheduleType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule -->\n <!-- Optional -->\n<!-- Description: Valid only for Broker clients, ignored for all others. -->\n<!-- Type: CommissionScheduleType -->",
                   "children": [
                     {
                       "name": "markup",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup -->\n<!-- Type: CommissionMarkupType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup -->\n <!-- Required -->\n<!-- Type: CommissionMarkupType -->",
                       "children": [
                         {
                           "name": "stair",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup/stair -->\n<!-- Type: MarkupStaircaseType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup/stair -->\n <!-- Optional -->\n<!-- Type: MarkupStaircaseType -->",
                           "children": [],
                           "attrs": {
                             "break": "NUMBER",
@@ -781,11 +702,11 @@
                 },
                 {
                   "name": "ClientInterestMarkupSchedule",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule -->\n<!-- Description: Valid only for Broker clients, ignored for all others. -->\n<!-- Type: InterestMarkupScheduleType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule -->\n <!-- Optional -->\n<!-- Description: Valid only for Broker clients, ignored for all others. -->\n<!-- Type: InterestMarkupScheduleType -->",
                   "children": [
                     {
                       "name": "markup",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule/markup -->\n<!-- Type: InterestMarkupType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule/markup -->\n <!-- Required -->\n<!-- Type: InterestMarkupType -->",
                       "children": [],
                       "attrs": {
                         "currency": "Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR",
@@ -804,17 +725,17 @@
                 },
                 {
                   "name": "Decendent",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent -->\n<!-- Description: Details of the deceased from whom the IRA account was inherited. Required for inherited IRA accounts. -->\n<!-- Type: IRADecedent -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent -->\n <!-- Optional -->\n<!-- Description: Details of the deceased from whom the IRA account was inherited. Required for inherited IRA accounts. -->\n<!-- Type: IRADecedent -->",
                   "children": [
                     {
                       "name": "DateOfDeath",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/DateOfDeath -->\n<!-- Type: DOB -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/DateOfDeath -->\n <!-- Required -->\n<!-- Type: DOB -->",
                       "children": [],
                       "attrs": {}
                     },
                     {
                       "name": "Title",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/Title -->\n<!-- Type: Title -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/Title -->\n <!-- Required -->\n<!-- Type: Title -->",
                       "children": [],
                       "attrs": {
                         "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
@@ -822,13 +743,13 @@
                     },
                     {
                       "name": "InheritorType",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/InheritorType -->\n<!-- Type: InheritedIRABeneficiary_Type -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/InheritorType -->\n <!-- Required -->\n<!-- Type: InheritedIRABeneficiary_Type -->",
                       "children": [],
                       "attrs": {}
                     },
                     {
                       "name": "Relationship",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/Relationship -->\n<!-- Type: InheritedIRABeneficiaryRelation_Type -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Decendent/Relationship -->\n <!-- Required -->\n<!-- Type: InheritedIRABeneficiaryRelation_Type -->",
                       "children": [],
                       "attrs": {}
                     }
@@ -837,15 +758,15 @@
                 },
                 {
                   "name": "IRABeneficiaries",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries -->\n<!-- Description: List of beneficiaries for an IRA Account. Required for IRA accounts. -->\n<!-- Type: IRABeneficiariesType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries -->\n <!-- Optional -->\n<!-- Description: List of beneficiaries for an IRA Account. Required for IRA accounts. -->\n<!-- Type: IRABeneficiariesType -->",
                   "children": [
                     {
                       "name": "PrimaryBeneficiary",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary -->\n<!-- Type: IRAPrimaryBeneficiary -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary -->\n <!-- Optional -->\n<!-- Type: IRAPrimaryBeneficiary -->",
                       "children": [
                         {
                           "name": "Ownership",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Ownership -->\n<!-- Type: Ownership -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Ownership -->\n <!-- Required -->\n<!-- Type: Ownership -->",
                           "children": [],
                           "attrs": {
                             "percentage": "INTEGER"
@@ -853,7 +774,7 @@
                         },
                         {
                           "name": "Title",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Title -->\n<!-- Type: Title -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Title -->\n <!-- Optional -->\n<!-- Type: Title -->",
                           "children": [],
                           "attrs": {
                             "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
@@ -861,7 +782,7 @@
                         },
                         {
                           "name": "Relationship",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Relationship -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Relationship -->\n <!-- Required -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
                           "children": [],
                           "attrs": {}
                         }
@@ -870,11 +791,11 @@
                     },
                     {
                       "name": "PrimaryBeneficiaryEntity",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity -->\n<!-- Type: IRAPrimaryBeneficiaryEntity -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity -->\n <!-- Optional -->\n<!-- Type: IRAPrimaryBeneficiaryEntity -->",
                       "children": [
                         {
                           "name": "Ownership",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Ownership -->\n<!-- Type: Ownership -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Ownership -->\n <!-- Required -->\n<!-- Type: Ownership -->",
                           "children": [],
                           "attrs": {
                             "percentage": "INTEGER"
@@ -882,7 +803,7 @@
                         },
                         {
                           "name": "Title",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Title -->\n<!-- Type: Title -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Title -->\n <!-- Optional -->\n<!-- Type: Title -->",
                           "children": [],
                           "attrs": {
                             "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
@@ -890,17 +811,17 @@
                         },
                         {
                           "name": "Relationship",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Relationship -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Relationship -->\n <!-- Required -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Executor",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor -->\n<!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->\n<!-- Type: Individual -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor -->\n <!-- Optional -->\n<!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->\n<!-- Type: Individual -->",
                           "children": [
                             {
                               "name": "Name",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Name -->\n<!-- Type: IndividualName -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                               "children": [],
                               "attrs": {
                                 "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -913,25 +834,25 @@
                             },
                             {
                               "name": "DOB",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/DOB -->\n<!-- Type: DOB -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "Gender",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Gender -->\n<!-- Type: Gender_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "MaritalStatus",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "Residence",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Residence -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -944,7 +865,7 @@
                             },
                             {
                               "name": "MailingAddress",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MailingAddress -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -957,11 +878,11 @@
                             },
                             {
                               "name": "Phones",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones -->\n<!-- Type: PhonesList -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                               "children": [
                                 {
                                   "name": "Phone",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                                   "children": [],
                                   "attrs": {
                                     "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -975,7 +896,7 @@
                             },
                             {
                               "name": "Email",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Email -->\n<!-- Type: Email -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                               "children": [],
                               "attrs": {
                                 "email": "STRING"
@@ -983,7 +904,7 @@
                             },
                             {
                               "name": "Identification",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Identification -->\n<!-- Type: IndividualIdentification -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                               "children": [],
                               "attrs": {
                                 "citizenship": "STRING",
@@ -1005,17 +926,17 @@
                             },
                             {
                               "name": "EmploymentType",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "EmploymentDetails",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                               "children": [
                                 {
                                   "name": "employer_address",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                                   "children": [],
                                   "attrs": {
                                     "street_1": "STRING",
@@ -1036,11 +957,11 @@
                             },
                             {
                               "name": "TaxResidencies",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                               "children": [
                                 {
                                   "name": "TaxResidency",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                                   "children": [],
                                   "attrs": {
                                     "country": "STRING",
@@ -1053,7 +974,7 @@
                             },
                             {
                               "name": "W9",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                               "children": [],
                               "attrs": {
                                 "name": "STRING",
@@ -1077,7 +998,7 @@
                             },
                             {
                               "name": "W8Ben",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                               "children": [],
                               "attrs": {
                                 "name": "STRING",
@@ -1107,11 +1028,11 @@
                             },
                             {
                               "name": "CRS",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                               "children": [
                                 {
                                   "name": "ControllingPerson",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                                   "children": [],
                                   "attrs": {
                                     "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1143,11 +1064,11 @@
                     },
                     {
                       "name": "ContingentBeneficiary",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary -->\n<!-- Type: IRAContingentBeneficiary -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary -->\n <!-- Optional -->\n<!-- Type: IRAContingentBeneficiary -->",
                       "children": [
                         {
                           "name": "Ownership",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Ownership -->\n<!-- Type: Ownership -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Ownership -->\n <!-- Required -->\n<!-- Type: Ownership -->",
                           "children": [],
                           "attrs": {
                             "percentage": "INTEGER"
@@ -1155,7 +1076,7 @@
                         },
                         {
                           "name": "Title",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Title -->\n<!-- Type: Title -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Title -->\n <!-- Optional -->\n<!-- Type: Title -->",
                           "children": [],
                           "attrs": {
                             "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
@@ -1163,7 +1084,7 @@
                         },
                         {
                           "name": "Relationship",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Relationship -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Relationship -->\n <!-- Required -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
                           "children": [],
                           "attrs": {}
                         }
@@ -1172,11 +1093,11 @@
                     },
                     {
                       "name": "ContingentBeneficiaryEntity",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity -->\n<!-- Type: IRAContingentBeneficiaryEntity -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity -->\n <!-- Optional -->\n<!-- Type: IRAContingentBeneficiaryEntity -->",
                       "children": [
                         {
                           "name": "Ownership",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Ownership -->\n<!-- Type: Ownership -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Ownership -->\n <!-- Required -->\n<!-- Type: Ownership -->",
                           "children": [],
                           "attrs": {
                             "percentage": "INTEGER"
@@ -1184,7 +1105,7 @@
                         },
                         {
                           "name": "Title",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Title -->\n<!-- Type: Title -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Title -->\n <!-- Optional -->\n<!-- Type: Title -->",
                           "children": [],
                           "attrs": {
                             "code": "Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE"
@@ -1192,17 +1113,17 @@
                         },
                         {
                           "name": "Relationship",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Relationship -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Relationship -->\n <!-- Required -->\n<!-- Type: IRABeneficiaryRelation_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Executor",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor -->\n<!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->\n<!-- Type: Individual -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor -->\n <!-- Optional -->\n<!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->\n<!-- Type: Individual -->",
                           "children": [
                             {
                               "name": "Name",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Name -->\n<!-- Type: IndividualName -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                               "children": [],
                               "attrs": {
                                 "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -1215,25 +1136,25 @@
                             },
                             {
                               "name": "DOB",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/DOB -->\n<!-- Type: DOB -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "Gender",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Gender -->\n<!-- Type: Gender_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "MaritalStatus",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "Residence",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Residence -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1246,7 +1167,7 @@
                             },
                             {
                               "name": "MailingAddress",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MailingAddress -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1259,11 +1180,11 @@
                             },
                             {
                               "name": "Phones",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones -->\n<!-- Type: PhonesList -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                               "children": [
                                 {
                                   "name": "Phone",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                                   "children": [],
                                   "attrs": {
                                     "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1277,7 +1198,7 @@
                             },
                             {
                               "name": "Email",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Email -->\n<!-- Type: Email -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                               "children": [],
                               "attrs": {
                                 "email": "STRING"
@@ -1285,7 +1206,7 @@
                             },
                             {
                               "name": "Identification",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Identification -->\n<!-- Type: IndividualIdentification -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                               "children": [],
                               "attrs": {
                                 "citizenship": "STRING",
@@ -1307,17 +1228,17 @@
                             },
                             {
                               "name": "EmploymentType",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                               "children": [],
                               "attrs": {}
                             },
                             {
                               "name": "EmploymentDetails",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                               "children": [
                                 {
                                   "name": "employer_address",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                                   "children": [],
                                   "attrs": {
                                     "street_1": "STRING",
@@ -1338,11 +1259,11 @@
                             },
                             {
                               "name": "TaxResidencies",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                               "children": [
                                 {
                                   "name": "TaxResidency",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                                   "children": [],
                                   "attrs": {
                                     "country": "STRING",
@@ -1355,7 +1276,7 @@
                             },
                             {
                               "name": "W9",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                               "children": [],
                               "attrs": {
                                 "name": "STRING",
@@ -1379,7 +1300,7 @@
                             },
                             {
                               "name": "W8Ben",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                               "children": [],
                               "attrs": {
                                 "name": "STRING",
@@ -1409,11 +1330,11 @@
                             },
                             {
                               "name": "CRS",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                               "children": [
                                 {
                                   "name": "ControllingPerson",
-                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                                   "children": [],
                                   "attrs": {
                                     "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1450,15 +1371,15 @@
                 },
                 {
                   "name": "ExtPositionsTransfer",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer -->\n<!-- Type: ExtPositionsTransferType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer -->\n <!-- Optional -->\n<!-- Type: ExtPositionsTransferType -->",
                   "children": [
                     {
                       "name": "PartialStockPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions -->\n<!-- Type: PartialStockPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions -->\n <!-- Optional -->\n<!-- Type: PartialStockPositions -->",
                       "children": [
                         {
                           "name": "PartialStockPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions/PartialStockPosition -->\n<!-- Type: PartialStockPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions/PartialStockPosition -->\n <!-- Optional -->\n<!-- Type: PartialStockPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -1473,11 +1394,11 @@
                     },
                     {
                       "name": "PartialBondPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions -->\n<!-- Type: PartialBondPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions -->\n <!-- Optional -->\n<!-- Type: PartialBondPositions -->",
                       "children": [
                         {
                           "name": "PartialBondPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions/PartialBondPosition -->\n<!-- Type: PartialBondPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions/PartialBondPosition -->\n <!-- Optional -->\n<!-- Type: PartialBondPosition -->",
                           "children": [],
                           "attrs": {
                             "cusip_number": "STRING",
@@ -1490,11 +1411,11 @@
                     },
                     {
                       "name": "PartialOptionPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions -->\n<!-- Type: PartialOptionPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions -->\n <!-- Optional -->\n<!-- Type: PartialOptionPositions -->",
                       "children": [
                         {
                           "name": "PartialOptionPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions/PartialOptionPosition -->\n<!-- Type: PartialOptionPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions/PartialOptionPosition -->\n <!-- Optional -->\n<!-- Type: PartialOptionPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -1511,11 +1432,11 @@
                     },
                     {
                       "name": "PartialWarrantPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions -->\n<!-- Type: PartialWarrantPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions -->\n <!-- Optional -->\n<!-- Type: PartialWarrantPositions -->",
                       "children": [
                         {
                           "name": "PartialWarrantPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions/PartialWarrantPosition -->\n<!-- Type: PartialWarrantPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions/PartialWarrantPosition -->\n <!-- Optional -->\n<!-- Type: PartialWarrantPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -1532,11 +1453,11 @@
                     },
                     {
                       "name": "PartialFundPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions -->\n<!-- Type: PartialFundPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions -->\n <!-- Optional -->\n<!-- Type: PartialFundPositions -->",
                       "children": [
                         {
                           "name": "PartialFundPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions/PartialFundPosition -->\n<!-- Type: PartialFundPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions/PartialFundPosition -->\n <!-- Optional -->\n<!-- Type: PartialFundPosition -->",
                           "children": [],
                           "attrs": {
                             "symbol": "STRING",
@@ -1549,11 +1470,11 @@
                     },
                     {
                       "name": "PartialCashPositions",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions -->\n<!-- Type: PartialCashPositions -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions -->\n <!-- Optional -->\n<!-- Type: PartialCashPositions -->",
                       "children": [
                         {
                           "name": "PartialCashPosition",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions/PartialCashPosition -->\n<!-- Type: PartialCashPosition -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions/PartialCashPosition -->\n <!-- Optional -->\n<!-- Type: PartialCashPosition -->",
                           "children": [],
                           "attrs": {
                             "amount": "NUMBER",
@@ -1586,11 +1507,11 @@
                 },
                 {
                   "name": "DepositNotification",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification -->\n<!-- Type: DepositNotificationType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification -->\n <!-- Optional -->\n<!-- Type: DepositNotificationType -->",
                   "children": [
                     {
                       "name": "CheckDetails",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/CheckDetails -->\n<!-- Type: CheckDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/CheckDetails -->\n <!-- Optional -->\n<!-- Type: CheckDetailsType -->",
                       "children": [],
                       "attrs": {
                         "check_number": "STRING",
@@ -1600,7 +1521,7 @@
                     },
                     {
                       "name": "WireDetails",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/WireDetails -->\n<!-- Type: WireDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/WireDetails -->\n <!-- Optional -->\n<!-- Type: WireDetailsType -->",
                       "children": [],
                       "attrs": {
                         "bank_name": "STRING",
@@ -1610,7 +1531,7 @@
                     },
                     {
                       "name": "ACHDetails",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/ACHDetails -->\n<!-- Type: ACHDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/ACHDetails -->\n <!-- Optional -->\n<!-- Type: ACHDetailsType -->",
                       "children": [],
                       "attrs": {
                         "cust_init_ACH": "BOOLEAN",
@@ -1619,7 +1540,7 @@
                     },
                     {
                       "name": "IRADepositDetails",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/IRADepositDetails -->\n<!-- Type: IRADepositDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/DepositNotification/IRADepositDetails -->\n <!-- Optional -->\n<!-- Type: IRADepositDetailsType -->",
                       "children": [],
                       "attrs": {
                         "deposit_type": "IRADeposit_Type : contribution|rollover",
@@ -1637,7 +1558,7 @@
                 },
                 {
                   "name": "ACHInstruction",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ACHInstruction -->\n<!-- Type: ACHInstructionType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/ACHInstruction -->\n <!-- Optional -->\n<!-- Type: ACHInstructionType -->",
                   "children": [],
                   "attrs": {
                     "cust_init_ACH": "BOOLEAN",
@@ -1652,11 +1573,11 @@
                 },
                 {
                   "name": "RecurringTransaction",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction -->\n<!-- Type: RecurringTransactionType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction -->\n <!-- Optional -->\n<!-- Type: RecurringTransactionType -->",
                   "children": [
                     {
                       "name": "ACHInstruction",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/ACHInstruction -->\n<!-- Type: ACHInstructionType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/ACHInstruction -->\n <!-- Optional -->\n<!-- Type: ACHInstructionType -->",
                       "children": [],
                       "attrs": {
                         "cust_init_ACH": "BOOLEAN",
@@ -1671,7 +1592,7 @@
                     },
                     {
                       "name": "IRAWithdrawalDetails",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/IRAWithdrawalDetails -->\n<!-- Type: IRAWithdrawalDetailsType -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/IRAWithdrawalDetails -->\n <!-- Optional -->\n<!-- Type: IRAWithdrawalDetailsType -->",
                       "children": [],
                       "attrs": {
                         "distribution_type": "IRADistribution_Type : NORMAL|EARLY|EARLY_EXCEPT|DEATH|DISABILITY|EXCESS_CONTRIB",
@@ -1697,15 +1618,15 @@
                 },
                 {
                   "name": "Custodian",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian -->\n<!-- Description: Custodian for a UGMA/UTMA account -->\n<!-- Type: CustodianType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian -->\n <!-- Optional -->\n<!-- Description: Custodian for a UGMA/UTMA account -->\n<!-- Type: CustodianType -->",
                   "children": [
                     {
                       "name": "Individual",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual -->\n<!-- Type: Individual -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual -->\n <!-- Optional -->\n<!-- Type: Individual -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Name -->\n<!-- Type: IndividualName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -1718,25 +1639,25 @@
                         },
                         {
                           "name": "DOB",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/DOB -->\n<!-- Type: DOB -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Gender",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Gender -->\n<!-- Type: Gender_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "MaritalStatus",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Residence",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Residence -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1749,7 +1670,7 @@
                         },
                         {
                           "name": "MailingAddress",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MailingAddress -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1762,11 +1683,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1780,7 +1701,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1788,7 +1709,7 @@
                         },
                         {
                           "name": "Identification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Identification -->\n<!-- Type: IndividualIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -1810,17 +1731,17 @@
                         },
                         {
                           "name": "EmploymentType",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "EmploymentDetails",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                           "children": [
                             {
                               "name": "employer_address",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -1841,11 +1762,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -1858,7 +1779,7 @@
                         },
                         {
                           "name": "W9",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1882,7 +1803,7 @@
                         },
                         {
                           "name": "W8Ben",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -1912,11 +1833,11 @@
                         },
                         {
                           "name": "CRS",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -1942,11 +1863,11 @@
                     },
                     {
                       "name": "LegalEntity",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity -->\n<!-- Type: LegalEntity -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity -->\n <!-- Optional -->\n<!-- Type: LegalEntity -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Name -->\n<!-- Type: EntityName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Name -->\n <!-- Required -->\n<!-- Type: EntityName -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING"
@@ -1954,7 +1875,7 @@
                         },
                         {
                           "name": "Location",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Location -->\n<!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Location -->\n <!-- Optional -->\n<!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -1967,11 +1888,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones -->\n <!-- Required -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -1985,7 +1906,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Email -->\n <!-- Required -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -1993,11 +1914,11 @@
                         },
                         {
                           "name": "LegalEntityIdentification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification -->\n<!-- Type: LegalEntityIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification -->\n <!-- Required -->\n<!-- Type: LegalEntityIdentification -->",
                           "children": [
                             {
                               "name": "PlaceOfBusiness",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->\n<!-- Description: Official address of the entity. -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->\n <!-- Optional -->\n<!-- Description: Official address of the entity. -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2010,7 +1931,7 @@
                             },
                             {
                               "name": "MailingAddress",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/MailingAddress -->\n<!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/MailingAddress -->\n <!-- Optional -->\n<!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2034,11 +1955,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -2059,11 +1980,11 @@
                     },
                     {
                       "name": "Employee",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee -->\n<!-- Type: Individual -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee -->\n <!-- Optional -->\n<!-- Type: Individual -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Name -->\n<!-- Type: IndividualName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -2076,25 +1997,25 @@
                         },
                         {
                           "name": "DOB",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/DOB -->\n<!-- Type: DOB -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Gender",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Gender -->\n<!-- Type: Gender_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "MaritalStatus",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Residence",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Residence -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2107,7 +2028,7 @@
                         },
                         {
                           "name": "MailingAddress",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MailingAddress -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2120,11 +2041,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -2138,7 +2059,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -2146,7 +2067,7 @@
                         },
                         {
                           "name": "Identification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Identification -->\n<!-- Type: IndividualIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -2168,17 +2089,17 @@
                         },
                         {
                           "name": "EmploymentType",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "EmploymentDetails",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                           "children": [
                             {
                               "name": "employer_address",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2199,11 +2120,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -2216,7 +2137,7 @@
                         },
                         {
                           "name": "W9",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2240,7 +2161,7 @@
                         },
                         {
                           "name": "W8Ben",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2270,11 +2191,11 @@
                         },
                         {
                           "name": "CRS",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -2303,15 +2224,15 @@
                 },
                 {
                   "name": "SuccessorCustodian",
-                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian -->\n<!-- Description: Successor Custodian for a UGMA/UTMA account -->\n<!-- Type: CustodianType -->",
+                  "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian -->\n <!-- Optional -->\n<!-- Description: Successor Custodian for a UGMA/UTMA account -->\n<!-- Type: CustodianType -->",
                   "children": [
                     {
                       "name": "Individual",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual -->\n<!-- Type: Individual -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual -->\n <!-- Optional -->\n<!-- Type: Individual -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Name -->\n<!-- Type: IndividualName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -2324,25 +2245,25 @@
                         },
                         {
                           "name": "DOB",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/DOB -->\n<!-- Type: DOB -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Gender",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Gender -->\n<!-- Type: Gender_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "MaritalStatus",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Residence",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Residence -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2355,7 +2276,7 @@
                         },
                         {
                           "name": "MailingAddress",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MailingAddress -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2368,11 +2289,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -2386,7 +2307,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -2394,7 +2315,7 @@
                         },
                         {
                           "name": "Identification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Identification -->\n<!-- Type: IndividualIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -2416,17 +2337,17 @@
                         },
                         {
                           "name": "EmploymentType",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "EmploymentDetails",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                           "children": [
                             {
                               "name": "employer_address",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2447,11 +2368,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -2464,7 +2385,7 @@
                         },
                         {
                           "name": "W9",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2488,7 +2409,7 @@
                         },
                         {
                           "name": "W8Ben",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2518,11 +2439,11 @@
                         },
                         {
                           "name": "CRS",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -2548,11 +2469,11 @@
                     },
                     {
                       "name": "LegalEntity",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity -->\n<!-- Type: LegalEntity -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity -->\n <!-- Optional -->\n<!-- Type: LegalEntity -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Name -->\n<!-- Type: EntityName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Name -->\n <!-- Required -->\n<!-- Type: EntityName -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING"
@@ -2560,7 +2481,7 @@
                         },
                         {
                           "name": "Location",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Location -->\n<!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Location -->\n <!-- Optional -->\n<!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2573,11 +2494,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones -->\n <!-- Required -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -2591,7 +2512,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Email -->\n <!-- Required -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -2599,11 +2520,11 @@
                         },
                         {
                           "name": "LegalEntityIdentification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification -->\n<!-- Type: LegalEntityIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification -->\n <!-- Required -->\n<!-- Type: LegalEntityIdentification -->",
                           "children": [
                             {
                               "name": "PlaceOfBusiness",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->\n<!-- Description: Official address of the entity. -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->\n <!-- Optional -->\n<!-- Description: Official address of the entity. -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2616,7 +2537,7 @@
                             },
                             {
                               "name": "MailingAddress",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/MailingAddress -->\n<!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/MailingAddress -->\n <!-- Optional -->\n<!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2640,11 +2561,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -2665,11 +2586,11 @@
                     },
                     {
                       "name": "Employee",
-                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee -->\n<!-- Type: Individual -->",
+                      "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee -->\n <!-- Optional -->\n<!-- Type: Individual -->",
                       "children": [
                         {
                           "name": "Name",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Name -->\n<!-- Type: IndividualName -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Name -->\n <!-- Required -->\n<!-- Type: IndividualName -->",
                           "children": [],
                           "attrs": {
                             "salutation": "Salutation_Type : Mr.|Mrs.|Ms.|Dr.",
@@ -2682,25 +2603,25 @@
                         },
                         {
                           "name": "DOB",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/DOB -->\n<!-- Type: DOB -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/DOB -->\n <!-- Required -->\n<!-- Type: DOB -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Gender",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Gender -->\n<!-- Type: Gender_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Gender -->\n <!-- Optional -->\n<!-- Type: Gender_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "MaritalStatus",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MaritalStatus -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MaritalStatus -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: MaritalStatus_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "Residence",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Residence -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Residence -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2713,7 +2634,7 @@
                         },
                         {
                           "name": "MailingAddress",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MailingAddress -->\n<!-- Type: Address -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MailingAddress -->\n <!-- Optional -->\n<!-- Type: Address -->",
                           "children": [],
                           "attrs": {
                             "street_1": "STRING",
@@ -2726,11 +2647,11 @@
                         },
                         {
                           "name": "Phones",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones -->\n<!-- Type: PhonesList -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones -->\n <!-- Optional -->\n<!-- Type: PhonesList -->",
                           "children": [
                             {
                               "name": "Phone",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones/Phone -->\n<!-- Type: PhoneInfo -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones/Phone -->\n <!-- Required -->\n<!-- Type: PhoneInfo -->",
                               "children": [],
                               "attrs": {
                                 "type": "Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)",
@@ -2744,7 +2665,7 @@
                         },
                         {
                           "name": "Email",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Email -->\n<!-- Type: Email -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Email -->\n <!-- Optional -->\n<!-- Type: Email -->",
                           "children": [],
                           "attrs": {
                             "email": "STRING"
@@ -2752,7 +2673,7 @@
                         },
                         {
                           "name": "Identification",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Identification -->\n<!-- Type: IndividualIdentification -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Identification -->\n <!-- Optional -->\n<!-- Type: IndividualIdentification -->",
                           "children": [],
                           "attrs": {
                             "citizenship": "STRING",
@@ -2774,17 +2695,17 @@
                         },
                         {
                           "name": "EmploymentType",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentType -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentType -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts. -->\n<!-- Type: Employment_Type -->",
                           "children": [],
                           "attrs": {}
                         },
                         {
                           "name": "EmploymentDetails",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails -->\n <!-- Optional -->\n<!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->\n<!-- Type: EmploymentDetailsType -->",
                           "children": [
                             {
                               "name": "employer_address",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails/employer_address -->\n<!-- Type: Address -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails/employer_address -->\n <!-- Required -->\n<!-- Type: Address -->",
                               "children": [],
                               "attrs": {
                                 "street_1": "STRING",
@@ -2805,11 +2726,11 @@
                         },
                         {
                           "name": "TaxResidencies",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies -->\n <!-- Optional -->\n<!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->\n<!-- Type: TaxResidencies -->\n<!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->",
                           "children": [
                             {
                               "name": "TaxResidency",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies/TaxResidency -->\n<!-- Type: TaxResidency -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies/TaxResidency -->\n <!-- Optional -->\n<!-- Type: TaxResidency -->",
                               "children": [],
                               "attrs": {
                                 "country": "STRING",
@@ -2822,7 +2743,7 @@
                         },
                         {
                           "name": "W9",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W9 -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W9 -->\n <!-- Optional -->\n<!-- Description: Required for a US citizen or US person including resident alien individual. -->\n<!-- Type: FormW9 -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2846,7 +2767,7 @@
                         },
                         {
                           "name": "W8Ben",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W8Ben -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W8Ben -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is not a US person. -->\n<!-- Type: FormW8BEN -->",
                           "children": [],
                           "attrs": {
                             "name": "STRING",
@@ -2876,11 +2797,11 @@
                         },
                         {
                           "name": "CRS",
-                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
+                          "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS -->\n <!-- Optional -->\n<!-- Description: Required if the beneficial owner is part of IB-UK entity. -->\n<!-- Type: FormCRS -->",
                           "children": [
                             {
                               "name": "ControllingPerson",
-                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS/ControllingPerson -->\n<!-- Type: ControllingPersonType -->",
+                              "text": "\n<!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS/ControllingPerson -->\n <!-- Optional -->\n<!-- Type: ControllingPersonType -->",
                               "children": [],
                               "attrs": {
                                 "designation": "DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS"
@@ -2929,15 +2850,15 @@
         },
         {
           "name": "Users",
-          "text": "\n<!-- Path: Applications/Application/Users -->\n<!-- Type: Users -->",
+          "text": "\n<!-- Path: Applications/Application/Users -->\n <!-- Required -->\n<!-- Type: Users -->",
           "children": [
             {
               "name": "User",
-              "text": "\n<!-- Path: Applications/Application/Users/User -->\n<!-- Type: User -->",
+              "text": "\n<!-- Path: Applications/Application/Users/User -->\n <!-- Required -->\n<!-- Type: User -->",
               "children": [
                 {
                   "name": "UserPrivilege",
-                  "text": "\n<!-- Path: Applications/Application/Users/User/UserPrivilege -->\n<!-- Type: UserPrivilege -->",
+                  "text": "\n<!-- Path: Applications/Application/Users/User/UserPrivilege -->\n <!-- Optional -->\n<!-- Type: UserPrivilege -->",
                   "children": [],
                   "attrs": {
                     "external_acct_id": "STRING",
@@ -2946,11 +2867,11 @@
                 },
                 {
                   "name": "MDServices",
-                  "text": "\n<!-- Path: Applications/Application/Users/User/MDServices -->\n<!-- Type: MDServicesType -->",
+                  "text": "\n<!-- Path: Applications/Application/Users/User/MDServices -->\n <!-- Optional -->\n<!-- Type: MDServicesType -->",
                   "children": [
                     {
                       "name": "service",
-                      "text": "\n<!-- Path: Applications/Application/Users/User/MDServices/service -->\n<!-- Type: service -->",
+                      "text": "\n<!-- Path: Applications/Application/Users/User/MDServices/service -->\n <!-- Required -->\n<!-- Type: service -->",
                       "children": [],
                       "attrs": {}
                     }
@@ -2972,21 +2893,21 @@
         },
         {
           "name": "Documents",
-          "text": "\n<!-- Path: Applications/Application/Documents -->\n<!-- Type: Documents -->",
+          "text": "\n<!-- Path: Applications/Application/Documents -->\n <!-- Optional -->\n<!-- Type: Documents -->",
           "children": [
             {
               "name": "Document",
-              "text": "\n<!-- Path: Applications/Application/Documents/Document -->\n<!-- Type: Document -->",
+              "text": "\n<!-- Path: Applications/Application/Documents/Document -->\n <!-- Required -->\n<!-- Type: Document -->",
               "children": [
                 {
                   "name": "SignedBy",
-                  "text": "\n<!-- Path: Applications/Application/Documents/Document/SignedBy -->\n<!-- Type: SignedBy -->",
+                  "text": "\n<!-- Path: Applications/Application/Documents/Document/SignedBy -->\n <!-- Optional -->\n<!-- Type: SignedBy -->",
                   "children": [],
                   "attrs": {}
                 },
                 {
                   "name": "AttachedFile",
-                  "text": "\n<!-- Path: Applications/Application/Documents/Document/AttachedFile -->\n<!-- Description: Attached file representing the document. -->\n<!-- Type: AttachedFileType -->",
+                  "text": "\n<!-- Path: Applications/Application/Documents/Document/AttachedFile -->\n <!-- Optional -->\n<!-- Description: Attached file representing the document. -->\n<!-- Type: AttachedFileType -->",
                   "children": [],
                   "attrs": {
                     "file_name": "STRING",

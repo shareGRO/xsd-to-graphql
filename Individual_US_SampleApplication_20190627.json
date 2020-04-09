@@ -1,0 +1,693 @@
+{
+    "_declaration": {
+        "_attributes": {
+            "version": "1.0"
+        }
+    },
+    "Applications": {
+        "_attributes": {
+            "xmlns": "http://www.interactivebrokers.com/schemas/IBCust_import"
+        },
+        "Application": {
+            "Customer": {
+                "_attributes": {
+                    "email": "test@gmail.com",
+                    "external_id": "91523",
+                    "md_status_nonpro": "false",
+                    "prefix": "testt",
+                    "type": "INDIVIDUAL"
+                },
+                "AccountHolder": {
+                    "AccountHolderDetails": {
+                        "_attributes": {
+                            "external_id": "91523",
+                            "same_mail_address": "true"
+                        },
+                        "Name": {
+                            "_attributes": {
+                                "first": "John",
+                                "last": "Smith",
+                                "middle": "D",
+                                "salutation": "Mr.",
+                                "suffix": ""
+                            }
+                        },
+                        "DOB": {
+                            "_text": "1964-05-30"
+                        },
+                        "CountryOfBirth": {
+                            "_text": "United States"
+                        },
+                        "MaritalStatus": {
+                            "_text": "M"
+                        },
+                        "NumDependents": {
+                            "_text": "0"
+                        },
+                        "Residence": {
+                            "_attributes": {
+                                "city": "Testing",
+                                "country": "United States",
+                                "postal_code": "07514",
+                                "state": "NJ",
+                                "street_1": "1 Testers Drive"
+                            }
+                        },
+                        "Phones": {
+                            "Phone": {
+                                "_attributes": {
+                                    "type": "Mobile",
+                                    "number": "9142224565",
+                                    "country": "United States"
+                                }
+                            }
+                        },
+                        "Email": {
+                            "_attributes": {
+                                "email": "test@gmail.com"
+                            }
+                        },
+                        "Identification": {
+                            "_attributes": {
+                                "LegalResidenceCountry": "United States",
+                                "LegalResidenceState": "NJ",
+                                "SSN": "111223334",
+                                "citizenship": "United States"
+                            }
+                        },
+                        "EmploymentType": {
+                            "_text": "UNEMPLOYED"
+                        },
+                        "TaxResidencies": {
+                            "TaxResidency": {
+                                "_attributes": {
+                                    "TIN": "111223334",
+                                    "TINType": "SSN",
+                                    "country": "United States"
+                                }
+                            }
+                        },
+                        "W9": {
+                            "_attributes": {
+                                "cert1": "true",
+                                "cert2": "true",
+                                "cert3": "true",
+                                "customer_type": "Individual",
+                                "name": "John D Smith",
+                                "blank_form": "true",
+                                "proprietary_form_number": "5002",
+                                "tax_form_file": "Form5002.pdf",
+                                "tin": "111223334",
+                                "tin_type": "SSN"
+                            }
+                        },
+                        "Ownership": {
+                            "_attributes": {
+                                "percentage": "100"
+                            }
+                        },
+                        "Title": {
+                            "_attributes": {
+                                "code": "Account Holder"
+                            }
+                        }
+                    },
+                    "FinancialInformation": {
+                        "_attributes": {
+                            "annual_net_income": "50000",
+                            "liquid_net_worth": "50000",
+                            "net_worth": "75000"
+                        },
+                        "InvestmentExperience": {
+                            "AssetExperience": [
+                                {
+                                    "_attributes": {
+                                        "asset_class": "STK",
+                                        "knowledge_level": "Extensive",
+                                        "trades_per_year": "100",
+                                        "years_trading": "10"
+                                    }
+                                },
+                                {
+                                    "_attributes": {
+                                        "asset_class": "BOND",
+                                        "knowledge_level": "Good",
+                                        "trades_per_year": "100",
+                                        "years_trading": "10"
+                                    }
+                                },
+                                {
+                                    "_attributes": {
+                                        "asset_class": "OPT",
+                                        "knowledge_level": "Good",
+                                        "trades_per_year": "100",
+                                        "years_trading": "10"
+                                    }
+                                }
+                            ]
+                        },
+                        "SourcesOfWealth": {
+                            "SourceOfWealth": [
+                                {
+                                    "_attributes": {
+                                        "percentage": "50",
+                                        "description": "Allowance from Spouse",
+                                        "source_type": "SOW-IND-Allowance",
+                                        "is_used_for_funds": "true"
+                                    }
+                                },
+                                {
+                                    "_attributes": {
+                                        "description": "Windfall from sale of real-estate portfolio",
+                                        "source_type": "SOW-IND-Other",
+                                        "is_used_for_funds": "false"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "RegulatoryInformation": {
+                        "RegulatoryDetail": [
+                            {
+                                "_attributes": {
+                                    "code": "REGULATORYCONTROL",
+                                    "status": "false"
+                                }
+                            },
+                            {
+                                "_attributes": {
+                                    "code": "AFFILIATION",
+                                    "status": "false"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "Accounts": {
+                "Account": {
+                    "_attributes": {
+                        "base_currency": "USD",
+                        "external_id": "91523",
+                        "margin": "RegT",
+                        "multicurrency": "true"
+                    },
+                    "InvestmentObjectives": {
+                        "objective": [
+                            {
+                                "_text": "Growth"
+                            },
+                            {
+                                "_text": "Trading"
+                            },
+                            {
+                                "_text": "Hedging"
+                            }
+                        ]
+                    },
+                    "TradingPermissions": {
+                        "TradingPermission": [
+                            {
+                                "_attributes": {
+                                    "country": "UNITED STATES",
+                                    "product": "STOCKS"
+                                }
+                            },
+                            {
+                                "_attributes": {
+                                    "country": "UNITED STATES",
+                                    "product": "OPTIONS"
+                                }
+                            },
+                            {
+                                "_attributes": {
+                                    "country": "UNITED STATES",
+                                    "product": "MUTUAL FUNDS"
+                                }
+                            },
+                            {
+                                "_attributes": {
+                                    "country": "CANADA",
+                                    "product": "STOCKS"
+                                }
+                            },
+                            {
+                                "_attributes": {
+                                    "country": "MEXICO",
+                                    "product": "STOCKS"
+                                }
+                            }
+                        ]
+                    },
+                    "AdvisorWrapFees": {
+                        "_attributes": {
+                            "strategy": "AUTOMATED"
+                        },
+                        "automated_fees_details": {
+                            "_attributes": {
+                                "type": "PERCENTOFEQUITY_QUATERLY",
+                                "max_fee": "0.5",
+                                "num_contracts": "1"
+                            }
+                        }
+                    },
+                    "ExtPositionsTransfer": {
+                        "_attributes": {
+                            "type": "FULL",
+                            "sub_type": "ACATS",
+                            "broker_id": "0188",
+                            "short_pos": "false",
+                            "option_pos": "false",
+                            "broker_name": "TD Ameritrade",
+                            "ssn": "111223334",
+                            "acct_at_broker": "122556699",
+                            "margin_loan": "false",
+                            "signature": "John D Smith"
+                        }
+                    }
+                }
+            },
+            "Users": {
+                "User": {
+                    "_attributes": {
+                        "external_individual_id": "91523",
+                        "external_user_id": "91523",
+                        "prefix": "testt"
+                    }
+                }
+            },
+            "Documents": {
+                "Document": [
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "5002"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "77327",
+                                "file_name": "Form5002.pdf",
+                                "sha1_checksum": "06c49036c2eea742be9d3046f84a462d87f85b1c"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "1005"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "59162",
+                                "file_name": "Form1005.pdf",
+                                "sha1_checksum": "ef6628a8342b4d6abfc679034573a206c5cba658"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "2109"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "24536",
+                                "file_name": "Form2109.pdf",
+                                "sha1_checksum": "b759c413fd6305f09b2fb606ebd598f4dac35f37"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "2192"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "40953",
+                                "file_name": "Form2192.pdf",
+                                "sha1_checksum": "39ccf4784a367b32c8f86c567552ae06d50b453d"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3024"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "64062",
+                                "file_name": "Form3024.pdf",
+                                "sha1_checksum": "2f87a4c1b6315b4b577e7a2b5a4c20b8567ae2aa"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3044"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "44977",
+                                "file_name": "Form3044.pdf",
+                                "sha1_checksum": "20bf61f576d61c6cbf130d4e1a90a6cad1e9d1d1"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3070"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "17828",
+                                "file_name": "20170111_3070.pdf",
+                                "sha1_checksum": "a897fafa2c39373c29d41468f11319acf9c69a55"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3071"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "34312",
+                                "file_name": "Form3071.pdf",
+                                "sha1_checksum": "cf9375f16a64dd6f0e2a56c22837ed39bae5364c"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3074"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "19568",
+                                "file_name": "Form3074.pdf",
+                                "sha1_checksum": "98a5841da1a8024304ed145f5b9f45374b997063"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3077"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "1599425",
+                                "file_name": "Form3077.pdf",
+                                "sha1_checksum": "2c6a9704d55d39fe0064670188b50443099f81bd"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3094"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "49608",
+                                "file_name": "Form3094.pdf",
+                                "sha1_checksum": "daac406a876b32c723a52a20425a236a883f18a9"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3230"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "33631",
+                                "file_name": "Form3230.pdf",
+                                "sha1_checksum": "05881f1b8d796906e27d85de5bd2be1f9a429757"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "4009"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "38621",
+                                "file_name": "Form4009.pdf",
+                                "sha1_checksum": "523297208550dac51fa8d64e305101d3a4b6f087"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "4016"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "34985",
+                                "file_name": "Form4016.pdf",
+                                "sha1_checksum": "4e10a0951c548a76189ffd5076d2424536f21899"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "4035"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "10064",
+                                "file_name": "Form4035.pdf",
+                                "sha1_checksum": "7a74b29b767de0bed74d48a03182cc9e3d7360e4"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "4036"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "33575",
+                                "file_name": "Form4036.pdf",
+                                "sha1_checksum": "ad9ae4192cbdc85344f31af7d207378ff2065c8e"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "6105"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "43944",
+                                "file_name": "Form6105.pdf",
+                                "sha1_checksum": "c3ef2604025efe41da6c999b772ab779fb149fd8"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "6108"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "7537",
+                                "file_name": "Form6108.pdf",
+                                "sha1_checksum": "d127eaac33fc0070280f56e68eaf247f3c509ab5"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "9130"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "34425",
+                                "file_name": "Form9130.pdf",
+                                "sha1_checksum": "c70ac792aeae30c8f40dbe429c36667c67f02a33"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "9490"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "16245",
+                                "file_name": "Form9490.pdf",
+                                "sha1_checksum": "b241aa487be9a693bd8592033f1b801442828cad"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3007"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "63604",
+                                "file_name": "Form3007.pdf",
+                                "sha1_checksum": "afd8a701d1ec7a1041f71eb3fb8a304e50c259e5"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "3076"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "29549",
+                                "file_name": "Form3076.pdf",
+                                "sha1_checksum": "dbbfa37c3b215dae3886e7f24094a6c6b1791db5"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "4003"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "43787",
+                                "file_name": "Form4003.pdf",
+                                "sha1_checksum": "49bfb63954efd5f05d57fe2db58dc184ee856ebd"
+                            }
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "exec_login_ts": "20180316134800",
+                            "exec_ts": "20180316134800",
+                            "form_no": "5013"
+                        },
+                        "SignedBy": {
+                            "_text": "John D Smith"
+                        },
+                        "AttachedFile": {
+                            "_attributes": {
+                                "file_length": "106763",
+                                "file_name": "Form5013.pdf",
+                                "sha1_checksum": "550758fde259a72af2993aa6dac9e6db20342b61"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

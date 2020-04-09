@@ -2,83 +2,46 @@
 <Applications>
 		<Application master_account_id="4732914" input_language="en" has_translation="false" paper_account="false">
 <!-- Path: Applications/Application -->
+ <!-- Required -->
 <!-- Type: Application -->
 				<Customer external_id="3242" type="INDIVIDUAL" prefix="share" email="joe@gmail.com" md_status_nonpro="true" legal_residence_country="USA" meet_aml_standard="true" has_direct_trading_access="false" origin_country="USA" governing_state="TX" opt_for_debit_card="false" robo_fa_client="false" independent_account="false">
 <!-- Path: Applications/Application/Customer -->
+ <!-- Required -->
 <!-- Type: Customer -->
 						<AccountHolder>
 <!-- Path: Applications/Application/Customer/AccountHolder -->
+ <!-- Optional -->
 <!-- Description: Details of a customer of type INDIVIDUAL. -->
 <!-- Type: IndividualApplicant -->
 								<AccountHolderDetails AuthorizedPerson="true">
 <!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails -->
+ <!-- Required -->
 <!-- Type: AssociatedIndividual -->
 										<Ownership percentage="100">
 <!-- Path: Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership -->
+ <!-- Required -->
 <!-- Type: Ownership -->
 
 										</Ownership>
 
 								</AccountHolderDetails>
-								<FinancialInformation net_worth="100000" annual_net_income="NUMBER" total_assets="NUMBER" source_of_funds="STRING" is_translated="BOOLEAN">
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation -->
-<!-- Type: FinancialInformation -->
-										<InvestmentExperience>
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience -->
-<!-- Type: InvestmentExperience -->
-												<AssetExperience asset_class="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" years_trading="INTEGER" trades_per_year="INTEGER" knowledge_level="KnowledgeLevel_Type : Extensive|Good|Limited|None">
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentExperience/AssetExperience -->
-<!-- Type: AssetExperience -->
-
-												</AssetExperience>
-
-										</InvestmentExperience>
-										<InvestmentObjectives>
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives -->
-<!-- Description: Deprecated. Should be provided individually for each account being added for the customer using the InvestmentObjectives sub-element of an Account element. -->
-<!-- Type: InvestmentObjectivesType -->
-												<objective>
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/InvestmentObjectives/objective -->
-<!-- Type: InvestmentObjective_Type -->
-
-												</objective>
-
-										</InvestmentObjectives>
-										<AdditionalSourceOfIncome>
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome -->
-<!-- Type: AdditionalSourceOfIncomeType -->
-												<SourceOfIncome source_type="SourceOfFunds_Type : CONSULTING|DISABILITY|INHERITANCE|INTEREST|REALESTATE|RENTAL|SEVERANCE|SPOUSE|TRADINGANDINVESTMENTS|PENSIONANDSOCIALSECURITY|UNEMPLOYMENT|OTHER" percentage="INTEGER" description="STRING">
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/AdditionalSourceOfIncome/SourceOfIncome -->
-<!-- Type: SourceOfIncomeType -->
-
-												</SourceOfIncome>
-
-										</AdditionalSourceOfIncome>
-										<SourcesOfWealth>
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth -->
-<!-- Type: SourcesOfWealthType -->
-												<SourceOfWealth source_type="WealthSource_Type : SOW-IND-Allowance|SOW-IND-Disability|SOW-IND-Income|SOW-IND-Inheritance|SOW-IND-Interest|SOW-IND-MarketProfit|SOW-IND-Other|SOW-IND-Pension|SOW-IND-Property|SOW-ORG-Business|SOW-ORG-MarketTradingProfits|SOW-ORG-Other|SOW-ORG-OwnerEquity|SOW-ORG-Property|SOW-ORG-RetainedEarnings" percentage="INTEGER" is_used_for_funds="BOOLEAN" description="STRING">
-<!-- Path: Applications/Application/Customer/AccountHolder/FinancialInformation/SourcesOfWealth/SourceOfWealth -->
-<!-- Type: SourceOfWealthType -->
-
-												</SourceOfWealth>
-
-										</SourcesOfWealth>
-
-								</FinancialInformation>
 								<RegulatoryInformation is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation -->
+ <!-- Required -->
 <!-- Type: RegulatoryInformation -->
 										<SelfRegulatedMembership exchanges="STRING" organizations="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/SelfRegulatedMembership -->
+ <!-- Optional -->
 <!-- Type: SelfRegulatedMembershipType -->
 
 										</SelfRegulatedMembership>
 										<AffiliationDetails affiliation_relationship="STRING" person_name="STRING" company_id="INTEGER" company="STRING" company_phone="STRING" company_email_address="STRING" is_duplicate_stmt_required="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails -->
+ <!-- Optional -->
 <!-- Type: AffiliationDetailsType -->
 												<company_mailing_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/AffiliationDetails/company_mailing_address -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</company_mailing_address>
@@ -86,19 +49,23 @@
 										</AffiliationDetails>
 										<FinancialOrgType code="FinancialOrgCodeType : 2|3|5|21|22|23|25|31|33|34|35|36|37|38">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/FinancialOrgType -->
+ <!-- Optional -->
 <!-- Type: FinancialOrgType -->
 
 										</FinancialOrgType>
 										<ORGRegulatoryInfo is_public="BOOLEAN" is_regulated="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo -->
+ <!-- Optional -->
 <!-- Type: ORGRegulatoryInfoType -->
 												<PublicCompanyInfo ExchangeTradedOn="STRING" QuotedSymbol="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/PublicCompanyInfo -->
+ <!-- Optional -->
 <!-- Type: PublicCompanyInfoType -->
 
 												</PublicCompanyInfo>
 												<ORGRegulator RegulatorName="STRING" RegulatorCountry="STRING" RegulatedInCapacity="STRING" RegulatorId="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatoryInformation/ORGRegulatoryInfo/ORGRegulator -->
+ <!-- Optional -->
 <!-- Type: ORGRegulatorType -->
 
 												</ORGRegulator>
@@ -108,11 +75,13 @@
 								</RegulatoryInformation>
 								<RegulatedMemberships>
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships -->
+ <!-- Optional -->
 <!-- Description: Only supported for FT loads. -->
 <!-- Type: RegulatedMemberships -->
 <!-- Type Description: Only supported for FT loads. -->
 										<RegulatedMembership organization_code="STRING" membership_id="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/RegulatedMemberships/RegulatedMembership -->
+ <!-- Required -->
 <!-- Type: RegulatedMembership -->
 
 										</RegulatedMembership>
@@ -120,31 +89,37 @@
 								</RegulatedMemberships>
 								<AccreditedInvestorInformation q1="BOOLEAN" q2="BOOLEAN" q3="BOOLEAN" q4="BOOLEAN" q5="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/AccreditedInvestorInformation -->
+ <!-- Optional -->
 <!-- Type: AccreditedInvestorInformation -->
 
 								</AccreditedInvestorInformation>
 								<TaxInformation>
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation -->
+ <!-- Optional -->
 <!-- Description: Tax information required for individuals. This element is being deprecated, we suggest to use FATCA elements. -->
 <!-- Type: IndividualTaxInformation -->
 										<W9 name="STRING" business_name="STRING" customer_type="Individual" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 										</W9>
 										<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 										</W8Ben>
 										<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 												<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 												</ControllingPerson>
@@ -152,15 +127,18 @@
 										</CRS>
 										<W8BenE name="STRING" disregarded_entity_name="STRING" entity_type="W8BENE_Box4_Type : CORPORATION|DISREGARDED_ENTITY|PARTNERSHIP|SIMPLE_TRUST|GRANTOR_TRUST|COMPLEX_TRUST|ESTATE|GOVERNMENT|CENTRAL_BANK_OF_ISSUE|TAX_EXEMPT_ORGANIZATION|PRIVATE_FOUNDATION" fatca_status="W8BENE_Box5_Type : NONPARTICIPATING_FFI|PARICIPATING_FFI|REPORTING_MODEL_1_FFI|REPORTING_MODEL_2_FFI|REGISTERED_DEEMED_COMPLIANT_FFI|SPONSORED_FFI|CERTIFIED_DEEMED_COMPLIANT_NONREGISTERING_LOCAL_BANK|CERTIFIED_DEEMED_COMPLIANT_FFI|CERTIFIED_DEEMED_COMPLIANT_SPONSORED_VEHICLE|CERTIFIED_DEEMED_COMPLIANT_LIMITED_LIFE_DEBT|CERTIFIED_DEEMED_COMPLIANT_INVESTMENT_ADVISORS|OWNER_DOCUMENTED_FFI|RESTRICTED_DISTRIBUTOR|NONREPORTING_IGA_FFI|FOREIGN_GOVERNMENT|INTERNATIONAL_ORGANIZATION|EXEMPT_RETIREMENT_PLANS|ENTITY_OWNED_BY_EXEMPT_BENEFICIAL_OWNERS|TERRITORY_FINANCIAL_INSTITUTION|NONFINANCIAL_GROUP|EXCEPTED_NONFINANCIAL_STARTUP|EXCEPTED_NONFINANCIAL_ENTITY|AN_501_C_ORGANIZATION|NONPROFIT_ORGANIZATION|PUBLICLY_TRADED_NFFE|EXCEPTED_TERRITORY_NFFE|ACTIVE_NFFE|PASSIVE_NFFE|EXCEPTED_INTER_AFFILIATE_FFI|DIRECT_REPORTING_NFFE|SPONSORED_DIRECT_REPORTING_NFFE" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" us_tin="STRING" giin="STRING" foreign_tin="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" box_11_status="W8BENE_Box11_Type : LIMITED_BRANCH|US_BRANCH|PARTICIPATING_FFI|REPORTING_MODEL_1_FFI|REPORTING_MODEL_2_FFI" part_3_14a="BOOLEAN" part_3_14a_country="STRING" part_3_14b="BOOLEAN" part_3_14c="BOOLEAN" part_3_15_article="STRING" part_3_15_wh_rate="STRING" part_3_15_income_type="STRING" part_3_15_reasons="STRING" part_4_16="STRING" part_4_17_i="BOOLEAN" part_4_17_ii="BOOLEAN" part_5_18="BOOLEAN" part_6_19="BOOLEAN" part_7_20="STRING" part_7_21="BOOLEAN" part_8_22="BOOLEAN" part_9_23="BOOLEAN" part_10_24a="BOOLEAN" part_10_24b="BOOLEAN" part_10_24c="BOOLEAN" part_10_24d="BOOLEAN" part_11_25a="BOOLEAN" part_11_25b="BOOLEAN" part_11_25c="BOOLEAN" part_12_26="BOOLEAN" part_12_26_desc1="STRING" part_12_26_desc2="STRING" part_12_26_desc3="STRING" part_13_27="BOOLEAN" part_14_28a="BOOLEAN" part_14_28b="BOOLEAN" part_15_29a="BOOLEAN" part_15_29b="BOOLEAN" part_15_29c="BOOLEAN" part_15_29d="BOOLEAN" part_15_29e="BOOLEAN" part_15_29f="BOOLEAN" part_16_30="BOOLEAN" part_17_31="BOOLEAN" part_18_32="BOOLEAN" part_19_33="BOOLEAN" part_20_34="BOOLEAN" part_21_35="BOOLEAN" part_21_35_date="STRING" part_22_36="BOOLEAN" part_23_37a="BOOLEAN" part_23_37a_desc="STRING" part_23_37b="BOOLEAN" part_23_37b_desc1="STRING" part_23_37b_desc2="STRING" part_24_38="BOOLEAN" part_25_39="BOOLEAN" part_26_40a="BOOLEAN" part_26_40b="BOOLEAN" part_26_40c="BOOLEAN" part_27_41="BOOLEAN" part_28_42="STRING" part_28_43="BOOLEAN" cert="BOOLEAN">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US entity. -->
 <!-- Type: FormW8BENE -->
 												<SubstantialUsOwners>
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners -->
+ <!-- Optional -->
 <!-- Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->
 <!-- Type: SubstantialUsOwners -->
 <!-- Type Description: Zero, one or more substantial U.S. Owners of Passive NFFEs (see Part XXX) -->
 														<SubstantialUsOwner external_id="STRING">
 <!-- Path: Applications/Application/Customer/AccountHolder/TaxInformation/W8BenE/SubstantialUsOwners/SubstantialUsOwner -->
+ <!-- Optional -->
 <!-- Type: SubstantialUsOwner -->
 
 														</SubstantialUsOwner>
@@ -172,6 +150,7 @@
 								</TaxInformation>
 								<WithholdingStatement acct_id="STRING" fatca_compliant_type="FatcaCompliantEnum : FATCA_COMPLIANT|NON_CONSENTING_US_ACCOUNT|NON_COOPERATIVE_ACCOUNT" us_backup_withholding="BOOLEAN" treaty_country="STRING" is_corporation="BOOLEAN" is_flow_through="BOOLEAN" effective_date="STRING" dividend_rate="NUMBER" interest_rate="NUMBER" us_other_rate="NUMBER" eci_rate="NUMBER">
 <!-- Path: Applications/Application/Customer/AccountHolder/WithholdingStatement -->
+ <!-- Optional -->
 <!-- Description: Withholding statement for the acct, to be used by QI Brokers. -->
 <!-- Type: WithholdingStatementType -->
 
@@ -182,16 +161,20 @@
 				</Customer>
 				<Accounts>
 <!-- Path: Applications/Application/Accounts -->
+ <!-- Required -->
 <!-- Type: Accounts -->
 						<Account id="STRING" external_id="STRING" base_currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" multicurrency="BOOLEAN" margin="Margin_Type : RegT|Margin|PortfolioMargin|GPMargin|Cash|REGT|MARGIN|PORTFOLIOMARGIN|GPMARGIN|CASH" IRA="BOOLEAN" IRA_type="IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH" IRA_official_title="STRING" client_active_trading="BOOLEAN" duplicate="BOOLEAN" no_of_duplicates="INTEGER" stock_yield_program="BOOLEAN" alias="STRING">
 <!-- Path: Applications/Application/Accounts/Account -->
+ <!-- Required -->
 <!-- Type: Account -->
 								<InvestmentObjectives>
 <!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives -->
+ <!-- Optional -->
 <!-- Description: Required for non-FT loads. -->
 <!-- Type: InvestmentObjectivesType -->
 										<objective>
 <!-- Path: Applications/Application/Accounts/Account/InvestmentObjectives/objective -->
+ <!-- Required -->
 <!-- Type: InvestmentObjective_Type -->
 
 										</objective>
@@ -199,9 +182,11 @@
 								</InvestmentObjectives>
 								<BrokerageServices>
 <!-- Path: Applications/Application/Accounts/Account/BrokerageServices -->
+ <!-- Optional -->
 <!-- Type: BrokerageServices -->
 										<BrokerageService code="BrokerageService_Type : IBClearing|IBExecution|IBPrime">
 <!-- Path: Applications/Application/Accounts/Account/BrokerageServices/BrokerageService -->
+ <!-- Required -->
 <!-- Type: BrokerageService -->
 
 										</BrokerageService>
@@ -209,11 +194,13 @@
 								</BrokerageServices>
 								<Capabilities>
 <!-- Path: Applications/Application/Accounts/Account/Capabilities -->
+ <!-- Optional -->
 <!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->
 <!-- Type: Capabilities -->
 <!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts capabilities are derived from trading access requested. -->
 										<Capability code="Capability_Type : BOND|FOP|FUND|FUT|MRGN|MULT|OPT|SSF|CFD|STK">
 <!-- Path: Applications/Application/Accounts/Account/Capabilities/Capability -->
+ <!-- Required -->
 <!-- Type: Capability -->
 
 										</Capability>
@@ -221,11 +208,13 @@
 								</Capabilities>
 								<TradingPermissions>
 <!-- Path: Applications/Application/Accounts/Account/TradingPermissions -->
+ <!-- Optional -->
 <!-- Description: Required for non-FT loads. -->
 <!-- Type: TradingPermissions -->
 <!-- Type Description: Required for non-FT loads. -->
 										<TradingPermission asset_class="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" exchange_group="STRING" country="Country_Type : AUSTRALIA|AUSTRIA|BELGIUM|CANADA|FRANCE|GERMANY|HONG KONG|ITALY|JAPAN|KOREA|MEXICO|NORWAY|SINGAPORE|SPAIN|SWEDEN|SWITZERLAND|THE NETHERLANDS|UNITED KINGDOM|UNITED STATES|HK-CHINA" product="Product_Type : BONDS|FUTURES|FOREX|FUTURES OPTIONS|MUTUAL FUNDS|STOCKS|SINGLE STOCK FUTURES|OPTIONS|STOCK OPTIONS">
 <!-- Path: Applications/Application/Accounts/Account/TradingPermissions/TradingPermission -->
+ <!-- Required -->
 <!-- Type: TradingPermission -->
 
 										</TradingPermission>
@@ -233,11 +222,13 @@
 								</TradingPermissions>
 								<CommissionConfigs>
 <!-- Path: Applications/Application/Accounts/Account/CommissionConfigs -->
+ <!-- Optional -->
 <!-- Description: Required to configure commission structure -->
 <!-- Type: CommissionConfigs -->
 <!-- Type Description: Required to configure commission structure -->
 										<CommissionConfig style="CommissionStyle : Bundled|Unbundled" type="CommissionType : Commodities|Securities">
 <!-- Path: Applications/Application/Accounts/Account/CommissionConfigs/CommissionConfig -->
+ <!-- Required -->
 <!-- Type: CommissionConfig -->
 
 										</CommissionConfig>
@@ -245,11 +236,13 @@
 								</CommissionConfigs>
 								<AllExchangeAccess>
 <!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess -->
+ <!-- Optional -->
 <!-- Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->
 <!-- Type: AllExchangeAccess -->
 <!-- Type Description: Only supported for FT loads, ignored for retail accounts. For retail accounts exchange access is set based on qualified trading access. -->
 										<ExchangeAccess asset_class="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" exchange="ExchangeCode_Type : NYSE|AMEX|NASDAQ|CBOE|ISE|BOX|PHLX|PSE">
 <!-- Path: Applications/Application/Accounts/Account/AllExchangeAccess/ExchangeAccess -->
+ <!-- Required -->
 <!-- Type: ExchangeAccess -->
 
 										</ExchangeAccess>
@@ -257,11 +250,13 @@
 								</AllExchangeAccess>
 								<DVPInstructions>
 <!-- Path: Applications/Application/Accounts/Account/DVPInstructions -->
+ <!-- Optional -->
 <!-- Description: Only supported for FT loads. -->
 <!-- Type: DVPInstructions -->
 <!-- Type Description: Only supported for FT loads. -->
 										<DVPInstruction id="STRING" external_id="STRING" ExternalAcctID="STRING" AcctID="STRING" Name="STRING" Type="DVP_Type : DTCID|NSCC|CMTA|GUS|OCCSSF" Role="DVPRole_Type : E|C|B" AgentID="STRING" FirmID="STRING" AccountID="STRING" AgentName="STRING" AccountName="STRING" DayDoID="STRING" TXGroupCode="TXGroupCode_Type : G|Z|R|N" BrokerCode="STRING" AssetClass="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" Exchange="ExchangeCode_Type : NYSE|AMEX|NASDAQ|CBOE|ISE|BOX|PHLX|PSE" PrepayTax="BOOLEAN" PrepayCommission="BOOLEAN" Default="BOOLEAN" Expiry="STRING">
 <!-- Path: Applications/Application/Accounts/Account/DVPInstructions/DVPInstruction -->
+ <!-- Required -->
 <!-- Type: DVPInstruction -->
 
 										</DVPInstruction>
@@ -269,26 +264,31 @@
 								</DVPInstructions>
 								<TradingLimits>
 <!-- Path: Applications/Application/Accounts/Account/TradingLimits -->
+ <!-- Optional -->
 <!-- Description: Only supported for FT loads. -->
 <!-- Type: TradingLimits -->
 <!-- Type Description: Only supported for FT loads. -->
 										<OrderValueLimits max_order_value="NUMBER" max_gross_value="NUMBER" max_net_value="NUMBER" net_contract_limit="NUMBER">
 <!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderValueLimits -->
+ <!-- Required -->
 <!-- Type: OrderValueLimits -->
 
 										</OrderValueLimits>
 										<EFPQuantityLimits max_nominal_efp_per_order="INTEGER" max_net_efp_trades="INTEGER" max_gross_efp_trades="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/TradingLimits/EFPQuantityLimits -->
+ <!-- Required -->
 <!-- Type: EFPQuantityLimits -->
 
 										</EFPQuantityLimits>
 										<OrderQuantityLimit asset="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" quantity="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/TradingLimits/OrderQuantityLimit -->
+ <!-- Required -->
 <!-- Type: OrderQuantityLimit -->
 
 										</OrderQuantityLimit>
 										<DayQuantityLimit asset="AssetClass_Type : BILL|BOND|CASH|CFD|COMB|FOP|FUND|FUT|OPT|SSF|STK|WAR" quantity="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/TradingLimits/DayQuantityLimit -->
+ <!-- Required -->
 <!-- Type: DayQuantityLimit -->
 
 										</DayQuantityLimit>
@@ -296,20 +296,25 @@
 								</TradingLimits>
 								<AdvisorWrapFees strategy="AdvisorWrapFeeStrategies_Type : AUTOMATED|DIRECTBILLING|NO_FEES" ChargeAdvisor="BOOLEAN" ChargeOtherFeesToAdvisor="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees -->
+ <!-- Optional -->
 <!-- Description: Required for advisor client accounts. Alternatively, it is possible to set fees based on templates created on Account Management. -->
 <!-- Type: AdvisorWrapFeesType -->
 										<automated_fees_details type="AutomatedWrapFees_Type : ANNUALFLATFEE|ANNUALFLATFEE_MONTHLY|ANNUALFLATFEE_QUATERLY|PERCENTOFEQUITY|PERCENTOFEQUITY_MONTHLY|PERCENTOFEQUITY_QUATERLY|PERCENTOFEQUITY_QUARTERLY|PERCENTOFPROFIT|PERCENTOFPROFIT_QUARTER|INVOICE_LIMIT|INVOICE_LIMIT_Q|PERTRADE" max_fee="NUMBER" num_contracts="INTEGER" PostFrequency="STRING" PercentOfNLVCap="STRING" PercentOfNLVCap_Q="STRING">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details -->
+ <!-- Optional -->
 <!-- Type: AutomatedWrapFeeDetailsType -->
 												<per_trade_markups pricing_structure="PricingStructureType : FIXED|TIERED">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups -->
+ <!-- Optional -->
 <!-- Description: Required if the Automated Wrap Fee type is PERTRADE. -->
 <!-- Type: CommissionScheduleType -->
 														<markup code="STRING" minimum="NUMBER" maximum="NUMBER" type="CommissionMarkups_Type : FA|FM|PM" amount="NUMBER" plus_cost="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup -->
+ <!-- Required -->
 <!-- Type: CommissionMarkupType -->
 																<stair break="NUMBER" amount="NUMBER">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/per_trade_markups/markup/stair -->
+ <!-- Optional -->
 <!-- Type: MarkupStaircaseType -->
 
 																</stair>
@@ -319,6 +324,7 @@
 												</per_trade_markups>
 												<annual_blended_percentage BlendedFrom="STRING" BlendedTo="STRING" Percentage="STRING">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/automated_fees_details/annual_blended_percentage -->
+ <!-- Optional -->
 <!-- Type: AnnualBlendedPercentage -->
 
 												</annual_blended_percentage>
@@ -326,15 +332,18 @@
 										</automated_fees_details>
 										<highWaterMarkConfigHwma>
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma -->
+ <!-- Optional -->
 <!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT. -->
 <!-- Type: HighWaterMarkType -->
 												<hwm NumberOfPeriods="INTEGER" ProrateForWithdrawals="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/hwm -->
+ <!-- Required -->
 <!-- Type: HighWaterMarkConfigurationType -->
 
 												</hwm>
 												<previousLosses loss="INTEGER" quarter="INTEGER" year="INTEGER" currency="STRING">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwma/previousLosses -->
+ <!-- Optional -->
 <!-- Type: PreviousLossesType -->
 
 												</previousLosses>
@@ -342,15 +351,18 @@
 										</highWaterMarkConfigHwma>
 										<highWaterMarkConfigHwmq>
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq -->
+ <!-- Optional -->
 <!-- Description: Required if High Water Mark is set for PERCENTOFPROFIT_QUARTER. -->
 <!-- Type: HighWaterMarkType -->
 												<hwm NumberOfPeriods="INTEGER" ProrateForWithdrawals="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/hwm -->
+ <!-- Required -->
 <!-- Type: HighWaterMarkConfigurationType -->
 
 												</hwm>
 												<previousLosses loss="INTEGER" quarter="INTEGER" year="INTEGER" currency="STRING">
 <!-- Path: Applications/Application/Accounts/Account/AdvisorWrapFees/highWaterMarkConfigHwmq/previousLosses -->
+ <!-- Optional -->
 <!-- Type: PreviousLossesType -->
 
 												</previousLosses>
@@ -360,19 +372,23 @@
 								</AdvisorWrapFees>
 								<Fees template_name="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Fees -->
+ <!-- Optional -->
 <!-- Description: Fees are set based on a template created on Account Management. Advisors should inform the fees to be payed by the client account; for brokers it is optional. -->
 <!-- Type: FeesTemplateBasedType -->
 
 								</Fees>
 								<ClientCommissionSchedule pricing_structure="PricingStructureType : FIXED|TIERED">
 <!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule -->
+ <!-- Optional -->
 <!-- Description: Valid only for Broker clients, ignored for all others. -->
 <!-- Type: CommissionScheduleType -->
 										<markup code="STRING" minimum="NUMBER" maximum="NUMBER" type="CommissionMarkups_Type : FA|FM|PM" amount="NUMBER" plus_cost="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup -->
+ <!-- Required -->
 <!-- Type: CommissionMarkupType -->
 												<stair break="NUMBER" amount="NUMBER">
 <!-- Path: Applications/Application/Accounts/Account/ClientCommissionSchedule/markup/stair -->
+ <!-- Optional -->
 <!-- Type: MarkupStaircaseType -->
 
 												</stair>
@@ -382,10 +398,12 @@
 								</ClientCommissionSchedule>
 								<ClientInterestMarkupSchedule>
 <!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule -->
+ <!-- Optional -->
 <!-- Description: Valid only for Broker clients, ignored for all others. -->
 <!-- Type: InterestMarkupScheduleType -->
 										<markup currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" debit_markup="NUMBER" ib_debit_markup="NUMBER" credit_markdown="NUMBER" short_credit_markdown="NUMBER" short_cfd_credit_markdown="NUMBER" long_cfd_debit_markdown="NUMBER" short_index_cfd_credit_markdown="NUMBER" long_index_cfd_debit_markdown="NUMBER">
 <!-- Path: Applications/Application/Accounts/Account/ClientInterestMarkupSchedule/markup -->
+ <!-- Required -->
 <!-- Type: InterestMarkupType -->
 
 										</markup>
@@ -393,25 +411,30 @@
 								</ClientInterestMarkupSchedule>
 								<Decendent>
 <!-- Path: Applications/Application/Accounts/Account/Decendent -->
+ <!-- Optional -->
 <!-- Description: Details of the deceased from whom the IRA account was inherited. Required for inherited IRA accounts. -->
 <!-- Type: IRADecedent -->
 										<DateOfDeath>
 <!-- Path: Applications/Application/Accounts/Account/Decendent/DateOfDeath -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 										</DateOfDeath>
 										<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
 <!-- Path: Applications/Application/Accounts/Account/Decendent/Title -->
+ <!-- Required -->
 <!-- Type: Title -->
 
 										</Title>
 										<InheritorType>
 <!-- Path: Applications/Application/Accounts/Account/Decendent/InheritorType -->
+ <!-- Required -->
 <!-- Type: InheritedIRABeneficiary_Type -->
 
 										</InheritorType>
 										<Relationship>
 <!-- Path: Applications/Application/Accounts/Account/Decendent/Relationship -->
+ <!-- Required -->
 <!-- Type: InheritedIRABeneficiaryRelation_Type -->
 
 										</Relationship>
@@ -419,23 +442,28 @@
 								</Decendent>
 								<IRABeneficiaries spouse_primary_beneficary="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries -->
+ <!-- Optional -->
 <!-- Description: List of beneficiaries for an IRA Account. Required for IRA accounts. -->
 <!-- Type: IRABeneficiariesType -->
 										<PrimaryBeneficiary>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary -->
+ <!-- Optional -->
 <!-- Type: IRAPrimaryBeneficiary -->
 												<Ownership percentage="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Ownership -->
+ <!-- Required -->
 <!-- Type: Ownership -->
 
 												</Ownership>
 												<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Title -->
+ <!-- Optional -->
 <!-- Type: Title -->
 
 												</Title>
 												<Relationship>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiary/Relationship -->
+ <!-- Required -->
 <!-- Type: IRABeneficiaryRelation_Type -->
 
 												</Relationship>
@@ -443,62 +471,75 @@
 										</PrimaryBeneficiary>
 										<PrimaryBeneficiaryEntity ExecutionDate="STRING" ArticleOfWill="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity -->
+ <!-- Optional -->
 <!-- Type: IRAPrimaryBeneficiaryEntity -->
 												<Ownership percentage="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Ownership -->
+ <!-- Required -->
 <!-- Type: Ownership -->
 
 												</Ownership>
 												<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Title -->
+ <!-- Optional -->
 <!-- Type: Title -->
 
 												</Title>
 												<Relationship>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Relationship -->
+ <!-- Required -->
 <!-- Type: IRABeneficiaryRelation_Type -->
 
 												</Relationship>
 												<Executor CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor -->
+ <!-- Optional -->
 <!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->
 <!-- Type: Individual -->
 														<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 														</Name>
 														<DOB>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 														</DOB>
 														<Gender>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 														</Gender>
 														<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 														</MaritalStatus>
 														<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 														</Residence>
 														<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 														</MailingAddress>
 														<Phones>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 																<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 																</Phone>
@@ -506,26 +547,31 @@
 														</Phones>
 														<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 														</Email>
 														<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 														</Identification>
 														<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 														</EmploymentType>
 														<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 																<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 																</employer_address>
@@ -533,11 +579,13 @@
 														</EmploymentDetails>
 														<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 																<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 																</TaxResidency>
@@ -545,22 +593,26 @@
 														</TaxResidencies>
 														<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 														</W9>
 														<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 														</W8Ben>
 														<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 																<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/PrimaryBeneficiaryEntity/Executor/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 																</ControllingPerson>
@@ -572,19 +624,23 @@
 										</PrimaryBeneficiaryEntity>
 										<ContingentBeneficiary>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary -->
+ <!-- Optional -->
 <!-- Type: IRAContingentBeneficiary -->
 												<Ownership percentage="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Ownership -->
+ <!-- Required -->
 <!-- Type: Ownership -->
 
 												</Ownership>
 												<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Title -->
+ <!-- Optional -->
 <!-- Type: Title -->
 
 												</Title>
 												<Relationship>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiary/Relationship -->
+ <!-- Required -->
 <!-- Type: IRABeneficiaryRelation_Type -->
 
 												</Relationship>
@@ -592,62 +648,75 @@
 										</ContingentBeneficiary>
 										<ContingentBeneficiaryEntity ExecutionDate="STRING" ArticleOfWill="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity -->
+ <!-- Optional -->
 <!-- Type: IRAContingentBeneficiaryEntity -->
 												<Ownership percentage="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Ownership -->
+ <!-- Required -->
 <!-- Type: Ownership -->
 
 												</Ownership>
 												<Title code="Association_Type : Account Holder|FIRST HOLDER|SECOND HOLDER|TRADER|CEO|SECRETARY|TREASURER|OWNER|PRINCIPAL|SHAREHOLDER|TRUSTEE|BENEFICIARY|GRANTOR|Employee|CONTINGENT|IRA_BENEFICIARY|IRA DECEDENT|COMP_OFFICER|Other Officer|Controlling Officer|SIGNATORY|NON-EMPLOYEE|CUSTODIAN|SUCCESSOR_CUSTODIAN|DIRECTOR|PARTNER|CUSTODIAN EMPLOYEE">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Title -->
+ <!-- Optional -->
 <!-- Type: Title -->
 
 												</Title>
 												<Relationship>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Relationship -->
+ <!-- Required -->
 <!-- Type: IRABeneficiaryRelation_Type -->
 
 												</Relationship>
 												<Executor CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor -->
+ <!-- Optional -->
 <!-- Description: Details of the Trustee/Executor where the beneficiary is a Trust. Only considered if the beneficiary specified is a Trust, then too, optional. Only the name is required, address may optionally be provided. -->
 <!-- Type: Individual -->
 														<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 														</Name>
 														<DOB>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 														</DOB>
 														<Gender>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 														</Gender>
 														<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 														</MaritalStatus>
 														<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 														</Residence>
 														<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 														</MailingAddress>
 														<Phones>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 																<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 																</Phone>
@@ -655,26 +724,31 @@
 														</Phones>
 														<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 														</Email>
 														<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 														</Identification>
 														<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 														</EmploymentType>
 														<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 																<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 																</employer_address>
@@ -682,11 +756,13 @@
 														</EmploymentDetails>
 														<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 																<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 																</TaxResidency>
@@ -694,22 +770,26 @@
 														</TaxResidencies>
 														<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 														</W9>
 														<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 														</W8Ben>
 														<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 																<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/IRABeneficiaries/ContingentBeneficiaryEntity/Executor/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 																</ControllingPerson>
@@ -723,12 +803,15 @@
 								</IRABeneficiaries>
 								<ExtPositionsTransfer type="PositionsTransfer_Type : FULL|PARTIAL" sub_type="PositionsTransfer_SubType : ACATS|ATON" broker_id="STRING" broker_name="STRING" acct_at_broker="STRING" src_IRA_type="IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH" margin_loan="BOOLEAN" short_pos="BOOLEAN" option_pos="BOOLEAN" ib_acct="STRING" third_party_type="STRING" approximate_acct_value="INTEGER" ssn="STRING" ein="STRING" signature="STRING" authorize_to_remove_fund="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer -->
+ <!-- Optional -->
 <!-- Type: ExtPositionsTransferType -->
 										<PartialStockPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions -->
+ <!-- Optional -->
 <!-- Type: PartialStockPositions -->
 												<PartialStockPosition symbol="STRING" number_of_shares="INTEGER" is_all="BOOLEAN" position="PositionType : LONG|SHORT" exchange="STRING">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialStockPositions/PartialStockPosition -->
+ <!-- Optional -->
 <!-- Type: PartialStockPosition -->
 
 												</PartialStockPosition>
@@ -736,9 +819,11 @@
 										</PartialStockPositions>
 										<PartialBondPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions -->
+ <!-- Optional -->
 <!-- Type: PartialBondPositions -->
 												<PartialBondPosition cusip_number="STRING" number_of_bonds="INTEGER" is_all="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialBondPositions/PartialBondPosition -->
+ <!-- Optional -->
 <!-- Type: PartialBondPosition -->
 
 												</PartialBondPosition>
@@ -746,9 +831,11 @@
 										</PartialBondPositions>
 										<PartialOptionPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions -->
+ <!-- Optional -->
 <!-- Type: PartialOptionPositions -->
 												<PartialOptionPosition symbol="STRING" number_of_contracts="INTEGER" is_all="BOOLEAN" position="PositionType : LONG|SHORT" option_type="OptionType : CALL|PUT" strike_price="INTEGER" expiration_date="STRING">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialOptionPositions/PartialOptionPosition -->
+ <!-- Optional -->
 <!-- Type: PartialOptionPosition -->
 
 												</PartialOptionPosition>
@@ -756,9 +843,11 @@
 										</PartialOptionPositions>
 										<PartialWarrantPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions -->
+ <!-- Optional -->
 <!-- Type: PartialWarrantPositions -->
 												<PartialWarrantPosition symbol="STRING" number_of_shares="INTEGER" is_all="BOOLEAN" position="PositionType : LONG|SHORT" option_type="OptionType : CALL|PUT" strike_price="INTEGER" expiration_date="STRING">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialWarrantPositions/PartialWarrantPosition -->
+ <!-- Optional -->
 <!-- Type: PartialWarrantPosition -->
 
 												</PartialWarrantPosition>
@@ -766,9 +855,11 @@
 										</PartialWarrantPositions>
 										<PartialFundPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions -->
+ <!-- Optional -->
 <!-- Type: PartialFundPositions -->
 												<PartialFundPosition symbol="STRING" number_of_shares="INTEGER" is_all="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialFundPositions/PartialFundPosition -->
+ <!-- Optional -->
 <!-- Type: PartialFundPosition -->
 
 												</PartialFundPosition>
@@ -776,9 +867,11 @@
 										</PartialFundPositions>
 										<PartialCashPositions>
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions -->
+ <!-- Optional -->
 <!-- Type: PartialCashPositions -->
 												<PartialCashPosition amount="NUMBER" is_margin_loan="BOOLEAN" is_full_cash="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/ExtPositionsTransfer/PartialCashPositions/PartialCashPosition -->
+ <!-- Optional -->
 <!-- Type: PartialCashPosition -->
 
 												</PartialCashPosition>
@@ -788,24 +881,29 @@
 								</ExtPositionsTransfer>
 								<DepositNotification type="Deposit_Type : CHECK|WIRE|ACH|SKIP_DEPOSIT" amount="NUMBER" currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" ib_acct="STRING">
 <!-- Path: Applications/Application/Accounts/Account/DepositNotification -->
+ <!-- Optional -->
 <!-- Type: DepositNotificationType -->
 										<CheckDetails check_number="STRING" routing_number="STRING" acct_number="STRING">
 <!-- Path: Applications/Application/Accounts/Account/DepositNotification/CheckDetails -->
+ <!-- Optional -->
 <!-- Type: CheckDetailsType -->
 
 										</CheckDetails>
 										<WireDetails bank_name="STRING" country_code="STRING" reference_number="STRING">
 <!-- Path: Applications/Application/Accounts/Account/DepositNotification/WireDetails -->
+ <!-- Optional -->
 <!-- Type: WireDetailsType -->
 
 										</WireDetails>
 										<ACHDetails cust_init_ACH="BOOLEAN" bank_name="STRING">
 <!-- Path: Applications/Application/Accounts/Account/DepositNotification/ACHDetails -->
+ <!-- Optional -->
 <!-- Type: ACHDetailsType -->
 
 										</ACHDetails>
 										<IRADepositDetails deposit_type="IRADeposit_Type : contribution|rollover" tax_year="IRAContribTaxYear_Type : current|prior" from_ira_type="IRA_Type : RI|RO|RT|SP|ED|TH|RH|SH">
 <!-- Path: Applications/Application/Accounts/Account/DepositNotification/IRADepositDetails -->
+ <!-- Optional -->
 <!-- Type: IRADepositDetailsType -->
 
 										</IRADepositDetails>
@@ -813,19 +911,23 @@
 								</DepositNotification>
 								<ACHInstruction cust_init_ACH="BOOLEAN" type="ACHInstructionTx_Type : CREDIT|DEBIT|BOTH" name="STRING" ib_acct="STRING" bank_country="CountryCode_Type" currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" routing_number="STRING" acct_number="STRING">
 <!-- Path: Applications/Application/Accounts/Account/ACHInstruction -->
+ <!-- Optional -->
 <!-- Type: ACHInstructionType -->
 
 								</ACHInstruction>
 								<RecurringTransaction type="RecurringTx_Type : DEPOSIT|WITHDRAWAL" method="Deposit_Type : CHECK|WIRE|ACH|SKIP_DEPOSIT" instruction="STRING" frequency="RecurringTxFreq_Type : MONTHLY|QUARTERLY|YEARLY" start_date="STRING" end_date="STRING" name="STRING" amount="NUMBER" currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" ib_acct="STRING">
 <!-- Path: Applications/Application/Accounts/Account/RecurringTransaction -->
+ <!-- Optional -->
 <!-- Type: RecurringTransactionType -->
 										<ACHInstruction cust_init_ACH="BOOLEAN" type="ACHInstructionTx_Type : CREDIT|DEBIT|BOTH" name="STRING" ib_acct="STRING" bank_country="CountryCode_Type" currency="Currency_Type : USD|EUR|GBP|CAD|JPY|HKD|AUD|CHF|MXN|SEK|NZD|HUF|CZK|CNH|DKK|RUB|ILS|NOK|SGD|PLN|ZAR" routing_number="STRING" acct_number="STRING">
 <!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/ACHInstruction -->
+ <!-- Optional -->
 <!-- Type: ACHInstructionType -->
 
 										</ACHInstruction>
 										<IRAWithdrawalDetails distribution_type="IRADistribution_Type : NORMAL|EARLY|EARLY_EXCEPT|DEATH|DISABILITY|EXCESS_CONTRIB" excess_contrib_yr="INTEGER" fed_tax_rate="NUMBER" legal_residence_state="StateCode_Type" state_tax_rate="NUMBER">
 <!-- Path: Applications/Application/Accounts/Account/RecurringTransaction/IRAWithdrawalDetails -->
+ <!-- Optional -->
 <!-- Type: IRAWithdrawalDetailsType -->
 
 										</IRAWithdrawalDetails>
@@ -833,47 +935,57 @@
 								</RecurringTransaction>
 								<Custodian>
 <!-- Path: Applications/Application/Accounts/Account/Custodian -->
+ <!-- Optional -->
 <!-- Description: Custodian for a UGMA/UTMA account -->
 <!-- Type: CustodianType -->
 										<Individual CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual -->
+ <!-- Optional -->
 <!-- Type: Individual -->
 												<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 												</Name>
 												<DOB>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 												</DOB>
 												<Gender>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 												</Gender>
 												<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 												</MaritalStatus>
 												<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</Residence>
 												<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</MailingAddress>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -881,26 +993,31 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 												</Email>
 												<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 												</Identification>
 												<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 												</EmploymentType>
 												<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 														<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 														</employer_address>
@@ -908,11 +1025,13 @@
 												</EmploymentDetails>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -920,22 +1039,26 @@
 												</TaxResidencies>
 												<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 												</W9>
 												<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 												</W8Ben>
 												<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 														<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Individual/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 														</ControllingPerson>
@@ -945,23 +1068,28 @@
 										</Individual>
 										<LegalEntity id="STRING" external_id="STRING" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity -->
+ <!-- Optional -->
 <!-- Type: LegalEntity -->
 												<Name name="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Name -->
+ <!-- Required -->
 <!-- Type: EntityName -->
 
 												</Name>
 												<Location street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Location -->
+ <!-- Optional -->
 <!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->
 <!-- Type: Address -->
 
 												</Location>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones -->
+ <!-- Required -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -969,20 +1097,24 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/Email -->
+ <!-- Required -->
 <!-- Type: Email -->
 
 												</Email>
 												<LegalEntityIdentification identification="STRING" identification_country="STRING" formation_country="STRING" formation_type="Organization_Type : PUBLIC|PRIVATE|OTHER" exchange_code="STRING" exchange_symbol="STRING" same_mail_address="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification -->
+ <!-- Required -->
 <!-- Type: LegalEntityIdentification -->
 														<PlaceOfBusiness street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->
+ <!-- Optional -->
 <!-- Description: Official address of the entity. -->
 <!-- Type: Address -->
 
 														</PlaceOfBusiness>
 														<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/LegalEntityIdentification/MailingAddress -->
+ <!-- Optional -->
 <!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->
 <!-- Type: Address -->
 
@@ -991,11 +1123,13 @@
 												</LegalEntityIdentification>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/LegalEntity/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -1005,43 +1139,52 @@
 										</LegalEntity>
 										<Employee CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee -->
+ <!-- Optional -->
 <!-- Type: Individual -->
 												<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 												</Name>
 												<DOB>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 												</DOB>
 												<Gender>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 												</Gender>
 												<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 												</MaritalStatus>
 												<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</Residence>
 												<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</MailingAddress>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -1049,26 +1192,31 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 												</Email>
 												<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 												</Identification>
 												<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 												</EmploymentType>
 												<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 														<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 														</employer_address>
@@ -1076,11 +1224,13 @@
 												</EmploymentDetails>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -1088,22 +1238,26 @@
 												</TaxResidencies>
 												<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 												</W9>
 												<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 												</W8Ben>
 												<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 														<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/Custodian/Employee/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 														</ControllingPerson>
@@ -1115,47 +1269,57 @@
 								</Custodian>
 								<SuccessorCustodian>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian -->
+ <!-- Optional -->
 <!-- Description: Successor Custodian for a UGMA/UTMA account -->
 <!-- Type: CustodianType -->
 										<Individual CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual -->
+ <!-- Optional -->
 <!-- Type: Individual -->
 												<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 												</Name>
 												<DOB>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 												</DOB>
 												<Gender>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 												</Gender>
 												<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 												</MaritalStatus>
 												<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</Residence>
 												<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</MailingAddress>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -1163,26 +1327,31 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 												</Email>
 												<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 												</Identification>
 												<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 												</EmploymentType>
 												<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 														<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 														</employer_address>
@@ -1190,11 +1359,13 @@
 												</EmploymentDetails>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -1202,22 +1373,26 @@
 												</TaxResidencies>
 												<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 												</W9>
 												<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 												</W8Ben>
 												<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 														<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Individual/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 														</ControllingPerson>
@@ -1227,23 +1402,28 @@
 										</Individual>
 										<LegalEntity id="STRING" external_id="STRING" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity -->
+ <!-- Optional -->
 <!-- Type: LegalEntity -->
 												<Name name="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Name -->
+ <!-- Required -->
 <!-- Type: EntityName -->
 
 												</Name>
 												<Location street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Location -->
+ <!-- Optional -->
 <!-- Description: Deprecated. Entity's primary address must be noted via its place of business in the identification element. -->
 <!-- Type: Address -->
 
 												</Location>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones -->
+ <!-- Required -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -1251,20 +1431,24 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/Email -->
+ <!-- Required -->
 <!-- Type: Email -->
 
 												</Email>
 												<LegalEntityIdentification identification="STRING" identification_country="STRING" formation_country="STRING" formation_type="Organization_Type : PUBLIC|PRIVATE|OTHER" exchange_code="STRING" exchange_symbol="STRING" same_mail_address="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification -->
+ <!-- Required -->
 <!-- Type: LegalEntityIdentification -->
 														<PlaceOfBusiness street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/PlaceOfBusiness -->
+ <!-- Optional -->
 <!-- Description: Official address of the entity. -->
 <!-- Type: Address -->
 
 														</PlaceOfBusiness>
 														<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/LegalEntityIdentification/MailingAddress -->
+ <!-- Optional -->
 <!-- Description: Mailing address of the entity if different from the place of business. Required if flag indicating a different mailing address is set. -->
 <!-- Type: Address -->
 
@@ -1273,11 +1457,13 @@
 												</LegalEntityIdentification>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/LegalEntity/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -1287,43 +1473,52 @@
 										</LegalEntity>
 										<Employee CountryOfBirth="STRING" NumDependents="INTEGER" EmployeeTitle="STRING" id="STRING" external_id="STRING" same_mail_address="BOOLEAN" is_authorized_to_sign_on_behalf_of_owner="BOOLEAN" is_us_tax_resident="BOOLEAN" is_translated="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee -->
+ <!-- Optional -->
 <!-- Type: Individual -->
 												<Name salutation="Salutation_Type : Mr.|Mrs.|Ms.|Dr." first="STRING" last="STRING" middle="STRING" suffix="Suffix_Type : Jr.|Sr.|I|II|III|IV|V" title="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Name -->
+ <!-- Required -->
 <!-- Type: IndividualName -->
 
 												</Name>
 												<DOB>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/DOB -->
+ <!-- Required -->
 <!-- Type: DOB -->
 
 												</DOB>
 												<Gender>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Gender -->
+ <!-- Optional -->
 <!-- Type: Gender_Type -->
 
 												</Gender>
 												<MaritalStatus>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MaritalStatus -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: MaritalStatus_Type -->
 
 												</MaritalStatus>
 												<Residence street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Residence -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</Residence>
 												<MailingAddress street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/MailingAddress -->
+ <!-- Optional -->
 <!-- Type: Address -->
 
 												</MailingAddress>
 												<Phones>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones -->
+ <!-- Optional -->
 <!-- Type: PhonesList -->
 														<Phone type="Phone_Type : Work|Home|Fax|Mobile|Mobile (work)|Mobile (other)|Business|Other (voice)" number="STRING" country="STRING" is_verified="BOOLEAN">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Phones/Phone -->
+ <!-- Required -->
 <!-- Type: PhoneInfo -->
 
 														</Phone>
@@ -1331,26 +1526,31 @@
 												</Phones>
 												<Email email="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Email -->
+ <!-- Optional -->
 <!-- Type: Email -->
 
 												</Email>
 												<Identification citizenship="STRING" SSN="STRING" DriversLicense="STRING" Passport="STRING" AlienCard="STRING" NationalCard="STRING" IssuingCountry="STRING" LegalResidenceCountry="STRING" LegalResidenceState="STRING" EducationalQualification="STRING" FathersName="STRING" hasGreenCard="BOOLEAN" PANNumber="STRING" TaxId="STRING" ProofOfAgeCard="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/Identification -->
+ <!-- Optional -->
 <!-- Type: IndividualIdentification -->
 
 												</Identification>
 												<EmploymentType>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentType -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts. -->
 <!-- Type: Employment_Type -->
 
 												</EmploymentType>
 												<EmploymentDetails employer="STRING" occupation="STRING" employer_business="STRING" employer_phone="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails -->
+ <!-- Optional -->
 <!-- Description: Required for individuals associated with Individual or Joint accounts that specify Employed or Self-employed as theyir employment type. -->
 <!-- Type: EmploymentDetailsType -->
 														<employer_address street_1="STRING" street_2="STRING" city="STRING" state="STRING" country="STRING" postal_code="STRING">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/EmploymentDetails/employer_address -->
+ <!-- Required -->
 <!-- Type: Address -->
 
 														</employer_address>
@@ -1358,11 +1558,13 @@
 												</EmploymentDetails>
 												<TaxResidencies>
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies -->
+ <!-- Optional -->
 <!-- Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 <!-- Type: TaxResidencies -->
 <!-- Type Description: Required information due to FATCA changes: tax regulations require us to collect information about customer's tax residency and we may be obligated to share that information with the regulators. -->
 														<TaxResidency country="STRING" TIN="STRING" TINType="TIN_Type : SSN|EIN|NonUS_NationalId">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/TaxResidencies/TaxResidency -->
+ <!-- Optional -->
 <!-- Type: TaxResidency -->
 
 														</TaxResidency>
@@ -1370,22 +1572,26 @@
 												</TaxResidencies>
 												<W9 name="STRING" business_name="STRING" customer_type="W9Customer_Type : Individual|Corporation|Partnership|LLC|Other" tax_classification="STRING" other_customer_type="STRING" tin="STRING" tin_type="TIN_Type : SSN|EIN|NonUS_NationalId" cert1="BOOLEAN" cert2="BOOLEAN" cert3="BOOLEAN" cert4="BOOLEAN" fatca_exempt_payee_code="ExemptPayeeCode_Type : ORG_EXEMPT|THE_US|DC|FOREIGN_GOVERNMENT|CORPORATION|DEALER_IN_SEC_OR_COMM|FUTURES_COMMISSION_MERCHANT|REAL_ESTATE|ENTITY_UNDER_INV_COMP_ACT_1940|COMMON_TRUST_FUND|FINANCIAL_INSTITUTION|MIDDLEMAN|EXEMPT_UNDER_SECTION_664" fatca_exempt_report_code="ExemptReportCode_Type : EXEMPT_UNDER_SECTION_501_A|THE_US|DC|CORP_REGULARY_TRADED_UNDER_REG_SECTION_1_1472_1_C|CORP_MEMEBER_UNDER_REG_SECTION_1_1472_1_C|DEALER_IN_SEC_OR_COMM|REAL_ESTATE|REGULATED_INVESTMENT_COMPANY|COMMON_TRUST_FUND|BANK_AS_DEFINED_IN_SECTION_581|BROKER|EXEMPT_UNDER_SECTION_664|EXEMPT_UNDER_SECTION_403_OR_457" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W9 -->
+ <!-- Optional -->
 <!-- Description: Required for a US citizen or US person including resident alien individual. -->
 <!-- Type: FormW9 -->
 
 												</W9>
 												<W8Ben name="STRING" country_of_citizenship="CountryCode_Type" residence_address="STRING" city="STRING" country="CountryCode_Type" mailing_address="STRING" mailing_city="STRING" mailing_country="CountryCode_Type" tin="STRING" foreign_tax_id="STRING" tin_or_explanation_reqd_to_create_accounts="BOOLEAN" explanation="ExplanationType : US_TIN|TIN_NOT_DISCLOSED|TIN_NOT_REQUIRED|TIN_NOT_ISSUED" reference_number="INTEGER" part_2_9a_country="STRING" part_2_10_article="STRING" part_2_10_percent="STRING" part_2_10_income_type="STRING" part_2_10_reasons="STRING" cert="BOOLEAN" signature_type="SignatureType : Electronic|Physical" blank_form="BOOLEAN" tax_form_file="STRING" proprietary_form_number="INTEGER">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/W8Ben -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is not a US person. -->
 <!-- Type: FormW8BEN -->
 
 												</W8Ben>
 												<CRS oecd_status="OECDStatusType : DEPOSITORY_INSTITUTION|CUSTODIAL_INSTITUTION|SPECIFIED_INSURANCE_COMPANY|INVESTMENT_ENTITY_IN_NONPARTICIPATING_JURISDICTION|INVESTMENT_ENTITY_NOT_LISTED|PUBLICLY_TRADED_CORPORATION_OR_AFFILIATE|OTHER_ACTIVE_NON_FINANCIAL_ENTITY|PASSIVE_NON_FINANCIAL_ENTITY|EXEMPT_RETIREMENT_PLAN|NON_REPORTING_FI|OTHER_INVESTMENT_ENTITY|FINANCIAL_INSTITUTION|NON_REPORTING_FINANCIAL_INSTITUTION">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS -->
+ <!-- Optional -->
 <!-- Description: Required if the beneficial owner is part of IB-UK entity. -->
 <!-- Type: FormCRS -->
 														<ControllingPerson designation="DesignationType : SENIOR_MGMT_OFFICER|BY_OWNERSHIP|BY_OTHER_MEANS">
 <!-- Path: Applications/Application/Accounts/Account/SuccessorCustodian/Employee/CRS/ControllingPerson -->
+ <!-- Optional -->
 <!-- Type: ControllingPersonType -->
 
 														</ControllingPerson>
@@ -1401,20 +1607,25 @@
 				</Accounts>
 				<Users>
 <!-- Path: Applications/Application/Users -->
+ <!-- Required -->
 <!-- Type: Users -->
 						<User id="STRING" external_user_id="STRING" external_individual_id="STRING" encrypted_password="STRING" encrypted_key_name="STRING" prefix="UserNamePrefix_Type">
 <!-- Path: Applications/Application/Users/User -->
+ <!-- Required -->
 <!-- Type: User -->
 								<UserPrivilege external_acct_id="STRING" privilege="Privilege_Type : OWNER|TRADER|CUSTOM|NONE">
 <!-- Path: Applications/Application/Users/User/UserPrivilege -->
+ <!-- Optional -->
 <!-- Type: UserPrivilege -->
 
 								</UserPrivilege>
 								<MDServices>
 <!-- Path: Applications/Application/Users/User/MDServices -->
+ <!-- Optional -->
 <!-- Type: MDServicesType -->
 										<service>
 <!-- Path: Applications/Application/Users/User/MDServices/service -->
+ <!-- Required -->
 <!-- Type: service -->
 
 										</service>
@@ -1426,17 +1637,21 @@
 				</Users>
 				<Documents>
 <!-- Path: Applications/Application/Documents -->
+ <!-- Optional -->
 <!-- Type: Documents -->
 						<Document form_no="INTEGER" exec_login_ts="INTEGER" exec_ts="INTEGER" signature="STRING">
 <!-- Path: Applications/Application/Documents/Document -->
+ <!-- Required -->
 <!-- Type: Document -->
 								<SignedBy>
 <!-- Path: Applications/Application/Documents/Document/SignedBy -->
+ <!-- Optional -->
 <!-- Type: SignedBy -->
 
 								</SignedBy>
 								<AttachedFile file_name="STRING" file_length="INTEGER" sha1_checksum="STRING">
 <!-- Path: Applications/Application/Documents/Document/AttachedFile -->
+ <!-- Optional -->
 <!-- Description: Attached file representing the document. -->
 <!-- Type: AttachedFileType -->
 

@@ -20,9 +20,18 @@ module.exports.elementsToIgnore = [
   'Applications/Application/Customer/@preferred_secondary_language',
   'Applications/Application/Customer/@tax_treaty_country',
   'Applications/Application/Customer/AccountHolder/AccountHolderDetails/Title',
-  'Applications/Application/Documents/Document/@external_acct_id',
-  'Applications/Application/Documents/Document/@external_individual_id',
+  'Applications/Application/Customer/AccountHolder/FinancialInformation',
   'Applications/Application/Customer/AccountHolder/FinancialInformation/@liquid_net_worth',
+  'Applications/Application/Documents/Document/@external_acct_id',
+  'Applications/Application/Documents/Document/@external_individual_id'
+];
+
+module.exports.elementsToInclude = [
+  'Applications',
+  'Applications/Application',
+  'Applications/Application/Customer/@all',
+  'Applications/Application/Customer/@email',
+  'Applications/Application/Customer/@external_id',
 ];
 
 module.exports.elementsToHardCode = {
@@ -46,6 +55,5 @@ module.exports.elementsToHardCode = {
   'Applications/Application/Customer/AccountHolder/AccountHolderDetails/@AuthorizedPerson': true,
   'Applications/Application/Customer/AccountHolder/AccountHolderDetails/Ownership/@percentage': 100,
   'Applications/Application/Customer/AccountHolder/TaxInformation/W9/@customer_type': 'Individual',
-  'Applications/Application/Customer/AccountHolder/FinancialInformation/@net_worth': 100000,
-
+  'Applications/Application/Customer/AccountHolder/FinancialInformation/@net_worth': 100000
 };

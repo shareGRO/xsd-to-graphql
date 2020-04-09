@@ -3,11 +3,11 @@ const path = require('path');
 const Xsd2JsonSchema = require('xsd2jsonschema').Xsd2JsonSchema;
 const jsonxml = require('jsontoxml');
 const { isNil, get, uniq, split, last, toUpper, indexOf, join, upperCase, pad, toArray } = require('lodash');
-const { buildSchema, printSchema, introspectionQuery, buildClientSchema, graphqlSync, getIntrospectionQuery, graphql } = require('graphql');
+const { buildSchema, getIntrospectionQuery, graphql } = require('graphql');
 
-const { graphQLTypes } = require('./helpers/types');
+const { } = require('./helpers/createType');
 const{ createType } = require('./helpers/createType');
-const { elementsToIgnore, elementsToHardCode } = require('./helpers/genData');
+const { elementsToIgnore, elementsToHardCode, elementsToInclude } = require('./helpers/genData');
  
 const elementsToGenerateJSON = ['Applications'];
 
@@ -26,36 +26,6 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
  
   return arrayOfFiles
 }
-
-const getScalars = (data) => {
-  const keys = Object.keys(data);
-  const scalars = [];
-  keys.forEach((key) => {
-    const {
-      properties,
-    } = dataObjects[key];
-    if (!isNil(properties)) {
-      const propKeys = Object.keys(properties);
-      propKeys.forEach((propKey) => {
-        const prop = properties[propKey];
-        const { type } = prop;
-        if(!isNil(prop.type)) scalars.push(toUpper(type));
-      });
-    }
-    return properties;
-  });
-  const uniqScalars = uniq(scalars)
-  return uniqScalars.map((s) => ({
-    kind: 'SCALAR',
-    name: s,
-    description: `It's a ${s}`,
-    fields: null,
-    inputFields: null,
-    interfaces: null,
-    enumValues: null,
-    possibleTypes: null
-  }));
-};
 
 const allFiles = getAllFiles('xsd');
 
@@ -79,7 +49,6 @@ allFiles.forEach((file) => {
   };
 })
 
-const scalars = getScalars(dataObjects);
 const keys = Object.keys(dataObjects);
 const types = keys.map(key => createType(key, dataObjects))
 
@@ -87,11 +56,14 @@ const getEnumValues = (elementKey) => get(dataObjects[elementKey], 'enum', []);
 
 const getElement = (elementKey, parentPath) => {
   const element = dataObjects[elementKey];
+  
   const elementProperties = get(element, 'properties', get(element, 'allOf[1].properties', null));
   if (isNil(elementProperties)) return {};
+  const requiredProperties = get(element, 'required', get(element, 'allOf[1].required', []));
   const propertyKeys = Object.keys(elementProperties);
   const attrs = {};
   const children = [];
+
   propertyKeys.forEach(key => {
     const path = `${parentPath}/${key}`;
     let text = `\n<!-- Path: ${path} -->`;
@@ -102,6 +74,8 @@ const getElement = (elementKey, parentPath) => {
       if (ref && ref !== key) {
         elementTypeName = ref;
       }
+      const isRequired = indexOf(requiredProperties, key) > -1;
+      text += isRequired ? '\n <!-- Required -->' : '\n <!-- Optional -->';
       const type = get(elementProperties[key], 'type', null);
       const description = get(elementProperties[key], 'description', false);
       if (description) text += `\n<!-- Description: ${description} -->`;
@@ -147,13 +121,12 @@ const getElement = (elementKey, parentPath) => {
   })
   const finalElement = {
     name: elementKey,
-    // _path: path,
-    // _element: element,
     children,
     attrs,
   }
   return finalElement;
 }
+
 
 elementsToGenerateJSON.forEach(elKey => {
   const elementObject = getElement(elKey, elKey);
@@ -164,25 +137,6 @@ elementsToGenerateJSON.forEach(elKey => {
   fs.writeFile(`element-json/${elKey}.json`, json, 'utf8', () => {});
   fs.writeFile(`element-xml/${elKey}.xml`, xml, 'utf8', () => {});
 });
-
-
-// const introspection = {
-//   data: {
-//     __schema: {
-//       queryType: {
-//         name: 'Account',
-//       },
-//       mutationType: null,
-//       subscriptionType: null,
-//       types: [
-//         ...getScalars(dataObjects),
-//         ...types,
-//         ...graphQLTypes,
-//       ],
-//       directives: [],
-//     }
-//   }
-// }
 
 let schema = `
 schema {
@@ -205,7 +159,6 @@ types.forEach(type => {
   schema += `${type.graphQLType}`;
 })
 
-
 const schemaObject = buildSchema(schema);
 
 const g = graphql(schemaObject, getIntrospectionQuery()).then(data => {
@@ -215,8 +168,4 @@ const g = graphql(schemaObject, getIntrospectionQuery()).then(data => {
 }).catch(e => {
   fs.writeFile('schema.txt', schema, 'utf8', () => {});
   console.error(e);
-})
-
-const minSchema = `
-
-`;
+});

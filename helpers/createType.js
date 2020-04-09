@@ -1,4 +1,4 @@
-const { isNil, get, uniq, split, last, toUpper, isArray, capitalize, toArray, indexOf } = require('lodash');
+const { isNil, get, split, last, toUpper, isArray, capitalize, toArray, indexOf } = require('lodash');
 
 const isAttr = (prop) => String(prop).substr(0,1) === '@';
 

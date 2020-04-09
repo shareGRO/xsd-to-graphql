@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Applications xmlns="http://www.interactivebrokers.com/schemas/IBCust_import">
+  <Application>
+    <Customer email="joe@gmail.com" external_id="2321" md_status_nonpro="false" prefix="share" type="INDIVIDUAL">
+      <AccountHolder>
+        <AccountHolderDetails external_id="2321" same_mail_address="true">
+          <Name first="Joe" last="Doe" middle="M" salutation="Mr" suffix=""/>
+          <DOB>1975-03-30</DOB>
+          <CountryOfBirth>USA</CountryOfBirth>
+          <MaritalStatus>M</MaritalStatus>
+          <NumDependents>0</NumDependents>
+          <Residence city="Austin" country="USA" postal_code="12345" state="TX" street_1="123 Nowhere" street_2=""/>
+          <Phones>
+            <Phone type="Mobile" number="+15551234567" country="USA"/>
+          </Phones>
+          <Email email="joe@gmail.com"/>
+          <Identification LegalResidenceCountry="USA" LegalResidenceState="TX" SSN="111223333" citizenship="USA"/>
+          <EmploymentType>UNEMPLOYED</EmploymentType>
+          <TaxResidencies>
+            <TaxResidency TIN="111223333" TINType="SSN" country="United States"/>
+          </TaxResidencies>
+          <W9 cert1="true" cert2="true" cert3="true" customer_type="Individual" name="Joe M Doe" blank_form="true" proprietary_form_number="5002" tax_form_file="Form5002.pdf" tin="111223333" tin_type="SSN"/>
+          <Ownership percentage="100"/>
+          <Title code="Account Holder"/>
+        </AccountHolderDetails>
+        <RegulatoryInformation>
+          <RegulatoryDetail code="REGULATORYCONTROL" status="false"/>
+          <RegulatoryDetail code="AFFILIATION" status="false"/>
+        </RegulatoryInformation>
+      </AccountHolder>
+    </Customer>
+    <Accounts>
+      <Account base_currency="USD" external_id="98213" margin="RegT" multicurrency="false">
+        <InvestmentObjectives>
+          <objective>Growth</objective>
+          <objective>Trading</objective>
+          <objective>Hedging</objective>
+        </InvestmentObjectives>
+        <TradingPermissions>
+          <TradingPermission country="UNITED STATES" product="STOCKS"/>
+          <TradingPermission country="UNITED STATES" product="OPTIONS"/>
+          <TradingPermission country="UNITED STATES" product="MUTUAL FUNDS"/>
+          <TradingPermission country="CANADA" product="STOCKS"/>
+          <TradingPermission country="MEXICO" product="STOCKS"/>
+        </TradingPermissions>
+      </Account>
+    </Accounts>
+    <Users>
+      <User external_individual_id="2321" external_user_id="2321" prefix="share"/>
+    </Users>
+    <Documents>
+      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+        <SignedBy>Joe M Doe</SignedBy>
+        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
+      </Document>
+      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+        <SignedBy>Joe M Doe</SignedBy>
+        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
+      </Document>
+      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+        <SignedBy>Joe M Doe</SignedBy>
+        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
+      </Document>
+    </Documents>
+  </Application>
+</Applications>
