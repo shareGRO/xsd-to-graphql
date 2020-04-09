@@ -17,7 +17,7 @@
           <Identification LegalResidenceCountry="USA" LegalResidenceState="TX" SSN="111223333" citizenship="USA"/>
           <EmploymentType>UNEMPLOYED</EmploymentType>
           <TaxResidencies>
-            <TaxResidency TIN="111223333" TINType="SSN" country="United States"/>
+            <TaxResidency TIN="111223333" TINType="SSN" country="USA"/>
           </TaxResidencies>
           <W9 cert1="true" cert2="true" cert3="true" customer_type="Individual" name="Joe M Doe" blank_form="true" proprietary_form_number="5002" tax_form_file="Form5002.pdf" tin="111223333" tin_type="SSN"/>
           <Ownership percentage="100"/>
@@ -26,22 +26,193 @@
         <RegulatoryInformation>
           <RegulatoryDetail code="REGULATORYCONTROL" status="false"/>
           <RegulatoryDetail code="AFFILIATION" status="false"/>
+          <RegulatoryDetail code="IBACCOUNTS" status="false"/>
         </RegulatoryInformation>
       </AccountHolder>
     </Customer>
     <Accounts>
-      <Account base_currency="USD" external_id="98213" margin="RegT" multicurrency="false">
-        <InvestmentObjectives>
-          <objective>Growth</objective>
-          <objective>Trading</objective>
-          <objective>Hedging</objective>
-        </InvestmentObjectives>
+      <Account base_currency="USD" external_id="7933" margin="RegT" multicurrency="false">
         <TradingPermissions>
-          <TradingPermission country="UNITED STATES" product="STOCKS"/>
-          <TradingPermission country="UNITED STATES" product="OPTIONS"/>
-          <TradingPermission country="UNITED STATES" product="MUTUAL FUNDS"/>
+          <TradingPermission country="AUSTRALIA" product="BONDS"/>
+          <TradingPermission country="AUSTRALIA" product="FUTURES"/>
+          <TradingPermission country="AUSTRALIA" product="FOREX"/>
+          <TradingPermission country="AUSTRALIA" product="FUTURES OPTIONS"/>
+          <TradingPermission country="AUSTRALIA" product="MUTUAL FUNDS"/>
+          <TradingPermission country="AUSTRALIA" product="STOCKS"/>
+          <TradingPermission country="AUSTRALIA" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="AUSTRALIA" product="OPTIONS"/>
+          <TradingPermission country="AUSTRALIA" product="STOCK OPTIONS"/>
+          <TradingPermission country="AUSTRIA" product="BONDS"/>
+          <TradingPermission country="AUSTRIA" product="FUTURES"/>
+          <TradingPermission country="AUSTRIA" product="FOREX"/>
+          <TradingPermission country="AUSTRIA" product="FUTURES OPTIONS"/>
+          <TradingPermission country="AUSTRIA" product="MUTUAL FUNDS"/>
+          <TradingPermission country="AUSTRIA" product="STOCKS"/>
+          <TradingPermission country="AUSTRIA" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="AUSTRIA" product="OPTIONS"/>
+          <TradingPermission country="AUSTRIA" product="STOCK OPTIONS"/>
+          <TradingPermission country="BELGIUM" product="BONDS"/>
+          <TradingPermission country="BELGIUM" product="FUTURES"/>
+          <TradingPermission country="BELGIUM" product="FOREX"/>
+          <TradingPermission country="BELGIUM" product="FUTURES OPTIONS"/>
+          <TradingPermission country="BELGIUM" product="MUTUAL FUNDS"/>
+          <TradingPermission country="BELGIUM" product="STOCKS"/>
+          <TradingPermission country="BELGIUM" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="BELGIUM" product="OPTIONS"/>
+          <TradingPermission country="BELGIUM" product="STOCK OPTIONS"/>
+          <TradingPermission country="CANADA" product="BONDS"/>
+          <TradingPermission country="CANADA" product="FUTURES"/>
+          <TradingPermission country="CANADA" product="FOREX"/>
+          <TradingPermission country="CANADA" product="FUTURES OPTIONS"/>
+          <TradingPermission country="CANADA" product="MUTUAL FUNDS"/>
           <TradingPermission country="CANADA" product="STOCKS"/>
+          <TradingPermission country="CANADA" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="CANADA" product="OPTIONS"/>
+          <TradingPermission country="CANADA" product="STOCK OPTIONS"/>
+          <TradingPermission country="FRANCE" product="BONDS"/>
+          <TradingPermission country="FRANCE" product="FUTURES"/>
+          <TradingPermission country="FRANCE" product="FOREX"/>
+          <TradingPermission country="FRANCE" product="FUTURES OPTIONS"/>
+          <TradingPermission country="FRANCE" product="MUTUAL FUNDS"/>
+          <TradingPermission country="FRANCE" product="STOCKS"/>
+          <TradingPermission country="FRANCE" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="FRANCE" product="OPTIONS"/>
+          <TradingPermission country="FRANCE" product="STOCK OPTIONS"/>
+          <TradingPermission country="GERMANY" product="BONDS"/>
+          <TradingPermission country="GERMANY" product="FUTURES"/>
+          <TradingPermission country="GERMANY" product="FOREX"/>
+          <TradingPermission country="GERMANY" product="FUTURES OPTIONS"/>
+          <TradingPermission country="GERMANY" product="MUTUAL FUNDS"/>
+          <TradingPermission country="GERMANY" product="STOCKS"/>
+          <TradingPermission country="GERMANY" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="GERMANY" product="OPTIONS"/>
+          <TradingPermission country="GERMANY" product="STOCK OPTIONS"/>
+          <TradingPermission country="HONG KONG" product="BONDS"/>
+          <TradingPermission country="HONG KONG" product="FUTURES"/>
+          <TradingPermission country="HONG KONG" product="FOREX"/>
+          <TradingPermission country="HONG KONG" product="FUTURES OPTIONS"/>
+          <TradingPermission country="HONG KONG" product="MUTUAL FUNDS"/>
+          <TradingPermission country="HONG KONG" product="STOCKS"/>
+          <TradingPermission country="HONG KONG" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="HONG KONG" product="OPTIONS"/>
+          <TradingPermission country="HONG KONG" product="STOCK OPTIONS"/>
+          <TradingPermission country="ITALY" product="BONDS"/>
+          <TradingPermission country="ITALY" product="FUTURES"/>
+          <TradingPermission country="ITALY" product="FOREX"/>
+          <TradingPermission country="ITALY" product="FUTURES OPTIONS"/>
+          <TradingPermission country="ITALY" product="MUTUAL FUNDS"/>
+          <TradingPermission country="ITALY" product="STOCKS"/>
+          <TradingPermission country="ITALY" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="ITALY" product="OPTIONS"/>
+          <TradingPermission country="ITALY" product="STOCK OPTIONS"/>
+          <TradingPermission country="JAPAN" product="BONDS"/>
+          <TradingPermission country="JAPAN" product="FUTURES"/>
+          <TradingPermission country="JAPAN" product="FOREX"/>
+          <TradingPermission country="JAPAN" product="FUTURES OPTIONS"/>
+          <TradingPermission country="JAPAN" product="MUTUAL FUNDS"/>
+          <TradingPermission country="JAPAN" product="STOCKS"/>
+          <TradingPermission country="JAPAN" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="JAPAN" product="OPTIONS"/>
+          <TradingPermission country="JAPAN" product="STOCK OPTIONS"/>
+          <TradingPermission country="KOREA" product="BONDS"/>
+          <TradingPermission country="KOREA" product="FUTURES"/>
+          <TradingPermission country="KOREA" product="FOREX"/>
+          <TradingPermission country="KOREA" product="FUTURES OPTIONS"/>
+          <TradingPermission country="KOREA" product="MUTUAL FUNDS"/>
+          <TradingPermission country="KOREA" product="STOCKS"/>
+          <TradingPermission country="KOREA" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="KOREA" product="OPTIONS"/>
+          <TradingPermission country="KOREA" product="STOCK OPTIONS"/>
+          <TradingPermission country="MEXICO" product="BONDS"/>
+          <TradingPermission country="MEXICO" product="FUTURES"/>
+          <TradingPermission country="MEXICO" product="FOREX"/>
+          <TradingPermission country="MEXICO" product="FUTURES OPTIONS"/>
+          <TradingPermission country="MEXICO" product="MUTUAL FUNDS"/>
           <TradingPermission country="MEXICO" product="STOCKS"/>
+          <TradingPermission country="MEXICO" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="MEXICO" product="OPTIONS"/>
+          <TradingPermission country="MEXICO" product="STOCK OPTIONS"/>
+          <TradingPermission country="NORWAY" product="BONDS"/>
+          <TradingPermission country="NORWAY" product="FUTURES"/>
+          <TradingPermission country="NORWAY" product="FOREX"/>
+          <TradingPermission country="NORWAY" product="FUTURES OPTIONS"/>
+          <TradingPermission country="NORWAY" product="MUTUAL FUNDS"/>
+          <TradingPermission country="NORWAY" product="STOCKS"/>
+          <TradingPermission country="NORWAY" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="NORWAY" product="OPTIONS"/>
+          <TradingPermission country="NORWAY" product="STOCK OPTIONS"/>
+          <TradingPermission country="SINGAPORE" product="BONDS"/>
+          <TradingPermission country="SINGAPORE" product="FUTURES"/>
+          <TradingPermission country="SINGAPORE" product="FOREX"/>
+          <TradingPermission country="SINGAPORE" product="FUTURES OPTIONS"/>
+          <TradingPermission country="SINGAPORE" product="MUTUAL FUNDS"/>
+          <TradingPermission country="SINGAPORE" product="STOCKS"/>
+          <TradingPermission country="SINGAPORE" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="SINGAPORE" product="OPTIONS"/>
+          <TradingPermission country="SINGAPORE" product="STOCK OPTIONS"/>
+          <TradingPermission country="SPAIN" product="BONDS"/>
+          <TradingPermission country="SPAIN" product="FUTURES"/>
+          <TradingPermission country="SPAIN" product="FOREX"/>
+          <TradingPermission country="SPAIN" product="FUTURES OPTIONS"/>
+          <TradingPermission country="SPAIN" product="MUTUAL FUNDS"/>
+          <TradingPermission country="SPAIN" product="STOCKS"/>
+          <TradingPermission country="SPAIN" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="SPAIN" product="OPTIONS"/>
+          <TradingPermission country="SPAIN" product="STOCK OPTIONS"/>
+          <TradingPermission country="SWEDEN" product="BONDS"/>
+          <TradingPermission country="SWEDEN" product="FUTURES"/>
+          <TradingPermission country="SWEDEN" product="FOREX"/>
+          <TradingPermission country="SWEDEN" product="FUTURES OPTIONS"/>
+          <TradingPermission country="SWEDEN" product="MUTUAL FUNDS"/>
+          <TradingPermission country="SWEDEN" product="STOCKS"/>
+          <TradingPermission country="SWEDEN" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="SWEDEN" product="OPTIONS"/>
+          <TradingPermission country="SWEDEN" product="STOCK OPTIONS"/>
+          <TradingPermission country="SWITZERLAND" product="BONDS"/>
+          <TradingPermission country="SWITZERLAND" product="FUTURES"/>
+          <TradingPermission country="SWITZERLAND" product="FOREX"/>
+          <TradingPermission country="SWITZERLAND" product="FUTURES OPTIONS"/>
+          <TradingPermission country="SWITZERLAND" product="MUTUAL FUNDS"/>
+          <TradingPermission country="SWITZERLAND" product="STOCKS"/>
+          <TradingPermission country="SWITZERLAND" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="SWITZERLAND" product="OPTIONS"/>
+          <TradingPermission country="SWITZERLAND" product="STOCK OPTIONS"/>
+          <TradingPermission country="THE NETHERLANDS" product="BONDS"/>
+          <TradingPermission country="THE NETHERLANDS" product="FUTURES"/>
+          <TradingPermission country="THE NETHERLANDS" product="FOREX"/>
+          <TradingPermission country="THE NETHERLANDS" product="FUTURES OPTIONS"/>
+          <TradingPermission country="THE NETHERLANDS" product="MUTUAL FUNDS"/>
+          <TradingPermission country="THE NETHERLANDS" product="STOCKS"/>
+          <TradingPermission country="THE NETHERLANDS" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="THE NETHERLANDS" product="OPTIONS"/>
+          <TradingPermission country="THE NETHERLANDS" product="STOCK OPTIONS"/>
+          <TradingPermission country="UNITED KINGDOM" product="BONDS"/>
+          <TradingPermission country="UNITED KINGDOM" product="FUTURES"/>
+          <TradingPermission country="UNITED KINGDOM" product="FOREX"/>
+          <TradingPermission country="UNITED KINGDOM" product="FUTURES OPTIONS"/>
+          <TradingPermission country="UNITED KINGDOM" product="MUTUAL FUNDS"/>
+          <TradingPermission country="UNITED KINGDOM" product="STOCKS"/>
+          <TradingPermission country="UNITED KINGDOM" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="UNITED KINGDOM" product="OPTIONS"/>
+          <TradingPermission country="UNITED KINGDOM" product="STOCK OPTIONS"/>
+          <TradingPermission country="UNITED STATES" product="BONDS"/>
+          <TradingPermission country="UNITED STATES" product="FUTURES"/>
+          <TradingPermission country="UNITED STATES" product="FOREX"/>
+          <TradingPermission country="UNITED STATES" product="FUTURES OPTIONS"/>
+          <TradingPermission country="UNITED STATES" product="MUTUAL FUNDS"/>
+          <TradingPermission country="UNITED STATES" product="STOCKS"/>
+          <TradingPermission country="UNITED STATES" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="UNITED STATES" product="OPTIONS"/>
+          <TradingPermission country="UNITED STATES" product="STOCK OPTIONS"/>
+          <TradingPermission country="HK-CHINA" product="BONDS"/>
+          <TradingPermission country="HK-CHINA" product="FUTURES"/>
+          <TradingPermission country="HK-CHINA" product="FOREX"/>
+          <TradingPermission country="HK-CHINA" product="FUTURES OPTIONS"/>
+          <TradingPermission country="HK-CHINA" product="MUTUAL FUNDS"/>
+          <TradingPermission country="HK-CHINA" product="STOCKS"/>
+          <TradingPermission country="HK-CHINA" product="SINGLE STOCK FUTURES"/>
+          <TradingPermission country="HK-CHINA" product="OPTIONS"/>
+          <TradingPermission country="HK-CHINA" product="STOCK OPTIONS"/>
         </TradingPermissions>
       </Account>
     </Accounts>
@@ -49,17 +220,77 @@
       <User external_individual_id="2321" external_user_id="2321" prefix="share"/>
     </Users>
     <Documents>
-      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="5002">
         <SignedBy>Joe M Doe</SignedBy>
-        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
       </Document>
-      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="1005">
         <SignedBy>Joe M Doe</SignedBy>
-        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
       </Document>
-      <Document exec_login_ts="20180316134800" exec_ts="20180316134800" form_no="5002">
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="2109">
         <SignedBy>Joe M Doe</SignedBy>
-        <AttachedFile file_length="77327" file_name="Form5002.pdf" sha1_checksum="06c49036c2eea742be9d3046f84a462d87f85b1c"/>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="2192">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3024">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3044">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3070">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3071">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3074">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3077">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3094">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3230">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="4009">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="4016">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="4035">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="4036">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="6105">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="6108">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="9130">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="9490">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3007">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="3076">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="4003">
+        <SignedBy>Joe M Doe</SignedBy>
+      </Document>
+      <Document exec_login_ts="20200409033958" exec_ts="20200409033958" form_no="5013">
+        <SignedBy>Joe M Doe</SignedBy>
       </Document>
     </Documents>
   </Application>

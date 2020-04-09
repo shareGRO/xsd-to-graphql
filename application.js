@@ -4,9 +4,12 @@ const fs = require('fs');
 const { trim } = require('lodash');
 const moment = require('moment');
 
+const { REGULATORY_INFORMATION, ALL_TRADING_PERMISSIONS, DOCUMENT_NUMBERS } = require('./constants');
+
 const shareData = {
   user: {
     id: '2321',
+    transactionAccountId: '7933',
     firstName: 'Joe',
     lastName: 'Doe',
     middleInitial: 'M',
@@ -26,16 +29,11 @@ const shareData = {
     maritalStatus: 'M',
     countryOfBirth: 'USA',
     citizenship: 'USA',
-    numDependents: 0,
+    numOfDependents: 0,
+    affiliation: false,
+    regulatoryControl: false,
+    otherInteractiveBrokersAccounts: false,
   },
-  transactionAccount: {
-    id: '98213',
-  },
-  documents: [
-    { exec_login_ts: '20180316134800', exec_ts: '20180316134800', form_no: '5002', file_length: '77327', file_name: 'Form5002.pdf', sha1_checksum: '06c49036c2eea742be9d3046f84a462d87f85b1c' },
-    { exec_login_ts: '20180316134800', exec_ts: '20180316134800', form_no: '5002', file_length: '77327', file_name: 'Form5002.pdf', sha1_checksum: '06c49036c2eea742be9d3046f84a462d87f85b1c' },
-    { exec_login_ts: '20180316134800', exec_ts: '20180316134800', form_no: '5002', file_length: '77327', file_name: 'Form5002.pdf', sha1_checksum: '06c49036c2eea742be9d3046f84a462d87f85b1c' }
-  ],
 }
 
 const CONFIGS = {
@@ -52,237 +50,196 @@ fs.writeFile('Individual_US_SampleApplication_20190627.json', resultJSON, 'utf8'
 
 const {
   user,
-  transactionAccount,
   documents,
 } = shareData;
 
+const timestamp = moment().format('YYYYMMDDhhmmss');
+
 const userFullName = trim(`${user.firstName} ${user.middleInitial} ${user.lastName}`);
 
-const documentsData = documents.map(doc => {
-  const {
-    exec_login_ts, exec_ts, form_no, file_length, file_name, sha1_checksum,
-  } = doc;
-  return {
-    _attributes: {
-      exec_login_ts,
-      exec_ts,
-      form_no,
-    },
-    SignedBy: {
-      _text: userFullName,
-    },
-    AttachedFile: {
+const RegulatoryInformation = {
+  RegulatoryDetail: [
+    {
       _attributes: {
-        file_length,
-        file_name,
-        sha1_checksum,
+        code: REGULATORY_INFORMATION.REGULATORYCONTROL,
+        status: user.regulatoryControl,
+      }
+    },
+    {
+      _attributes: {
+        code: REGULATORY_INFORMATION.AFFILIATION,
+        status: user.affiliation,
+      }
+    },
+    {
+      _attributes: {
+        code: REGULATORY_INFORMATION.IBACCOUNTS,
+        status: user.otherInteractiveBrokersAccounts,
       }
     }
-  };
-});
+  ]
+};
+
+const TradingPermissions = {
+  TradingPermission: ALL_TRADING_PERMISSIONS.map(tradingPermission => ({
+    _attributes: { ...tradingPermission }
+  }))
+}
+
+const Documents = {
+  Document: DOCUMENT_NUMBERS.map(documentNumber => {  
+    return {
+      _attributes: {
+        exec_login_ts: timestamp,
+        exec_ts: timestamp,
+        form_no: documentNumber,
+      },
+      SignedBy: {
+        _text: userFullName,
+      }
+    };
+  }),
+};
 
 const ApplicationsData = {
-  "_declaration": {
-      "_attributes": {
-          "version": "1.0"
-      }
+  _declaration: {
+    _attributes: {
+      version: "1.0"
+    }
   },
-  "Applications": {
-      "_attributes": {
-          "xmlns": "http://www.interactivebrokers.com/schemas/IBCust_import"
-      },
-      "Application": {
-          "Customer": {
-              "_attributes": {
-                  "email": user.email,
-                  "external_id": user.id,
-                  "md_status_nonpro": "false",
-                  "prefix": CONFIGS.USER_PREFIX,
-                  "type": CONFIGS.USER_ACCOUNT_TYPE,
+  Applications: {
+    _attributes: {
+      xmlns: "http://www.interactivebrokers.com/schemas/IBCust_import"
+    },
+    Application: {
+      Customer: {
+        _attributes: {
+          email: user.email,
+          external_id: user.id,
+          md_status_nonpro: false,
+          prefix: CONFIGS.USER_PREFIX,
+          type: CONFIGS.USER_ACCOUNT_TYPE,
+        },
+        AccountHolder: {
+          AccountHolderDetails: {
+            _attributes: {
+              external_id: user.id,
+                same_mail_address: true
               },
-              "AccountHolder": {
-                  "AccountHolderDetails": {
-                      "_attributes": {
-                          "external_id": user.id,
-                          "same_mail_address": "true"
-                      },
-                      "Name": {
-                          "_attributes": {
-                              "first": user.firstName,
-                              "last": user.lastName,
-                              "middle": user.middleInitial,
-                              "salutation": user.salutation,
-                              "suffix": user.suffix
-                          }
-                      },
-                      "DOB": {
-                          "_text": user.dateOfBirth,
-                      },
-                      "CountryOfBirth": {
-                          "_text": user.countryOfBirth,
-                      },
-                      "MaritalStatus": {
-                          "_text": user.maritalStatus,
-                      },
-                      "NumDependents": {
-                          "_text": user.numDependents
-                      },
-                      "Residence": {
-                          "_attributes": {
-                              "city": user.city,
-                              "country": user.country,
-                              "postal_code": user.postalCode,
-                              "state": user.state,
-                              "street_1": user.street1,
-                              "street_2": user.street2,
-                          }
-                      },
-                      "Phones": {
-                          "Phone": {
-                              "_attributes": {
-                                  "type": "Mobile",
-                                  "number": user.phone,
-                                  "country": "USA"
-                              }
-                          }
-                      },
-                      "Email": {
-                          "_attributes": {
-                              "email": user.email,
-                          }
-                      },
-                      "Identification": {
-                          "_attributes": {
-                              "LegalResidenceCountry": user.country,
-                              "LegalResidenceState": user.state,
-                              "SSN": user.ssn,
-                              "citizenship": user.citizenship,
-                          }
-                      },
-                      "EmploymentType": {
-                          "_text": user.employmentStatus
-                      },
-                      "TaxResidencies": {
-                          "TaxResidency": {
-                              "_attributes": {
-                                  "TIN": user.ssn,
-                                  "TINType": "SSN",
-                                  "country": "United States"
-                              }
-                          }
-                      },
-                      "W9": { // is this required?
-                          "_attributes": {
-                              "cert1": "true",
-                              "cert2": "true",
-                              "cert3": "true",
-                              "customer_type": "Individual",
-                              "name": userFullName,
-                              "blank_form": "true",
-                              "proprietary_form_number": "5002", // is this a reference to the document?
-                              "tax_form_file": "Form5002.pdf", // is this a reference to the document?
-                              "tin": user.ssn,
-                              "tin_type": "SSN"
-                          }
-                      },
-                      "Ownership": {
-                          "_attributes": {
-                              "percentage": "100"
-                          }
-                      },
-                      "Title": {
-                          "_attributes": {
-                              "code": "Account Holder"
-                          }
-                      }
-                  },
-                  "RegulatoryInformation": { // this seems to be required but I don't understands
-                      "RegulatoryDetail": [
-                          {
-                              "_attributes": {
-                                  "code": "REGULATORYCONTROL",
-                                  "status": "false"
-                              }
-                          },
-                          {
-                              "_attributes": {
-                                  "code": "AFFILIATION",
-                                  "status": "false"
-                              }
-                          }
-                      ]
+              Name: {
+                _attributes: {
+                  first: user.firstName,
+                  last: user.lastName,
+                  middle: user.middleInitial,
+                  salutation: user.salutation,
+                  suffix: user.suffix
+                }
+              },
+              DOB: {
+                _text: user.dateOfBirth,
+              },
+              CountryOfBirth: {
+                _text: user.countryOfBirth,
+              },
+              MaritalStatus: {
+                _text: user.maritalStatus,
+              },
+              NumDependents: {
+                _text: user.numOfDependents
+              },
+              Residence: {
+                _attributes: {
+                  city: user.city,
+                  country: user.country,
+                  postal_code: user.postalCode,
+                  state: user.state,
+                  street_1: user.street1,
+                  street_2: user.street2,
+                }
+              },
+              Phones: {
+                Phone: {
+                  _attributes: {
+                    type: "Mobile",
+                    number: user.phone,
+                    country: "USA"
                   }
-              }
-          },
-          "Accounts": {
-              "Account": {
-                  "_attributes": {
-                      "base_currency": "USD",
-                      "external_id": transactionAccount.id,
-                      "margin": "RegT", // this should probably change
-                      "multicurrency": "false"
-                  },
-                  "InvestmentObjectives": { // is this important?
-                      "objective": [
-                          {
-                              "_text": "Growth"
-                          },
-                          {
-                              "_text": "Trading"
-                          },
-                          {
-                              "_text": "Hedging"
-                          }
-                      ]
-                  },
-                  "TradingPermissions": { // I need to check with this one
-                      "TradingPermission": [
-                          {
-                              "_attributes": {
-                                  "country": "UNITED STATES",
-                                  "product": "STOCKS"
-                              }
-                          },
-                          {
-                              "_attributes": {
-                                  "country": "UNITED STATES",
-                                  "product": "OPTIONS"
-                              }
-                          },
-                          {
-                              "_attributes": {
-                                  "country": "UNITED STATES",
-                                  "product": "MUTUAL FUNDS"
-                              }
-                          },
-                          {
-                              "_attributes": {
-                                  "country": "CANADA",
-                                  "product": "STOCKS"
-                              }
-                          },
-                          {
-                              "_attributes": {
-                                  "country": "MEXICO",
-                                  "product": "STOCKS"
-                              }
-                          }
-                      ]
-                  },
-              }
-          },
-          "Users": {
-              "User": {
-                  "_attributes": {
-                      "external_individual_id": user.id,
-                      "external_user_id": user.id,
-                      "prefix": CONFIGS.USER_PREFIX,
+                }
+              },
+              Email: {
+                _attributes: {
+                  email: user.email,
+                }
+              },
+              Identification: {
+                _attributes: {
+                  LegalResidenceCountry: user.country,
+                  LegalResidenceState: user.state,
+                  SSN: user.ssn,
+                  citizenship: user.citizenship,
+                }
+              },
+              EmploymentType: {
+                _text: user.employmentStatus
+              },
+              TaxResidencies: {
+                TaxResidency: {
+                  _attributes: {
+                    TIN: user.ssn,
+                    TINType: "SSN",
+                    country: "USA"
                   }
+                }
+              },
+              W9: {
+                _attributes: {
+                  cert1: true, // To be set to True in order to certify that the given taxpayer identification number (TIN) is correct.
+                  cert2: true, // To be set to True if agreeing to certification 2 in part II. Must be set to false if notified by IRS as being subject to backup withholding.
+                  cert3: true, // To be set to True in order to certify that the customer is a U.S. Citizen or other U.S. Person.
+                  customer_type: "Individual",
+                  name: userFullName,
+                  blank_form: true,
+                  proprietary_form_number: "5002",
+                  tax_form_file: "Form5002.pdf",
+                  tin: user.ssn,
+                  tin_type: "SSN"
+                }
+              },
+              Ownership: {
+                _attributes: {
+                  percentage: 100
+                }
+              },
+              Title: {
+                _attributes: {
+                  code: "Account Holder"
+                }
               }
-          },
-          "Documents": {
-              "Document": documentsData,
+            },
+            RegulatoryInformation,
           }
+        },
+        Accounts: {
+          Account: {
+            _attributes: {
+              base_currency: "USD",
+              external_id: user.transactionAccountId,
+              margin: "RegT", // this should probably change
+              multicurrency: false
+            },
+            TradingPermissions,
+          }
+          },
+          Users: {
+            User: {
+              _attributes: {
+                external_individual_id: user.id,
+                external_user_id: user.id,
+                prefix: CONFIGS.USER_PREFIX,
+              }
+            }
+          },
+          Documents,
       }
   }
 }
