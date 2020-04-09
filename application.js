@@ -48,10 +48,7 @@ var resultJSON = convert.xml2json(sampleJSON, {compact: true, spaces: 4});
 
 fs.writeFile('Individual_US_SampleApplication_20190627.json', resultJSON, 'utf8', () => {});
 
-const {
-  user,
-  documents,
-} = shareData;
+const { user } = shareData;
 
 const timestamp = moment().format('YYYYMMDDhhmmss');
 
