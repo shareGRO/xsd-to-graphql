@@ -4,7 +4,7 @@ const fs = require('fs');
 const { trim } = require('lodash');
 const moment = require('moment');
 
-const { REGULATORY_INFORMATION, ALL_TRADING_PERMISSIONS, DOCUMENT_NUMBERS } = require('./constants');
+const { CONFIGS, REGULATORY_INFORMATION, ALL_TRADING_PERMISSIONS, DOCUMENT_NUMBERS } = require('./constants');
 
 const shareData = {
   user: {
@@ -34,12 +34,6 @@ const shareData = {
     regulatoryControl: false,
     otherInteractiveBrokersAccounts: false,
   },
-}
-
-const CONFIGS = {
-  IBKR_ADVISOR_ACCOUNT_ID: '4732914', // shareGRO Advisor Account ID on IBKR
-  USER_PREFIX: 'share',
-  USER_ACCOUNT_TYPE: 'INDIVIDUAL',
 }
 
 const sampleJSON = fs.readFileSync('Individual_US_SampleApplication_20190627.xml', 'utf8');
@@ -157,9 +151,9 @@ const ApplicationsData = {
               Phones: {
                 Phone: {
                   _attributes: {
-                    type: "Mobile",
+                    type: CONFIGS.PHONE_TYPE,
                     number: user.phone,
-                    country: "USA"
+                    country: CONFIGS.COUNTRY,
                   }
                 }
               },
@@ -183,8 +177,8 @@ const ApplicationsData = {
                 TaxResidency: {
                   _attributes: {
                     TIN: user.ssn,
-                    TINType: "SSN",
-                    country: "USA"
+                    TINType: CONFIGS.TIN_TYPE,
+                    country: CONFIGS.COUNTRY
                   }
                 }
               },
@@ -193,13 +187,13 @@ const ApplicationsData = {
                   cert1: true, // To be set to True in order to certify that the given taxpayer identification number (TIN) is correct.
                   cert2: true, // To be set to True if agreeing to certification 2 in part II. Must be set to false if notified by IRS as being subject to backup withholding.
                   cert3: true, // To be set to True in order to certify that the customer is a U.S. Citizen or other U.S. Person.
-                  customer_type: "Individual",
+                  customer_type: CONFIGS.W9_CUSTOMER_TYPE,
                   name: userFullName,
                   blank_form: true,
                   proprietary_form_number: "5002",
                   tax_form_file: "Form5002.pdf",
                   tin: user.ssn,
-                  tin_type: "SSN"
+                  tin_type: CONFIGS.TIN_TYPE,
                 }
               },
               Ownership: {
@@ -209,7 +203,7 @@ const ApplicationsData = {
               },
               Title: {
                 _attributes: {
-                  code: "Account Holder"
+                  code: CONFIGS.ACCOUNT_TITLE
                 }
               }
             },
