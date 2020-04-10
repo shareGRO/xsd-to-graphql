@@ -5,10 +5,14 @@ const CONFIGS = {
   USER_PREFIX: 'share',
   USER_ACCOUNT_TYPE: 'INDIVIDUAL',
   COUNTRY: 'USA',
+  CURRENCY: 'USD',
   PHONE_TYPE: 'Mobile',
   TIN_TYPE: 'SSN',
   W9_CUSTOMER_TYPE: 'Individual',
+  W9_FORM_NUMBER: 5002,
+  W9_TAX_FORM_FILE: 'Form5002.pdf',
   ACCOUNT_TITLE: 'Account Holder',
+  MARGIN_TYPE: 'CASH',
 }
 
 const REGULATORY_INFORMATION = {

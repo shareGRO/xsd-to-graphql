@@ -190,8 +190,8 @@ const ApplicationsData = {
                   customer_type: CONFIGS.W9_CUSTOMER_TYPE,
                   name: userFullName,
                   blank_form: true,
-                  proprietary_form_number: "5002",
-                  tax_form_file: "Form5002.pdf",
+                  proprietary_form_number: CONFIGS.W9_FORM_NUMBER,
+                  tax_form_file: CONFIGS.W9_TAX_FORM_FILE,
                   tin: user.ssn,
                   tin_type: CONFIGS.TIN_TYPE,
                 }
@@ -213,9 +213,9 @@ const ApplicationsData = {
         Accounts: {
           Account: {
             _attributes: {
-              base_currency: "USD",
+              base_currency: CONFIGS.CURRENCY,
               external_id: user.transactionAccountId,
-              margin: "RegT", // this should probably change
+              margin: CONFIGS.MARGIN_TYPE,
               multicurrency: false
             },
             TradingPermissions,
