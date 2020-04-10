@@ -1,4 +1,3 @@
-const jsonxml = require('jsontoxml');
 const convert = require('xml-js');
 const fs = require('fs');
 const { trim } = require('lodash');
