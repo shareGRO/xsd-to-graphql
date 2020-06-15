@@ -35,6 +35,18 @@ const shareData = {
     annualNetIncome: 120000,
     liquidNetWorth: 300000,
     netWorth: 1500000,
+    investmentExperience: {
+      stocks: {
+        knowledgeLevel: 'Extensive',
+        tradesPerYear: 100,
+        yearsTrading: 10,
+      },
+      bonds: {
+        knowledgeLevel: 'Extensive',
+        tradesPerYear: 100,
+        yearsTrading: 10,
+      },
+    }
   },
 }
 
@@ -217,7 +229,24 @@ const ApplicationsData = {
               }
             },
             InvestmentExperience: {
-
+              AssetExperience: [
+                {
+                  _attributes: {
+                    asset_class: 'STK',
+                    knowledge_level: user.investmentExperience.stocks.knowledgeLevel,
+                    trades_per_year: user.investmentExperience.stocks.tradesPerYear,
+                    years_trading: user.investmentExperience.stocks.yearsTrading,
+                  }
+                },
+                {
+                  _attributes: {
+                    asset_class: 'BOND',
+                    knowledge_level: user.investmentExperience.bonds.knowledgeLevel,
+                    trades_per_year: user.investmentExperience.bonds.tradesPerYear,
+                    years_trading: user.investmentExperience.bonds.yearsTrading,
+                  }
+                },
+              ],
             },
             SourcesOfWealth: {
 
