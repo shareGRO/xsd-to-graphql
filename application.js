@@ -243,29 +243,29 @@ const ApplicationsData = {
                 annual_net_income: user.annualNetIncome,
                 liquid_net_worth: user.liquidNetWorth,
                 net_worth: user.netWorth,
-              }
+              },
+              InvestmentExperience: {
+                AssetExperience: [
+                  {
+                    _attributes: {
+                      asset_class: 'STK',
+                      knowledge_level: user.investmentExperience.stocks.knowledgeLevel,
+                      trades_per_year: user.investmentExperience.stocks.tradesPerYear,
+                      years_trading: user.investmentExperience.stocks.yearsTrading,
+                    }
+                  },
+                  {
+                    _attributes: {
+                      asset_class: 'BOND',
+                      knowledge_level: user.investmentExperience.bonds.knowledgeLevel,
+                      trades_per_year: user.investmentExperience.bonds.tradesPerYear,
+                      years_trading: user.investmentExperience.bonds.yearsTrading,
+                    }
+                  },
+                ],
+              },
+              SourcesOfWealth,
             },
-            InvestmentExperience: {
-              AssetExperience: [
-                {
-                  _attributes: {
-                    asset_class: 'STK',
-                    knowledge_level: user.investmentExperience.stocks.knowledgeLevel,
-                    trades_per_year: user.investmentExperience.stocks.tradesPerYear,
-                    years_trading: user.investmentExperience.stocks.yearsTrading,
-                  }
-                },
-                {
-                  _attributes: {
-                    asset_class: 'BOND',
-                    knowledge_level: user.investmentExperience.bonds.knowledgeLevel,
-                    trades_per_year: user.investmentExperience.bonds.tradesPerYear,
-                    years_trading: user.investmentExperience.bonds.yearsTrading,
-                  }
-                },
-              ],
-            },
-            SourcesOfWealth,
             RegulatoryInformation,
           }
         },
