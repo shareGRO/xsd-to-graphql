@@ -46,7 +46,13 @@ const shareData = {
         tradesPerYear: 100,
         yearsTrading: 10,
       },
-    }
+    },
+    sourcesOfWealth: [{
+      sourceType: 'SOW-IND-Other',
+      percentage: 100,
+      isUsedForFunds: true,
+      description: 'My make money magically',
+    }],
   },
 }
 
@@ -88,6 +94,17 @@ const RegulatoryInformation = {
 const TradingPermissions = {
   TradingPermission: ALL_TRADING_PERMISSIONS.map(tradingPermission => ({
     _attributes: { ...tradingPermission }
+  }))
+}
+
+const SourcesOfWealth = {
+  SourceOfWealth: user.sourcesOfWealth.map(source => ({
+    _attributes: {
+      percentage: source.percentage,
+      description: source.description,
+      source_type: source.sourceType,
+      is_used_for_funds: source.isUsedForFunds,
+    }
   }))
 }
 
@@ -248,9 +265,7 @@ const ApplicationsData = {
                 },
               ],
             },
-            SourcesOfWealth: {
-
-            },
+            SourcesOfWealth,
             RegulatoryInformation,
           }
         },
