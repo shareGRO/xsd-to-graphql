@@ -15,7 +15,7 @@ const shareData = {
     salutation: 'Mr.',
     suffix: '',
     email: 'joe@gmail.com',
-    phone: '5551234567',
+    phone: '8181234567',
     country: 'USA',
     state: 'TX',
     city: 'Austin',
@@ -215,6 +215,12 @@ const ApplicationsData = {
                 liquid_net_worth: user.liquidNetWorth,
                 net_worth: user.netWorth,
               }
+            },
+            InvestmentExperience: {
+
+            },
+            SourcesOfWealth: {
+
             },
             RegulatoryInformation,
           }
