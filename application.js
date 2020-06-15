@@ -281,6 +281,11 @@ const ApplicationsData = {
               objective: 'Growth',
             },
             TradingPermissions,
+            AdvisorWrapFees: {
+              _attributes: {
+                strategy: 'NO_FEES',
+              }
+            },
           }
           },
           Users: {
