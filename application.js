@@ -12,10 +12,10 @@ const shareData = {
     firstName: 'Joe',
     lastName: 'Doe',
     middleInitial: 'M',
-    salutation: 'Mr',
+    salutation: 'Mr.',
     suffix: '',
     email: 'joe@gmail.com',
-    phone: '+15551234567',
+    phone: '5551234567',
     country: 'USA',
     state: 'TX',
     city: 'Austin',
@@ -32,6 +32,9 @@ const shareData = {
     affiliation: false,
     regulatoryControl: false,
     otherInteractiveBrokersAccounts: false,
+    annualNetIncome: 120000,
+    liquidNetWorth: 300000,
+    netWorth: 1500000,
   },
 }
 
@@ -206,6 +209,13 @@ const ApplicationsData = {
                 }
               }
             },
+            FinancialInformation: {
+              _attributes: {
+                annual_net_income: user.annualNetIncome,
+                liquid_net_worth: user.liquidNetWorth,
+                net_worth: user.netWorth,
+              }
+            },
             RegulatoryInformation,
           }
         },
@@ -216,6 +226,9 @@ const ApplicationsData = {
               external_id: user.transactionAccountId,
               margin: CONFIGS.MARGIN_TYPE,
               multicurrency: false
+            },
+            InvestmentObjectives: {
+              objective: 'Growth',
             },
             TradingPermissions,
           }
