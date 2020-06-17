@@ -29,7 +29,6 @@ const COUNTRIES = {
 const ALL_COUNTRIES = toArray(COUNTRIES);
 
 const PRODUCTS = {
-  BONDS: 'BONDS',
   STOCKS: 'STOCKS',
 }
 
