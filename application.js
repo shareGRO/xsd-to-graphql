@@ -23,7 +23,21 @@ const shareData = {
     street1: '123 Nowhere',
     street2: '',
     dateOfBirth: '1975-03-30',
-    employmentStatus: 'UNEMPLOYED',
+    employmentStatus: 'EMPLOYED',
+    employer: {
+      name: 'Apple',
+      occupation: 'Employer Occupation',
+      business: 'employer business',
+      address: {
+        street_1: '1 Inifity Loop',
+        street_2: 'Suite 911',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'USA',
+        postal_code: '54312'
+      },
+      phone: '8881234567'
+    },
     ssn: '111223333',
     maritalStatus: 'M',
     countryOfBirth: 'USA',
@@ -102,6 +116,23 @@ const SourcesOfWealth = {
     }
   }))
 }
+
+const employmentDetailsObject = user.employmentStatus === 'EMPLOYED' || user.employmentStatus === 'SELFEMPLOYED' ? {
+  EmploymentDetails: {
+    employer: user.employer.name,
+    occupation: user.employer.occupation,
+    employer_business: user.employer.business,
+    employer_address: {
+      street_1: user.employer.address.street_1,
+      street_2: user.employer.address.street_2,
+      city: user.employer.address.city,
+      state: user.employer.address.state,
+      country: user.employer.address.country,
+      postal_code: user.employer.address.postal_code,
+    },
+    employer_phone: user.employer.phone,
+  },
+} : {};
 
 const Documents = {
   Document: DOCUMENT_NUMBERS.map(documentNumber => {  
@@ -199,6 +230,7 @@ const ApplicationsData = {
               EmploymentType: {
                 _text: user.employmentStatus
               },
+              ...employmentDetailsObject,
               TaxResidencies: {
                 TaxResidency: {
                   _attributes: {
