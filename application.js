@@ -3,7 +3,7 @@ const fs = require('fs');
 const { trim } = require('lodash');
 const moment = require('moment');
 
-const { CONFIGS, REGULATORY_INFORMATION, ALL_TRADING_PERMISSIONS, DOCUMENT_NUMBERS } = require('./constants');
+const { CONFIGS, REGULATORY_INFORMATION, ALL_TRADING_PERMISSIONS, DOCUMENT_NUMBERS, EMPLOYMENT_TYPES } = require('./constants');
 
 const shareData = {
   user: {
@@ -117,7 +117,7 @@ const SourcesOfWealth = {
   }))
 }
 
-const employmentDetailsObject = user.employmentStatus === 'EMPLOYED' || user.employmentStatus === 'SELFEMPLOYED' ? {
+const employmentDetailsObject = user.employmentStatus === EMPLOYMENT_TYPES.EMPLOYED || user.employmentStatus === EMPLOYMENT_TYPES.SELFEMPLOYED ? {
   EmploymentDetails: {
     employer: user.employer.name,
     occupation: user.employer.occupation,
