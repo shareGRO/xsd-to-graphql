@@ -1,0 +1,36 @@
+{
+  "_declaration": {
+      "_attributes": {
+          "version": "1.0"
+      }
+  },
+  "Applications": {
+      "_attributes": {
+          "xmlns": "http://www.interactivebrokers.com/schemas/IBCust_import"
+      },
+      "Application": {
+          "Accounts": {
+              "Account": {
+                  "_attributes": {
+                      "id": "IB_CUSTOMER_ACCOUNT_NUMBER_GOES_HERE",
+                      "base_currency": "USD",
+                      "external_id": "SHAREGRO_USER_ID",
+                      "margin": "RegT",
+                      "multicurrency": "true"
+                  },
+                  "ACHInstruction": {
+                      "_attributes": {
+                        "type": "CREDIT",
+                        "name": "NICKNAME FOR BANK ACCCOUNT",
+                        "ib_acct": "IB_CUSTOMER_ACCOUNT_NUMBER_GOES_HERE",
+                        "bank_country": "USA",
+                        "currency": "USD",
+                        "routing_number": "ROUTING NUMBER GOES HERE",
+                        "acct_number": "ACCOUNT NUMBER GOES HERE"
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
