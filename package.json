@@ -22,7 +22,7 @@
     "graphql": "^15.0.0",
     "jsontoxml": "^1.0.1",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "path": "^0.12.7",
     "xml-js": "^1.6.11",
     "xsd2jsonschema": "^0.3.4"
